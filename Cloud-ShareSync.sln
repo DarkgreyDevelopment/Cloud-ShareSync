@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B48458E-81EB-4DDF-8892-C03EA692A9B4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		appsettings.json = appsettings.json
+		Build.ps1 = Build.ps1
+		Dockerfile = Dockerfile
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core", "src\Core\Cloud-ShareSync.Core.csproj", "{D8C99A1A-8E91-4698-8034-D97A8A8CB797}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.BucketSync", "src\BucketSync\Cloud-ShareSync.BucketSync.csproj", "{4EFA97DA-28ED-4D4F-B432-C78C77927453}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleRestore", "src\SimpleRestore\Cloud-ShareSync.SimpleRestore.csproj", "{DACDA82E-25A0-4A23-B2AD-FB5B2C2B665B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleBackup", "src\SimpleBackup\Cloud-ShareSync.SimpleBackup.csproj", "{899DD248-D1F4-47DF-A00A-124B4C733627}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DACDA82E-25A0-4A23-B2AD-FB5B2C2B665B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DACDA82E-25A0-4A23-B2AD-FB5B2C2B665B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DACDA82E-25A0-4A23-B2AD-FB5B2C2B665B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DACDA82E-25A0-4A23-B2AD-FB5B2C2B665B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899DD248-D1F4-47DF-A00A-124B4C733627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899DD248-D1F4-47DF-A00A-124B4C733627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899DD248-D1F4-47DF-A00A-124B4C733627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899DD248-D1F4-47DF-A00A-124B4C733627}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A8B7112-1BF8-476A-B0B6-821CB2A97C08}
+	EndGlobalSection
+EndGlobal
