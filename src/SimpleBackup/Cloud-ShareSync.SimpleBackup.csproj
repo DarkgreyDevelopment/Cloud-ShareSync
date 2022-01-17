@@ -6,11 +6,7 @@
     <RootNamespace>Cloud_ShareSync.SimpleBackup</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>dotnet-Cloud_ShareSync.SimpleBackup-6859B940-2C07-43AC-BF3A-E8CB41141426</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileFile>..\..\Dockerfile</DockerfileFile>
-    <DockerfileContext>.</DockerfileContext>
-    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <AssemblyName>SimpleBackup</AssemblyName>
     <DebugType>embedded</DebugType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
@@ -23,10 +19,9 @@
     <Company>Darkgrey Development</Company>
     <Authors>Taylor Marvin</Authors>
     <PackageId>CloudShareSync.SimpleBackup</PackageId>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,11 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="LICENSE">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

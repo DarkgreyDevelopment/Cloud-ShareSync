@@ -11,10 +11,10 @@ namespace Cloud_ShareSync.BucketSync {
 
     public class Program {
 
-        private static readonly ActivitySource   s_source = new( "Cloud_ShareSync.BucketSync.Program" );
-        private static          TelemetryLogger? s_logger;
-        private static          CompleteConfig?  s_config;
-        private static readonly string[]         s_sourceList = new string[] {
+        private static readonly ActivitySource s_source = new( "Cloud_ShareSync.BucketSync.Program" );
+        private static TelemetryLogger? s_logger;
+        private static CompleteConfig? s_config;
+        private static readonly string[] s_sourceList = new string[] {
             "Cloud_ShareSync.BucketSync.Program",
             "B2",
             "BackBlazeB2.PublicInterface",
@@ -41,11 +41,11 @@ namespace Cloud_ShareSync.BucketSync {
                     throw new InvalidDataException( "Config is null and backblaze config is required." );
                 }
 
-                if (s_config?.BucketSync?.CompressBeforeUpload == true && s_config?.Compression != null) {
+                if (s_config?.SimpleBackup?.CompressBeforeUpload == true && s_config?.Compression != null) {
                     CompressionInterface.Initialize( s_config.Compression, s_logger );
                 }
 
-                s_logger?.ILog?.Info( "Configuration Read, Logging Inititalized, Begin Processing..." );
+                s_logger?.ILog?.Info( "Configuration Read, Logging Initialized, Begin Processing..." );
 
                 await host.RunAsync( );
             } catch (Exception e) {
@@ -75,7 +75,7 @@ namespace Cloud_ShareSync.BucketSync {
 
             IHostBuilder builder = Host.CreateDefaultBuilder( args )
                                     .ConfigureServices( services => {
-                                        services.Configure<BackupConfig>( Config.GetBucketSync( ) );
+                                        services.Configure<BackupConfig>( Config.GetSimpleBackup( ) );
                                         services.AddSingleton<ILocalSyncProcess, LocalSyncProcess>( );
                                         services.AddHostedService<PrimaryWorker>( );
                                     } );

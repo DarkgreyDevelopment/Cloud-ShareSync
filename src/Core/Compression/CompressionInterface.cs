@@ -5,24 +5,24 @@ using Microsoft.Extensions.Logging;
 namespace Cloud_ShareSync.Core.Compression {
     public static class CompressionInterface {
 
-        private static readonly ActivitySource s_source                 = new( "CompressionInterface" );
-        private static          string         s_compressionArguments   = "";
-        private static          string         s_decompressionArguments = "";
-        private static          FileInfo?      s_dependencyPath;
-        private static          ILogger?       s_log;
+        private static readonly ActivitySource s_source = new( "CompressionInterface" );
+        private static string s_compressionArguments = "";
+        private static string s_decompressionArguments = "";
+        private static FileInfo? s_dependencyPath;
+        private static ILogger? s_log;
 
 #pragma warning disable CA2211 // Non-constant fields should not be visible
         public static DirectoryInfo? WorkingDirectory;
-        public static string         InterimZipname = "InterimCompressionItem.7z";
+        public static string InterimZipname = "InterimCompressionItem.7z";
 #pragma warning restore CA2211 // Non-constant fields should not be visible
 
         public static void Initialize( CompressionConfig config, ILogger? log = null ) {
-            s_log                    = log;
-            s_dependencyPath         = new( config.DependencyPath );
-            WorkingDirectory         = new( config.InterimZipPath );
-            s_compressionArguments   = config.DeCompressionCmdlineArgs;
+            s_log = log;
+            s_dependencyPath = new( config.DependencyPath );
+            WorkingDirectory = new( config.InterimZipPath );
+            s_compressionArguments = config.DeCompressionCmdlineArgs;
             s_decompressionArguments = config.CompressionCmdlineArgs;
-            InterimZipname           = config.InterimZipName.EndsWith( ".7z" ) ?
+            InterimZipname = config.InterimZipName.EndsWith( ".7z" ) ?
                                         config.InterimZipName :
                                         config.InterimZipName + ".7z";
         }
@@ -34,22 +34,22 @@ namespace Cloud_ShareSync.Core.Compression {
 
         public static FileInfo CompressPath(
             FileInfo path,
-            string?  password = null
+            string? password = null
         ) {
             return s_dependencyPath == null || WorkingDirectory == null
                 ? throw new InvalidOperationException(
                     "DependencyPath & WorkingDirectory are required. " +
-                    "Inititalize CompressionInterface first or use alternate CompressPath method."
+                    "Initialize CompressionInterface first or use alternate CompressPath method."
                 )
-                : CompressPath( path, s_dependencyPath, WorkingDirectory, password, s_compressionArguments);
+                : CompressPath( path, s_dependencyPath, WorkingDirectory, password, s_compressionArguments );
         }
 
         public static FileInfo CompressPath(
-            FileInfo      path,
-            FileInfo      dependencyPath,
+            FileInfo path,
+            FileInfo dependencyPath,
             DirectoryInfo workingDirectory,
-            string?       password  = null,
-            string?       arguments = null
+            string? password = null,
+            string? arguments = null
         ) {
             using Activity? activity = s_source.StartActivity( "CompressPath" )?.Start( );
 
@@ -90,12 +90,12 @@ namespace Cloud_ShareSync.Core.Compression {
         }
 
         private static Process Create7zProcess(
-            string        interimZipPath,
-            FileInfo      zipPath,
-            FileInfo      dependencyPath,
+            string interimZipPath,
+            FileInfo zipPath,
+            FileInfo dependencyPath,
             DirectoryInfo workingDirectory,
-            string?       password  = null,
-            string?       arguments = null
+            string? password = null,
+            string? arguments = null
         ) {
             using Activity? activity = s_source.StartActivity( "GetInterimZipPath" )?.Start( );
 
@@ -111,27 +111,27 @@ namespace Cloud_ShareSync.Core.Compression {
             // Create Process
             Process process = new( ) {
                 StartInfo = new( ) {
-                    WindowStyle            = ProcessWindowStyle.Hidden,
-                    FileName               = $"{dependencyPath.FullName}",
-                    WorkingDirectory       = workingDirectory.FullName,
-                    UseShellExecute        = false,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = $"{dependencyPath.FullName}",
+                    WorkingDirectory = workingDirectory.FullName,
+                    UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    RedirectStandardError  = true,
-                    Arguments              = arguments
+                    RedirectStandardError = true,
+                    Arguments = arguments
                 }
             };
             process.ErrorDataReceived += new DataReceivedEventHandler( ( sender, e ) => {
-                    if (!string.IsNullOrWhiteSpace( e.Data )) {
-                        s_log?.LogCritical( "{string}", e.Data );
-                        activity?.Stop( );
-                        throw new FailedToZipException( e.Data );
-                    }
+                if (!string.IsNullOrWhiteSpace( e.Data )) {
+                    s_log?.LogCritical( "{string}", e.Data );
+                    activity?.Stop( );
+                    throw new FailedToZipException( e.Data );
                 }
+            }
             );
 
             process.OutputDataReceived += new DataReceivedEventHandler( ( sender, stdOut ) => {
-                    if (!string.IsNullOrWhiteSpace( stdOut.Data )) { s_log?.LogInformation( "{string}", stdOut.Data ); }
-                }
+                if (!string.IsNullOrWhiteSpace( stdOut.Data )) { s_log?.LogInformation( "{string}", stdOut.Data ); }
+            }
             );
 
             activity?.Stop( );

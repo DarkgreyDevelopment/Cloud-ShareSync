@@ -16,22 +16,22 @@ namespace Cloud_ShareSync.BucketSync.Process {
 
     public class LocalSyncProcess : ILocalSyncProcess {
 
-        private readonly ActivitySource            _source = new( "LocalSyncProcess" );
-        private readonly BackupConfig              _config;
+        private readonly ActivitySource _source = new( "LocalSyncProcess" );
+        private readonly BackupConfig _config;
         private readonly ILogger<LocalSyncProcess> _logger;
-        private          bool                      _startupCompleted;
-        private          FileWatch?                _watcher;
-        private readonly FileHash                  _fileHash;
-        private readonly ManagedChaCha20Poly1305   _crypto;
+        private bool _startupCompleted;
+        private FileWatch? _watcher;
+        private readonly FileHash _fileHash;
+        private readonly ManagedChaCha20Poly1305 _crypto;
 
         public LocalSyncProcess(
-            IOptions<BackupConfig>    config,
+            IOptions<BackupConfig> config,
             ILogger<LocalSyncProcess> logger
         ) {
-            _config   = config.Value;
-            _logger   = logger;
+            _config = config.Value;
+            _logger = logger;
             _fileHash = new( ); // Need to pass in ILog to get filehash messages.
-            _crypto   = new( );
+            _crypto = new( );
         }
 
         public void Startup( ) {
@@ -118,16 +118,16 @@ namespace Cloud_ShareSync.BucketSync.Process {
 
             if (tabledata == null) {
                 tabledata = new PrimaryTable(
-                    filename:   uploadFile.Name,
+                    filename: uploadFile.Name,
                     uploadpath: uploadPath,
-                    hash:       sha512filehash,
+                    hash: sha512filehash,
                     uploadhash: "",
-                    encrypted:  false,
+                    encrypted: false,
                     compressed: false,
-                    aws:        false,
-                    azure:      false,
-                    backblaze:  true,
-                    gcs:        false
+                    aws: false,
+                    azure: false,
+                    backblaze: true,
+                    gcs: false
                 );
             }
 
@@ -163,21 +163,21 @@ namespace Cloud_ShareSync.BucketSync.Process {
                 sha512filehash
             );
             BackBlazeB2Table backBlazeResult = new(
-                id:         tabledata.Id,
+                id: tabledata.Id,
                 bucketName: "",
-                bucketId:   "",
-                fileID:     fileId
+                bucketId: "",
+                fileID: fileId
 
             );
 
             // Remove file from working directory (if needed).
             if (_config.EncryptBeforeUpload || _config.CompressBeforeUpload) { uploadFile.Delete( ); }
-            UploadStaging uploadStaging   = new( tabledata, backBlazeResult );
+            UploadStaging uploadStaging = new( tabledata, backBlazeResult );
             uploadStaging.CompressionData = tabledata.IsCompressed ?
-                                                new(tabledata.Id, password == null, password,false, null) :
+                                                new( tabledata.Id, password == null, password, false, null ) :
                                                 null;
-            uploadStaging.EncryptionData  = data != null ?
-                                                new( tabledata.Id,data.ToString( )) :
+            uploadStaging.EncryptionData = data != null ?
+                                                new( tabledata.Id, data.ToString( ) ) :
                                                 null;
 
             return uploadStaging;
@@ -185,7 +185,7 @@ namespace Cloud_ShareSync.BucketSync.Process {
 
         private FileInfo CompressFile(
             FileInfo uploadFile,
-            string?  password
+            string? password
         ) {
             _logger.LogInformation( "Compressing file before upload." );
 

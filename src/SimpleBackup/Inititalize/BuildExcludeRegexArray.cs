@@ -6,7 +6,7 @@ namespace Cloud_ShareSync.SimpleBackup {
     public partial class Program {
 
         private static Regex[] BuildExcludeRegexArray( string[] excludePaths ) {
-            using Activity? activity = s_source.StartActivity( "Inititalize.BuildExcludeRegexArray" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "Initialize.BuildExcludeRegexArray" )?.Start( );
 
             List<Regex> regexPatterns = new( );
             foreach (string exPath in excludePaths) {

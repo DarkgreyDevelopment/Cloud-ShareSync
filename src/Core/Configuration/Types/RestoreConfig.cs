@@ -2,7 +2,7 @@
 #nullable disable
     public class RestoreConfig {
         public string WorkingDirectory { get; set; }
-        public string[] RootFolders { get; set; }
+        public string RootFolder { get; set; }
     }
 #nullable enable
 }

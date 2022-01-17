@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 
-namespace Cloud_ShareSync.Core.HttpClientHandling {
+namespace Cloud_ShareSync.Core.CloudProvider.HttpClientHandling {
 
     public class BackBlazeHttpClient {
 

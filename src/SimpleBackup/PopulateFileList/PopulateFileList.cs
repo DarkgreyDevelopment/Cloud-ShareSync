@@ -7,14 +7,14 @@ namespace Cloud_ShareSync.SimpleBackup {
         private static void PopulateFileList( ) {
             using Activity? activity = s_source.StartActivity( "PopulateFileList" )?.Start( );
 
-            if (s_config?.BucketSync == null) { throw new InvalidDataException( "BucketSync config cannot be null" ); }
+            if (s_config?.SimpleBackup == null) { throw new InvalidDataException( "SimpleBackup config cannot be null" ); }
 
-            IEnumerable<string> files = s_config?.BucketSync.RootFolder == null ?
+            IEnumerable<string> files = s_config?.SimpleBackup.RootFolder == null ?
                 Enumerable.Empty<string>( ) :
                 Directory.EnumerateFiles(
-                    s_config.BucketSync.RootFolder,
+                    s_config.SimpleBackup.RootFolder,
                     "*",
-                    s_config.BucketSync.MonitorSubDirectories ?
+                    s_config.SimpleBackup.MonitorSubDirectories ?
                         SearchOption.AllDirectories :
                         SearchOption.TopDirectoryOnly
                 );

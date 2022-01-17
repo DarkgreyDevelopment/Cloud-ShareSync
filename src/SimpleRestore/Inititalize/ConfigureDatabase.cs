@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Cloud_ShareSync.SimpleBackup {
+namespace Cloud_ShareSync.SimpleRestore {
 
     public partial class Program {
 

@@ -34,7 +34,7 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         public static async Task Main( string[] args ) {
             try {
-                Inititalize( args );
+                Initialize( args );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 PopulateFileList( );
                 ValidateExistingUploads( );

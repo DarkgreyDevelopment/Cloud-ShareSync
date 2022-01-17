@@ -10,11 +10,11 @@ namespace Cloud_ShareSync.SimpleBackup {
         private static async Task UploadFileProcess( string path ) {
             using Activity? activity = s_source.StartActivity( "UploadFileProcess" )?.Start( );
 
-            if (s_config?.BucketSync == null || s_config?.BackBlaze == null) {
+            if (s_config?.SimpleBackup == null || s_config?.BackBlaze == null) {
                 activity?.Stop( );
-                throw new InvalidDataException( "BackBlaze/BucketSync configs cannot be null" );
+                throw new InvalidDataException( "BackBlaze/SimpleBackup configs cannot be null" );
             }
-            BackupConfig config = s_config.BucketSync;
+            BackupConfig config = s_config.SimpleBackup;
 
             // Initialize Required Variables
             FileInfo uploadFile = new( path );
@@ -62,7 +62,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             s_logger?.ILog?.Info( "UploadFileProcess Table Data:" );
             s_logger?.ILog?.Info( tabledata );
             // Upload File.
-            await UploadFileToB2( uploadFile, path, uploadPath, sha512filehash, tabledata, s_config.BackBlaze, s_config.BucketSync );
+            await UploadFileToB2( uploadFile, path, uploadPath, sha512filehash, tabledata, s_config.BackBlaze, s_config.SimpleBackup );
 
             // Remove file from working directory (if needed).
             DeleteWorkingFile( uploadFile, config );

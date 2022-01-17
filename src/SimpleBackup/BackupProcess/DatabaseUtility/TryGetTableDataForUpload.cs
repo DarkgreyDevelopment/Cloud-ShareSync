@@ -6,12 +6,12 @@ namespace Cloud_ShareSync.SimpleBackup {
     public partial class Program {
 
         private static PrimaryTable? TryGetTableDataForUpload( string path ) {
-            if (s_config?.BucketSync == null || s_config?.BackBlaze == null) {
-                throw new InvalidDataException( "BucketSync configs cannot be null" );
+            if (s_config?.SimpleBackup == null || s_config?.BackBlaze == null) {
+                throw new InvalidDataException( "SimpleBackup and BackBlaze configs cannot be null" );
             }
             return TryGetTableDataForUpload(
                 new FileInfo( path ).Name,
-                Path.GetRelativePath( s_config.BucketSync.RootFolder, path )
+                Path.GetRelativePath( s_config.SimpleBackup.RootFolder, path )
             );
         }
 

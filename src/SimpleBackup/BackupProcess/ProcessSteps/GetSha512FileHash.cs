@@ -14,7 +14,7 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             s_logger?.ILog?.Info( $"Retrieving Sha512 file hash of '{path.FullName}'." );
             string sha512filehash = await s_fileHash.GetSha512FileHash( path );
-            if (s_config?.BucketSync?.ObfuscateUploadedFileNames == true) {
+            if (s_config?.SimpleBackup?.ObfuscateUploadedFileNames == true) {
                 sha512filehash = s_fileHash.GetSha512StringHash( sha512filehash );
             }
 

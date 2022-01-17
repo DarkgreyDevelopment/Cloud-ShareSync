@@ -3,7 +3,7 @@ using Cloud_ShareSync.Core.Logging.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.Core.HttpClientHandling {
+namespace Cloud_ShareSync.Core.CloudProvider.HttpClientHandling {
     public class BackBlazeHttpServices {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public static ServiceProvider Services { get; private set; }

@@ -2,15 +2,15 @@
 
 namespace Cloud_ShareSync.BucketSync {
     public class PrimaryWorker : BackgroundService {
-        private readonly ILogger<PrimaryWorker>  _logger;
-        private readonly ILocalSyncProcess      _localSyncProcess;
+        private readonly ILogger<PrimaryWorker> _logger;
+        private readonly ILocalSyncProcess _localSyncProcess;
 
         public PrimaryWorker(
-            ILocalSyncProcess      localSyncProcess,
+            ILocalSyncProcess localSyncProcess,
             ILogger<PrimaryWorker> logger
         ) {
             _localSyncProcess = localSyncProcess;
-            _logger           = logger;
+            _logger = logger;
         }
 
         protected override async Task ExecuteAsync( CancellationToken stoppingToken ) {
@@ -21,6 +21,6 @@ namespace Cloud_ShareSync.BucketSync {
                 await _localSyncProcess.Process( );
                 Thread.Sleep( 5000 );
             }
-         }
+        }
     }
 }

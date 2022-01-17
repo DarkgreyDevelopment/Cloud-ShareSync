@@ -8,8 +8,8 @@
         AzureBlobStorage = 16,
         BackBlazeB2 = 32,
         GoogleCloudStorage = 64,
-        BucketSync = 128,
-        RestoreAgent = 256,
+        SimpleBackup = 128,
+        SimpleRestore = 256,
         Sqllite = 512,
         Postgres = 1024
     }

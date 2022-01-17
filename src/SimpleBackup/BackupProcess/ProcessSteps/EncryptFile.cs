@@ -17,7 +17,7 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             if (s_crypto == null) { s_crypto = new( s_logger ); }
 
-            FileInfo cypherTxtFile = new( Path.Join( s_config?.BucketSync?.WorkingDirectory, sha512filehash ) );
+            FileInfo cypherTxtFile = new( Path.Join( s_config?.SimpleBackup?.WorkingDirectory, sha512filehash ) );
 
             byte[] key = RandomNumberGenerator.GetBytes( 32 );
             DecryptionData data = await s_crypto.Encrypt( key, uploadFile, cypherTxtFile, null );

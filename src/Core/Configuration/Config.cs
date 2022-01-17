@@ -141,13 +141,13 @@ namespace Cloud_ShareSync.Core.Configuration {
                 );
             }
 
-            // BucketSync
-            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BucketSync )) {
+            // SimpleBackup
+            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.SimpleBackup )) {
 
-                returnConfig.BucketSync = GetBucketSync( ).Get<BackupConfig>( );
+                returnConfig.SimpleBackup = GetSimpleBackup( ).Get<BackupConfig>( );
 
                 if (
-                    returnConfig.BucketSync.EncryptBeforeUpload &&
+                    returnConfig.SimpleBackup.EncryptBeforeUpload &&
                     returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) == false
                 ) {
                     throw new InvalidOperationException(
@@ -157,7 +157,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                 }
 
                 if (
-                    returnConfig.BucketSync.CompressBeforeUpload &&
+                    returnConfig.SimpleBackup.CompressBeforeUpload &&
                     returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression ) == false
                 ) {
                     throw new InvalidOperationException(
@@ -167,16 +167,16 @@ namespace Cloud_ShareSync.Core.Configuration {
                 }
 
                 if (
-                    returnConfig.BucketSync.CompressBeforeUpload == false &&
-                    returnConfig.BucketSync.UniqueCompressionPasswords
+                    returnConfig.SimpleBackup.CompressBeforeUpload == false &&
+                    returnConfig.SimpleBackup.UniqueCompressionPasswords
                 ) {
-                    returnConfig.BucketSync.UniqueCompressionPasswords = false;
+                    returnConfig.SimpleBackup.UniqueCompressionPasswords = false;
                     // Don't add unused passwords to the database!
                 }
             }
 
             // RestoreAgent
-            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.RestoreAgent )) {
+            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.SimpleRestore )) {
                 throw new NotImplementedException( "RestoreAgent Functionality Not Implemented Yet." );
             }
 
@@ -216,8 +216,8 @@ namespace Cloud_ShareSync.Core.Configuration {
             return returnConfig;
         }
 
-        public static IConfigurationSection GetBucketSync( ) {
-            return Configuration.GetRequiredSection( "BucketSync" );
+        public static IConfigurationSection GetSimpleBackup( ) {
+            return Configuration.GetRequiredSection( "SimpleBackup" );
         }
 
         public static IConfigurationSection GetBackBlazeB2( ) {

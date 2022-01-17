@@ -6,8 +6,8 @@ using Cloud_ShareSync.Core.Logging.Types;
 namespace Cloud_ShareSync.Core.Configuration.Types {
     public class CompleteConfig {
         public CoreConfig Core { get; set; }
-        public BackupConfig? BucketSync { get; set; }
-        //public RestoreConfig?     RestoreAgent { get; set; }
+        public BackupConfig? SimpleBackup { get; set; }
+        public RestoreConfig? SimpleRestore { get; set; }
         public DatabaseConfig? Database { get; set; }
         public CompressionConfig? Compression { get; set; }
         public B2Config? BackBlaze { get; set; }
