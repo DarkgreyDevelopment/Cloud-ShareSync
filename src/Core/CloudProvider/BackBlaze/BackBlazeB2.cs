@@ -186,7 +186,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 await b2Api.FinishUploadLargeFile( upload );
 
                 ThreadStatusManager.Reset( );
-
+                foreach (FailureInfo failure in b2Api.FailureDetails) {
+                    failure.Reset( );
+                }
             }
             activity?.Stop( );
             return upload.FileId;
@@ -247,8 +249,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                         $"Thread#{thread} Part#{partInfo.PartNumber} -  RESULTS LIST COUNT: " +
                         resultsList.Select( x => x.Sha1Hash ).Count( )
                     );
-                    s_log?.Debug( $"ActiveThreadCount:   {ThreadStatusManager.ActiveThreadCount}" );
-                    s_log?.Debug( $"SleepingThreadCount: {ThreadStatusManager.SleepingThreadCount}" );
+                    s_log?.Debug( $"ActiveThreadCount:   {ThreadStatusManager.ActiveThreadsCount}" );
+                    s_log?.Debug( $"SleepingThreadCount: {ThreadStatusManager.SleepingThreadsCount}" );
                     success = true;
                 } catch (HttpRequestException e) {
                     filePartQueue.Push( partInfo );
@@ -259,7 +261,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     s_log?.Warn( $"Thread#{thread} had an exception", ex );
                     filePartQueue.Push( partInfo );
                     ThreadStatusManager.RemoveActiveThread( );
-                    s_log?.Debug( $"There are #{ThreadStatusManager.ActiveThreadCount} other active threads." );
+                    s_log?.Debug( $"There are #{ThreadStatusManager.ActiveThreadsCount} other active threads." );
                     activity?.Stop( );
                     return false;
                 }
@@ -276,6 +278,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             s_log?.Info( $"Thread#{thread} Finished Assigned Work." );
+            ThreadStatusManager.AddCompletedThread( thread );
             activity?.Stop( );
             return true;
         }
