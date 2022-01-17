@@ -270,9 +270,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
         internal async Task UploadLargeFilePart( UploadB2FilePart upload, int thread ) {
             using Activity? activity = _source.StartActivity( "UploadLargeFilePart" )?.Start( );
             HttpRequestException? result;
-            ThreadStats[thread].Attempt++;
+            ThreadStats[thread].NewAttempt( );
             result = await GetBackBlazeGeneralClient( ).B2UploadPart( upload );
-            if (result != null) { throw result; } else { ThreadStats[thread].Success++; }
+            if (result != null) { throw result; } else { ThreadStats[thread].NewSuccess( ); }
 
             activity?.Stop( );
         }
@@ -578,7 +578,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             // Add Failure Stats
-            ThreadStats[thread].Failure++;
+            ThreadStats[thread].NewFailure( );
             ThreadStats[thread].AddSleepTimer( sleepCount );
 
             return (sleepCount >= sleepTime);
