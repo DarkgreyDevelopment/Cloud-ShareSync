@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
+using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
-using Cloud_ShareSync.Core.Database.Sqllite;
+using Cloud_ShareSync.Core.Database.Sqlite;
 using Cloud_ShareSync.Core.Logging;
 
 namespace Cloud_ShareSync.SimpleRestore {
@@ -13,7 +14,8 @@ namespace Cloud_ShareSync.SimpleRestore {
         private static CompleteConfig? s_config;
         private static FileHash? s_fileHash;
         private static ManagedChaCha20Poly1305? s_crypto;
-        private static SqlliteContext? s_sqlliteContext;
+        private static BackBlazeB2? s_backBlaze;
+        private static SqliteContext? s_sqliteContext;
         private static readonly ActivitySource s_source = new( "Cloud_ShareSync.SimpleRestore.Program" );
         private static readonly string[] s_sourceList = new string[] {
             "Cloud_ShareSync.SimpleRestore.Program",

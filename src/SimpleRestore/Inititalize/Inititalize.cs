@@ -37,7 +37,7 @@ namespace Cloud_ShareSync.SimpleRestore {
             }
 
             if (s_config?.BackBlaze != null) {
-                BackBlazeB2.Initialize( s_config.BackBlaze, s_logger );
+                s_backBlaze = new( s_config.BackBlaze, s_logger );
             } else {
                 throw new InvalidDataException( "Backblaze configuration required." );
             }

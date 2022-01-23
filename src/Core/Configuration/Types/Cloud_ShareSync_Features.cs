@@ -10,7 +10,7 @@
         GoogleCloudStorage = 64,
         SimpleBackup = 128,
         SimpleRestore = 256,
-        Sqllite = 512,
+        Sqlite = 512,
         Postgres = 1024
     }
 }

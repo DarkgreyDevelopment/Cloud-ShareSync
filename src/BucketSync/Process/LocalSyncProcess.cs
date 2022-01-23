@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
-using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
@@ -11,7 +10,7 @@ using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
 using Cloud_ShareSync.Core.Database.Entities;
 using Cloud_ShareSync.Core.FileSystemWatcher;
 using Microsoft.Extensions.Options;
-
+/*
 namespace Cloud_ShareSync.BucketSync.Process {
 
     public class LocalSyncProcess : ILocalSyncProcess {
@@ -99,6 +98,10 @@ namespace Cloud_ShareSync.BucketSync.Process {
 
             _logger.LogInformation( "Uploading File: {string}", path );
 
+            if (s_backBlaze == null) {
+                throw new InvalidOperationException( "Cannot proceed if backblaze configuration is not initialized." );
+            }
+
             // Initialize Required Variables
             string fileId;
             DecryptionData? data = null;
@@ -156,7 +159,7 @@ namespace Cloud_ShareSync.BucketSync.Process {
 
             // Upload File.
             _logger.LogInformation( "Uploading File To BackBlaze." );
-            fileId = await BackBlazeB2.UploadFile(
+            fileId = await s_backBlaze.UploadFile(
                 uploadFile,
                 path,
                 uploadPath,
@@ -243,3 +246,4 @@ namespace Cloud_ShareSync.BucketSync.Process {
         }
     }
 }
+*/

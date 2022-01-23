@@ -61,17 +61,17 @@ namespace Cloud_ShareSync.Core.Configuration {
 
             // Database
             if (
-                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqllite ) ||
+                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) ||
                 returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres )
             ) {
                 returnConfig.Database = Configuration.GetRequiredSection( "Database" ).Get<DatabaseConfig>( );
 
                 // Sqlite
                 if (
-                    returnConfig.Database.UseSqllite &&
-                    string.IsNullOrWhiteSpace( returnConfig.Database.SqlliteDBPath )
+                    returnConfig.Database.UseSqlite &&
+                    string.IsNullOrWhiteSpace( returnConfig.Database.SqliteDBPath )
                 ) {
-                    returnConfig.Database.SqlliteDBPath = s_assemblyPath ?? "";
+                    returnConfig.Database.SqliteDBPath = s_assemblyPath ?? "";
                 }
 
                 // Postgres Configuration
@@ -97,17 +97,17 @@ namespace Cloud_ShareSync.Core.Configuration {
             // Database is required!
             if (
                 (
-                    returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqllite ) == false &&
+                    returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false &&
                     returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) == false
                 ) || (
                     returnConfig.Database != null &&
-                    returnConfig.Database.UseSqllite == false &&
+                    returnConfig.Database.UseSqlite == false &&
                     returnConfig.Database.UsePostgres == false
                 )
             ) {
                 returnConfig.Database = new DatabaseConfig( ) {
-                    UseSqllite = true,
-                    SqlliteDBPath = s_assemblyPath ?? "",
+                    UseSqlite = true,
+                    SqliteDBPath = s_assemblyPath ?? "",
                     UsePostgres = false,
                     PostgresConnectionString = ""
                 };

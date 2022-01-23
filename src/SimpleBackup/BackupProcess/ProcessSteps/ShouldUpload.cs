@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -9,10 +9,16 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         private static async Task<bool> ShouldUpload(
             PrimaryTable tabledata,
-            string sha512filehash
+            string sha512filehash,
+            SqliteContext sqliteContext
         ) {
+
+            if (s_backBlaze == null) {
+                throw new InvalidOperationException( "Cannot proceed if backblaze configuration is not initialized." );
+            }
+
             using Activity? activity = s_source.StartActivity( "ShouldUpload" )?.Start( );
-            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id );
+            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
 
             if (b2TableData != null && tabledata.FileHash == sha512filehash) {
                 s_logger?.ILog?.Info( "File has an existing backblaze database record. Previous sha512 matches current filehash." );
@@ -21,7 +27,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                     tabledata.UploadPath;
 
                 s_logger?.ILog?.Info( "Querying backblaze to validate filehash." );
-                List<B2FileResponse> fileResponse = await BackBlazeB2.ListFileVersions(
+                List<B2FileResponse> fileResponse = await s_backBlaze.ListFileVersions(
                     filename,
                     b2TableData.FileID,
                     true

@@ -1,5 +1,4 @@
-﻿using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
-using Cloud_ShareSync.Core.Compression;
+﻿using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration;
 
 namespace Cloud_ShareSync.SimpleBackup {
@@ -28,7 +27,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             ConfigureDatabase( );
 
             if (s_config?.BackBlaze != null) {
-                BackBlazeB2.Initialize( s_config.BackBlaze, s_logger );
+                s_backBlaze = new( s_config.BackBlaze, s_logger );
             } else {
                 throw new InvalidDataException( "Backblaze configuration required." );
             }

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -9,7 +10,8 @@ namespace Cloud_ShareSync.SimpleBackup {
             FileInfo originalUploadFile,
             FileInfo uploadFile,
             PrimaryTable tabledata,
-            string sha512filehash
+            string sha512filehash,
+            SqliteContext sqliteContext
         ) {
             using Activity? activity = s_source.StartActivity( "SetUploadFileHash" )?.Start( );
 
@@ -19,7 +21,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 s_logger?.ILog?.Info( "Upload file has been compressed or encrypted." );
                 tabledata.UploadedFileHash = await GetSha512FileHash( uploadFile );
             }
-            s_sqlliteContext?.SaveChanges( );
+            sqliteContext.SaveChanges( );
 
             activity?.Stop( );
         }

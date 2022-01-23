@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
-using Cloud_ShareSync.Core.CloudProvider.HttpClientHandling;
+using Cloud_ShareSync.Core.SharedServices;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Logging;
 using log4net;
@@ -25,13 +25,15 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
         internal const string UserAgent = "Cloud-ShareSync_BackBlazeB2/0.0.1+dotnet/6.0";
 
         // Set by Ctor.
-        internal readonly UploadThreadStatistics[] ThreadStats;
-        internal readonly InitializationData ApplicationData;
-        internal BackBlazeHttpServices _httpClients;
+        private readonly InitializationData _applicationData;
         private readonly List<Regex> _regexPatterns;
+        private readonly CloudShareSyncServices _services;
+        internal readonly B2ThreadManager ThreadManager;
 
-        internal AuthProcessData _authorizationData; // Set by valid authorization process
-        internal readonly FailureInfo[] FailureDetails; // Set upon error
+        // Set by valid authorization process
+        private AuthProcessData _authorizationData;
+        internal int? RecommendedPartSize => _authorizationData.RecommendedPartSize;
+        internal int? AbsoluteMinimumPartSize => _authorizationData.AbsoluteMinimumPartSize;
 
         #endregion Fields
 
@@ -45,8 +47,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             TelemetryLogger? logger = null
         ) {
             _log = logger?.ILog;
+            _services = new CloudShareSyncServices( uploadThreads, logger );
             _authorizationData = new( );
-            ApplicationData = new(
+            _applicationData = new(
                 applicationKeyId,
                 applicationKey,
                 maxErrors,
@@ -55,21 +58,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 bucketId
             );
 
-            List<UploadThreadStatistics> threadStats = new( );
-            List<FailureInfo> failureDetails = new( );
-            for (int i = 0; i < uploadThreads; i++) {
-                threadStats.Add( new( i ) );
-                failureDetails.Add( new( ) );
-            }
-            FailureDetails = failureDetails.ToArray( );
-            ThreadStats = threadStats.ToArray( );
-
-            _httpClients = new BackBlazeHttpServices( uploadThreads, logger );
             // Get Auth Client / Get initial auth data.
             _authorizationData = GetBackBlazeGeneralClient( )
-                                .NewAuthReturn( ApplicationData.Credentials )
+                                .NewAuthReturn( _applicationData.Credentials )
                                 .Result
                                 .AuthData;
+            ThreadManager = new( _log, uploadThreads );
 
             _regexPatterns = new( );
             _regexPatterns.Add(
@@ -80,15 +74,15 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
 
         // HTTP Clients
-        internal static BackBlazeHttpClient GetBackBlazeGeneralClient( ) =>
-            BackBlazeHttpServices.Services.GetRequiredService<BackBlazeHttpClient>( );
+        internal BackBlazeHttpClient GetBackBlazeGeneralClient( ) =>
+            _services.Services.GetRequiredService<BackBlazeHttpClient>( );
 
         #region Authorization
 
         internal async Task<string> NewAuthToken( ) {
             using Activity? activity = _source.StartActivity( "NewAuthToken" )?.Start( );
 
-            AuthReturn? authReturn = await GetBackBlazeGeneralClient( ).NewAuthReturn( ApplicationData.Credentials );
+            AuthReturn? authReturn = await GetBackBlazeGeneralClient( ).NewAuthReturn( _applicationData.Credentials );
             _authorizationData = authReturn.AuthData;
 
             activity?.Stop( );
@@ -111,7 +105,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             string? uploadUri = _authorizationData.ApiUrl + "/b2api/v2/b2_get_upload_url";
             DateTimeOffset dto = new( uploadObject.FilePath.LastWriteTimeUtc );
-            byte[] data = Encoding.UTF8.GetBytes( $"{{\"bucketId\":\"{ApplicationData.BucketId}\"}}" );
+            byte[] data = Encoding.UTF8.GetBytes( $"{{\"bucketId\":\"{_applicationData.BucketId}\"}}" );
 
             JsonElement root = await GetBackBlazeGeneralClient( ).GetJsonResponse(
                 uploadUri,
@@ -201,7 +195,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             DateTimeOffset dto = new( uploadObject.FilePath.LastWriteTimeUtc );
             byte[] data = Encoding.UTF8.GetBytes( $@"{{
   ""contentType"": ""{uploadObject.MimeType}"",
-  ""bucketId"": ""{ApplicationData.BucketId}"",
+  ""bucketId"": ""{_applicationData.BucketId}"",
   ""fileName"": ""{CleanUploadPath( uploadObject.UploadFilePath, true )}"",
   ""fileInfo"": {{
     ""sha512_filehash"": ""{uploadObject.CompleteSha512Hash}"",
@@ -270,9 +264,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
         internal async Task UploadLargeFilePart( UploadB2FilePart upload, int thread ) {
             using Activity? activity = _source.StartActivity( "UploadLargeFilePart" )?.Start( );
             HttpRequestException? result;
-            ThreadStats[thread].NewAttempt( );
+            ThreadManager.ThreadStats[thread].Attempt++;
             result = await GetBackBlazeGeneralClient( ).B2UploadPart( upload );
-            if (result != null) { throw result; } else { ThreadStats[thread].NewSuccess( ); }
+            if (result != null) { throw result; } else { ThreadManager.ThreadStats[thread].Success++; }
 
             activity?.Stop( );
         }
@@ -297,10 +291,6 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 await NewAuthToken( ),
                 FinishLargeFileRequestToJson( finishLargeFileData )
             );
-
-            foreach (UploadThreadStatistics stat in ThreadStats) {
-                stat.ResetThreadStats( );
-            }
 
             activity?.Stop( );
         }
@@ -396,7 +386,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 maxFileCount = 1000; // Maximum returned per transaction.
             }
 
-            string fileVers = $"{{\"bucketId\":\"{ApplicationData.BucketId}\"" +
+            string fileVers = $"{{\"bucketId\":\"{_applicationData.BucketId}\"" +
                               $",\"maxFileCount\": {maxFileCount}";
             if (string.IsNullOrWhiteSpace( startFileName ) == false) {
                 fileVers += $",\"startFileName\":\"{startFileName}\"";
@@ -467,18 +457,14 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             int thread,
             ConcurrentStack<FilePartInfo> filePartQueue
         ) {
-            FailureDetails[thread].PastFailureTime = FailureDetails[thread].FailureTime;
-            FailureDetails[thread].FailureTime = DateTime.UtcNow;
-            FailureDetails[thread].StatusCode = (webExcp.StatusCode == null) ? null : (int)webExcp.StatusCode;
+            ThreadManager.FailureDetails[thread].PastFailureTime = ThreadManager.FailureDetails[thread].FailureTime;
+            ThreadManager.FailureDetails[thread].FailureTime = DateTime.UtcNow;
+            ThreadManager.FailureDetails[thread].StatusCode = (webExcp.StatusCode == null) ?
+                null : (int)webExcp.StatusCode;
 
             WriteHttpRequestExceptionInfo( webExcp, errCount, thread );
-            HandleStatusCode( webExcp, FailureDetails[thread].StatusCode );
-            ThreadStatusManager.AddSleepingThread( thread );
-            bool stillAsleep = HandleRetryWait( thread, filePartQueue );
-
-            if (stillAsleep == false) {
-                ThreadStatusManager.RemoveSleepingThread( );
-            }
+            HandleStatusCode( webExcp, ThreadManager.FailureDetails[thread].StatusCode );
+            HandleRetryWait( thread, filePartQueue );
         }
 
         internal void WriteHttpRequestExceptionInfo(
@@ -486,12 +472,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             int errCount,
             int thread
         ) {
-            string logMessage = (errCount < ApplicationData.MaxErrors) ?
+            string logMessage = (errCount < _applicationData.MaxErrors) ?
                 $"Thread#{thread} An error has occurred while uploading large file parts. " +
                 $"This is error number {errCount} for this request." :
                 $"Thread#{thread} Failed to upload large file part.";
-            if (FailureDetails[thread].StatusCode != null) {
-                logMessage += $"\nStatus Code: {FailureDetails[thread].StatusCode}";
+            if (ThreadManager.FailureDetails[thread].StatusCode != null) {
+                logMessage += $"\nStatus Code: {ThreadManager.FailureDetails[thread].StatusCode}";
             }
 
             string expMsg = webExcp.Message;
@@ -525,7 +511,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     break;
             }
 
-            if (errCount < ApplicationData.MaxErrors) {
+            if (errCount < _applicationData.MaxErrors) {
                 _log?.Info( logMessage );
             } else {
                 _log?.Error( logMessage );
@@ -545,31 +531,37 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
         }
 
-        private bool HandleRetryWait(
+        private void HandleRetryWait(
             int thread,
             ConcurrentStack<FilePartInfo> filePartQueue
         ) {
-            if (FailureDetails[thread].PastFailureTime != null) {
-                if (FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -5 )) {
-                    _log?.Debug( $"Thread#{thread} Previous error was 5 or more minutes ago. Resetting Failure Details." );
-                    FailureDetails[thread].Reset( );
-                } else if (FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -4 )) {
-                    _log?.Debug( $"Thread#{thread} Previous error was 4 or more minutes ago. Setting wait counter to 15 seconds." );
-                    FailureDetails[thread].RetryWaitTimer = 15;
-                } else if (FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -3 )) {
-                    _log?.Debug( $"Thread#{thread} Previous error was 3 or more minutes ago. Setting wait counter to 31 seconds." );
-                    FailureDetails[thread].RetryWaitTimer = 31;
+            if (ThreadManager.FailureDetails[thread].PastFailureTime != null) {
+                if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -5 )) {
+                    _log?.Debug(
+                        $"Thread#{thread} Previous error was 5 or more minutes ago. " +
+                        "Resetting Failure Details."
+                    );
+                    ThreadManager.FailureDetails[thread].Reset( );
+                } else if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -4 )) {
+                    _log?.Debug(
+                        $"Thread#{thread} Previous error was 4 or more minutes ago. " +
+                        "Setting wait counter to 15 seconds."
+                    );
+                    ThreadManager.FailureDetails[thread].RetryWaitTimer = 15;
+                } else if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -3 )) {
+                    _log?.Debug(
+                        $"Thread#{thread} Previous error was 3 or more minutes ago. " +
+                        "Setting wait counter to 31 seconds."
+                    );
+                    ThreadManager.FailureDetails[thread].RetryWaitTimer = 31;
                 }
             }
 
-            int sleepTime = FailureDetails[thread].RetryWaitTimer;
+            int sleepTime = ThreadManager.FailureDetails[thread].RetryWaitTimer;
 
-            FailureDetails[thread].RetryWaitTimer = 1 + (2 * FailureDetails[thread].RetryWaitTimer);
-            _log?.Debug( $"Thread#{thread} Retry timer set to {FailureDetails[thread].RetryWaitTimer} seconds." );
+            ThreadManager.FailureDetails[thread].RetryWaitTimer = 1 +
+                (2 * ThreadManager.FailureDetails[thread].RetryWaitTimer);
             _log?.Debug( $"Thread#{thread} Sleeping for {sleepTime} seconds." );
-            _log?.Debug( $"ActiveThreadCount:    {ThreadStatusManager.ActiveThreadsCount}" );
-            _log?.Debug( $"CompletedThreadCount: {ThreadStatusManager.CompletedThreadsCount}" );
-            _log?.Debug( $"SleepingThreadCount:  {ThreadStatusManager.SleepingThreadsCount}" );
 
             int sleepCount = 0;
             while (filePartQueue.IsEmpty == false && sleepCount < sleepTime) {
@@ -578,10 +570,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             // Add Failure Stats
-            ThreadStats[thread].NewFailure( );
-            ThreadStats[thread].AddSleepTimer( sleepCount );
-
-            return (sleepCount >= sleepTime);
+            ThreadManager.ThreadStats[thread].Failure++;
+            ThreadManager.ThreadStats[thread].AddSleepTimer( sleepCount );
         }
 
         #endregion ExceptionHandling

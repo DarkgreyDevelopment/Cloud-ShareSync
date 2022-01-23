@@ -1,16 +1,17 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
     public partial class Program {
 
-        private static BackBlazeB2Table? TryGetBackBlazeB2Data( string fileId ) {
+        private static BackBlazeB2Table? TryGetBackBlazeB2Data( string fileId, SqliteContext sqliteContext ) {
             using Activity? activity = s_source.StartActivity( "TryGetBackBlazeB2Data" )?.Start( );
 
             BackBlazeB2Table? result = string.IsNullOrWhiteSpace( fileId ) ?
                                         null :
-                                        s_sqlliteContext?.BackBlazeB2Data
+                                        sqliteContext.BackBlazeB2Data
                                             .Where( b => b.FileID == fileId )
                                             .FirstOrDefault( );
 
@@ -18,12 +19,12 @@ namespace Cloud_ShareSync.SimpleBackup {
             return result;
         }
 
-        private static BackBlazeB2Table? TryGetBackBlazeB2Data( long? id ) {
+        private static BackBlazeB2Table? TryGetBackBlazeB2Data( long? id, SqliteContext sqliteContext ) {
             using Activity? activity = s_source.StartActivity( "TryGetBackBlazeB2Data" )?.Start( );
 
             BackBlazeB2Table? result = id == null ?
                                         null :
-                                        s_sqlliteContext?.BackBlazeB2Data
+                                        sqliteContext.BackBlazeB2Data
                                             .Where( b => b.Id == id )
                                             .FirstOrDefault( );
             activity?.Stop( );

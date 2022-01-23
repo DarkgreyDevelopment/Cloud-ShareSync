@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using Cloud_ShareSync.Core.Database.Sqlite;
+using Cloud_ShareSync.Core.SharedServices;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -7,14 +9,15 @@ namespace Cloud_ShareSync.SimpleBackup {
         private static void ConfigureDatabase( ) {
             using Activity? activity = s_source.StartActivity( "Initialize.ConfigureDatabase" )?.Start( );
 
-            s_sqlliteContext = (s_config?.Database != null) ?
-                new( s_config.Database.SqlliteDBPath ) :
-                throw new InvalidDataException( "Database configuration required." );
+            if (s_config?.Database == null) { throw new InvalidDataException( "Database configuration required." ); }
 
-            int coreTableCount = (from obj in s_sqlliteContext.CoreData where obj.Id >= 0 select obj).Count( );
-            int encryptedCount = (from obj in s_sqlliteContext.EncryptionData where obj.Id >= 0 select obj).Count( );
-            int compressdCount = (from obj in s_sqlliteContext.CompressionData where obj.Id >= 0 select obj).Count( );
-            int backBlazeCount = (from obj in s_sqlliteContext.BackBlazeB2Data where obj.Id >= 0 select obj).Count( );
+            s_services = new CloudShareSyncServices( s_config.Database.SqliteDBPath, s_logger );
+            SqliteContext sqliteContext = GetSqliteContext( );
+            int coreTableCount = (from obj in sqliteContext.CoreData where obj.Id >= 0 select obj).Count( );
+            int encryptedCount = (from obj in sqliteContext.EncryptionData where obj.Id >= 0 select obj).Count( );
+            int compressdCount = (from obj in sqliteContext.CompressionData where obj.Id >= 0 select obj).Count( );
+            int backBlazeCount = (from obj in sqliteContext.BackBlazeB2Data where obj.Id >= 0 select obj).Count( );
+            ReleaseSqliteContext( );
             s_logger?.ILog?.Info( "Database Initialized." );
             s_logger?.ILog?.Info( $"Core Table      : {coreTableCount}" );
             s_logger?.ILog?.Info( $"Encrypted Table : {encryptedCount}" );

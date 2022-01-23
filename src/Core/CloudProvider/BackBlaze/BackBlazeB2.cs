@@ -11,62 +11,51 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
     public class BackBlazeB2 : ICloudProvider {
 
         private static readonly ActivitySource s_source = new( "BackBlazeB2.PublicInterface" );
-        private static ILog? s_log;
-        private static B2? s_b2Api;
-        private static FileHash? s_fileHash;
-        private static int s_maxErrors;
+        private readonly ILog? _log;
+        private readonly B2? _b2Api;
+        private readonly FileHash? _fileHash;
+        private readonly int _maxErrors;
+        private readonly TelemetryLogger? _logger;
 
-        public static TelemetryLogger? Logger { get; set; }
-
-        public static void Initialize(
+        public BackBlazeB2(
             B2Config config,
             TelemetryLogger? logger = null
         ) {
-            Logger = logger;
-            s_log = logger?.ILog;
-            Initialize( config );
-        }
-
-        public static void Initialize( B2Config config ) {
-            using Activity? activity = s_source.StartActivity( "Initialize" )?.Start( );
-
-            s_maxErrors = (config.MaxConsecutiveErrors <= 0) ? 1 : config.MaxConsecutiveErrors; // Requires a minimum of 1.
+            _logger = logger;
+            _log = logger?.ILog;
+            _maxErrors = (config.MaxConsecutiveErrors <= 0) ? 1 : config.MaxConsecutiveErrors; // Requires a minimum of 1.
             int uploadThreads = (config.UploadThreads <= 0) ? 1 : config.UploadThreads; // Requires a minimum of 1.
-            s_fileHash = new FileHash( s_log );
-            s_b2Api = new(
+            _fileHash = new FileHash( _log );
+            _b2Api = new(
                 config.ApplicationKeyId,
                 config.ApplicationKey,
-                s_maxErrors,
+                _maxErrors,
                 uploadThreads,
                 config.BucketName,
                 config.BucketId,
-                Logger
+                _logger
             );
-
-            ThreadStatusManager.Init( s_log );
-
-            activity?.Stop( );
         }
 
         #region Upload
 
         // Interface Method - Does not return FileId.
-        public static void UploadFile( UploadB2File upload ) { _ = UploadFile( upload, s_b2Api ).Result; }
-        public static async Task<string> UploadFile( string path ) => await UploadFile( new FileInfo( path ) );
-        public static async Task<string> UploadFile( FileInfo path ) =>
-            await UploadFile( new UploadB2File( path ), s_b2Api );
+        public void UploadFile( UploadB2File upload ) { _ = UploadFile( upload, _b2Api ).Result; }
+        public async Task<string> UploadFile( string path ) => await UploadFile( new FileInfo( path ) );
+        public async Task<string> UploadFile( FileInfo path ) =>
+            await UploadFile( new UploadB2File( path ), _b2Api );
 
-        public static async Task<string> UploadFile(
+        public async Task<string> UploadFile(
             FileInfo path,
             string originalFileName,
             string uploadFilePath,
             string sha512Hash
-        ) => await UploadFile( new UploadB2File( path, originalFileName, uploadFilePath, sha512Hash ), s_b2Api );
+        ) => await UploadFile( new UploadB2File( path, originalFileName, uploadFilePath, sha512Hash ), _b2Api );
 
-        internal static async Task<string> UploadFile( UploadB2File upload, B2? b2Api ) {
+        internal async Task<string> UploadFile( UploadB2File upload, B2? b2Api ) {
             using Activity? activity = s_source.StartActivity( "UploadFile" )?.Start( );
 
-            if (b2Api == null || s_fileHash == null) {
+            if (b2Api == null || _fileHash == null) {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Initialize before uploading." );
             }
@@ -76,14 +65,13 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             if (string.IsNullOrWhiteSpace( upload.CompleteSha512Hash )) {
-                upload.CompleteSha512Hash = await s_fileHash.GetSha512FileHash( upload.FilePath );
+                upload.CompleteSha512Hash = await _fileHash.GetSha512FileHash( upload.FilePath );
             }
-            upload.CompleteSha1Hash = await s_fileHash.GetSha1FileHash( upload.FilePath );
+            upload.CompleteSha1Hash = await _fileHash.GetSha1FileHash( upload.FilePath );
             upload.MimeType = MimeType.GetMimeTypeByExtension( upload.FilePath );
 
-            AuthProcessData authData = b2Api._authorizationData;
-            int recSize = authData.RecommendedPartSize ?? 0;
-            int minimumLargeFileSize = (recSize * 2) + authData.AbsoluteMinimumPartSize ?? 0;
+            int recSize = b2Api.RecommendedPartSize ?? 0;
+            int minimumLargeFileSize = (recSize * 2) + b2Api.AbsoluteMinimumPartSize ?? 0;
 
             if (minimumLargeFileSize == 0) {
                 activity?.Stop( );
@@ -92,43 +80,43 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             bool smallFileUpload = upload.FilePath.Length < minimumLargeFileSize;
 
             if (smallFileUpload) {
-                s_log?.Debug( $"SmallFileUpload: " );
-                s_log?.Debug( upload );
+                _log?.Debug( $"SmallFileUpload: " );
+                _log?.Debug( upload );
 
-                s_log?.Debug( "Getting Small File Upload Url" );
+                _log?.Debug( "Getting Small File Upload Url" );
                 upload = await b2Api.NewSmallFileUploadUrl( upload );
-                s_log?.Debug( upload );
+                _log?.Debug( upload );
 
-                s_log?.Debug( "Uploading Small File" );
+                _log?.Debug( "Uploading Small File" );
                 upload = await b2Api.NewSmallFileUpload( upload );
             } else /* Large File Upload */ {
-                s_log?.Debug( $"LargeFileUpload: " );
-                s_log?.Debug( upload );
+                _log?.Debug( $"LargeFileUpload: " );
+                _log?.Debug( upload );
 
                 int totalParts = (int)Math.Floor( Convert.ToDecimal( upload.FilePath.Length / recSize ) );
                 int finalLength = (int)(upload.FilePath.Length - (totalParts * (long)recSize));
                 totalParts++;
 
-                if (finalLength < authData.AbsoluteMinimumPartSize) {
+                if (finalLength < (b2Api.AbsoluteMinimumPartSize ?? 0)) {
                     // Handle Edge Cases where remainder is smaller than minimum chunk size.
                     totalParts--;
                     finalLength += recSize;
                 }
 
-                int threadCount = totalParts < b2Api.ApplicationData.UploadThreads ?
+                int threadCount = totalParts < b2Api.ThreadManager.ActiveThreadCount ?
                                     totalParts :
-                                    b2Api.ApplicationData.UploadThreads;
+                                    b2Api.ThreadManager.ActiveThreadCount;
 
-                s_log?.Info( "Uploading Large File to Backblaze." );
+                _log?.Info( "Uploading Large File to Backblaze." );
 
                 // Get FileId.
-                s_log?.Debug( "Getting FileId For Large File." );
+                _log?.Debug( "Getting FileId For Large File." );
                 upload = await b2Api.NewStartLargeFileURL( upload );
-                s_log?.Debug( upload );
+                _log?.Debug( upload );
 
-                s_log?.Info( "Uploading Large File Parts Async" );
-                s_log?.Info( $"Splitting file into {totalParts - 1} {recSize} byte chunks and 1 {finalLength} chunk." );
-                s_log?.Info( $"Chunks will be uploaded asyncronously via {threadCount} upload streams." );
+                _log?.Info( "Uploading Large File Parts Async" );
+                _log?.Info( $"Splitting file into {totalParts - 1} {recSize} byte chunks and 1 {finalLength} chunk." );
+                _log?.Info( $"Chunks will be uploaded asyncronously via {threadCount} upload streams." );
 
                 ConcurrentBag<LargeFilePartReturn>? resultsList = new( );
                 ConcurrentStack<FilePartInfo> filePartQueue = new( );
@@ -140,14 +128,14 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     lengthTotal += partLength;
                 }
                 if (lengthTotal != upload.FilePath.Length) {
-                    s_log?.Fatal( $"filePartQueue part length total does not equal files length." );
+                    _log?.Fatal( $"filePartQueue part length total does not equal files length." );
                     throw new InvalidOperationException( "Failed to upload full file." );
                 }
 
                 List<Task<bool>> uploadTasks = new( );
 
                 for (int thread = 0; thread < threadCount; thread++) {
-                    s_log?.Debug( $"Thread#{thread} - Adding Task to Task List." );
+                    _log?.Debug( $"Thread#{thread} - Adding Task to Task List." );
                     uploadTasks.Add(
                         UploadLargeFileParts(
                             upload,
@@ -163,9 +151,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
                 while (uploadTasks.Any( x => x.IsCompleted == false )) { Thread.Sleep( 1000 ); }
                 DetermineMultiPartUploadSuccessStatus( uploadTasks, filePartQueue );
-                s_log?.Info( "Uploaded Large File Parts Async" );
+                _log?.Info( "Uploaded Large File Parts Async" );
 
-                s_log?.Info( "Finishing Large File Upload." );
+                _log?.Info( "Finishing Large File Upload." );
                 if (resultsList != null) {
                     foreach (LargeFilePartReturn result in resultsList) {
                         upload.Sha1PartsList.Add( new( result.PartNumber, result.Sha1Hash ) );
@@ -173,20 +161,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     }
                 }
 
-
-                s_log?.Debug( "Thread UploadStats:" );
-                string stats = "{\n  \"ThreadStats\": [\n";
-                foreach (UploadThreadStatistics stat in b2Api.ThreadStats) {
-                    stats += $"{stat},\n";
-                }
-                stats = stats.TrimEnd( '\n' ).TrimEnd( ',' );
-                stats += "\n  ]\n}";
-                s_log?.Debug( stats );
+                _log?.Debug( "Thread UploadStats:" );
+                b2Api.ThreadManager.ShowThreadStatistics( true );
 
                 await b2Api.FinishUploadLargeFile( upload );
 
-                ThreadStatusManager.Reset( );
-                foreach (FailureInfo failure in b2Api.FailureDetails) {
+                foreach (FailureInfo failure in b2Api.ThreadManager.FailureDetails) {
                     failure.Reset( );
                 }
             }
@@ -194,7 +174,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             return upload.FileId;
         }
 
-        private static async Task<bool> UploadLargeFileParts(
+        private async Task<bool> UploadLargeFileParts(
             UploadB2File upload,
             B2 b2Api,
             long partSize,
@@ -203,14 +183,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             int thread
         ) {
             using Activity? activity = s_source.StartActivity( "UploadLargeFileParts" )?.Start( );
-            if (s_fileHash == null) {
+            if (_fileHash == null) {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Initialize before uploading." );
             }
 
             UploadB2File? threadUpload = await b2Api.NewUploadLargeFilePartUrl( upload );
-
-            ThreadStatusManager.AddActiveThread( thread );
 
             int count = 1;
             while (filePartQueue.IsEmpty == false) {
@@ -221,36 +199,34 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
                 long start = partSize * (partInfo.PartNumber - 1);
 
-                s_log?.Debug( $"{pretxt} - Retrieving Sha1 Hash for FileChunk" );
+                _log?.Debug( $"{pretxt} - Retrieving Sha1 Hash for FileChunk" );
                 if (string.IsNullOrWhiteSpace( partInfo.Sha1Hash )) {
-                    partInfo.Sha1Hash = await s_fileHash.GetSHA1HashForFileChunkAsync( upload.FilePath, partInfo.Data, start );
+                    partInfo.Sha1Hash = await _fileHash.GetSHA1HashForFileChunkAsync( upload.FilePath, partInfo.Data, start );
                 }
 
                 bool success = false;
                 try {
-                    s_log?.Info( $"Thread#{thread} " +
+                    _log?.Info( $"Thread#{thread} " +
                         $"Uploading LargeFile '{upload.OriginalFileName}' Part#{partInfo.PartNumber}." );
-                    s_log?.Info( $"{pretxt} FileName      : {upload.FilePath.Name}" );
-                    s_log?.Info( $"{pretxt} UploadFilePath: {upload.UploadFilePath}" );
-                    s_log?.Info( $"{pretxt} PartSha1Hash  : {partInfo.Sha1Hash}" );
-                    s_log?.Info( $"{pretxt} ContentSize   : {partInfo.Data.Length}" );
+                    _log?.Info( $"{pretxt} FileName      : {upload.FilePath.Name}" );
+                    _log?.Info( $"{pretxt} UploadFilePath: {upload.UploadFilePath}" );
+                    _log?.Info( $"{pretxt} PartSha1Hash  : {partInfo.Sha1Hash}" );
+                    _log?.Info( $"{pretxt} ContentSize   : {partInfo.Data.Length}" );
 
                     UploadB2FilePart uploadPart = new( threadUpload, partInfo.Sha1Hash, partInfo.PartNumber, partInfo.Data );
 
                     await b2Api.UploadLargeFilePart( uploadPart, thread );
 
                     //Upload segment of file data, Adds to TotalBytesSent +Sha1PartsList
-                    s_log?.Info(
+                    _log?.Info(
                         $"{pretxt}: LargeFile '{upload.OriginalFileName}' part uploaded successfully." +
                         $" Parts Sha1Hash: {uploadPart.PartSha1Hash}"
                     );
                     resultsList.Add( new( partInfo.PartNumber, uploadPart.PartSha1Hash, uploadPart.Content.Length ) );
-                    s_log?.Debug(
+                    _log?.Debug(
                         $"Thread#{thread} Part#{partInfo.PartNumber} -  RESULTS LIST COUNT: " +
                         resultsList.Select( x => x.Sha1Hash ).Count( )
                     );
-                    s_log?.Debug( $"ActiveThreadCount:   {ThreadStatusManager.ActiveThreadsCount}" );
-                    s_log?.Debug( $"SleepingThreadCount: {ThreadStatusManager.SleepingThreadsCount}" );
                     success = true;
                 } catch (HttpRequestException e) {
                     filePartQueue.Push( partInfo );
@@ -258,32 +234,28 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     count++;
                     threadUpload = await b2Api.NewUploadLargeFilePartUrl( upload );
                 } catch (Exception ex) {
-                    s_log?.Warn( $"Thread#{thread} had an exception", ex );
+                    _log?.Warn( $"Thread#{thread} had an exception", ex );
                     filePartQueue.Push( partInfo );
-                    ThreadStatusManager.RemoveActiveThread( );
-                    s_log?.Debug( $"There are #{ThreadStatusManager.ActiveThreadsCount} other active threads." );
                     activity?.Stop( );
                     return false;
                 }
 
-                if (count >= b2Api.ApplicationData.MaxErrors && success != true) {
-                    s_log?.Error( $"Thread#{thread} hit max errors. Thread shutting down." );
+                if (count >= _maxErrors && success != true) {
+                    _log?.Error( $"Thread#{thread} hit max errors. Thread shutting down." );
                     filePartQueue.Push( partInfo );
                     activity?.Stop( );
-                    ThreadStatusManager.RemoveActiveThread( );
                     return false;
                 } else if (success) {
                     count = 1;
                 }
             }
 
-            s_log?.Info( $"Thread#{thread} Finished Assigned Work." );
-            ThreadStatusManager.AddCompletedThread( thread );
+            _log?.Info( $"Thread#{thread} Finished Assigned Work." );
             activity?.Stop( );
             return true;
         }
 
-        private static void DetermineMultiPartUploadSuccessStatus(
+        private void DetermineMultiPartUploadSuccessStatus(
             List<Task<bool>> tasks,
             ConcurrentStack<FilePartInfo> filePartQueue
         ) {
@@ -293,7 +265,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             List<bool> statusList = new( );
             foreach (Task<bool> task in tasks) {
                 if (task.Exception != null || task.IsCanceled || task.IsCompletedSuccessfully != true) {
-                    s_log?.Error( "Task was not successful." );
+                    _log?.Error( "Task was not successful." );
                     success = false;
 
                     if (task.Exception != null) {
@@ -318,11 +290,11 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                             logMessage += $"\nStackTrace    : {exception.StackTrace}";
                             logMessage += $"\nInnerException: {exception.InnerException}\n";
                         }
-                        s_log?.Error( logMessage );
+                        _log?.Error( logMessage );
                     } else {
-                        s_log?.Error( "There was no exception." );
-                        s_log?.Error( $"task.IsCompletedSuccessfully: {task.IsCompletedSuccessfully}" );
-                        s_log?.Error( $"task.IsCanceled: {task.IsCanceled}." );
+                        _log?.Error( "There was no exception." );
+                        _log?.Error( $"task.IsCompletedSuccessfully: {task.IsCompletedSuccessfully}" );
+                        _log?.Error( $"task.IsCanceled: {task.IsCanceled}." );
                     }
                 } else {
                     statusList.Add( task.Result );
@@ -341,40 +313,40 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
         #region Download
 
-        public static void DownloadFile( DownloadB2File download ) {
+        public void DownloadFile( DownloadB2File download ) {
             using Activity? activity = s_source.StartActivity( "DownloadFile" )?.Start( );
 
-            if (s_b2Api == null) {
+            if (_b2Api == null) {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Initialize before downloading." );
             }
-            _ = DownloadFile( download, s_b2Api ).Result;
+            _ = DownloadFile( download, _b2Api ).Result;
 
             activity?.Stop( );
         }
 
-        internal static async Task<bool> DownloadFile( DownloadB2File download, B2 b2Api ) {
+        internal async Task<bool> DownloadFile( DownloadB2File download, B2 b2Api ) {
             using Activity? activity = s_source.StartActivity( "DownloadFile.Async" )?.Start( );
 
-            if (s_fileHash == null) {
+            if (_fileHash == null) {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Initialize before downloading." );
             }
 
             if (string.IsNullOrWhiteSpace( download.FileId ) == false) {
                 B2DownloadResponse response = await b2Api.DownloadFileID( download.FileId, download.OutputPath );
-                s_log?.Debug( "Download Response:" + response );
+                _log?.Debug( "Download Response:" + response );
                 if (string.IsNullOrWhiteSpace( response.Sha1FileHash ) == false) {
-                    string downloadedSha1Hash = s_fileHash.GetSha1FileHash( response.OutputPath.FullName );
+                    string downloadedSha1Hash = _fileHash.GetSha1FileHash( response.OutputPath.FullName );
                     if (response.Sha1FileHash != downloadedSha1Hash) {
-                        s_log?.Error( "Downloaded filehash does not match Sha1 hash from backblaze." );
+                        _log?.Error( "Downloaded filehash does not match Sha1 hash from backblaze." );
                         return false;
                     } else {
-                        s_log?.Info( "File downloaded successfully." );
+                        _log?.Info( "File downloaded successfully." );
                         response.OutputPath.LastWriteTime = response.LastModified;
                     }
                 } else {
-                    s_log?.Warn( "Download completed. Unable to verify downloaded content." );
+                    _log?.Warn( "Download completed. Unable to verify downloaded content." );
                 }
             } else {
                 throw new NotImplementedException( "FileName downloads not implemented yet." );
@@ -389,7 +361,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
         #region ListFiles
 
-        public static async Task<List<B2FileResponse>> ListFileVersions(
+        public async Task<List<B2FileResponse>> ListFileVersions(
             string startFileName = "",
             string startFileId = "",
             bool singleCall = false,
@@ -397,12 +369,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             string prefix = ""
         ) {
             using Activity? activity = s_source.StartActivity( "ListFileVersions" )?.Start( );
-            if (s_b2Api == null) {
+            if (_b2Api == null) {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Initialize before listing file versions." );
             }
 
-            List<B2FileResponse> result = await s_b2Api.ListFileVersions(
+            List<B2FileResponse> result = await _b2Api.ListFileVersions(
                                             startFileName,
                                             startFileId,
                                             maxFileCount,

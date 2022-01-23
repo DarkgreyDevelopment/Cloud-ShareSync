@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
 
-namespace Cloud_ShareSync.Core.CloudProvider.HttpClientHandling {
+namespace Cloud_ShareSync.Core.SharedServices {
     internal class ClientUtilities {
 
         #region BackBlazeB2

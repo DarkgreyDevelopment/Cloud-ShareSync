@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -10,7 +11,8 @@ namespace Cloud_ShareSync.SimpleBackup {
             FileInfo uploadFile,
             PrimaryTable tabledata,
             string? password,
-            string? decompressionargs
+            string? decompressionargs,
+            SqliteContext sqliteContext
         ) {
             using Activity? activity = s_source.StartActivity( "CompressFile" )?.Start( );
             s_logger?.ILog?.Info( "Compressing file before upload." );
@@ -20,12 +22,12 @@ namespace Cloud_ShareSync.SimpleBackup {
                 password
             );
 
-            CompressionTable? compTableData = s_sqlliteContext?.CompressionData
+            CompressionTable? compTableData = sqliteContext.CompressionData
                 .Where( b => b.Id == tabledata.Id )
                 .FirstOrDefault( );
 
             if (compTableData == null) {
-                s_sqlliteContext?.Add(
+                sqliteContext.Add(
                     new CompressionTable(
                         id: tabledata.Id,
                         passwordProtected: string.IsNullOrWhiteSpace( password ) == false,
@@ -40,7 +42,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 compTableData.DecompressionArgs = decompressionargs;
             }
             tabledata.IsCompressed = true;
-            s_sqlliteContext?.SaveChanges( );
+            sqliteContext.SaveChanges( );
 
             // Remove plaintext file.
             uploadFile.Delete( );

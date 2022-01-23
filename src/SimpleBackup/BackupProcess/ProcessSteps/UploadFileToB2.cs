@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Configuration.Types.Cloud;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -15,9 +15,14 @@ namespace Cloud_ShareSync.SimpleBackup {
             string sha512Hash,
             PrimaryTable tabledata,
             B2Config config,
-            BackupConfig backupConfig
+            BackupConfig backupConfig,
+            SqliteContext sqliteContext
         ) {
             using Activity? activity = s_source.StartActivity( "UploadFileToB2" )?.Start( );
+
+            if (s_backBlaze == null) {
+                throw new InvalidOperationException( "Cannot proceed if backblaze configuration is not initialized." );
+            }
 
             if (backupConfig.ObfuscateUploadedFileNames) {
                 uploadPath = sha512Hash;
@@ -29,7 +34,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             string fileId = "";
             do {
                 try {
-                    fileId = await BackBlazeB2.UploadFile(
+                    fileId = await s_backBlaze.UploadFile(
                         uploadFile,
                         fileName,
                         uploadPath,
@@ -48,27 +53,27 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             if (success == false) { throw new InvalidOperationException( "Failed to upload file to backblaze." ); }
 
-            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id );
+            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
 
             if (b2TableData == null) {
-                s_sqlliteContext?.Add(
+                sqliteContext.Add(
                     new BackBlazeB2Table(
                         tabledata.Id,
                         config.BucketName,
                         config.BucketId,
                         fileId
                     ) );
-                s_sqlliteContext?.SaveChanges( );
-                b2TableData = TryGetBackBlazeB2Data( tabledata.Id );
+                sqliteContext.SaveChanges( );
+                b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
 
             } else {
                 b2TableData.FileID = fileId;
                 b2TableData.BucketName = config.BucketName;
                 b2TableData.BucketId = config.BucketId;
-                s_sqlliteContext?.SaveChanges( );
+                sqliteContext.SaveChanges( );
             }
             tabledata.UsesBackBlazeB2 = true;
-            s_sqlliteContext?.SaveChanges( );
+            sqliteContext.SaveChanges( );
 
             s_logger?.ILog?.Info( "UploadFileToB2 DB Data:" );
             s_logger?.ILog?.Info( b2TableData );

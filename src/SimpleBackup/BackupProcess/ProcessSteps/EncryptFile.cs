@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -10,7 +11,8 @@ namespace Cloud_ShareSync.SimpleBackup {
         private static async Task<FileInfo> EncryptFile(
             FileInfo uploadFile,
             string sha512filehash,
-            PrimaryTable tabledata
+            PrimaryTable tabledata,
+            SqliteContext sqliteContext
         ) {
             using Activity? activity = s_source.StartActivity( "EncryptFile" )?.Start( );
             s_logger?.ILog?.Info( "Encrypting file before upload." );
@@ -22,17 +24,17 @@ namespace Cloud_ShareSync.SimpleBackup {
             byte[] key = RandomNumberGenerator.GetBytes( 32 );
             DecryptionData data = await s_crypto.Encrypt( key, uploadFile, cypherTxtFile, null );
 
-            EncryptionTable? encTableData = s_sqlliteContext?.EncryptionData
+            EncryptionTable? encTableData = sqliteContext.EncryptionData
                 .Where( b => b.Id == tabledata.Id )
                 .FirstOrDefault( );
 
             if (encTableData == null) {
-                s_sqlliteContext?.Add( new EncryptionTable( tabledata.Id, data ) );
+                sqliteContext.Add( new EncryptionTable( tabledata.Id, data ) );
             } else {
                 encTableData.DecryptionData = data.ToString( );
             }
             tabledata.IsEncrypted = true;
-            s_sqlliteContext?.SaveChanges( );
+            sqliteContext.SaveChanges( );
 
             // Remove plaintext file.
             uploadFile.Delete( );

@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
@@ -10,7 +9,7 @@ using Cloud_ShareSync.BucketSync.Process;
 namespace Cloud_ShareSync.BucketSync {
 
     public class Program {
-
+        /*
         private static readonly ActivitySource s_source = new( "Cloud_ShareSync.BucketSync.Program" );
         private static TelemetryLogger? s_logger;
         private static CompleteConfig? s_config;
@@ -26,8 +25,10 @@ namespace Cloud_ShareSync.BucketSync {
             "MimeType",
             "UniquePassword"
         };
+        */
 
         public static async Task Main( string[] args ) {
+            /*
             s_config = Config.GetConfiguration( args );
             ConfigureTelemetryLogger( s_config?.Log4Net );
 
@@ -36,7 +37,7 @@ namespace Cloud_ShareSync.BucketSync {
                 IHost host = ConfigureHost( args );
 
                 if (s_config?.BackBlaze != null) {
-                    BackBlazeB2.Initialize( s_config.BackBlaze, s_logger );
+                    s_backBlaze = new( s_config.BackBlaze, s_logger );
                 } else {
                     throw new InvalidDataException( "Config is null and backblaze config is required." );
                 }
@@ -56,8 +57,9 @@ namespace Cloud_ShareSync.BucketSync {
                 }
             }
             activity?.Stop( );
+            */
         }
-
+        /*
         private static void ConfigureTelemetryLogger( Log4NetConfig? config ) {
             if (config == null) {
                 Console.Error.WriteLine(
@@ -89,6 +91,6 @@ namespace Cloud_ShareSync.BucketSync {
 
             return builder.Build( );
         }
-
+        */
     }
 }

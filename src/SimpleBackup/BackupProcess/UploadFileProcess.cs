@@ -2,6 +2,7 @@
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -27,11 +28,14 @@ namespace Cloud_ShareSync.SimpleBackup {
             // Get Sha 512 FileHash
             string sha512filehash = await GetSha512FileHash( uploadFile );
 
+            // Get db context
+            SqliteContext sqliteContext = GetSqliteContext( );
+
             // Get Primary Table Data/Create new Primary Table Entry.
-            PrimaryTable? tabledata = TryGetTableDataForUpload( uploadFile.Name, uploadPath );
+            PrimaryTable? tabledata = TryGetTableDataForUpload( uploadFile.Name, uploadPath, sqliteContext );
             if (tabledata == null) {
-                tabledata = NewTableData( uploadFile, uploadPath, sha512filehash );
-            } else if (await ShouldUpload( tabledata, sha512filehash ) == false) {
+                tabledata = NewTableData( uploadFile, uploadPath, sha512filehash, sqliteContext );
+            } else if (await ShouldUpload( tabledata, sha512filehash, sqliteContext ) == false) {
                 s_logger?.ILog?.Info( "File already exists in backblaze. Skipping upload." );
                 activity?.Stop( );
                 return;
@@ -44,7 +48,7 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             // Conditionally encrypt file before upload.
             if (config.EncryptBeforeUpload) {
-                uploadFile = await EncryptFile( uploadFile, sha512filehash, tabledata );
+                uploadFile = await EncryptFile( uploadFile, sha512filehash, tabledata, sqliteContext );
             }
 
             // Conditionally compress file before upload.
@@ -53,16 +57,27 @@ namespace Cloud_ShareSync.SimpleBackup {
                     uploadFile,
                     tabledata,
                     password,
-                    s_config.Compression?.CompressionCmdlineArgs
+                    s_config.Compression?.CompressionCmdlineArgs,
+                    sqliteContext
                 );
             }
 
-            SetUploadFileHash( originalUploadFile, uploadFile, tabledata, sha512filehash );
+            SetUploadFileHash( originalUploadFile, uploadFile, tabledata, sha512filehash, sqliteContext );
 
             s_logger?.ILog?.Info( "UploadFileProcess Table Data:" );
             s_logger?.ILog?.Info( tabledata );
             // Upload File.
-            await UploadFileToB2( uploadFile, path, uploadPath, sha512filehash, tabledata, s_config.BackBlaze, s_config.SimpleBackup );
+            await UploadFileToB2(
+                uploadFile,
+                path,
+                uploadPath,
+                sha512filehash,
+                tabledata,
+                s_config.BackBlaze,
+                s_config.SimpleBackup,
+                sqliteContext
+            );
+            ReleaseSqliteContext( );
 
             // Remove file from working directory (if needed).
             DeleteWorkingFile( uploadFile, config );
