@@ -41,10 +41,9 @@ namespace Cloud_ShareSync.SimpleBackup {
                 }
 
                 if (includePath && s_fileUploadQueue.Contains( path ) == false) {
-                    s_logger?.ILog?.Debug( $"Enqueueing file{count.ToString( fileCountFormat )}: '{path}'" );
                     s_fileUploadQueue.Enqueue( path );
                 } else {
-                    s_logger?.ILog?.Debug( $"  Skipping file{count.ToString( fileCountFormat )}: '{path}'" );
+                    s_logger?.ILog?.Debug( $"Skipping excluded file{count.ToString( fileCountFormat )}: '{path}'" );
                 }
                 count++;
             }

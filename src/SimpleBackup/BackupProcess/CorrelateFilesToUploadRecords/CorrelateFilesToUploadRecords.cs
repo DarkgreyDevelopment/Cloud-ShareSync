@@ -35,7 +35,6 @@ namespace Cloud_ShareSync.SimpleBackup {
                                     .FirstOrDefault( );
 
                         if (b2info == null) {
-                            s_logger?.ILog?.Debug( $"Path '{path}' should be uploaded to backblaze." );
                             s_fileUploadQueue.Enqueue( path );
                         } else {
                             s_logger?.ILog?.Debug( $"Path '{path}' has an existing database record." );
