@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.Database.Entities;
-using Cloud_ShareSync.Core.Database.Sqlite;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -9,8 +8,7 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         private static async Task<bool> ShouldUpload(
             PrimaryTable tabledata,
-            string sha512filehash,
-            SqliteContext sqliteContext
+            string sha512filehash
         ) {
 
             if (s_backBlaze == null) {
@@ -18,10 +16,13 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
 
             using Activity? activity = s_source.StartActivity( "ShouldUpload" )?.Start( );
-            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
+            BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id );
 
             if (b2TableData != null && tabledata.FileHash == sha512filehash) {
-                s_logger?.ILog?.Info( "File has an existing backblaze database record. Previous sha512 matches current filehash." );
+                s_logger?.ILog?.Info(
+                    "File has an existing backblaze database record. " +
+                    "Previous sha512 matches current filehash."
+                );
                 string filename = string.IsNullOrWhiteSpace( tabledata.UploadPath ) ?
                     tabledata.FileName :
                     tabledata.UploadPath;
@@ -45,7 +46,10 @@ namespace Cloud_ShareSync.SimpleBackup {
                     activity?.Stop( );
                     return false;
                 } else {
-                    s_logger?.ILog?.Info( "Backblaze and local Sha512 file hashes DO NOT match." );
+                    s_logger?.ILog?.Info(
+                        "Either BackBlaze and local Sha512 file hashes DO NOT match" +
+                        " or file was not found in BackBlaze bucket."
+                    );
                 }
             }
 

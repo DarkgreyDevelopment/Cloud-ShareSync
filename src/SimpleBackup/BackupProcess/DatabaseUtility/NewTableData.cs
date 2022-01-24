@@ -9,10 +9,10 @@ namespace Cloud_ShareSync.SimpleBackup {
         private static PrimaryTable NewTableData(
             FileInfo uploadFile,
             string uploadPath,
-            string sha512filehash,
-            SqliteContext sqliteContext
+            string sha512filehash
         ) {
             using Activity? activity = s_source.StartActivity( "NewTableData" )?.Start( );
+            SqliteContext sqliteContext = GetSqliteContext( );
 
             sqliteContext.Add(
                 new PrimaryTable {
@@ -33,6 +33,8 @@ namespace Cloud_ShareSync.SimpleBackup {
                 .Where( b => (b.FileName == uploadFile.Name && b.UploadPath == uploadPath) )
                 .FirstOrDefault( ) ??
                 throw new InvalidOperationException( "PrimaryTable item was not created." );
+
+            ReleaseSqliteContext( );
 
             activity?.Stop( );
             return tabledata;

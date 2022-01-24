@@ -5,10 +5,8 @@ using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
-using Cloud_ShareSync.Core.Database.Sqlite;
 using Cloud_ShareSync.Core.Logging;
 using Cloud_ShareSync.Core.SharedServices;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -39,11 +37,9 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         public static async Task Main( string[] args ) {
             try {
-                s_semaphore.Release( 1 );
                 Initialize( args );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 PopulateFileList( );
-                ValidateExistingUploads( );
                 await BackupProcess( );
                 s_logger?.ILog?.Info( "Simple backup completed." );
                 activity?.Stop( );
@@ -56,17 +52,6 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
         }
 
-        private static SqliteContext GetSqliteContext( ) {
-            if (s_services == null) { throw new InvalidOperationException( "Cannot get context if db service is not initialized." ); }
-            s_logger?.ILog?.Debug( "Waiting for SqliteContext Semaphore" );
-            s_semaphore.Wait( );
-            return s_services.Services.GetRequiredService<SqliteContext>( );
-        }
-
-        private static void ReleaseSqliteContext( ) {
-            s_logger?.ILog?.Debug( "Releasing SqliteContext Semaphore" );
-            s_semaphore.Release( );
-        }
 
     }
 }

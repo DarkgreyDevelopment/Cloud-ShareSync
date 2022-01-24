@@ -12,6 +12,8 @@ namespace Cloud_ShareSync.SimpleBackup {
             if (s_config?.Database == null) { throw new InvalidDataException( "Database configuration required." ); }
 
             s_services = new CloudShareSyncServices( s_config.Database.SqliteDBPath, s_logger );
+
+            s_semaphore.Release( 1 ); // Ensure we can enter the semaphore.
             SqliteContext sqliteContext = GetSqliteContext( );
             int coreTableCount = (from obj in sqliteContext.CoreData where obj.Id >= 0 select obj).Count( );
             int encryptedCount = (from obj in sqliteContext.EncryptionData where obj.Id >= 0 select obj).Count( );

@@ -6,15 +6,36 @@ namespace Cloud_ShareSync.SimpleBackup {
 
     public partial class Program {
 
-        private static PrimaryTable? TryGetTableDataForUpload( string path, SqliteContext sqliteContext ) {
-            if (s_config?.SimpleBackup == null || s_config?.BackBlaze == null) {
-                throw new InvalidDataException( "SimpleBackup and BackBlaze configs cannot be null" );
+        private static PrimaryTable? TryGetTableDataForUpload( string path ) {
+            SqliteContext sqliteContext = GetSqliteContext( );
+            PrimaryTable? result = TryGetTableDataForUpload( path, sqliteContext );
+            ReleaseSqliteContext( );
+            return result;
+        }
+
+        private static PrimaryTable? TryGetTableDataForUpload(
+            string path,
+            SqliteContext sqliteContext
+        ) {
+            if (s_config?.SimpleBackup == null) {
+                throw new InvalidDataException( "SimpleBackup config cannot be null" );
             }
             return TryGetTableDataForUpload(
                 new FileInfo( path ).Name,
                 Path.GetRelativePath( s_config.SimpleBackup.RootFolder, path ),
                 sqliteContext
             );
+        }
+
+
+        private static PrimaryTable? TryGetTableDataForUpload(
+            string uploadFileName,
+            string uploadPath
+        ) {
+            SqliteContext sqliteContext = GetSqliteContext( );
+            PrimaryTable? result = TryGetTableDataForUpload( uploadFileName, uploadPath, sqliteContext );
+            ReleaseSqliteContext( );
+            return result;
         }
 
         private static PrimaryTable? TryGetTableDataForUpload(
@@ -24,9 +45,9 @@ namespace Cloud_ShareSync.SimpleBackup {
         ) {
             using Activity? activity = s_source.StartActivity( "TryGetTableDataForUpload" )?.Start( );
 
-            PrimaryTable? result = (from b in sqliteContext.CoreData.AsParallel( ).AsOrdered( )
-                                    where b.FileName == uploadFileName && b.UploadPath == uploadPath
-                                    select b).FirstOrDefault( );
+            PrimaryTable? result = (from rec in sqliteContext.CoreData.AsParallel( ).AsOrdered( )
+                                    where rec.FileName == uploadFileName && rec.UploadPath == uploadPath
+                                    select rec).FirstOrDefault( );
             activity?.Stop( );
             return result;
         }

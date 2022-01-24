@@ -15,8 +15,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             string sha512Hash,
             PrimaryTable tabledata,
             B2Config config,
-            BackupConfig backupConfig,
-            SqliteContext sqliteContext
+            BackupConfig backupConfig
         ) {
             using Activity? activity = s_source.StartActivity( "UploadFileToB2" )?.Start( );
 
@@ -53,6 +52,8 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             if (success == false) { throw new InvalidOperationException( "Failed to upload file to backblaze." ); }
 
+
+            SqliteContext sqliteContext = GetSqliteContext( );
             BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
 
             if (b2TableData == null) {
@@ -74,6 +75,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
             tabledata.UsesBackBlazeB2 = true;
             sqliteContext.SaveChanges( );
+            ReleaseSqliteContext( );
 
             s_logger?.ILog?.Info( "UploadFileToB2 DB Data:" );
             s_logger?.ILog?.Info( b2TableData );

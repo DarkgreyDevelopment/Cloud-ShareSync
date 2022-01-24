@@ -11,7 +11,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             List<B2FileResponse> uploadedFileList
         ) {
             using Activity? activity = s_source.StartActivity(
-                "ValidateExistingUploads.CorrelateBackBlazeRecords" )?.Start( );
+                "CorrelateFilesToUploadRecords.CorrelateBackBlazeRecords" )?.Start( );
 
             s_logger?.ILog?.Info( "Correlating existing backblaze records." );
             s_logger?.ILog?.Info( $"Received a list of {uploadedFileList.Count} existing items from backblaze." );

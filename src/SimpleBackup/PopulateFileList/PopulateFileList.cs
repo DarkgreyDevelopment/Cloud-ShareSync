@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -9,6 +10,10 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             if (s_config?.SimpleBackup == null) { throw new InvalidDataException( "SimpleBackup config cannot be null" ); }
 
+
+            string txt = s_config.SimpleBackup.MonitorSubDirectories ? " recursively " : " ";
+            s_logger?.ILog?.Debug( $"Populating file list{txt}from root folder '{s_config?.SimpleBackup.RootFolder}'." );
+
             IEnumerable<string> files = s_config?.SimpleBackup.RootFolder == null ?
                 Enumerable.Empty<string>( ) :
                 Directory.EnumerateFiles(
@@ -18,17 +23,33 @@ namespace Cloud_ShareSync.SimpleBackup {
                         SearchOption.AllDirectories :
                         SearchOption.TopDirectoryOnly
                 );
-            int count = 0;
-            IEnumerable<string> enqueueFiles = ExcludeUnWantedPaths( files );
-            string fileCountFormat = $"D{enqueueFiles.Count( ).ToString( ).Length}";
 
-            foreach (string file in enqueueFiles) {
-                if (s_fileUploadQueue.Contains( file ) == false) {
-                    s_logger?.ILog?.Debug( $"Enqueueing File{count.ToString( fileCountFormat )}: {file}" );
-                    s_fileUploadQueue.Enqueue( file );
+
+            s_logger?.ILog?.Debug(
+                $"Discovered {files.Count( )} files under '{s_config?.SimpleBackup.RootFolder}'. " +
+                "Building file upload queue."
+            );
+            string fileCountFormat = $"D{files.Count( ).ToString( ).Length}";
+            int count = 0;
+            foreach (string path in files) {
+                bool includePath = true;
+                foreach (Regex pattern in s_excludePatterns) {
+                    if (pattern.Match( path ).Success) {
+                        includePath = false;
+                        break;
+                    }
+                }
+
+                if (includePath && s_fileUploadQueue.Contains( path ) == false) {
+                    s_logger?.ILog?.Debug( $"Enqueueing file{count.ToString( fileCountFormat )}: '{path}'" );
+                    s_fileUploadQueue.Enqueue( path );
+                } else {
+                    s_logger?.ILog?.Debug( $"  Skipping file{count.ToString( fileCountFormat )}: '{path}'" );
                 }
                 count++;
             }
+            s_logger?.ILog?.Debug( $"File upload queue contains {s_fileUploadQueue.Count} files." );
+
             activity?.Stop( );
         }
 

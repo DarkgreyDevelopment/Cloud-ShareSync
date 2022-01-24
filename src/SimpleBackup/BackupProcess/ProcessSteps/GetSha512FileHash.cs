@@ -8,8 +8,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             using Activity? activity = s_source.StartActivity( "GetSha512FileHash" )?.Start( );
 
             if (s_fileHash == null) {
-                s_logger?.ILog?.Info( "Initializing filehash." );
-                s_fileHash = new( s_logger?.ILog );
+                throw new InvalidOperationException( "Cannot get hash if filehash has not been initialized." );
             }
 
             s_logger?.ILog?.Info( $"Retrieving Sha512 file hash of '{path.FullName}'." );

@@ -31,5 +31,16 @@ namespace Cloud_ShareSync.SimpleBackup {
             return result;
         }
 
+        private static BackBlazeB2Table? TryGetBackBlazeB2Data( long? id ) {
+            using Activity? activity = s_source.StartActivity( "TryGetBackBlazeB2Data" )?.Start( );
+
+            SqliteContext sqliteContext = GetSqliteContext( );
+            BackBlazeB2Table? result = TryGetBackBlazeB2Data( id, sqliteContext );
+            ReleaseSqliteContext( );
+
+            activity?.Stop( );
+            return result;
+        }
+
     }
 }
