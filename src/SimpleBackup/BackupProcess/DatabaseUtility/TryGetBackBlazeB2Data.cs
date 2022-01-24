@@ -6,6 +6,15 @@ namespace Cloud_ShareSync.SimpleBackup {
 
     public partial class Program {
 
+        private static BackBlazeB2Table[] TryGetBackBlazeB2Data( string[] fileIds, SqliteContext sqliteContext ) {
+            using Activity? activity = s_source.StartActivity( "TryGetBackBlazeB2Data" )?.Start( );
+
+            BackBlazeB2Table[] result = sqliteContext.BackBlazeB2Data.Where( b => fileIds.Contains( b.FileID ) ).ToArray( );
+
+            activity?.Stop( );
+            return result;
+        }
+
         private static BackBlazeB2Table? TryGetBackBlazeB2Data( string fileId, SqliteContext sqliteContext ) {
             using Activity? activity = s_source.StartActivity( "TryGetBackBlazeB2Data" )?.Start( );
 

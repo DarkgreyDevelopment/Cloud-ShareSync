@@ -29,7 +29,6 @@ namespace Cloud_ShareSync.SimpleBackup {
                 $"Discovered {files.Count( )} files under '{s_config?.SimpleBackup.RootFolder}'. " +
                 "Building file upload queue."
             );
-            string fileCountFormat = $"D{files.Count( ).ToString( ).Length}";
             int count = 0;
             foreach (string path in files) {
                 bool includePath = true;
@@ -43,7 +42,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 if (includePath && s_fileUploadQueue.Contains( path ) == false) {
                     s_fileUploadQueue.Enqueue( path );
                 } else {
-                    s_logger?.ILog?.Debug( $"Skipping excluded file{count.ToString( fileCountFormat )}: '{path}'" );
+                    s_logger?.ILog?.Debug( $"Skipping excluded file: '{path}'" );
                 }
                 count++;
             }

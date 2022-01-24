@@ -76,6 +76,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 bool deQueue = validateHashMatch.TryDequeue(
                     out Tuple<string, BackBlazeB2Table, B2FileResponse>? b2Info );
                 if (deQueue && b2Info != null) {
+                    s_logger?.ILog?.Debug( $"Validate File Task{taskNum}-{count} Current Memory Usage: {GC.GetTotalMemory( true )}." );
                     string path = b2Info.Item1;
                     BackBlazeB2Table b2TableData = b2Info.Item2;
                     B2FileResponse b2File = b2Info.Item3;

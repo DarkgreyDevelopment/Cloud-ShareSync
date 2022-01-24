@@ -18,16 +18,18 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             SqliteContext sqliteContext = GetSqliteContext( );
 
+            string[] fileIds = uploadedFileList.Select( e => e.fileId ).ToArray( );
+            BackBlazeB2Table[] b2TableData = TryGetBackBlazeB2Data( fileIds, sqliteContext );
+            ReleaseSqliteContext( );
+
             List<Tuple<BackBlazeB2Table, B2FileResponse>> result = new( );
             foreach (B2FileResponse fr in uploadedFileList) {
-                BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( fr.fileId, sqliteContext );
-                if (b2TableData != null) {
-                    s_logger?.ILog?.Debug( $"Matched file id '{fr.fileId}' to b2 db record id {b2TableData.Id}." );
-                    result.Add( new( b2TableData, fr ) );
+                BackBlazeB2Table? b2DbEntry = b2TableData.Where( e => e.FileID == fr.fileId ).FirstOrDefault( );
+                if (b2DbEntry != null) {
+                    s_logger?.ILog?.Debug( $"Matched file id '{fr.fileId}' to b2 db record id {b2DbEntry.Id}." );
+                    result.Add( new( b2DbEntry, fr ) );
                 }
             }
-
-            ReleaseSqliteContext( );
 
             s_logger?.ILog?.Info( $"Associated {result.Count} backblaze files with previously uploaded items." );
             s_logger?.ILog?.Info( "Finished correlating existing backblaze records." );

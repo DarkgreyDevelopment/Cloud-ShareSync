@@ -27,7 +27,6 @@ namespace Cloud_ShareSync.SimpleBackup {
             );
         }
 
-
         private static PrimaryTable? TryGetTableDataForUpload(
             string uploadFileName,
             string uploadPath
@@ -47,6 +46,45 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             PrimaryTable? result = (from rec in sqliteContext.CoreData.AsParallel( ).AsOrdered( )
                                     where rec.FileName == uploadFileName && rec.UploadPath == uploadPath
+                                    select rec).FirstOrDefault( );
+            activity?.Stop( );
+            return result;
+        }
+
+        private static PrimaryTable[] TryGetTableDataForUpload( long[] ids ) {
+            SqliteContext sqliteContext = GetSqliteContext( );
+            PrimaryTable[] result = TryGetTableDataForUpload( ids, sqliteContext );
+            ReleaseSqliteContext( );
+            return result;
+        }
+
+        private static PrimaryTable[] TryGetTableDataForUpload(
+            long[] ids,
+            SqliteContext sqliteContext
+        ) {
+            using Activity? activity = s_source.StartActivity( "TryGetTableDataForUpload" )?.Start( );
+
+            PrimaryTable[] result = sqliteContext.CoreData.Where( b => ids.Contains( b.Id ) ).ToArray( );
+
+            activity?.Stop( );
+            return result;
+        }
+
+        private static PrimaryTable? TryGetTableDataForUpload( long id ) {
+            SqliteContext sqliteContext = GetSqliteContext( );
+            PrimaryTable? result = TryGetTableDataForUpload( id, sqliteContext );
+            ReleaseSqliteContext( );
+            return result;
+        }
+
+        private static PrimaryTable? TryGetTableDataForUpload(
+            long id,
+            SqliteContext sqliteContext
+        ) {
+            using Activity? activity = s_source.StartActivity( "TryGetTableDataForUpload" )?.Start( );
+
+            PrimaryTable? result = (from rec in sqliteContext.CoreData.AsParallel( ).AsOrdered( )
+                                    where rec.Id == id
                                     select rec).FirstOrDefault( );
             activity?.Stop( );
             return result;
