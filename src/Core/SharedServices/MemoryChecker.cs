@@ -3,34 +3,24 @@ using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.SharedServices {
 
-    internal static class SystemMemory {
-        public static long Total { get; set; }
-        public static long Consumed { get; set; }
+    public class SystemMemoryChecker {
+        public static long Total { get; private set; }
+        public static long Consumed { get; private set; }
         public static long Available => Total - Consumed;
-    }
 
-    public class MemoryChecker {
-        public static readonly Process Proc;
         private static ILogger? s_log;
 
-        static MemoryChecker( ) {
-            Proc = Process.GetCurrentProcess( );
-        }
-
-        public MemoryChecker( ILogger? log = null ) {
+        public SystemMemoryChecker( ILogger? log = null ) {
             s_log = log;
         }
 
         public static void Update( ) {
-            SystemMemory.Total = Proc.WorkingSet64;
-            SystemMemory.Consumed = GC.GetTotalMemory( true );
+            Total = Process.GetCurrentProcess( ).WorkingSet64;
+            Consumed = GC.GetTotalMemory( true );
 
-            string msg = "Memory Usage:\n" +
-                $"Total:     {SystemMemory.Total}\n" +
-                $"Consumed:  {SystemMemory.Consumed}\n" +
-                $"Available: {SystemMemory.Available}";
+            string msg = $"Memory Stats - Total: {Total}, Consumed: {Consumed}, Available: {Available}";
 
-            s_log?.LogInformation( "{string}", msg );
+            s_log?.LogDebug( "{string}", msg );
         }
     }
 }

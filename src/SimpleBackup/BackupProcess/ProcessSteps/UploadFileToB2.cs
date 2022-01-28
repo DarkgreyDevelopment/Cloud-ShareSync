@@ -49,7 +49,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                     count++;
 
                     if (count <= config.MaxConsecutiveErrors) {
-                        s_logger?.ILog?.Error( "Sleeping for a minute before retry." );
+                        s_logger?.ILog?.Error( "Sleeping for a minute before retrying." );
                         Thread.Sleep( 60000 );
                     }
                 }

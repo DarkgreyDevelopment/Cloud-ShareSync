@@ -12,8 +12,8 @@ namespace Cloud_ShareSync.SimpleBackup {
             ConfigureTelemetryLogger( s_config?.Log4Net );
             s_logger?.ILog?.Info( s_config?.ToString( ) );
 
-            _ = new MemoryChecker( s_logger ); // Configure MemoryChecker
-            MemoryChecker.Update( );
+            _ = new SystemMemoryChecker( s_logger ); // Configure SystemMemoryChecker
+            SystemMemoryChecker.Update( );
 
             if (s_config?.SimpleBackup == null) {
                 throw new InvalidDataException( "SimpleBackup configuration required." );

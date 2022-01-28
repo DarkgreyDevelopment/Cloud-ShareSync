@@ -33,27 +33,22 @@ namespace Cloud_ShareSync.Core.SharedServices {
             byte[] content,
             List<KeyValuePair<string, string>>? contentHeaders
         ) {
-            try {
-                HttpRequestMessage request = ClientUtilities.NewBackBlazeWebRequest(
-                    uri,
-                    method,
-                    credentials,
-                    content,
-                    contentHeaders
-                );
+            HttpRequestMessage request = ClientUtilities.NewBackBlazeWebRequest(
+                uri,
+                method,
+                credentials,
+                content,
+                contentHeaders
+            );
 
-                using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-                result.EnsureSuccessStatusCode( );
+            using HttpResponseMessage? result = await HttpClient.SendAsync( request );
+            result.EnsureSuccessStatusCode( );
 
-                using Stream? contentstream = await result.Content.ReadAsStreamAsync( );
+            using Stream? contentstream = await result.Content.ReadAsStreamAsync( );
 
-                return contentstream != null && contentstream.CanRead
-                    ? JsonDocument.Parse( contentstream ).RootElement :
-                    throw new InvalidB2Response( uri, new NullReferenceException( "B2_Response" ) );
-            } catch (Exception e) {
-                Console.Error.WriteLine( e );
-                throw;
-            }
+            return contentstream != null && contentstream.CanRead
+                ? JsonDocument.Parse( contentstream ).RootElement :
+                throw new InvalidB2Response( uri, new NullReferenceException( "B2_Response" ) );
         }
 
         public async Task SendStringContent(

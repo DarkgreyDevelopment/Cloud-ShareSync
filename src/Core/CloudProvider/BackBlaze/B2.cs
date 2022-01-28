@@ -169,6 +169,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             _log?.Debug( "NewSmallFileUpload Request: " + request.ToString( ) );
 
+            SystemMemoryChecker.Update( );
+
             JsonElement root = await GetBackBlazeGeneralClient( ).GetJsonResponse( request );
 
             // Set UploadObject values.
@@ -179,6 +181,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 );
             uploadObject.TotalBytesSent = data.Length;
             uploadObject.Sha1PartsList.Add( new( 0, uploadObject.CompleteSha1Hash ) );
+
+            SystemMemoryChecker.Update( );
 
             activity?.Stop( );
             return uploadObject;
@@ -265,8 +269,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             using Activity? activity = _source.StartActivity( "UploadLargeFilePart" )?.Start( );
             HttpRequestException? result;
             ThreadManager.ThreadStats[thread].Attempt++;
+            SystemMemoryChecker.Update( );
             result = await GetBackBlazeGeneralClient( ).B2UploadPart( upload );
-            if (result != null) { throw result; } else { ThreadManager.ThreadStats[thread].Success++; }
+            if (result != null) {
+                SystemMemoryChecker.Update( );
+                throw result;
+            } else { ThreadManager.ThreadStats[thread].Success++; }
 
             activity?.Stop( );
         }

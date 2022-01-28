@@ -26,11 +26,11 @@ namespace Cloud_ShareSync.Core.Compression {
             InterimZipname = config.InterimZipName.EndsWith( ".7z" ) ?
                                         config.InterimZipName :
                                         config.InterimZipName + ".7z";
-            MemoryChecker.Update( );
+            SystemMemoryChecker.Update( );
         }
 
         public static void DecompressPath( ) {
-            Console.WriteLine( $"{s_decompressionArguments}" );
+            s_log?.LogInformation( "{string}", s_decompressionArguments );
             throw new NotImplementedException( );
         }
 
@@ -56,7 +56,7 @@ namespace Cloud_ShareSync.Core.Compression {
             using Activity? activity = s_source.StartActivity( "CompressPath" )?.Start( );
 
             s_log?.LogInformation( "Compressing File '{string}'.", path.FullName );
-            MemoryChecker.Update( );
+            SystemMemoryChecker.Update( );
 
             string interimZipPath = GetInterimZipPath( workingDirectory );
             Process process = Create7zProcess(

@@ -63,7 +63,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             while (processedBytes < plaintextFile.Length) {
 
-                MemoryChecker.Update( );
+                SystemMemoryChecker.Update( );
 
                 byte[] plaintext = (chunkCount == uniqueNonces.Count) ?
                                     new byte[plaintextFile.Length - processedBytes] :
@@ -84,6 +84,8 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 processedBytes += plaintext.Length;
                 chunkCount++;
             }
+
+            SystemMemoryChecker.Update( );
 
             _log?.LogInformation( "CypherTextFile: '{string}'.", cypherTxtFile.FullName );
 
