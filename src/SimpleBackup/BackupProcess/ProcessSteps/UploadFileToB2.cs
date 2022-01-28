@@ -47,6 +47,11 @@ namespace Cloud_ShareSync.SimpleBackup {
                         s_logger?.ILog?.Error( "Error while uploading file to backblaze.", ex );
                     }
                     count++;
+
+                    if (count <= config.MaxConsecutiveErrors) {
+                        s_logger?.ILog?.Error( "Sleeping for a minute before retry." );
+                        Thread.Sleep( 60000 );
+                    }
                 }
             } while (count <= config.MaxConsecutiveErrors && success == false);
 

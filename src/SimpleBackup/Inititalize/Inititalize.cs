@@ -1,5 +1,6 @@
 ﻿using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration;
+using Cloud_ShareSync.Core.SharedServices;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -10,6 +11,9 @@ namespace Cloud_ShareSync.SimpleBackup {
             s_config = Config.GetConfiguration( args );
             ConfigureTelemetryLogger( s_config?.Log4Net );
             s_logger?.ILog?.Info( s_config?.ToString( ) );
+
+            _ = new MemoryChecker( s_logger ); // Configure MemoryChecker
+            MemoryChecker.Update( );
 
             if (s_config?.SimpleBackup == null) {
                 throw new InvalidDataException( "SimpleBackup configuration required." );

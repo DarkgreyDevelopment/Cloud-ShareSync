@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.Configuration.Types.Features;
 using Microsoft.Extensions.Logging;
+using Cloud_ShareSync.Core.SharedServices;
 
 namespace Cloud_ShareSync.Core.Compression {
     public static class CompressionInterface {
@@ -25,6 +26,7 @@ namespace Cloud_ShareSync.Core.Compression {
             InterimZipname = config.InterimZipName.EndsWith( ".7z" ) ?
                                         config.InterimZipName :
                                         config.InterimZipName + ".7z";
+            MemoryChecker.Update( );
         }
 
         public static void DecompressPath( ) {
@@ -54,8 +56,7 @@ namespace Cloud_ShareSync.Core.Compression {
             using Activity? activity = s_source.StartActivity( "CompressPath" )?.Start( );
 
             s_log?.LogInformation( "Compressing File '{string}'.", path.FullName );
-            long memUsage = GC.GetTotalMemory( true );
-            s_log?.LogDebug( "Current Memory Usage: {long}.", memUsage );
+            MemoryChecker.Update( );
 
             string interimZipPath = GetInterimZipPath( workingDirectory );
             Process process = Create7zProcess(

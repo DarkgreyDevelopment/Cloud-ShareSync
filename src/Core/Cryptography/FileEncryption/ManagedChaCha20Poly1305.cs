@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
+using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
@@ -62,8 +63,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             while (processedBytes < plaintextFile.Length) {
 
-                long memUsage = GC.GetTotalMemory( true );
-                _log?.LogDebug( "Current Memory Usage: {long}.", memUsage );
+                MemoryChecker.Update( );
 
                 byte[] plaintext = (chunkCount == uniqueNonces.Count) ?
                                     new byte[plaintextFile.Length - processedBytes] :

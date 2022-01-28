@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.Database.Entities;
+using Cloud_ShareSync.Core.SharedServices;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -76,7 +77,8 @@ namespace Cloud_ShareSync.SimpleBackup {
                 bool deQueue = validateHashMatch.TryDequeue(
                     out Tuple<string, BackBlazeB2Table, B2FileResponse>? b2Info );
                 if (deQueue && b2Info != null) {
-                    s_logger?.ILog?.Debug( $"Validate File Task{taskNum}-{count} Current Memory Usage: {GC.GetTotalMemory( true )}." );
+                    s_logger?.ILog?.Debug( $"Validate File Task{taskNum}-{count}" );
+                    MemoryChecker.Update( );
                     string path = b2Info.Item1;
                     BackBlazeB2Table b2TableData = b2Info.Item2;
                     B2FileResponse b2File = b2Info.Item3;
