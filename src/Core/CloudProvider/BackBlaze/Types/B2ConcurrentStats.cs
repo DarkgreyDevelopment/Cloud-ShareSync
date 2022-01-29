@@ -1,7 +1,7 @@
 ﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class B2ConcurrentStats {
         public B2ConcurrentStats( int available ) {
-            _semaphore.Release(1);
+            _semaphore.Release( 1 );
             Available = available;
             _started = new( );
             _active = new( );
@@ -26,10 +26,18 @@
         public int Completed => _completed.Count;
         private readonly List<int> _completed;
 
+        public int HighWaterActive { get; private set; } = 0;
+        public int HighWaterSleeping { get; private set; } = 0;
+
+
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
 
-        public int HighWaterActive => Active >= HighWaterActive ? Active : HighWaterActive;
-        public int HighWaterSleeping => Sleeping >= HighWaterSleeping ? Sleeping : HighWaterSleeping;
+        private void SetHighWaterMarks( ) {
+            _semaphore.Wait( );
+            HighWaterActive = Active > HighWaterActive ? Active : HighWaterActive;
+            HighWaterSleeping = Sleeping > HighWaterSleeping ? Sleeping : HighWaterSleeping;
+            _semaphore.Release( );
+        }
 
         public override string ToString( ) {
             return "\n" +
@@ -68,6 +76,7 @@
         }
 
         internal void StartThread( int thread ) {
+            SetHighWaterMarks( );
             _semaphore.Wait( );
             bool threadStarted = _started.Contains( thread ) || _active.Contains( thread );
             _semaphore.Release( );
@@ -82,6 +91,7 @@
         }
 
         internal void ThreadActive( int thread ) {
+            SetHighWaterMarks( );
             _semaphore.Wait( );
             bool threadActive = _active.Contains( thread );
             _semaphore.Release( );
@@ -96,6 +106,7 @@
         }
 
         internal void ThreadSleeping( int thread ) {
+            SetHighWaterMarks( );
             RemoveStarted( thread );
             RemoveActive( thread );
             _semaphore.Wait( );
@@ -104,6 +115,7 @@
         }
 
         internal void FailThread( int thread ) {
+            SetHighWaterMarks( );
             RemoveStarted( thread );
             RemoveActive( thread );
             RemoveSleeping( thread );
@@ -114,6 +126,7 @@
         }
 
         internal void ThreadCompleted( int thread ) {
+            SetHighWaterMarks( );
             _semaphore.Wait( );
             bool threadSleeping = _sleeping.Contains( thread );
             _semaphore.Release( );
