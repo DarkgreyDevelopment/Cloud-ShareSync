@@ -1,18 +1,17 @@
-﻿using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
-using log4net;
+﻿using log4net;
 
-namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
-#nullable disable
+namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class B2ThreadManager {
         public int ActiveThreadCount { get; private set; }
         public const int MinimumThreadCount = 1;
         public readonly int MaximumThreadCount;
         public readonly UploadThreadStatistic[] ThreadStats;
         public readonly FailureInfo[] FailureDetails;
+        public readonly List<B2ConcurrentStats> ConcurrencyStats;
 
-        private readonly ILog _log;
+        private readonly ILog? _log;
 
-        public B2ThreadManager( ILog log, int maxThreads ) {
+        public B2ThreadManager( ILog? log, int maxThreads ) {
             _log = log;
             MaximumThreadCount = maxThreads > 0 ? maxThreads : 1;
             ActiveThreadCount = MaximumThreadCount;
@@ -25,6 +24,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
             FailureDetails = failureDetails.ToArray( );
             ThreadStats = threadStats.ToArray( );
+            ConcurrencyStats = new( );
         }
 
         public void ShowThreadStatistics( bool? formatTable = null ) {

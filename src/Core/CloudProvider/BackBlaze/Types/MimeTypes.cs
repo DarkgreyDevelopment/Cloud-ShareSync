@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
+namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal static class MimeType {
 
         private static readonly ActivitySource s_source = new( "MimeType" );

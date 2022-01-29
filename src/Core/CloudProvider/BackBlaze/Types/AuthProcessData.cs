@@ -57,7 +57,7 @@
                     new NullReferenceException( nameof( DownloadUrl ) )
                 );
             }
-            if (RecommendedPartSize == null) {
+            if (RecommendedPartSize == null || RecommendedPartSize == 0) {
                 throw new InvalidB2Response(
                     B2.AuthorizationURI,
                     new NullReferenceException( nameof( RecommendedPartSize ) )

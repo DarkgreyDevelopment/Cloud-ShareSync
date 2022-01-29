@@ -28,35 +28,12 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
 
             s_logger?.ILog?.Info( "Uploading File To BackBlaze." );
-            int count = 1;
-            bool success = false;
-            string fileId = "";
-            do {
-                try {
-                    fileId = await s_backBlaze.UploadFile(
+            string fileId = await s_backBlaze.UploadFile(
                         uploadFile,
                         fileName,
                         uploadPath,
                         sha512Hash
                     );
-                    success = true;
-                } catch (Exception ex) {
-                    if (count == config.MaxConsecutiveErrors) {
-                        s_logger?.ILog?.Fatal( "Failed to upload file to backblaze.", ex );
-                    } else {
-                        s_logger?.ILog?.Error( "Error while uploading file to backblaze.", ex );
-                    }
-                    count++;
-
-                    if (count <= config.MaxConsecutiveErrors) {
-                        s_logger?.ILog?.Error( "Sleeping for a minute before retrying." );
-                        Thread.Sleep( 60000 );
-                    }
-                }
-            } while (count <= config.MaxConsecutiveErrors && success == false);
-
-            if (success == false) { throw new InvalidOperationException( "Failed to upload file to backblaze." ); }
-
 
             SqliteContext sqliteContext = GetSqliteContext( );
             BackBlazeB2Table? b2TableData = TryGetBackBlazeB2Data( tabledata.Id, sqliteContext );
