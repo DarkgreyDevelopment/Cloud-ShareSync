@@ -56,21 +56,16 @@ namespace Cloud_ShareSync.SimpleBackup.BackupService {
         public async Task Process( FileInfo uploadFile, string uploadPath, PrimaryTable tabledata ) {
             using Activity? activity = _source.StartActivity( "UploadFileProcess" )?.Start( );
 
-            FileInfo originalUploadFile = uploadFile;
-
             // Determine whether to copy file to the working dir for processing.
             uploadFile = CopyFileToWorkingDir( uploadFile );
 
-            // Get Sha 512 FileHash
-            string sha512filehash = await GetSha512FileHash( uploadFile );
-
             // Conditionally encrypt file before upload.
-            uploadFile = await EncryptFile( uploadFile, sha512filehash, tabledata );
+            uploadFile = await EncryptFile( uploadFile, tabledata );
 
             // Conditionally compress file before upload.
             uploadFile = CompressFile( uploadFile, tabledata );
 
-            await SetUploadFileHash( originalUploadFile, uploadFile, tabledata, sha512filehash );
+            string sha512filehash = await SetUploadFileHash( uploadFile, tabledata );
 
             // Upload File.
             await UploadFileToB2(
@@ -105,20 +100,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackupService {
             return result;
         }
 
-        private async Task<string> GetSha512FileHash( FileInfo uploadFile ) {
-            using Activity? activity = _source.StartActivity( "GetSha512FileHash" )?.Start( );
-
-            _log?.LogInformation( "Retrieving Sha512 hash of '{string}'.", uploadFile.FullName );
-            string sha512filehash = await _fileHash.GetSha512FileHash( uploadFile );
-            if (_backupConfig.ObfuscateUploadedFileNames) {
-                sha512filehash = _fileHash.GetSha512StringHash( sha512filehash );
-            }
-
-            activity?.Stop( );
-            return sha512filehash;
-        }
-
-        private async Task<FileInfo> EncryptFile( FileInfo uploadFile, string sha512filehash, PrimaryTable tabledata ) {
+        private async Task<FileInfo> EncryptFile( FileInfo uploadFile, PrimaryTable tabledata ) {
             using Activity? activity = _source.StartActivity( "EncryptFile" )?.Start( );
             _log?.LogInformation( "Encrypting file '{string}'.", uploadFile.FullName );
 
@@ -128,7 +110,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackupService {
                 if (_crypto == null) {
                     throw new InvalidOperationException( "Cannot encrypt if managed crypto provider is null." );
                 }
-                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, sha512filehash ) );
+                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, "encryptedFile.enc" ) );
 
                 byte[] key = RandomNumberGenerator.GetBytes( 32 );
                 DecryptionData data = await _crypto.Encrypt( key, uploadFile, cypherTxtFile, null );
@@ -202,26 +184,22 @@ namespace Cloud_ShareSync.SimpleBackup.BackupService {
             return result;
         }
 
-        private async Task SetUploadFileHash(
-            FileInfo originalUploadFile,
-            FileInfo uploadFile,
-            PrimaryTable tabledata,
-            string sha512filehash
-        ) {
+        private async Task<string> SetUploadFileHash( FileInfo uploadFile, PrimaryTable tabledata ) {
             using Activity? activity = _source.StartActivity( "SetUploadFileHash" )?.Start( );
 
-            if (uploadFile == originalUploadFile) {
-                tabledata.UploadedFileHash = sha512filehash;
-            } else {
-                _log?.LogInformation( "Upload file has been compressed or encrypted retrieving updated Sha512 hash." );
-                tabledata.UploadedFileHash = await GetSha512FileHash( uploadFile );
+            string sha512filehash = await _fileHash.GetSha512FileHash( uploadFile );
+            if (_backupConfig.ObfuscateUploadedFileNames) {
+                sha512filehash = _fileHash.GetSha512StringHash( sha512filehash );
             }
+            tabledata.UploadedFileHash = sha512filehash;
+
             SqliteContext sqliteContext = GetSqliteContext( );
             sqliteContext.Update( tabledata );
             sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
 
             activity?.Stop( );
+            return sha512filehash;
         }
 
         private async Task UploadFileToB2(
