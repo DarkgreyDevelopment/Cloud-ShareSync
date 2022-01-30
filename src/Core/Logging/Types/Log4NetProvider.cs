@@ -5,11 +5,11 @@ namespace Cloud_ShareSync.Core.Logging.Types {
 #nullable disable
     public class Log4NetProvider : ILoggerProvider {
 
-        readonly TelemetryLogger _logger;
+        readonly ILogger _logger;
 
         private readonly ConcurrentDictionary<string, ILogger> _loggers = new( );
 
-        public Log4NetProvider( TelemetryLogger logger ) { _logger = logger; }
+        public Log4NetProvider( ILogger logger ) { _logger = logger; }
 
         public ILogger CreateLogger( string categoryName ) {
             return _loggers.GetOrAdd( categoryName, CreateLoggerImplementation );

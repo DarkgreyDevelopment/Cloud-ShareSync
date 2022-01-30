@@ -1,4 +1,6 @@
-﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
+﻿using Microsoft.Extensions.Logging;
+
+namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
     internal partial class B2 {
 
@@ -47,9 +49,9 @@
             }
 
             if (errCount < _applicationData.MaxErrors) {
-                _log?.Info( logMessage );
+                _log?.LogInformation( "{string}", logMessage );
             } else {
-                _log?.Error( logMessage );
+                _log?.LogError( "{string}", logMessage );
             }
         }
 

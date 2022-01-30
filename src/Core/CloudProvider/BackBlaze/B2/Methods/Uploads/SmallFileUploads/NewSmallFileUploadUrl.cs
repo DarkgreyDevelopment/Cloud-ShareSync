@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -22,7 +23,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 null
             );
 
-            _log?.Debug( $"NewSmallFileUploadUrl Response: {root}" );
+            _log?.LogDebug( "NewSmallFileUploadUrl Response: {string}", root );
 
             uploadObject.UploadUrl =
                 root.GetProperty( "uploadUrl" ).GetString( ) ??

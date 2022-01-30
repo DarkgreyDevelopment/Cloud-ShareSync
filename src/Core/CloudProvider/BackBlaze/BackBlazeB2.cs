@@ -3,26 +3,23 @@ using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.CloudProvider.Interface;
 using Cloud_ShareSync.Core.Configuration.Types.Cloud;
 using Cloud_ShareSync.Core.Cryptography;
-using Cloud_ShareSync.Core.Logging;
-using log4net;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
     public class BackBlazeB2 : ICloudProvider {
 
         private static readonly ActivitySource s_source = new( "BackBlazeB2.PublicInterface" );
-        private readonly ILog? _log;
         private readonly B2? _b2Api;
         private readonly FileHash? _fileHash;
-        private readonly TelemetryLogger? _logger;
+        private readonly ILogger? _logger;
         private readonly int _maxErrors;
 
         public BackBlazeB2(
             B2Config config,
-            TelemetryLogger? logger = null
+            ILogger? logger = null
         ) {
             _logger = logger;
-            _log = logger?.ILog;
-            _fileHash = new FileHash( _log );
+            _fileHash = new FileHash( _logger );
             _maxErrors = (config.MaxConsecutiveErrors <= 0) ? 1 : config.MaxConsecutiveErrors; // Requires a minimum of 1.
             _b2Api = new(
                 config.ApplicationKeyId,
@@ -65,15 +62,15 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     success = true;
                 } catch (Exception ex) {
                     if (count == _maxErrors) {
-                        _log?.Fatal( "Failed to upload file to backblaze.", ex );
+                        _logger?.LogCritical( "Failed to upload file to backblaze.", ex );
                         throw;
                     } else {
-                        _log?.Error( "Error while uploading file to backblaze.", ex );
+                        _logger?.LogError( "Error while uploading file to backblaze.", ex );
                     }
                     count++;
 
                     if (count < _maxErrors) {
-                        _log?.Error( "Sleeping for a minute before retrying." );
+                        _logger?.LogError( "Sleeping for a minute before retrying." );
                         Thread.Sleep( 60000 );
                     }
                 }
@@ -110,18 +107,18 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (string.IsNullOrWhiteSpace( download.FileId ) == false) {
                 B2DownloadResponse response = await b2Api.DownloadFileID( download.FileId, download.OutputPath );
-                _log?.Debug( "Download Response:" + response );
+                _logger?.LogDebug( "Download Response: {string}", response );
                 if (string.IsNullOrWhiteSpace( response.Sha1FileHash ) == false) {
                     string downloadedSha1Hash = _fileHash.GetSha1FileHash( response.OutputPath.FullName );
                     if (response.Sha1FileHash != downloadedSha1Hash) {
-                        _log?.Error( "Downloaded filehash does not match Sha1 hash from backblaze." );
+                        _logger?.LogError( "Downloaded filehash does not match Sha1 hash from backblaze." );
                         return false;
                     } else {
-                        _log?.Info( "File downloaded successfully." );
+                        _logger?.LogInformation( "File downloaded successfully." );
                         response.OutputPath.LastWriteTime = response.LastModified;
                     }
                 } else {
-                    _log?.Warn( "Download completed. Unable to verify downloaded content." );
+                    _logger?.LogWarning( "Download completed. Unable to verify downloaded content." );
                 }
             } else {
                 throw new NotImplementedException( "FileName downloads not implemented yet." );

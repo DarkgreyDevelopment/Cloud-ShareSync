@@ -2,6 +2,7 @@
 using System.Text.Json;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.SharedServices;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -39,7 +40,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             request.Content.Headers.Add( "X-Bz-Info-src_last_modified_millis", dto );
             request.Content.Headers.Add( "X-Bz-Info-sha512_filehash", uploadObject.CompleteSha512Hash );
 
-            _log?.Debug( "NewSmallFileUpload Request: " + request.ToString( ) );
+            _log?.LogDebug( "NewSmallFileUpload Request: {string}", request.ToString( ) );
 
             SystemMemoryChecker.Update( );
 

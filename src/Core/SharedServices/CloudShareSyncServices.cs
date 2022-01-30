@@ -1,5 +1,4 @@
 ﻿using Cloud_ShareSync.Core.Database.Sqlite;
-using Cloud_ShareSync.Core.Logging;
 using Cloud_ShareSync.Core.Logging.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +10,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
         public CloudShareSyncServices(
             string? dbPath,
-            TelemetryLogger? logger
+            ILogger? logger
         ) {
             ServiceCollection services = new( );
 
@@ -24,7 +23,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
         public CloudShareSyncServices(
             int? uploadThreads,
-            TelemetryLogger? logger
+            ILogger? logger
         ) {
             ServiceCollection services = new( );
 
@@ -38,7 +37,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
         public CloudShareSyncServices(
             string? dbPath,
             int? uploadThreads,
-            TelemetryLogger? logger
+            ILogger? logger
         ) {
             ServiceCollection services = new( );
 
@@ -79,7 +78,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
         private static void AddLoggingProvider(
             ServiceCollection services,
-            TelemetryLogger? logger
+            ILogger? logger
         ) {
             if (logger != null)
                 services.AddLogging( loggerBuilder => {

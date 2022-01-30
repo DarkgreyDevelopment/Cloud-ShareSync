@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -16,7 +17,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             List<bool> statusList = new( );
             foreach (Task<bool> task in tasks) {
                 if (task.Exception != null || task.IsCanceled || task.IsCompletedSuccessfully != true) {
-                    _log?.Error( "Task was not successful." );
+                    _log?.LogError( "Task was not successful." );
                     success = false;
 
                     if (task.Exception != null) {
@@ -41,11 +42,11 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                             logMessage += $"\nStackTrace    : {exception.StackTrace}";
                             logMessage += $"\nInnerException: {exception.InnerException}\n";
                         }
-                        _log?.Error( logMessage );
+                        _log?.LogError( "{string}", logMessage );
                     } else {
-                        _log?.Error( "There was no exception." );
-                        _log?.Error( $"task.IsCompletedSuccessfully: {task.IsCompletedSuccessfully}" );
-                        _log?.Error( $"task.IsCanceled: {task.IsCanceled}." );
+                        _log?.LogError( "There was no exception." );
+                        _log?.LogError( "task.IsCompletedSuccessfully: {string}", task.IsCompletedSuccessfully );
+                        _log?.LogError( "task.IsCanceled: {string}.", task.IsCanceled );
                     }
                 } else {
                     statusList.Add( task.Result );

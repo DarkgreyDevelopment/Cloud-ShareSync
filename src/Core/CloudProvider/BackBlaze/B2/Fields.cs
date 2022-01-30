@@ -3,14 +3,14 @@ using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.SharedServices;
-using log4net;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
     internal partial class B2 {
 
         private readonly ActivitySource _source = new( "B2" );
-        private readonly ILog? _log;
+        private readonly ILogger? _log;
 
         // Configuration vars
         internal const string AuthorizationURI = "https://api.backblazeb2.com/b2api/v2/b2_authorize_account";

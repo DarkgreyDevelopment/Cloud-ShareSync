@@ -1,4 +1,6 @@
-﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
+﻿using Microsoft.Extensions.Logging;
+
+namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
     internal partial class B2 {
 
@@ -8,7 +10,7 @@
         ) {
             switch (statusCode) {
                 case 403:
-                    _log?.Fatal( webExcp.Message );
+                    _log?.LogCritical( "{string}", webExcp.Message );
                     throw new Exception( "Received StatusCode 403.", webExcp );
                 default:
                     break;

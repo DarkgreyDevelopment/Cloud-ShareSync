@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Cloud_ShareSync.Core.Configuration.Types.Features;
 using Cloud_ShareSync.Core.Database.Sqlite;
 using Cloud_ShareSync.Core.SharedServices;
 
@@ -6,12 +7,10 @@ namespace Cloud_ShareSync.SimpleBackup {
 
     public partial class Program {
 
-        private static void ConfigureDatabase( ) {
+        private static void ConfigureDatabase( DatabaseConfig config ) {
             using Activity? activity = s_source.StartActivity( "Initialize.ConfigureDatabase" )?.Start( );
 
-            if (s_config?.Database == null) { throw new InvalidDataException( "Database configuration required." ); }
-
-            s_services = new CloudShareSyncServices( s_config.Database.SqliteDBPath, s_logger );
+            s_services = new CloudShareSyncServices( config.SqliteDBPath, s_logger );
 
             s_semaphore.Release( 1 ); // Ensure we can enter the semaphore.
             SqliteContext sqliteContext = GetSqliteContext( );

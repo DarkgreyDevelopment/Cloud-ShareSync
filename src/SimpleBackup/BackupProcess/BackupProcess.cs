@@ -37,8 +37,31 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
             while (s_fileUploadQueue.IsEmpty == false) {
                 bool deQueue = s_fileUploadQueue.TryDequeue( out string? path );
+                if (deQueue && path != null) {
+                    if (s_config?.SimpleBackup == null || s_config?.BackBlaze == null || s_uploadProcess == null) {
+                        throw new InvalidOperationException(
+                            "Cannot perform upload process if backup/backblaze configs are null."
+                        );
+                    }
 
-                if (deQueue && path != null) { await UploadFileProcess( path ); }
+                    FileInfo uploadFile = new( path );
+                    string uploadPath = Path.GetRelativePath( s_config.SimpleBackup.RootFolder, path );
+
+                    // Get Sha 512 FileHash
+                    string sha512filehash = await GetSha512FileHash( uploadFile );
+
+                    // Get Primary Table Data/Create new Primary Table Entry.
+                    PrimaryTable? tabledata = TryGetTableDataForUpload( uploadFile.Name, uploadPath );
+                    if (tabledata == null) {
+                        tabledata = NewTableData( uploadFile, uploadPath, sha512filehash );
+                    } else if (await ShouldUpload( tabledata, sha512filehash ) == false) {
+                        s_logger?.ILog?.Info( "File already exists in backblaze. Skipping upload." );
+                        activity?.Stop( );
+                        return;
+                    }
+
+                    await s_uploadProcess.Process( uploadFile, uploadPath, tabledata );
+                }
             }
 
             activity?.Stop( );

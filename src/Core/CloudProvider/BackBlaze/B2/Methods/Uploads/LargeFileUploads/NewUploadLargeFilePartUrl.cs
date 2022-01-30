@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -20,7 +21,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 data,
                 null
             );
-            _log?.Debug( $"NewUploadLargeFilePartUrl Response: {root}" );
+            _log?.LogDebug( "NewUploadLargeFilePartUrl Response: {string}", root );
 
             uploadObject.FileId =
                 root.GetProperty( "fileId" ).GetString( ) ??
@@ -34,7 +35,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 root.GetProperty( "uploadUrl" ).GetString( ) ??
                 throw new InvalidB2Response( uploadUri, new NullReferenceException( "UploadUrl" ) );
 
-            _log?.Debug( $"UploadUrl: {uploadObject.UploadUrl}" );
+            _log?.LogDebug( "UploadUrl: {string}", uploadObject.UploadUrl );
 
             activity?.Stop( );
             return uploadObject;

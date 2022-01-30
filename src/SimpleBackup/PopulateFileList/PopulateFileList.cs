@@ -1,55 +1,68 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
+using Cloud_ShareSync.Core.Configuration.Types;
+using log4net;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
     public partial class Program {
 
-        private static void PopulateFileList( ) {
+        private static void PopulateFileList(
+            ConcurrentQueue<string> fileUploadQueue,
+            Regex[] excludePatterns,
+            BackupConfig config,
+            ILog? log = null
+        ) {
             using Activity? activity = s_source.StartActivity( "PopulateFileList" )?.Start( );
 
-            if (s_config?.SimpleBackup == null) { throw new InvalidDataException( "SimpleBackup config cannot be null" ); }
+            IEnumerable<string> files = EnumerateRootFolder( config, log );
 
-
-            string txt = s_config.SimpleBackup.MonitorSubDirectories ? " recursively " : " ";
-            s_logger?.ILog?.Debug( $"Populating file list{txt}from root folder '{s_config?.SimpleBackup.RootFolder}'." );
-
-            IEnumerable<string> files = s_config?.SimpleBackup.RootFolder == null ?
-                Enumerable.Empty<string>( ) :
-                Directory.EnumerateFiles(
-                    s_config.SimpleBackup.RootFolder,
-                    "*",
-                    s_config.SimpleBackup.MonitorSubDirectories ?
-                        SearchOption.AllDirectories :
-                        SearchOption.TopDirectoryOnly
-                );
-
-
-            s_logger?.ILog?.Debug(
-                $"Discovered {files.Count( )} files under '{s_config?.SimpleBackup.RootFolder}'. " +
-                "Building file upload queue."
-            );
+            log?.Info( "Building file upload queue." );
             int count = 0;
             foreach (string path in files) {
                 bool includePath = true;
-                foreach (Regex pattern in s_excludePatterns) {
+                foreach (Regex pattern in excludePatterns) {
                     if (pattern.Match( path ).Success) {
                         includePath = false;
                         break;
                     }
                 }
 
-                if (includePath && s_fileUploadQueue.Contains( path ) == false) {
-                    s_fileUploadQueue.Enqueue( path );
+                if (includePath && fileUploadQueue.Contains( path ) == false) {
+                    fileUploadQueue.Enqueue( path );
                 } else {
-                    s_logger?.ILog?.Debug( $"Skipping excluded file: '{path}'" );
+                    log?.Debug( $"Skipping excluded file: '{path}'" );
                 }
                 count++;
             }
-            s_logger?.ILog?.Debug( $"File upload queue contains {s_fileUploadQueue.Count} files." );
 
+            log?.Info( $"File upload queue contains {fileUploadQueue.Count} files." );
             activity?.Stop( );
         }
 
+        private static IEnumerable<string> EnumerateRootFolder(
+            BackupConfig config,
+            ILog? log = null
+        ) {
+            using Activity? activity = s_source.StartActivity( "EnumerateRootFolder" )?.Start( );
+
+            string txt = config.MonitorSubDirectories ? " recursively " : " ";
+            log?.Info( $"Populating file list{txt}from root folder '{config.RootFolder}'." );
+
+            IEnumerable<string> files = config.RootFolder == null ?
+                Enumerable.Empty<string>( ) :
+                Directory.EnumerateFiles(
+                    config.RootFolder,
+                    "*",
+                    config.MonitorSubDirectories ?
+                        SearchOption.AllDirectories :
+                        SearchOption.TopDirectoryOnly
+                );
+            log?.Info( $"Discovered {files.Count( )} files under '{config.RootFolder}'." );
+
+            activity?.Stop( );
+            return files;
+        }
     }
 }

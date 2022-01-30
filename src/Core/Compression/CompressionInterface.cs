@@ -21,8 +21,8 @@ namespace Cloud_ShareSync.Core.Compression {
             s_log = log;
             s_dependencyPath = new( config.DependencyPath );
             WorkingDirectory = new( config.InterimZipPath );
-            s_compressionArguments = config.DeCompressionCmdlineArgs;
-            s_decompressionArguments = config.CompressionCmdlineArgs;
+            s_compressionArguments = config.CompressionCmdlineArgs;
+            s_decompressionArguments = config.DeCompressionCmdlineArgs;
             InterimZipname = config.InterimZipName.EndsWith( ".7z" ) ?
                                         config.InterimZipName :
                                         config.InterimZipName + ".7z";

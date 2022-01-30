@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -34,7 +35,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 data,
                 null
             );
-            _log?.Debug( $"NewStartLargeFileURL Response: {root}" );
+            _log?.LogDebug( "NewStartLargeFileURL Response: {string}", root );
 
             uploadObject.FileId =
                 root.GetProperty( "fileId" ).GetString( ) ??

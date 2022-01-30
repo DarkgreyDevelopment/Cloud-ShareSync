@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -29,19 +30,18 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             bool smallFileUpload = upload.FilePath.Length < minimumLargeFileSize;
 
             if (smallFileUpload) {
-                _log?.Debug( "Getting Small File Upload Url" );
+                _log?.LogDebug( "Getting Small File Upload Url" );
                 upload = await NewSmallFileUploadUrl( upload );
-                _log?.Debug( upload );
+                _log?.LogDebug( "{string}", upload );
 
-                _log?.Debug( "Uploading Small File to Backblaze" );
+                _log?.LogDebug( "Uploading Small File to Backblaze" );
                 upload = await NewSmallFileUpload( upload );
             } else /* Large File Upload */ {
-                // Get FileId.
-                _log?.Debug( "Getting FileId For Large File." );
+                _log?.LogDebug( "Getting FileId For Large File." );
                 upload = await NewStartLargeFileURL( upload );
-                _log?.Debug( upload );
+                _log?.LogDebug( "{string}", upload );
 
-                _log?.Info( "Uploading Large File to Backblaze." );
+                _log?.LogInformation( "Uploading Large File to Backblaze." );
                 upload = await NewLargeFileUpload( upload );
             }
             activity?.Stop( );

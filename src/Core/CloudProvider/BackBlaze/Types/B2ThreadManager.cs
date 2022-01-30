@@ -1,4 +1,4 @@
-﻿using log4net;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class B2ThreadManager {
@@ -9,9 +9,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
         public readonly FailureInfo[] FailureDetails;
         public readonly List<B2ConcurrentStats> ConcurrencyStats;
 
-        private readonly ILog? _log;
+        private readonly ILogger? _log;
 
-        public B2ThreadManager( ILog? log, int maxThreads ) {
+        public B2ThreadManager( ILogger? log, int maxThreads ) {
             _log = log;
             MaximumThreadCount = maxThreads > 0 ? maxThreads : 1;
             ActiveThreadCount = MaximumThreadCount;
@@ -73,14 +73,13 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 string sleepTimerCountPad = sleepTimerCountColumnLength - sleepTimerCountStringLength > 0 ?
                     new( ' ', sleepTimerCountColumnLength - sleepTimerCountStringLength ) : "";
 
-                _log?.Debug(
+                _log?.LogDebug(
                     "| Thread | Attempts | Success | Success% | Failure | Failure%" +
                     " | SleepTimerCount | AverageSleepTimerLength | SecondsAsleepPerSuccess"
                 );
                 foreach (UploadThreadStatistic stat in ThreadStats) {
                     string secsAsleep = stat.AverageSecondsAsleepPerSuccess.ToString( "####0.0##" );
-                    _log?.Debug(
-                        "| " +
+                    string msg = "| " +
                         stat.Thread.ToString( $"D{threadStringLength}" ) + threadPad + "| " +
                         stat.Attempt.ToString( $"D{attemptStringLength}" ) + attemptPad + "| " +
                         stat.Success.ToString( $"D{successStringLength}" ) + successPad + "| " +
@@ -89,8 +88,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                         stat.FailurePercentage.ToString( decFormat ) + new string( ' ', failurePercentageColumnLength - decFormat.Length ) + "| " +
                         stat.SleepTimerCount.ToString( $"D{sleepTimerCountStringLength}" ) + sleepTimerCountPad + "| " +
                         stat.SleepTimerAverage.ToString( decFormat ) + new string( ' ', averageSleepTimerColumnLength - decFormat.Length ) + "| " +
-                        secsAsleep + new string( ' ', secondsAsleepPerSuccessColumnLength - secsAsleep.Length )
-                    );
+                        secsAsleep + new string( ' ', secondsAsleepPerSuccessColumnLength - secsAsleep.Length );
+                    _log?.LogDebug( "{string}", msg );
                 }
             } else {
                 string stats = "{\n  \"ThreadStats\": [\n";
@@ -99,7 +98,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 }
                 stats = stats.TrimEnd( '\n' ).TrimEnd( ',' );
                 stats += "\n  ]\n}";
-                _log?.Debug( stats );
+                _log?.LogDebug( "{string}", stats );
             }
         }
     }

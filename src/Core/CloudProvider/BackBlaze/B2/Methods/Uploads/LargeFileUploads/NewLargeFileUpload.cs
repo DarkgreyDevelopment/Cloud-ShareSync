@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -21,9 +22,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                                 totalParts :
                                 ThreadManager.ActiveThreadCount;
             B2ConcurrentStats concurrencyStats = new( threadCount );
-            _log?.Info( "Uploading Large File Parts Async" );
-            _log?.Info( $"Splitting file into {totalParts - 1} {recSize} byte chunks and 1 {finalLength} chunk." );
-            _log?.Info( $"Chunks will be uploaded asyncronously via {threadCount} upload streams." );
+            _log?.LogInformation( "Uploading Large File Parts Async" );
+            _log?.LogInformation( "Splitting file into {int} {int} byte chunks and 1 {int} chunk.", totalParts - 1, recSize, finalLength );
+            _log?.LogInformation( "Chunks will be uploaded asyncronously via {int} upload streams.", threadCount );
 
             ConcurrentBag<LargeFilePartReturn>? resultsList = new( );
             ConcurrentStack<FilePartInfo> filePartQueue = new( );
@@ -35,14 +36,14 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 lengthTotal += partLength;
             }
             if (lengthTotal != uploadObject.FilePath.Length) {
-                _log?.Fatal( $"filePartQueue part length total does not equal files length." );
+                _log?.LogCritical( $"filePartQueue part length total does not equal files length." );
                 throw new InvalidOperationException( "Failed to upload full file." );
             }
 
             List<Task<bool>> uploadTasks = new( );
 
             for (int thread = 0; thread < threadCount; thread++) {
-                _log?.Debug( $"Thread#{thread} - Adding Task to Task List." );
+                _log?.LogDebug( "Thread#{string} - Adding Task to Task List.", thread );
                 uploadTasks.Add(
                     UploadLargeFileParts(
                         uploadObject,
@@ -58,9 +59,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             while (uploadTasks.Any( x => x.IsCompleted == false )) { Thread.Sleep( 1000 ); }
             DetermineMultiPartUploadSuccessStatus( uploadTasks, filePartQueue );
-            _log?.Info( "Uploaded Large File Parts Async" );
+            _log?.LogInformation( "Uploaded Large File Parts Async" );
 
-            _log?.Info( "Finishing Large File Upload." );
+            _log?.LogInformation( "Finishing Large File Upload." );
             if (resultsList != null) {
                 foreach (LargeFilePartReturn result in resultsList) {
                     uploadObject.Sha1PartsList.Add( new( result.PartNumber, result.Sha1Hash ) );
@@ -68,10 +69,10 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 }
             }
 
-            _log?.Debug( $"Concurrency Stats: {concurrencyStats}" );
+            _log?.LogDebug( "Concurrency Stats: {string}", concurrencyStats );
             ThreadManager.ConcurrencyStats.Add( concurrencyStats );
 
-            _log?.Debug( "Thread UploadStats:" );
+            _log?.LogDebug( "Thread UploadStats:" );
             ThreadManager.ShowThreadStatistics( true );
 
 

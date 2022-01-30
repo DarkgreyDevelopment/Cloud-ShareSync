@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
-using log4net;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Cryptography {
 
@@ -9,9 +9,9 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
         private readonly ActivitySource _source = new( "FileHash" );
 
-        private readonly ILog? _log;
+        private readonly ILogger? _log;
 
-        public FileHash( ILog? log = null ) { _log = log; }
+        public FileHash( ILogger? log = null ) { _log = log; }
 
         private void VerifyFileExists( FileInfo path ) => VerifyFileExists( path.FullName );
 
@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
             using Activity? activity = _source.StartActivity( "VerifyFileExists" )?.Start( );
             if (File.Exists( path ) == false) {
                 string expMessage = $"File \"{path}\" doesn't exist. Cannot get the hash of a non-existent file.";
-                _log?.Fatal( expMessage );
+                _log?.LogCritical( "{string}", expMessage );
                 activity?.Stop( );
                 throw new InvalidOperationException( expMessage );
             }

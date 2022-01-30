@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.Cryptography;
-using Cloud_ShareSync.Core.Logging;
+using Microsoft.Extensions.Logging;
 using Cloud_ShareSync.Core.SharedServices;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
@@ -14,9 +14,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             int uploadThreads,
             string bucketName,
             string bucketId,
-            TelemetryLogger? logger = null
+            ILogger? logger = null
         ) {
-            _log = logger?.ILog;
+            _log = logger;
             _services = new CloudShareSyncServices( uploadThreads, logger );
             _fileHash = new FileHash( _log );
             _authorizationData = new( );
