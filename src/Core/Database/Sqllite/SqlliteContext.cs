@@ -12,12 +12,12 @@ namespace Cloud_ShareSync.Core.Database.Sqlite {
         public DbSet<CompressionTable> CompressionData { get; set; }
         public DbSet<BackBlazeB2Table> BackBlazeB2Data { get; set; }
 
-        public string DbPath { get; }
+        public string DbPath { get; private set; }
 
-        public SqliteContext( ) : this( DatabasePath ) { }
+        public SqliteContext( ) : this( new( DatabasePath ) ) { }
 
-        public SqliteContext( string path ) {
-            DbPath = DetermineDbPath( path );
+        public SqliteContext( FileInfo path ) {
+            DbPath = path.FullName;
 
             if (File.Exists( DbPath ) == false) {
                 Database.EnsureDeleted( );
@@ -33,14 +33,14 @@ namespace Cloud_ShareSync.Core.Database.Sqlite {
                 .IsRequired( );
         }
 
-        protected override void OnConfiguring( DbContextOptionsBuilder options )
-            => options.UseSqlite( $"Data Source={DbPath}" );
+        protected override void OnConfiguring( DbContextOptionsBuilder options ) =>
+            options.UseSqlite( $"Data Source={DbPath}" );
 
         public static string DetermineDbPath( string path ) {
             string result = "CloudShareSync.db";
 
             if (Directory.Exists( path )) {
-                result = Path.Join( path, "CloudShareSync.db" );
+                result = Path.Join( path, result );
             } else if (File.Exists( path )) {
                 result = path;
             } else if (path != null) {
@@ -48,8 +48,23 @@ namespace Cloud_ShareSync.Core.Database.Sqlite {
                     new char[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar },
                     StringSplitOptions.RemoveEmptyEntries
                 );
-                if (Directory.Exists( Path.Join( pathPieces.SkipLast( 1 ).ToArray( ) ) )) {
+                if (path.StartsWith( '/' )) {
+                    List<string> pieces = new( ) {
+                        "/"
+                    };
+                    pieces.AddRange( pathPieces );
+                    pathPieces = pieces.ToArray( );
+                } else if (path.StartsWith( "\\\\" )) {
+                    List<string> pieces = new( ) {
+                        "\\\\"
+                    };
+                    pieces.AddRange( pathPieces );
+                    pathPieces = pieces.ToArray( );
+                }
+                string pathPieceCombo = Path.Join( pathPieces.SkipLast( 1 ).ToArray( ) );
+                if (Directory.Exists( pathPieceCombo )) {
                     result = path;
+                } else {
                 }
             }
 

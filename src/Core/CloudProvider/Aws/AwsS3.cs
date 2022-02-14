@@ -1,4 +1,5 @@
-﻿using Cloud_ShareSync.Core.CloudProvider.Interface;
+﻿using Cloud_ShareSync.Core.Configuration.Interfaces;
+using Cloud_ShareSync.Core.CloudProvider.Interface;
 
 namespace Cloud_ShareSync.Core.CloudProvider.Aws {
     public class AwsS3 : ICloudProvider {

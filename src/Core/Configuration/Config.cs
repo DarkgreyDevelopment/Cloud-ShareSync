@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using Cloud_ShareSync.Core.Configuration.Enums;
 using Cloud_ShareSync.Core.Configuration.Types;
-using Cloud_ShareSync.Core.Configuration.Types.Cloud;
-using Cloud_ShareSync.Core.Configuration.Types.Features;
-using Cloud_ShareSync.Core.Logging.Types;
 using Microsoft.Extensions.Configuration;
 
 namespace Cloud_ShareSync.Core.Configuration {
@@ -54,31 +52,68 @@ namespace Cloud_ShareSync.Core.Configuration {
 
             // If Features Enabled - Get Additional Required Sections.
 
-            // Log4Net
+            #region Log4Net
+
             if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Log4Net )) {
                 returnConfig.Log4Net = Configuration.GetRequiredSection( "Log4Net" ).Get<Log4NetConfig>( );
             }
 
-            // Database
+            #endregion Log4Net
+
+
+            #region Database Config
+
+            // At least one database feature is required!
             if (
-                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) ||
-                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres )
+                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false &&
+                returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) == false
             ) {
-                returnConfig.Database = Configuration.GetRequiredSection( "Database" ).Get<DatabaseConfig>( );
+                Console.WriteLine( "Adding sqlite to the enabled features list. At least one database feature must be enabled!" );
+                returnConfig.Core.EnabledFeatures = returnConfig.Core.EnabledFeatures | Cloud_ShareSync_Features.Sqlite;
+            }
 
-                // Sqlite
-                if (
-                    returnConfig.Database.UseSqlite &&
-                    string.IsNullOrWhiteSpace( returnConfig.Database.SqliteDBPath )
-                ) {
-                    returnConfig.Database.SqliteDBPath = s_assemblyPath ?? "";
+            returnConfig.Database = GetDatabase( ).Get<DatabaseConfig>( ); ;
+
+            // Sane defaults - at least one db is required!
+            if (
+                returnConfig.Database != null &&
+                returnConfig.Database.UseSqlite == false &&
+                returnConfig.Database.UsePostgres == false
+            ) {
+                Console.WriteLine( "Setting UseSqlite to true. At least one database is required!" );
+                if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false) {
+                    Console.WriteLine( "Adding sqlite to the enabled features list." );
+                    returnConfig.Core.EnabledFeatures = returnConfig.Core.EnabledFeatures | Cloud_ShareSync_Features.Sqlite;
                 }
+                returnConfig.Database.UseSqlite = true;
+            }
 
+            // Database configuration cannot be null.
+            if (returnConfig.Database == null) {
+                Console.WriteLine( "Database config is required. Enabling default config." );
+                if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false) {
+                    Console.WriteLine( "Adding sqlite to the enabled features list." );
+                    returnConfig.Core.EnabledFeatures = returnConfig.Core.EnabledFeatures | Cloud_ShareSync_Features.Sqlite;
+                }
+                returnConfig.Database = new DatabaseConfig( ) {
+                    UseSqlite = true,
+                    SqliteDBPath = "",
+                    UsePostgres = false,
+                    PostgresConnectionString = ""
+                };
+            }
+
+            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite )) {
+                // Attempt to set sqlite db path is set.
+                if (returnConfig.Database.UseSqlite && string.IsNullOrWhiteSpace( returnConfig.Database.SqliteDBPath )) {
+                    returnConfig.Database.SqliteDBPath = s_assemblyPath ?? "";
+                    Console.WriteLine( $"SqliteDBPath was not set. Set it to '{returnConfig.Database.SqliteDBPath}'." );
+                }
+            }
+
+            if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres )) {
                 // Postgres Configuration
-                if (
-                        returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) ||
-                        returnConfig.Database.UsePostgres
-                ) {
+                if (returnConfig.Database.UsePostgres) {
                     throw new NotImplementedException(
                         "remove Postgres from the core enabled features & set UsePostgres to false."
                     );
@@ -94,26 +129,11 @@ namespace Cloud_ShareSync.Core.Configuration {
                 }
             }
 
-            // Database is required!
-            if (
-                (
-                    returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false &&
-                    returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) == false
-                ) || (
-                    returnConfig.Database != null &&
-                    returnConfig.Database.UseSqlite == false &&
-                    returnConfig.Database.UsePostgres == false
-                )
-            ) {
-                returnConfig.Database = new DatabaseConfig( ) {
-                    UseSqlite = true,
-                    SqliteDBPath = s_assemblyPath ?? "",
-                    UsePostgres = false,
-                    PostgresConnectionString = ""
-                };
-            }
+            #endregion Database Config
 
-            // Compression
+
+            #region Compression
+
             if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression )) {
 
                 returnConfig.Compression = Configuration.GetRequiredSection( "Compression" ).Get<CompressionConfig>( );
@@ -127,10 +147,13 @@ namespace Cloud_ShareSync.Core.Configuration {
                 if (Directory.Exists( returnConfig.Compression.InterimZipPath ) == false) {
                     Directory.CreateDirectory( returnConfig.Compression.InterimZipPath );
                 }
-
             }
 
-            // Encryption
+            #endregion Compression
+
+
+            #region Encryption
+
             if (
                 returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) &&
                 Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported == false
@@ -141,7 +164,11 @@ namespace Cloud_ShareSync.Core.Configuration {
                 );
             }
 
-            // SimpleBackup
+            #endregion Encryption
+
+
+            #region SimpleBackup
+
             if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.SimpleBackup )) {
 
                 returnConfig.SimpleBackup = GetSimpleBackup( ).Get<BackupConfig>( );
@@ -171,19 +198,25 @@ namespace Cloud_ShareSync.Core.Configuration {
                     returnConfig.SimpleBackup.UniqueCompressionPasswords
                 ) {
                     returnConfig.SimpleBackup.UniqueCompressionPasswords = false;
-                    // Don't add unused passwords to the database!
                 }
             }
 
-            // RestoreAgent
+            #endregion SimpleBackup
+
+
+            #region RestoreAgent
+
             if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.SimpleRestore )) {
                 throw new NotImplementedException( "RestoreAgent Functionality Not Implemented Yet." );
             }
 
+            #endregion RestoreAgent
 
-            // Configure Cloud Providers
 
-            // BackBlazeB2
+            #region Cloud Providers
+
+            #region BackBlazeB2
+
             if (
                 returnConfig.Core.EnabledCloudProviders.HasFlag( CloudProviders.BackBlazeB2 ) &&
                 returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 )
@@ -191,38 +224,48 @@ namespace Cloud_ShareSync.Core.Configuration {
                 returnConfig.BackBlaze = GetBackBlazeB2( ).Get<B2Config>( );
             }
 
-            // AwsS3
+            #endregion BackBlazeB2
+
+            #region AwsS3
+
             if (returnConfig.Core.EnabledCloudProviders.HasFlag( CloudProviders.AwsS3 )) {
                 throw new NotImplementedException(
                     "AwsS3 CloudProvider Functionality Not Implemented Yet."
                 );
             }
 
-            // AzureBlobStorage
+            #endregion AwsS3
+
+            #region AzureBlobStorage
+
             if (returnConfig.Core.EnabledCloudProviders.HasFlag( CloudProviders.AzureBlobStorage )) {
                 throw new NotImplementedException(
                     "AzureBlobStorage CloudProvider Functionality Not Implemented Yet."
                 );
             }
 
-            // GoogleCloudStorage
+            #endregion AzureBlobStorage
+
+            #region GoogleCloudStorage
+
             if (returnConfig.Core.EnabledCloudProviders.HasFlag( CloudProviders.GoogleCloudStorage )) {
                 throw new NotImplementedException(
                     "GoogleCloudStorage CloudProvider Functionality Not Implemented Yet."
                 );
             }
 
+            #endregion GoogleCloudStorage
+
+            #endregion Cloud Providers
+
             activity?.Stop( );
             return returnConfig;
         }
 
-        public static IConfigurationSection GetSimpleBackup( ) {
-            return Configuration.GetRequiredSection( "SimpleBackup" );
-        }
-
-        public static IConfigurationSection GetBackBlazeB2( ) {
-            return Configuration.GetRequiredSection( "BackBlaze" );
-        }
+        public static IConfigurationSection GetSimpleBackup( ) => Configuration.GetRequiredSection( "SimpleBackup" );
+        public static IConfigurationSection GetBackBlazeB2( ) => Configuration.GetRequiredSection( "BackBlaze" );
+        public static IConfigurationSection GetDatabase( ) => Configuration.GetRequiredSection( "Database" );
+        public static IConfigurationSection? GetCompression( ) => Configuration?.GetSection( "Compression" );
     }
 }
 

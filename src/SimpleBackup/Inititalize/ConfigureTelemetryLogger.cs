@@ -1,4 +1,5 @@
-﻿using Cloud_ShareSync.Core.Logging.Types;
+﻿using Cloud_ShareSync.Core.Logging;
+using Cloud_ShareSync.Core.Configuration.Types;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -13,7 +14,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 );
             }
 
-            s_logger = new( s_sourceList, config );
+            s_logger = new TelemetryLogger( s_sourceList, config );
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.CloudProvider.Interface;
-using Cloud_ShareSync.Core.Configuration.Types.Cloud;
+using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Microsoft.Extensions.Logging;
 
@@ -10,7 +10,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
         private static readonly ActivitySource s_source = new( "BackBlazeB2.PublicInterface" );
         private readonly B2? _b2Api;
-        private readonly FileHash? _fileHash;
+        private readonly Hashing? _fileHash;
         private readonly ILogger? _logger;
         private readonly int _maxErrors;
 
@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             ILogger? logger = null
         ) {
             _logger = logger;
-            _fileHash = new FileHash( _logger );
+            _fileHash = new Hashing( _logger );
             _maxErrors = (config.MaxConsecutiveErrors <= 0) ? 1 : config.MaxConsecutiveErrors; // Requires a minimum of 1.
             _b2Api = new(
                 config.ApplicationKeyId,
@@ -109,7 +109,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 B2DownloadResponse response = await b2Api.DownloadFileID( download.FileId, download.OutputPath );
                 _logger?.LogDebug( "Download Response: {string}", response );
                 if (string.IsNullOrWhiteSpace( response.Sha1FileHash ) == false) {
-                    string downloadedSha1Hash = _fileHash.GetSha1FileHash( response.OutputPath.FullName );
+                    string downloadedSha1Hash = await _fileHash.GetSha1Hash( response.OutputPath );
                     if (response.Sha1FileHash != downloadedSha1Hash) {
                         _logger?.LogError( "Downloaded filehash does not match Sha1 hash from backblaze." );
                         return false;

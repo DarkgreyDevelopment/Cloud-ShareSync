@@ -10,9 +10,10 @@ using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
 using Cloud_ShareSync.Core.Database.Entities;
 using Cloud_ShareSync.Core.FileSystemWatcher;
 using Microsoft.Extensions.Options;
-/*
+
 namespace Cloud_ShareSync.BucketSync.Process {
 
+    /*
     public class LocalSyncProcess : ILocalSyncProcess {
 
         private readonly ActivitySource _source = new( "LocalSyncProcess" );
@@ -245,5 +246,5 @@ namespace Cloud_ShareSync.BucketSync.Process {
             );
         }
     }
+    */
 }
-*/

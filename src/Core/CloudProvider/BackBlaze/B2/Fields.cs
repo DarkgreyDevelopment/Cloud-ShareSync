@@ -20,7 +20,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
         private readonly InitializationData _applicationData;
         private readonly List<Regex> _regexPatterns;
         private readonly CloudShareSyncServices _services;
-        private readonly FileHash _fileHash;
+        private readonly Hashing _fileHash;
         internal readonly B2ThreadManager ThreadManager;
 
         // Set by valid authorization process

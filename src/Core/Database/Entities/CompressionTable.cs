@@ -9,21 +9,15 @@ namespace Cloud_ShareSync.Core.Database.Entities {
         public long Id { get; set; }
         public bool PasswordProtected { get; set; }
         public string? Password { get; set; }
-        public bool SpecialDecompress { get; set; }
-        public string? DecompressionArgs { get; set; }
 
         public CompressionTable(
             long id,
             bool passwordProtected = false,
-            string? password = null,
-            bool specialDecompress = false,
-            string? decompressionArgs = null
+            string? password = null
         ) {
             Id = id;
             PasswordProtected = passwordProtected;
             Password = password;
-            SpecialDecompress = specialDecompress;
-            DecompressionArgs = decompressionArgs;
         }
 
         public override string ToString( ) {

@@ -73,7 +73,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 string sleepTimerCountPad = sleepTimerCountColumnLength - sleepTimerCountStringLength > 0 ?
                     new( ' ', sleepTimerCountColumnLength - sleepTimerCountStringLength ) : "";
 
-                _log?.LogDebug(
+                _log?.LogInformation(
                     "| Thread | Attempts | Success | Success% | Failure | Failure%" +
                     " | SleepTimerCount | AverageSleepTimerLength | SecondsAsleepPerSuccess"
                 );
@@ -89,7 +89,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                         stat.SleepTimerCount.ToString( $"D{sleepTimerCountStringLength}" ) + sleepTimerCountPad + "| " +
                         stat.SleepTimerAverage.ToString( decFormat ) + new string( ' ', averageSleepTimerColumnLength - decFormat.Length ) + "| " +
                         secsAsleep + new string( ' ', secondsAsleepPerSuccessColumnLength - secsAsleep.Length );
-                    _log?.LogDebug( "{string}", msg );
+                    _log?.LogInformation( "{string}", msg );
                 }
             } else {
                 string stats = "{\n  \"ThreadStats\": [\n";
@@ -98,7 +98,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 }
                 stats = stats.TrimEnd( '\n' ).TrimEnd( ',' );
                 stats += "\n  ]\n}";
-                _log?.LogDebug( "{string}", stats );
+                _log?.LogInformation( "{string}", stats );
             }
         }
     }

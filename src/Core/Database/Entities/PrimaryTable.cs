@@ -4,12 +4,25 @@ using System.Text.Json;
 namespace Cloud_ShareSync.Core.Database.Entities {
     public class PrimaryTable {
 
+        ///<value>Sequence number and Primary Key</value>
         [Key]
-        public long Id { get; set; } // (Sequence number) (pkey)
+        public long Id { get; set; }
+
+        ///<value>Stores the FileInfo.Name property of the file</value>
         public string FileName { get; set; }
-        public string UploadPath { get; set; }
-        public string FileHash { get; set; } // Used for sync validation (eg, did this get uploaded already).
-        public string UploadedFileHash { get; set; } // Used for download validation.
+
+        ///<value>Stores the FileInfo.FullName relative to the RootFolder.</value>
+        public string RelativeUploadPath { get; set; }
+
+        ///<value>Used for sync validation.<br/>
+        /// Used to see if the file has been uploaded already.<br/>
+        /// Also ensures decrypted/decompressed file matches original file.
+        /// </value>
+        public string FileHash { get; set; }
+
+        ///<value>Used to ensure downloaded file matches uploaded file.</value>
+        public string UploadedFileHash { get; set; }
+
         public bool IsEncrypted { get; set; } // (what to do if IsEncrypted and ChaCha20Poly1305 encryption is not supported on platform?)
         public bool IsCompressed { get; set; } // (what to do if iscompressed and compression tools not available?)
         public bool UsesAwsS3 { get; set; }
@@ -20,7 +33,7 @@ namespace Cloud_ShareSync.Core.Database.Entities {
         public PrimaryTable( ) {
             Id = 0;
             FileName = "";
-            UploadPath = "";
+            RelativeUploadPath = "";
             FileHash = "";
             UploadedFileHash = "";
             IsEncrypted = false;
@@ -46,7 +59,7 @@ namespace Cloud_ShareSync.Core.Database.Entities {
 
             Id = 00000000;
             FileName = filename;
-            UploadPath = uploadpath;
+            RelativeUploadPath = uploadpath;
             FileHash = hash;
             UploadedFileHash = uploadhash;
             IsEncrypted = encrypted;

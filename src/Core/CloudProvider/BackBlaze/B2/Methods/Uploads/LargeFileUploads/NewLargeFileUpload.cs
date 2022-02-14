@@ -69,10 +69,10 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 }
             }
 
-            _log?.LogDebug( "Concurrency Stats: {string}", concurrencyStats );
+            _log?.LogInformation( "Concurrency Stats: {string}", concurrencyStats );
             ThreadManager.ConcurrencyStats.Add( concurrencyStats );
 
-            _log?.LogDebug( "Thread UploadStats:" );
+            _log?.LogInformation( "Thread UploadStats:" );
             ThreadManager.ShowThreadStatistics( true );
 
 

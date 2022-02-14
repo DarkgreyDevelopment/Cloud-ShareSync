@@ -1,5 +1,5 @@
 ﻿using Cloud_ShareSync.Core.Database.Sqlite;
-using Cloud_ShareSync.Core.Logging.Types;
+using Cloud_ShareSync.Core.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -8,6 +8,8 @@ namespace Cloud_ShareSync.Core.SharedServices {
     public class CloudShareSyncServices {
         public readonly ServiceProvider Services;
 
+        #region CTor
+
         public CloudShareSyncServices(
             string? dbPath,
             ILogger? logger
@@ -34,21 +36,10 @@ namespace Cloud_ShareSync.Core.SharedServices {
             Services = services.BuildServiceProvider( );
         }
 
-        public CloudShareSyncServices(
-            string? dbPath,
-            int? uploadThreads,
-            ILogger? logger
-        ) {
-            ServiceCollection services = new( );
+        #endregion CTor
 
-            AddDbContextFactory( services, dbPath );
 
-            AddHttpClient( services, uploadThreads );
-
-            AddLoggingProvider( services, logger );
-
-            Services = services.BuildServiceProvider( );
-        }
+        #region privateMethods
 
         private static void AddHttpClient(
             ServiceCollection services,
@@ -85,6 +76,8 @@ namespace Cloud_ShareSync.Core.SharedServices {
                     loggerBuilder.AddProvider( new Log4NetProvider( logger ) );
                 } );
         }
+
+        #endregion privateMethods
 
         //static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() {
         //    return HttpPolicyExtensions

@@ -18,7 +18,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
         ) {
             _log = logger;
             _services = new CloudShareSyncServices( uploadThreads, logger );
-            _fileHash = new FileHash( _log );
+            _fileHash = new Hashing( _log );
             _authorizationData = new( );
             _applicationData = new(
                 applicationKeyId,

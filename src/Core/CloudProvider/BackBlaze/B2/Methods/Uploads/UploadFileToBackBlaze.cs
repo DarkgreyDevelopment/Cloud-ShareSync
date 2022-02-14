@@ -15,9 +15,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             if (string.IsNullOrWhiteSpace( upload.CompleteSha512Hash )) {
-                upload.CompleteSha512Hash = await _fileHash.GetSha512FileHash( upload.FilePath );
+                upload.CompleteSha512Hash = await _fileHash.GetSha512Hash( upload.FilePath );
             }
-            upload.CompleteSha1Hash = await _fileHash.GetSha1FileHash( upload.FilePath );
+            upload.CompleteSha1Hash = await _fileHash.GetSha1Hash( upload.FilePath );
             upload.MimeType = MimeType.GetMimeTypeByExtension( upload.FilePath );
 
             int recSize = RecommendedPartSize ?? 0;

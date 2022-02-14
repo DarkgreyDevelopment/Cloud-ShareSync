@@ -1,4 +1,6 @@
-﻿namespace Cloud_ShareSync.Core.CloudProvider.Interface {
+﻿using Cloud_ShareSync.Core.Configuration.Interfaces;
+
+namespace Cloud_ShareSync.Core.CloudProvider.Interface {
     public interface ICloudProvider {
         void Initialize( ICloudProviderConfig config ) { }
         void UploadFile( ICloudProviderUpload upload ) { }

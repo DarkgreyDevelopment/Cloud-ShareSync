@@ -28,7 +28,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
                 if (string.IsNullOrWhiteSpace( partInfo.Sha1Hash )) {
                     _log?.LogDebug( "{string} - Retrieving Sha1 Hash for FileChunk", pretxt );
-                    partInfo.Sha1Hash = await _fileHash.GetSHA1HashForFileChunkAsync(
+                    partInfo.Sha1Hash = await _fileHash.GetSha1Hash(
                         upload.FilePath,
                         partInfo.Data,
                         partSize * (partInfo.PartNumber - 1)

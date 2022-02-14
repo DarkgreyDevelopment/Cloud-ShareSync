@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Cloud_ShareSync.Core.Configuration.Types.Cloud;
+using Cloud_ShareSync.Core.Configuration.Enums;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable

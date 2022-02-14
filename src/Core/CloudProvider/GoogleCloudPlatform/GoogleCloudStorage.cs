@@ -1,4 +1,5 @@
 ﻿using Cloud_ShareSync.Core.CloudProvider.Interface;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.CloudProvider.GoogleCloudPlatform {
     public class GoogleCloudStorage : ICloudProvider {

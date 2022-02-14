@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.Configuration.Types;
-using log4net;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.SimpleBackup {
 
@@ -12,13 +12,13 @@ namespace Cloud_ShareSync.SimpleBackup {
             ConcurrentQueue<string> fileUploadQueue,
             Regex[] excludePatterns,
             BackupConfig config,
-            ILog? log = null
+            ILogger? log = null
         ) {
             using Activity? activity = s_source.StartActivity( "PopulateFileList" )?.Start( );
 
             IEnumerable<string> files = EnumerateRootFolder( config, log );
 
-            log?.Info( "Building file upload queue." );
+            log?.LogInformation( "Building file upload queue." );
             int count = 0;
             foreach (string path in files) {
                 bool includePath = true;
@@ -32,23 +32,23 @@ namespace Cloud_ShareSync.SimpleBackup {
                 if (includePath && fileUploadQueue.Contains( path ) == false) {
                     fileUploadQueue.Enqueue( path );
                 } else {
-                    log?.Debug( $"Skipping excluded file: '{path}'" );
+                    log?.LogDebug( "Skipping excluded file: '{string}'", path );
                 }
                 count++;
             }
 
-            log?.Info( $"File upload queue contains {fileUploadQueue.Count} files." );
+            log?.LogInformation( "File upload queue contains {int} files.", fileUploadQueue.Count );
             activity?.Stop( );
         }
 
         private static IEnumerable<string> EnumerateRootFolder(
             BackupConfig config,
-            ILog? log = null
+            ILogger? log = null
         ) {
             using Activity? activity = s_source.StartActivity( "EnumerateRootFolder" )?.Start( );
 
             string txt = config.MonitorSubDirectories ? " recursively " : " ";
-            log?.Info( $"Populating file list{txt}from root folder '{config.RootFolder}'." );
+            log?.LogInformation( "Populating file list{string}from root folder '{string}'.", txt, config.RootFolder );
 
             IEnumerable<string> files = config.RootFolder == null ?
                 Enumerable.Empty<string>( ) :
@@ -59,7 +59,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                         SearchOption.AllDirectories :
                         SearchOption.TopDirectoryOnly
                 );
-            log?.Info( $"Discovered {files.Count( )} files under '{config.RootFolder}'." );
+            log?.LogInformation( "Discovered {int} files under '{string}'.", files.Count( ), config.RootFolder );
 
             activity?.Stop( );
             return files;

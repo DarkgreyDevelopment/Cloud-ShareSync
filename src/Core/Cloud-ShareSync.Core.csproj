@@ -48,7 +48,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.1" />
     <PackageReference Include="log4net" Version="2.0.14" />
-    <PackageReference Include="OpenTelemetry" Version="1.2.0-rc1" />
+    <PackageReference Include="OpenTelemetry" Version="1.2.0-rc2" />
   </ItemGroup>
 
 </Project>

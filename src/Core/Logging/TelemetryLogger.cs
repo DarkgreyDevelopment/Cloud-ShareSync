@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using System.Text;
-using Cloud_ShareSync.Core.Logging.Types;
+using Cloud_ShareSync.Core.Configuration.Enums;
+using Cloud_ShareSync.Core.Configuration.Types;
+using Cloud_ShareSync.Core.Configuration.Types.Logging;
 using log4net;
 using log4net.Appender;
 using log4net.Config;
@@ -24,7 +26,6 @@ namespace Cloud_ShareSync.Core.Logging {
 
         public readonly ILog? ILog;
         public readonly TracerProvider? OpenTelemetry;
-
 
         public TelemetryLogger(
             string[]? sources = null,
@@ -391,10 +392,12 @@ namespace Cloud_ShareSync.Core.Logging {
         public bool IsEnabled( LogLevel logLevel ) {
             return logLevel switch {
                 LogLevel.Critical => ILog?.IsFatalEnabled ?? false,
-                LogLevel.Debug or LogLevel.Trace => ILog?.IsDebugEnabled ?? false,
                 LogLevel.Error => ILog?.IsErrorEnabled ?? false,
-                LogLevel.Information => ILog?.IsInfoEnabled ?? false,
                 LogLevel.Warning => ILog?.IsWarnEnabled ?? false,
+                LogLevel.Information => ILog?.IsInfoEnabled ?? false,
+                LogLevel.Debug => ILog?.IsDebugEnabled ?? false,
+                LogLevel.Trace => ILog?.IsDebugEnabled ?? false,
+                LogLevel.None => false,
                 _ => throw new ArgumentOutOfRangeException( nameof( logLevel ) )
             };
         }

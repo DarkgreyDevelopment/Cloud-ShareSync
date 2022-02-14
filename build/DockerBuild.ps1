@@ -10,7 +10,7 @@ param (
 $buildDir = (Get-Item $PSCommandPath -ErrorAction Stop).Directory.Parent
 $SolutionRoot = Resolve-Path $buildDir -ErrorAction Stop
 
-$SimpleRestoreDockerfile = Resolve-Path (Join-Path $SolutionRoot 'src' 'SimpleRestore' 'Dockerfile') -ErrorAction Stop
+#$SimpleRestoreDockerfile = Resolve-Path (Join-Path $SolutionRoot 'src' 'SimpleRestore' 'Dockerfile') -ErrorAction Stop
 $CreateBothImages = ($SimpleBackup -eq $false) -and ($SimpleRestore -eq $false)
 
 try {

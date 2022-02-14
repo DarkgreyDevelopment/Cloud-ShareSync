@@ -3,7 +3,6 @@ using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Logging;
-using Cloud_ShareSync.Core.Logging.Types;
 using Cloud_ShareSync.BucketSync.Process;
 
 namespace Cloud_ShareSync.BucketSync {
@@ -59,6 +58,7 @@ namespace Cloud_ShareSync.BucketSync {
             activity?.Stop( );
             */
         }
+
         /*
         private static void ConfigureTelemetryLogger( Log4NetConfig? config ) {
             if (config == null) {

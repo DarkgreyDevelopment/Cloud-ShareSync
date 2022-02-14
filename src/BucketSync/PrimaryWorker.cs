@@ -1,13 +1,13 @@
 ﻿using Cloud_ShareSync.BucketSync.Process;
-/*
+
 namespace Cloud_ShareSync.BucketSync {
     public class PrimaryWorker : BackgroundService {
-        private readonly ILogger<PrimaryWorker> _logger;
+        private readonly ILogger _logger;
         private readonly ILocalSyncProcess _localSyncProcess;
 
         public PrimaryWorker(
             ILocalSyncProcess localSyncProcess,
-            ILogger<PrimaryWorker> logger
+            ILogger logger
         ) {
             _localSyncProcess = localSyncProcess;
             _logger = logger;
@@ -24,4 +24,4 @@ namespace Cloud_ShareSync.BucketSync {
         }
     }
 }
-*/
+
