@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using Cloud_ShareSync.Core.Configuration.Types.Logging;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
     public class CompleteConfig {

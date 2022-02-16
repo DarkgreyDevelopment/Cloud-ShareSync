@@ -1,7 +1,6 @@
-﻿using System.Collections.Concurrent;
-
-namespace Cloud_ShareSync.SimpleBackup.Interfaces {
+﻿namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces {
     public interface IPrepUploadFileProcess {
-        Task Prep( ConcurrentQueue<string> queue );
+        Task Prep( List<string> paths );
+        Task Process( );
     }
 }

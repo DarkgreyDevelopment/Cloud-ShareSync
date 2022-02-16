@@ -2,7 +2,12 @@
 using System.Reflection;
 using Cloud_ShareSync.Core.Configuration.Enums;
 using Cloud_ShareSync.Core.Configuration.Types;
+using Cloud_ShareSync.Core.Database.Sqlite;
+using Cloud_ShareSync.Core.Logging;
+using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Configuration {
 
@@ -204,13 +209,13 @@ namespace Cloud_ShareSync.Core.Configuration {
             #endregion SimpleBackup
 
 
-            #region RestoreAgent
+            #region SimpleRestore
 
             if (returnConfig.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.SimpleRestore )) {
                 throw new NotImplementedException( "RestoreAgent Functionality Not Implemented Yet." );
             }
 
-            #endregion RestoreAgent
+            #endregion SimpleRestore
 
 
             #region Cloud Providers
@@ -266,6 +271,119 @@ namespace Cloud_ShareSync.Core.Configuration {
         public static IConfigurationSection GetBackBlazeB2( ) => Configuration.GetRequiredSection( "BackBlaze" );
         public static IConfigurationSection GetDatabase( ) => Configuration.GetRequiredSection( "Database" );
         public static IConfigurationSection? GetCompression( ) => Configuration?.GetSection( "Compression" );
+
+        public static ILogger ConfigureTelemetryLogger( Log4NetConfig? config, string[] sourceList ) {
+            if (config == null) {
+                Console.WriteLine(
+                    "Log configuration is null. " +
+                    "This means that Log4Net was excluded from the Cloud_ShareSync EnabledFeatures. " +
+                    "Add Log4Net to the core enabledfeatures to re-enable logging."
+                );
+            }
+
+            return new TelemetryLogger( sourceList, config );
+        }
+
+        public static CloudShareSyncServices ConfigureDatabaseService( DatabaseConfig config, ILogger? log ) {
+            using Activity? activity = s_source.StartActivity( "ConfigureDatabaseService" )?.Start( );
+
+            CloudShareSyncServices services = new( config.SqliteDBPath, log );
+
+            SqliteContext sqliteContext = services.Services.GetRequiredService<SqliteContext>( );
+
+            int coreTableCount = (from obj in sqliteContext.CoreData where obj.Id >= 0 select obj).Count( );
+            int encryptedCount = (from obj in sqliteContext.EncryptionData where obj.Id >= 0 select obj).Count( );
+            int compressdCount = (from obj in sqliteContext.CompressionData where obj.Id >= 0 select obj).Count( );
+            int backBlazeCount = (from obj in sqliteContext.BackBlazeB2Data where obj.Id >= 0 select obj).Count( );
+            log?.LogInformation( "Database Service Initialized." );
+            log?.LogInformation( "Core Table      : {string}", coreTableCount );
+            log?.LogInformation( "Encrypted Table : {string}", encryptedCount );
+            log?.LogInformation( "Compressed Table: {string}", compressdCount );
+            log?.LogInformation( "BackBlaze Table : {string}", backBlazeCount );
+
+            activity?.Stop( );
+            return services;
+        }
+
+        public static void ValidateConfigSet(
+            CompleteConfig config,
+            ILogger? log,
+            bool restore,
+            bool backup,
+            bool logConfig = true
+        ) {
+            using Activity? activity = s_source.StartActivity( "ValidateConfigSet" )?.Start( );
+
+            if (logConfig) { log?.LogInformation( "{string}", config.ToString( ) ); }
+
+            // Configure SystemMemoryChecker
+            SystemMemoryChecker.Inititalize( log );
+            SystemMemoryChecker.Update( );
+
+            if (backup) {
+                if (config.SimpleBackup == null) {
+                    throw new InvalidDataException( "SimpleBackup configuration required." );
+                }
+
+                if (Directory.Exists( config.SimpleBackup.WorkingDirectory )) {
+                    log?.LogInformation( "Working Directory Exists" );
+                } else {
+                    throw new DirectoryNotFoundException(
+                        $"Working directory '{config.SimpleBackup.WorkingDirectory}' doesn't exist." );
+                }
+            }
+
+            if (restore) {
+                if (config.SimpleRestore == null) {
+                    throw new InvalidDataException( "Restore configuration is required." );
+                }
+
+                if (Directory.Exists( config.SimpleRestore.WorkingDirectory )) {
+                    log?.LogInformation( "Working Directory Exists" );
+                } else {
+                    throw new DirectoryNotFoundException(
+                        $"Working directory '{config.SimpleRestore.WorkingDirectory}' doesn't exist." );
+                }
+
+                if (Directory.Exists( config.SimpleRestore.RootFolder )) {
+                    log?.LogInformation( "Root Folder Exists" );
+                } else {
+                    throw new DirectoryNotFoundException(
+                        $"Root directory '{config.SimpleRestore.RootFolder}' doesn't exist." );
+                }
+            }
+
+            if (config.Database == null) { throw new InvalidDataException( "Database configuration required." ); }
+
+            /*
+            if (
+                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.AwsS3 ) &&
+                config.Aws == null
+            ) { throw new InvalidDataException( "Aws configuration required." ); }
+            */
+
+            /*
+            if (
+                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.AzureBlobStorage ) &&
+                config.Azure == null
+            ) { throw new InvalidDataException( "Azure configuration required." ); }
+            */
+
+            if (
+                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 ) &&
+                config.BackBlaze == null
+            ) { throw new InvalidDataException( "Backblaze configuration required." ); }
+
+            /*
+            if (
+                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.GoogleCloudStorage ) &&
+                config.Google == null
+            ) { throw new InvalidDataException( "Google configuration required." ); }
+            */
+
+            log?.LogInformation( "Configuration Validated." );
+            activity?.Stop( );
+        }
     }
 }
 

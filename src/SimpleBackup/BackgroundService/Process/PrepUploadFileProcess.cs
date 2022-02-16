@@ -2,23 +2,24 @@
 using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Database.Entities;
 using Cloud_ShareSync.Core.Database.Sqlite;
 using Cloud_ShareSync.Core.SharedServices;
-using Cloud_ShareSync.SimpleBackup.Interfaces;
-using Cloud_ShareSync.SimpleBackup.Types;
-using Cloud_ShareSync.SimpleBackup.Workers;
+using Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces;
+using Cloud_ShareSync.SimpleBackup.BackgroundService.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.SimpleBackup.Process {
+namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
     internal class PrepUploadFileProcess : IPrepUploadFileProcess {
 
         #region Fields
 
-        private readonly ActivitySource _source = new( "PrepUploadFileProcess" );
+        private static readonly ActivitySource s_source = new( "PrepUploadFileProcess" );
+        private static readonly ConcurrentQueue<PrepItem> s_queue = new( );
         private readonly ILogger<PrepUploadFileProcess> _log;
         private readonly Hashing _fileHash;
         private readonly CloudShareSyncServices _services;
@@ -38,7 +39,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         ) {
             _log = log;
             _fileHash = new( _log );
-            _services = new CloudShareSyncServices( databaseConfig.SqliteDBPath, _log );
+            _services = Config.ConfigureDatabaseService( databaseConfig, _log );
             _semaphore.Release( 1 );
             _backBlaze = new( backblazeConfig, _log );
             _rootFolder = backupConfig.RootFolder;
@@ -46,23 +47,46 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
             _b2FileResponses = GetB2FileResponseList( ).Result;
         }
 
+        public Task Prep( List<string> paths ) {
+            using Activity? activity = s_source.StartActivity( "Prep" )?.Start( );
 
-        public async Task Prep( ConcurrentQueue<string> queue ) {
-            using Activity? activity = _source.StartActivity( "Prep" )?.Start( );
-
-            List<PrepItem> list = IngestQueue( queue );
+            List<PrepItem> list = new( );
+            foreach (string path in paths) {
+                list.Add( new( path, _rootFolder ) );
+            }
             CorrelatePrimaryTableData( list );
             CorrelateBackBlazeTableData( list );
 
-            foreach (PrepItem item in list) {
-                bool newTableData = false;
-                if (item.CoreData == null) {
-                    item.CoreData = NewTableData( item.UploadFile, item.UploadPath );
-                    newTableData = true;
-                }
+            List<PrepItem> unMatched = list.Where( e => e.CoreData == null || e.BackBlazeData == null ).ToList( );
 
-                if (await CheckShouldUpload( item, newTableData )) {
-                    UploadFileWorker.Queue.Enqueue( new( item.UploadFile, item.UploadPath, item.CoreData ) );
+            // Add unmatched before matched.
+            foreach (PrepItem item in unMatched) {
+                s_queue.Enqueue( item );
+                list.Remove( item );
+            }
+            foreach (PrepItem item in list) { s_queue.Enqueue( item ); }
+
+            activity?.Stop( );
+            return Task.CompletedTask;
+        }
+
+        public async Task Process( ) {
+            using Activity? activity = s_source.StartActivity( "Process" )?.Start( );
+
+            while (s_queue.IsEmpty == false) {
+                bool deQueue = s_queue.TryDequeue( out PrepItem? item );
+                if (deQueue && item != null) {
+                    bool newTableData = false;
+                    if (item.CoreData == null) {
+                        item.CoreData = NewTableData( item.UploadFile, item.UploadPath );
+                        newTableData = true;
+                    }
+
+                    if (await CheckShouldUpload( item, newTableData )) {
+                        UploadFileProcess.Queue.Enqueue(
+                            new( item.UploadFile, item.UploadPath, item.CoreData )
+                        );
+                    }
                 }
             }
 
@@ -71,24 +95,8 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
 
         #region PrivateMethods
 
-        private List<PrepItem> IngestQueue( ConcurrentQueue<string> queue ) {
-            _log.LogDebug( "Prep Process Ingesting File Queue." );
-
-            List<PrepItem> result = new( );
-
-            while (queue.IsEmpty == false) {
-                bool deQueue = queue.TryDequeue( out string? path );
-                if (deQueue && path != null) {
-                    result.Add( new( path, _rootFolder ) );
-                }
-            }
-            _log.LogDebug( "Prep Process Ingested {int} files.", result.Count );
-
-            return result;
-        }
-
         private void CorrelatePrimaryTableData( List<PrepItem> list ) {
-            using Activity? activity = _source.StartActivity( "CorrelatePrimaryTableData" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "CorrelatePrimaryTableData" )?.Start( );
 
             List<string> uploadFileNames = new( );
             List<string> uploadPaths = new( );
@@ -127,7 +135,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         }
 
         private void CorrelateBackBlazeTableData( List<PrepItem> list ) {
-            using Activity? activity = _source.StartActivity( "CorrelateBackBlazeTableData" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "CorrelateBackBlazeTableData" )?.Start( );
 
             long[] ids = (
                 from item in list
@@ -162,7 +170,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         }
 
         private async Task<bool> CheckShouldUpload( PrepItem item, bool newTableData ) {
-            using Activity? activity = _source.StartActivity( "CheckShouldUpload" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "CheckShouldUpload" )?.Start( );
 
             if (newTableData) {
                 _log.LogInformation(
@@ -275,7 +283,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         }
 
         private PrimaryTable NewTableData( FileInfo uploadFile, string uploadPath ) {
-            using Activity? activity = _source.StartActivity( "NewTableData" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "NewTableData" )?.Start( );
 
             PrimaryTable result = new( ) {
                 FileName = uploadFile.Name,
@@ -300,7 +308,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         }
 
         private async Task<List<B2FileResponse>> GetB2FileResponseList( ) {
-            using Activity? activity = _source.StartActivity( "GetB2FileResponseList" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "GetB2FileResponseList" )?.Start( );
             if (_lastRetrieved < DateTime.Now.AddMinutes( -1 )) {
                 _b2FileResponses = await _backBlaze.ListFileVersions( );
                 _lastRetrieved = DateTime.Now;
@@ -310,7 +318,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
         }
 
         private SqliteContext GetSqliteContext( ) {
-            using Activity? activity = _source.StartActivity( "GetSqliteContext" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "GetSqliteContext" )?.Start( );
 
             _semaphore.Wait( );
             SqliteContext result = _services.Services.GetRequiredService<SqliteContext>( );

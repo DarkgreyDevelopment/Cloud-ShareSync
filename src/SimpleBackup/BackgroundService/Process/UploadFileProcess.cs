@@ -1,8 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Compression.Interfaces;
+using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
@@ -10,15 +12,17 @@ using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
 using Cloud_ShareSync.Core.Database.Entities;
 using Cloud_ShareSync.Core.Database.Sqlite;
 using Cloud_ShareSync.Core.SharedServices;
-using Cloud_ShareSync.SimpleBackup.Interfaces;
-using Cloud_ShareSync.SimpleBackup.Types;
+using Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces;
+using Cloud_ShareSync.SimpleBackup.BackgroundService.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.SimpleBackup.Process {
+namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
     internal class UploadFileProcess : IUploadFileProcess {
 
         #region Fields
+
+        public static readonly ConcurrentQueue<UploadFileInput> Queue = new( );
 
         private readonly ActivitySource _source = new( "UploadFileProcess" );
         private readonly ILogger<UploadFileProcess> _log;
@@ -50,7 +54,7 @@ namespace Cloud_ShareSync.SimpleBackup.Process {
                 _compress = new CompressionIntermediary( compressionConfig, _log );
             }
             _fileHash = new( _log );
-            _services = new CloudShareSyncServices( _databaseConfig.SqliteDBPath, _log );
+            _services = Config.ConfigureDatabaseService( _databaseConfig, _log );
             _semaphore.Release( 1 );
             _backBlaze = new( _backblazeConfig, _log );
             _crypto = (backupConfig.EncryptBeforeUpload) ? new( _log ) : null;
