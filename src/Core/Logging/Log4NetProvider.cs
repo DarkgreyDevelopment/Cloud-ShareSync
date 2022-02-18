@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Logging {
 #nullable disable
-    public class Log4NetProvider : ILoggerProvider {
+    internal class Log4NetProvider : ILoggerProvider {
 
         readonly ILogger _logger;
 

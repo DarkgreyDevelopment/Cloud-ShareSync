@@ -3,7 +3,7 @@ using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 
 namespace Cloud_ShareSync.Core.SharedServices {
 
-    public class BackBlazeHttpClient {
+    internal class BackBlazeHttpClient {
 
         HttpClient HttpClient { get; }
 

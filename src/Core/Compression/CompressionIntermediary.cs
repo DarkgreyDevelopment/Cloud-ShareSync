@@ -1,36 +1,35 @@
 ﻿using System.Diagnostics;
+using Cloud_ShareSync.Core.Compression.Interfaces;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
-using Cloud_ShareSync.Core.Compression.Interfaces;
 
 namespace Cloud_ShareSync.Core.Compression {
     public class CompressionIntermediary : ICompression {
 
         private static readonly ActivitySource s_source = new( "CompressionInterface" );
-        private readonly string _compressionArguments = "";
-        private readonly string _decompressionArguments = "";
         private readonly FileInfo _dependencyPath;
         private readonly ILogger? _log;
 
-        public DirectoryInfo _workingDirectory;
-        public string _interimZipname = "InterimCompressionItem.7z";
+        private readonly SemaphoreSlim _semaphore = new( 0, 1 );
 
         public CompressionIntermediary( CompressionConfig config, ILogger? log = null ) {
             _log = log;
             _dependencyPath = new( config.DependencyPath );
-            _workingDirectory = new( config.InterimZipPath );
-            _compressionArguments = config.CompressionCmdlineArgs;
-            _decompressionArguments = config.DeCompressionCmdlineArgs;
-            _interimZipname = config.InterimZipName;
             SystemMemoryChecker.Update( );
+            _semaphore.Release( 1 );
         }
 
 
         #region DecompressPath
 
-        public FileSystemInfo DecompressPath( FileInfo path, string? password ) {
-            _log?.LogInformation( "{string}", _decompressionArguments );
+        public async Task<FileSystemInfo> DecompressPath(
+            FileInfo path,
+            FileInfo decompressedPath,
+            string? password
+        ) {
+            await _semaphore.WaitAsync( );
+            _semaphore.Release( );
             throw new NotImplementedException( );
         }
 
@@ -39,50 +38,52 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region CompressPath
 
-        public FileInfo CompressPath(
+        public async Task<FileInfo> CompressPath(
             FileSystemInfo path,
+            FileInfo compressedPath,
             string? password = null
-        ) => CompressPath( path, _dependencyPath, _workingDirectory, password, _compressionArguments );
+        ) => await CompressPath( path, compressedPath, _dependencyPath, password );
 
-        public FileInfo CompressPath(
+        public async Task<FileInfo> CompressPath(
             FileSystemInfo path,
+            FileInfo compressedPath,
             FileInfo dependencyPath,
-            DirectoryInfo workingDirectory,
-            string? password = null,
-            string? arguments = null
+            string? password = null
         ) {
             using Activity? activity = s_source.StartActivity( "CompressPath" )?.Start( );
+            await _semaphore.WaitAsync( );
 
-            _log?.LogInformation( "Compressing File '{string}'.", path.FullName );
+            _log?.LogInformation(
+                "Compressing File '{string}' into '{string}'.",
+                path.FullName,
+                compressedPath.FullName
+            );
             SystemMemoryChecker.Update( );
 
-            string interimZipPath = GetInterimZipPath( workingDirectory );
             Process process = Create7zProcess(
-                interimZipPath,
+                compressedPath.FullName,
                 path,
                 dependencyPath,
-                workingDirectory,
-                password,
-                arguments
+                compressedPath.Directory ?? new( Path.GetTempPath( ) ),
+                password
             );
             process.Start( );
             process.BeginErrorReadLine( );
             process.BeginOutputReadLine( );
             process.WaitForExit( );
+            _semaphore.Release( );
             FailOnNonZeroExitCode( process.ExitCode );
-
-            FileInfo result = new( Path.Join( workingDirectory.FullName, _interimZipname ) );
 
             _log?.LogInformation(
                 "Successfully compressed '{string}'. \n" +
                 "Compressed FilePath: '{string}'. \n" +
                 "Compressed FileSize: {long}.",
                 path.FullName,
-                result.FullName,
-                result.Length
+                compressedPath.FullName,
+                compressedPath.Length
             );
             activity?.Stop( );
-            return result;
+            return compressedPath;
         }
 
         #endregion CompressPath
@@ -90,33 +91,17 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region PrivateMethods
 
-        private string GetInterimZipPath( DirectoryInfo workingDirectory ) {
-            using Activity? activity = s_source.StartActivity( "GetInterimZipPath" )?.Start( );
-
-            string interimZipPath = Path.Join( workingDirectory.FullName, _interimZipname );
-            if (File.Exists( interimZipPath )) {
-                _log?.LogInformation( "Deleting '{string}' left over from previous run.", interimZipPath );
-                File.Delete( interimZipPath );
-            }
-
-            activity?.Stop( );
-            return interimZipPath;
-        }
-
         private Process Create7zProcess(
             string interimZipPath,
             FileSystemInfo zipPath,
             FileInfo dependencyPath,
             DirectoryInfo workingDirectory,
-            string? password = null,
-            string? arguments = null
+            string? password = null
         ) {
             using Activity? activity = s_source.StartActivity( "GetInterimZipPath" )?.Start( );
 
             // 7z Cmdline Arguments - Works on both linux + windows.
-            arguments = string.IsNullOrWhiteSpace( arguments ) ?
-                                $"a {interimZipPath} -mfb=257 -mx=9 -mhe=on -mmt=on " :
-                                $"a {interimZipPath} {arguments} ";
+            string arguments = $"a {interimZipPath} -mfb=257 -mx=9 -mhe=on -mmt=on ";
 
             arguments += string.IsNullOrWhiteSpace( password ) ?
                                 $"-- \"{zipPath.FullName}\"" :
@@ -136,16 +121,19 @@ namespace Cloud_ShareSync.Core.Compression {
             };
             process.ErrorDataReceived += new DataReceivedEventHandler( ( sender, e ) => {
                 if (!string.IsNullOrWhiteSpace( e.Data )) {
-                    _log?.LogCritical( "{string}", e.Data );
+                    _log?.LogCritical( "Zip Failure - {string}", e.Data );
                     activity?.Stop( );
                     throw new FailedToZipException( e.Data );
                 }
             }
             );
 
-            process.OutputDataReceived += new DataReceivedEventHandler( ( sender, stdOut ) => {
-                if (!string.IsNullOrWhiteSpace( stdOut.Data )) { _log?.LogInformation( "{string}", stdOut.Data ); }
-            }
+            process.OutputDataReceived += new DataReceivedEventHandler(
+                ( sender, stdOut ) => {
+                    if (!string.IsNullOrWhiteSpace( stdOut.Data )) {
+                        _log?.LogInformation( "{string}", stdOut.Data );
+                    }
+                }
             );
 
             activity?.Stop( );

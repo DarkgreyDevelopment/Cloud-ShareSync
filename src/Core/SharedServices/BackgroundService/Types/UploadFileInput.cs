@@ -1,6 +1,6 @@
 ﻿using Cloud_ShareSync.Core.Database.Entities;
 
-namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Types {
+namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Types {
     public class UploadFileInput {
         public FileInfo UploadFile { get; set; }
         public string RelativePath { get; set; }

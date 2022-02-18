@@ -11,6 +11,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         public int MaxConsecutiveErrors { get; set; } = 5;
         public int UploadThreads { get; set; } = 25;
 
+        // Public Parameterless constructor 
         public B2Config( ) { }
 
         public B2Config(

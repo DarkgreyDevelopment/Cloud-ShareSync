@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    public class UploadThreadStatistic {
+    internal class UploadThreadStatistic {
         public int Thread { get; private set; }
         public int Attempt { get; set; } = 0;
         public int Success { get; set; } = 0;

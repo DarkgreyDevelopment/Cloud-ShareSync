@@ -16,7 +16,7 @@ namespace Cloud_ShareSync.Core.Database.Entities {
 
         ///<value>Used for sync validation.<br/>
         /// Used to see if the file has been uploaded already.<br/>
-        /// Also ensures decrypted/decompressed file matches original file.
+        /// Also ensures downloaded, decrypted, and decompressed file matches original file.
         /// </value>
         public string FileHash { get; set; }
 

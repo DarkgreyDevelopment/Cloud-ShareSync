@@ -2,8 +2,8 @@
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.Database.Entities;
 
-namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Types {
-    public class PrepItem {
+namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Types {
+    internal class PrepItem {
         public FileInfo UploadFile { get; set; }
         public string UploadPath { get; set; }
         public PrimaryTable? CoreData { get; set; }

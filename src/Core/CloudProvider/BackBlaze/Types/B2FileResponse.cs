@@ -5,8 +5,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
 #nullable disable
     public class B2FileResponse {
 
+#pragma warning disable IDE1006 // Naming Styles - These match the parameter names from backblaze.
         [JsonInclude]
-#pragma warning disable IDE1006 // Naming Styles
         public string accountId { get; set; }
         [JsonInclude]
         public string action { get; set; }
@@ -26,7 +26,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
         public string fileName { get; set; }
         [JsonInclude]
         public long uploadTimestamp { get; set; }
-#pragma warning restore IDE1006 // Naming Styles
+#pragma warning restore IDE1006 // Naming Styles - These match the parameter names from backblaze.
         [JsonInclude]
         public DateTime? DatetimeTimeStamp => (uploadTimestamp == 0) ?
                                             null :

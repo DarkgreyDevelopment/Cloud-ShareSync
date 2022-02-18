@@ -2,10 +2,9 @@
 using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
-using Cloud_ShareSync.Core.Logging;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Process;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Types;
+using Cloud_ShareSync.Core.SharedServices;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -15,22 +14,23 @@ namespace Cloud_ShareSync.SimpleBackup {
     public class Program {
         private static readonly ActivitySource s_source = new( "Cloud_ShareSync.SimpleBackup.Program" );
 
-        public static async Task Main( string[] args ) {
+        internal static async Task Main( string[] args ) {
             ILogger? log = null;
             try {
-                CompleteConfig config = Config.GetConfiguration( args );
-                log = Config.ConfigureTelemetryLogger( config.Log4Net, Array.Empty<string>( ) );
+                CompleteConfig config = ConfigManager.GetConfiguration( args );
+                log = ConfigManager.ConfigureTelemetryLogger( config.Log4Net, Array.Empty<string>( ) );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
-                Config.ValidateConfigSet( config, log, false, true );
-                if (config?.SimpleBackup == null) {
+                ConfigManager.ValidateConfigSet( config, false, true, log );
+                SystemMemoryChecker.Inititalize( log );
+                if (config?.Backup == null) {
                     throw new InvalidOperationException( "Cannot continue if SimpleBackup Config is null." );
                 }
                 List<string> fileList = PopulateFileList(
-                    config.SimpleBackup,
+                    config.Backup,
                     log
                 );
 
-                IHost host = ConfigureHost( log, args, config );
+                IHost host = HostProvider.ConfigureHost( log, args, config );
 
                 await RunSimpleBackupProcess( host, fileList, log );
 
@@ -118,58 +118,6 @@ namespace Cloud_ShareSync.SimpleBackup {
             return files;
         }
 
-        private static IHost ConfigureHost( ILogger? log, string[] args, CompleteConfig config ) {
-            using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
-            if (config?.SimpleBackup == null || config?.BackBlaze == null || config?.Database == null) {
-                throw new InvalidOperationException( );
-            }
-            IHostBuilder builder = Host.CreateDefaultBuilder( args )
-                                    .ConfigureServices( services => {
-                                        services.Configure<BackupConfig>( Config.GetSimpleBackup( ) );
-                                        services.AddSingleton( _ => config.SimpleBackup );
-                                        services.Configure<B2Config>( Config.GetBackBlazeB2( ) );
-                                        services.AddSingleton( _ => config.BackBlaze );
-                                        services.Configure<DatabaseConfig>( Config.GetDatabase( ) );
-                                        services.AddSingleton( _ => config.Database );
-                                        services.Configure<CompressionConfig?>( Config.GetCompression( ) );
-                                        if (config.Compression != null) _ = services.AddSingleton( _ => config.Compression );
-                                        services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
-                                        services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
-                                    } );
-
-            if (log != null) {
-                log.LogInformation( "Configuring host logging." );
-
-                builder.ConfigureLogging( logging => {
-                    logging.ClearProviders( );
-                    logging.SetMinimumLevel( GetMinimumLogLevel( log ) );
-                    logging.AddProvider( new Log4NetProvider( log ) );
-                } );
-            }
-            IHost host = builder.Build( );
-
-            activity?.Stop( );
-            return host;
-        }
-
-        private static LogLevel GetMinimumLogLevel( ILogger log ) {
-            LogLevel lvl = LogLevel.None;
-            if (log.IsEnabled( LogLevel.Trace )) {
-                lvl = LogLevel.Trace;
-            } else if (log.IsEnabled( LogLevel.Debug )) {
-                lvl = LogLevel.Debug;
-            } else if (log.IsEnabled( LogLevel.Information )) {
-                lvl = LogLevel.Information;
-            } else if (log.IsEnabled( LogLevel.Warning )) {
-                lvl = LogLevel.Warning;
-            } else if (log.IsEnabled( LogLevel.Error )) {
-                lvl = LogLevel.Error;
-            } else if (log.IsEnabled( LogLevel.Critical )) {
-                lvl = LogLevel.Critical;
-            }
-            return lvl;
-        }
-
         private static async Task RunSimpleBackupProcess( IHost host, List<string> fileList, ILogger? log ) {
 
             await PrepWork( host, fileList, log );
@@ -184,9 +132,9 @@ namespace Cloud_ShareSync.SimpleBackup {
                 uploadTasks[i] = UploadWork( host, log );
             }
 
-            while (prepTasks.Any( e => e.IsCompleted != true )) {
+            while (prepTasks.Any( e => e.IsCompleted != true ) || uploadTasks.Any( e => e.IsCompleted != true )) {
                 Thread.Sleep( 1000 );
-                if (uploadTasks.All( e => e.IsCompleted == true ) && UploadFileProcess.Queue.IsEmpty == false) {
+                if (uploadTasks.All( e => e.IsCompleted == true ) && IUploadFileProcess.Queue.IsEmpty == false) {
                     for (int i = 0; i < uploadTasks.Length; i++) {
                         uploadTasks[i] = UploadWork( host, log );
                     }
@@ -210,18 +158,10 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         private static async Task UploadWork( IHost host, ILogger? log ) {
             log?.LogDebug( "Begin Upload Work." );
-            if (UploadFileProcess.Queue.IsEmpty) { Thread.Sleep( 10000 ); }
-
             IUploadFileProcess uploadWorker = host.Services.GetRequiredService<IUploadFileProcess>( );
-            while (UploadFileProcess.Queue.IsEmpty == false) {
-                log?.LogDebug( "Upload Work Process." );
-                bool deQueue = UploadFileProcess.Queue.TryDequeue( out UploadFileInput? ufInput );
-                if (deQueue && ufInput != null) {
-                    await uploadWorker.Process( ufInput );
-                }
-            }
-
+            await uploadWorker.Process( );
             log?.LogDebug( "Completed Upload Work." );
         }
+
     }
 }

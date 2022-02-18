@@ -2,13 +2,13 @@
 using System.Text.Json.Serialization;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
-    public class DecryptionKeyNote {
+    public class ManagedChaCha20Poly1305DecryptionKeyNote {
 
         public byte[] Nonce { get; private set; }
         public byte[] Tag { get; private set; }
         public int Order { get; private set; }
 
-        public DecryptionKeyNote(
+        public ManagedChaCha20Poly1305DecryptionKeyNote(
             byte[] nonce,
             byte[] tag,
             int order
@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
         }
 
         [JsonConstructor]
-        public DecryptionKeyNote(
+        public ManagedChaCha20Poly1305DecryptionKeyNote(
             string nonce,
             string tag,
             int order

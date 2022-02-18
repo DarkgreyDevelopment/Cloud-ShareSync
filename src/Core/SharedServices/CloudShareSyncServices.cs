@@ -1,4 +1,4 @@
-﻿using Cloud_ShareSync.Core.Database.Sqlite;
+﻿using Cloud_ShareSync.Core.Database;
 using Cloud_ShareSync.Core.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

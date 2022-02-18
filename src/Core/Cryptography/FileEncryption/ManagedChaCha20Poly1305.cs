@@ -27,7 +27,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// <param name="cypherTxtFile"></param>
         /// <param name="keyFile"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public async Task<DecryptionData> Encrypt(
+        public async Task<ManagedChaCha20Poly1305DecryptionData> Encrypt(
             byte[] key,
             FileInfo plaintextFile,
             FileInfo cypherTxtFile,
@@ -47,7 +47,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 );
             }
 
-            DecryptionData decryptionData = await EncryptFile( key, plaintextFile, cypherTxtFile );
+            ManagedChaCha20Poly1305DecryptionData decryptionData = await EncryptFile( key, plaintextFile, cypherTxtFile );
 
             if (keyFile != null) {
                 await File.WriteAllTextAsync(
@@ -72,7 +72,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// <param name="key"></param>
         /// <param name="plaintextFile"></param>
         /// <param name="cypherTxtFile"></param>
-        private async Task<DecryptionData> EncryptFile(
+        private async Task<ManagedChaCha20Poly1305DecryptionData> EncryptFile(
             byte[] key,
             FileInfo plaintextFile,
             FileInfo cypherTxtFile
@@ -81,7 +81,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             ChaCha20Poly1305 chaPoly = new( key );
             List<byte[]> uniqueNonces = GetNonces( plaintextFile.Length );
-            List<DecryptionKeyNote> keyNoteList = new( );
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList = new( );
             long processedBytes = 0;
             int chunkCount = 0;
 
@@ -110,7 +110,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             SystemMemoryChecker.Update( );
 
             activity?.Stop( );
-            return new DecryptionData( key, keyNoteList );
+            return new ManagedChaCha20Poly1305DecryptionData( key, keyNoteList );
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// <paramref name="plaintextFile"/> from the <paramref name="offset"/> and encrypt it into 
         /// <paramref name="cypherTxtFile"/>.
         /// </summary>
-        /// <returns><see cref="DecryptionKeyNote"/> (<paramref name="nonce"/>, tag, <paramref name="order"/>)
+        /// <returns><see cref="ManagedChaCha20Poly1305DecryptionKeyNote"/> (<paramref name="nonce"/>, tag, <paramref name="order"/>)
         /// for encrypted section.</returns>
         /// <param name="chaPoly"></param>
         /// <param name="nonce"></param>
@@ -127,7 +127,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// <param name="cypherTxtFile"></param>
         /// <param name="order"></param>
         /// <param name="offset"></param>
-        private async Task<DecryptionKeyNote> EncryptFileChunk(
+        private async Task<ManagedChaCha20Poly1305DecryptionKeyNote> EncryptFileChunk(
             ChaCha20Poly1305 chaPoly,
             byte[] nonce,
             byte[] plaintext,
@@ -154,7 +154,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             await AppendFileChunk( cypherTxtFile, cypherTxt, order );
 
             activity?.Stop( );
-            return new DecryptionKeyNote( nonce, tag, order );
+            return new ManagedChaCha20Poly1305DecryptionKeyNote( nonce, tag, order );
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 throw new ArgumentException( $"KeyFile \"{keyFile.FullName}\" doesn't exist.", nameof( keyFile ) );
             }
 
-            await Decrypt( DecryptionData.Deserialize( keyFile ), cypherTxtFile, plaintextFile );
+            await Decrypt( ManagedChaCha20Poly1305DecryptionData.Deserialize( keyFile ), cypherTxtFile, plaintextFile );
 
             activity?.Stop( );
         }
@@ -235,7 +235,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public async Task Decrypt(
-            DecryptionData decryptionData,
+            ManagedChaCha20Poly1305DecryptionData decryptionData,
             FileInfo cypherTxtFile,
             FileInfo plaintextFile
         ) {
@@ -258,7 +258,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             }
 
             ChaCha20Poly1305 chaPoly = new( decryptionData.KeyBytes );
-            List<DecryptionKeyNote> keyNoteList = decryptionData.KeyNoteList;
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList = decryptionData.KeyNoteList;
             long processedBytes = 0;
             int chunkCount = 0;
 
@@ -289,7 +289,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         }
 
         /// <summary>
-        /// Uses <paramref name="chaPoly"/> and the <see cref="DecryptionData"/> (<paramref name="nonce"/>,<paramref name="tag"/>)
+        /// Uses <paramref name="chaPoly"/> and the <see cref="ManagedChaCha20Poly1305DecryptionData"/> (<paramref name="nonce"/>,<paramref name="tag"/>)
         /// to decrypt <paramref name="cypherTxt"/>.Length bytes from <paramref name="offset"/> of <paramref name="cypherTxtFile"/> 
         /// into <paramref name="plaintextFile"/>.
         /// </summary>
@@ -336,7 +336,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
         /// <summary>
         /// Common method to append <paramref name="data"/> to the end of the <paramref name="outputFile"/>.
-        /// <paramref name="order"/> == 1 sets FileMode
+        /// <paramref name="order"/> == 0 sets <see cref="FileMode.Create"/> otherwise sets <see cref="FileMode.Open"/>.
         /// </summary>
         /// <param name="outputFile"></param>
         /// <param name="data"></param>

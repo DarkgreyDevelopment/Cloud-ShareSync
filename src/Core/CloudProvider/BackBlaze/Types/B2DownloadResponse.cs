@@ -2,7 +2,7 @@
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
 #nullable disable
-    public class B2DownloadResponse {
+    internal class B2DownloadResponse {
 
         public FileInfo OutputPath { get; set; }
         public string FileID { get; set; }

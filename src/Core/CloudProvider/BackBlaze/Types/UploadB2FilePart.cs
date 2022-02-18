@@ -1,5 +1,5 @@
 ﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    public class UploadB2FilePart {
+    internal class UploadB2FilePart {
 
         public string UploadUrl { get; set; }
         public string AuthorizationToken { get; set; }

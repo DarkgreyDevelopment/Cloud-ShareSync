@@ -10,7 +10,10 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
         private static ILogger? s_log;
 
-        public static void Inititalize( ILogger? log = null ) { s_log = log; }
+        public static void Inititalize( ILogger? log = null ) {
+            s_log = log;
+            Update( );
+        }
 
         public static void Update( ) {
             Total = Process.GetCurrentProcess( ).WorkingSet64;

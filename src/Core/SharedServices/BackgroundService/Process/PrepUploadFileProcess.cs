@@ -6,14 +6,13 @@ using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Database.Entities;
-using Cloud_ShareSync.Core.Database.Sqlite;
-using Cloud_ShareSync.Core.SharedServices;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Types;
+using Cloud_ShareSync.Core.Database;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
+namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
     internal class PrepUploadFileProcess : IPrepUploadFileProcess {
 
         #region Fields
@@ -39,7 +38,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         ) {
             _log = log;
             _fileHash = new( _log );
-            _services = Config.ConfigureDatabaseService( databaseConfig, _log );
+            _services = ConfigManager.ConfigureDatabaseService( databaseConfig, _log );
             _semaphore.Release( 1 );
             _backBlaze = new( backblazeConfig, _log );
             _rootFolder = backupConfig.RootFolder;
@@ -83,7 +82,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
                     }
 
                     if (await CheckShouldUpload( item, newTableData )) {
-                        UploadFileProcess.Queue.Enqueue(
+                        IUploadFileProcess.Queue.Enqueue(
                             new( item.UploadFile, item.UploadPath, item.CoreData )
                         );
                     }

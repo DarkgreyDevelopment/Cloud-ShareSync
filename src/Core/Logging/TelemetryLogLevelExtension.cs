@@ -3,7 +3,7 @@ using log4net.Core;
 
 namespace Cloud_ShareSync.Core.Logging {
 #nullable disable
-    public static class TelemetryLogLevelExtension {
+    internal static class TelemetryLogLevelExtension {
 
         public static readonly Level TelemetryLevel = new( 125000, "Telemetry" );
 

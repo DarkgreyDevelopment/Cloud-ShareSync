@@ -1,5 +1,5 @@
 ﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    public class FilePartInfo {
+    internal class FilePartInfo {
         public int PartNumber { get; set; }
         public int ContentLength { get; set; }
         public string Sha1Hash { get; set; }

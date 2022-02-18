@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze;
 using Cloud_ShareSync.Core.Compression;
@@ -9,24 +8,22 @@ using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption.Types;
+using Cloud_ShareSync.Core.Database;
 using Cloud_ShareSync.Core.Database.Entities;
-using Cloud_ShareSync.Core.Database.Sqlite;
-using Cloud_ShareSync.Core.SharedServices;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Interfaces;
-using Cloud_ShareSync.SimpleBackup.BackgroundService.Types;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces;
+using Cloud_ShareSync.Core.SharedServices.BackgroundService.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
+namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
     internal class UploadFileProcess : IUploadFileProcess {
 
         #region Fields
 
-        public static readonly ConcurrentQueue<UploadFileInput> Queue = new( );
+        private static readonly ActivitySource s_source = new( "UploadFileProcess" );
+        private static ICompression? s_compress = null;
 
-        private readonly ActivitySource _source = new( "UploadFileProcess" );
         private readonly ILogger<UploadFileProcess> _log;
-        private readonly ICompression? _compress = null;
         private readonly Hashing _fileHash;
         private readonly ManagedChaCha20Poly1305? _crypto;
         private readonly BackBlazeB2 _backBlaze;
@@ -34,7 +31,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         private readonly BackupConfig _backupConfig;
         private readonly B2Config _backblazeConfig;
         private readonly DatabaseConfig _databaseConfig;
-
+        private readonly UniquePassword _uniquePassword;
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
 
         #endregion Fields
@@ -50,50 +47,86 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
             _backblazeConfig = backblazeConfig;
             _databaseConfig = databaseConfig;
             _log = log;
-            if (_backupConfig.CompressBeforeUpload == true && compressionConfig != null) {
-                _compress = new CompressionIntermediary( compressionConfig, _log );
+            if (
+                _backupConfig.CompressBeforeUpload == true &&
+                compressionConfig != null &&
+                s_compress == null
+            ) {
+                s_compress = new CompressionIntermediary( compressionConfig, _log );
             }
             _fileHash = new( _log );
-            _services = Config.ConfigureDatabaseService( _databaseConfig, _log );
+            _services = ConfigManager.ConfigureDatabaseService( _databaseConfig, _log );
             _semaphore.Release( 1 );
             _backBlaze = new( _backblazeConfig, _log );
             _crypto = (backupConfig.EncryptBeforeUpload) ? new( _log ) : null;
+            _uniquePassword = new( );
         }
 
 
         /// <summary>
-        /// The high level/abstracted upload file process for a given UploadFileInput.
+        /// The high level/abstracted upload file process.
         /// </summary>
         /// <param name="ufInput"></param>
-        public async Task Process( UploadFileInput ufInput ) {
-            using Activity? activity = _source.StartActivity( "Process" )?.Start( );
+        public async Task Process( ) {
+            using Activity? activity = s_source.StartActivity( "Process" )?.Start( );
 
-            FileInfo uploadFile = ufInput.UploadFile;
-            string uploadPath = ufInput.RelativePath;
-            PrimaryTable tabledata = ufInput.TableData;
-            _log.LogInformation( "PrimaryTabledata:\n{string}", tabledata );
+            while (IUploadFileProcess.Queue.IsEmpty == false) {
+                _log.LogDebug( "Upload Work Process. Queue Count: {int}", IUploadFileProcess.Queue.Count );
+                bool deQueue = IUploadFileProcess.Queue.TryDequeue( out UploadFileInput? ufInput );
+                if (deQueue && ufInput != null) {
+                    _log.LogDebug( "Begin upload file process." );
+                    try {
+                        FileInfo uploadFile = ufInput.UploadFile;
+                        string uploadPath = ufInput.RelativePath;
+                        PrimaryTable tabledata = ufInput.TableData;
+                        _log.LogInformation( "PrimaryTabledata:\n{string}", tabledata );
 
-            uploadFile = CopyFileToWorkingDir( uploadFile );
+                        _log.LogDebug( "Copying File to Working Dir." );
+                        uploadFile = CopyFileToWorkingDir( uploadFile );
+                        _log.LogDebug( "Copied File to Working Dir." );
 
-            await SetOriginalFileHash( uploadFile, tabledata );
 
-            uploadFile = await EncryptFile( uploadFile, tabledata );
+                        _log.LogDebug( "Setting original file hash." );
+                        await SetOriginalFileHash( uploadFile, tabledata );
+                        _log.LogDebug( "Set original file hash." );
 
-            uploadFile = CompressFile( uploadFile, tabledata );
 
-            string sha512filehash = await SetUploadFileHash( uploadFile, tabledata );
+                        _log.LogDebug( "Encrypting file." );
+                        uploadFile = await EncryptFile( uploadFile, tabledata );
+                        _log.LogDebug( "File Encrypted." );
 
-            // Upload File.
-            await UploadFileToB2(
-                tabledata,
-                uploadFile,
-                uploadFile.FullName,
-                uploadPath,
-                tabledata.FileHash // Use Original FileHash in b2 metadata.
-            );
 
-            // Remove file from working directory (if needed).
-            DeleteWorkingFile( uploadFile );
+                        _log.LogDebug( "Compressing File." );
+                        uploadFile = CompressFile( uploadFile, tabledata );
+                        _log.LogDebug( "Compressed File." );
+
+
+                        _log.LogDebug( "Setting upload file hash." );
+                        await SetUploadFileHash( uploadFile, tabledata );
+                        _log.LogDebug( "Set upload file hash." );
+
+                        _log.LogDebug( "Starting Upload File to B2." );
+                        // Upload File.
+                        await UploadFileToB2(
+                            tabledata,
+                            uploadFile,
+                            uploadFile.FullName,
+                            uploadPath,
+                            tabledata.FileHash // Use Original FileHash in b2 metadata.
+                        );
+                        _log.LogDebug( "File Uploaded to B2." );
+
+                        // Remove file from working directory (if needed).
+                        DeleteWorkingFile( uploadFile );
+                    } catch (Exception ex) {
+                        _log.LogError( "An error occurred during upload process.", ex );
+                        IUploadFileProcess.Queue.Enqueue( ufInput );
+                    }
+                    _log.LogDebug( "Completed upload file process." );
+                }
+            }
+
+            _log.LogDebug( "Upload Work Process Completed. Queue Count: {int}", IUploadFileProcess.Queue.Count );
 
             activity?.Stop( );
         }
@@ -107,7 +140,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// </summary>
         /// <param name="inputFile"></param>
         private FileInfo CopyFileToWorkingDir( FileInfo inputFile ) {
-            using Activity? activity = _source.StartActivity( "CopyFileToWorkingDir" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "CopyFileToWorkingDir" )?.Start( );
 
             FileInfo result = inputFile;
 
@@ -129,7 +162,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// <param name="inputFile"></param>
         /// <param name="tabledata"></param>
         private async Task SetOriginalFileHash( FileInfo inputFile, PrimaryTable tabledata ) {
-            using Activity? activity = _source.StartActivity( "GetOriginalFileHash" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "GetOriginalFileHash" )?.Start( );
 
             tabledata.FileHash = await _fileHash.GetSha512Hash( inputFile );
 
@@ -157,7 +190,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// <param name="tabledata"></param>
         /// <exception cref="InvalidOperationException"></exception>
         private async Task<FileInfo> EncryptFile( FileInfo inputFile, PrimaryTable tabledata ) {
-            using Activity? activity = _source.StartActivity( "EncryptFile" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "EncryptFile" )?.Start( );
             FileInfo result = inputFile;
 
             if (_backupConfig.EncryptBeforeUpload) {
@@ -165,10 +198,16 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
                 if (_crypto == null) {
                     throw new InvalidOperationException( "Cannot encrypt if managed crypto provider is null." );
                 }
-                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, "encryptedFile.enc" ) );
+
+                string encryptionFileName =
+                    inputFile.Name.Remove( inputFile.Name.Length - inputFile.Extension.Length ) +
+                    "-" +
+                    Path.GetRandomFileName( );
+
+                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, encryptionFileName ) );
 
                 byte[] key = RandomNumberGenerator.GetBytes( 32 );
-                DecryptionData data = await _crypto.Encrypt( key, inputFile, cypherTxtFile, null );
+                ManagedChaCha20Poly1305DecryptionData data = await _crypto.Encrypt( key, inputFile, cypherTxtFile, null );
 
                 // Perform DB work.
                 SqliteContext sqliteContext = GetSqliteContext( );
@@ -209,21 +248,27 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// <param name="tabledata"></param>
         /// <exception cref="InvalidOperationException"></exception>
         private FileInfo CompressFile( FileInfo inputFile, PrimaryTable tabledata ) {
-            using Activity? activity = _source.StartActivity( "CompressFile" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "CompressFile" )?.Start( );
 
             FileInfo result = inputFile;
 
             if (_backupConfig.CompressBeforeUpload) {
                 _log.LogInformation( "Compressing '{string}'.", inputFile );
-                if (_compress == null) {
+                if (s_compress == null) {
                     throw new InvalidOperationException(
                         "Cannot compress before upload if comprssion tool is null."
                     );
                 }
 
-                string? password = _backupConfig.UniqueCompressionPasswords ? UniquePassword.Create( ) : null;
+                string? password = _backupConfig.UniqueCompressionPasswords ? _uniquePassword.Create( ) : null;
 
-                result = _compress.CompressPath( inputFile, password );
+                string compressionFileName =
+                    inputFile.Name.Remove( inputFile.Name.Length - inputFile.Extension.Length ) +
+                    "-" +
+                    Path.GetRandomFileName( );
+
+                FileInfo compressionPath = new( Path.Join( _backupConfig.WorkingDirectory, compressionFileName ) );
+                result = s_compress.CompressPath( inputFile, compressionPath, password ).Result;
 
                 SqliteContext sqliteContext = GetSqliteContext( );
                 CompressionTable? compTableData = sqliteContext.CompressionData
@@ -259,11 +304,10 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// </summary>
         /// <param name="uploadFile"></param>
         /// <param name="tabledata"></param>
-        private async Task<string> SetUploadFileHash( FileInfo uploadFile, PrimaryTable tabledata ) {
-            using Activity? activity = _source.StartActivity( "SetUploadFileHash" )?.Start( );
+        private async Task SetUploadFileHash( FileInfo uploadFile, PrimaryTable tabledata ) {
+            using Activity? activity = s_source.StartActivity( "SetUploadFileHash" )?.Start( );
 
-            string sha512filehash = await _fileHash.GetSha512Hash( uploadFile );
-            tabledata.UploadedFileHash = sha512filehash;
+            tabledata.UploadedFileHash = await _fileHash.GetSha512Hash( uploadFile );
 
             SqliteContext sqliteContext = GetSqliteContext( );
             sqliteContext.Update( tabledata );
@@ -271,7 +315,6 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
             ReleaseSqliteContext( );
 
             activity?.Stop( );
-            return sha512filehash;
         }
 
 
@@ -292,7 +335,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
             string uploadPath,
             string sha512Hash
         ) {
-            using Activity? activity = _source.StartActivity( "UploadFileToB2" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "UploadFileToB2" )?.Start( );
 
             if (_backupConfig.ObfuscateUploadedFileNames) {
                 uploadPath = _fileHash.GetSha512Hash( sha512Hash );
@@ -335,7 +378,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// </summary>
         /// <param name="uploadFile"></param>
         private void DeleteWorkingFile( FileInfo uploadFile ) {
-            using Activity? activity = _source.StartActivity( "DeleteWorkingFile" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "DeleteWorkingFile" )?.Start( );
             if (_backupConfig.EncryptBeforeUpload || _backupConfig.CompressBeforeUpload) { uploadFile.Delete( ); }
             activity?.Stop( );
         }
@@ -345,7 +388,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// Waits for the semaphore to become available then returns the SqliteContext.
         /// </summary>
         private SqliteContext GetSqliteContext( ) {
-            using Activity? activity = _source.StartActivity( "GetSqliteContext" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "GetSqliteContext" )?.Start( );
             _semaphore.Wait( );
             SqliteContext result = _services.Services.GetRequiredService<SqliteContext>( );
             activity?.Stop( );
@@ -357,7 +400,7 @@ namespace Cloud_ShareSync.SimpleBackup.BackgroundService.Process {
         /// Releases the semaphore so the next sqlite transaction can occur.
         /// </summary>
         private void ReleaseSqliteContext( ) {
-            using Activity? activity = _source.StartActivity( "ReleaseSqliteContext" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "ReleaseSqliteContext" )?.Start( );
             _semaphore.Release( );
             activity?.Stop( );
         }

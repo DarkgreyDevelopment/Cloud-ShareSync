@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
-using Cloud_ShareSync.Core.Compression;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -25,9 +24,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             } else {
                 List<char> dontEscape = new( );
                 dontEscape.AddRange( "._-/~!$'()*;=:@ ".ToCharArray( ) );
-                dontEscape.AddRange( UniquePassword.UpperCase );
-                dontEscape.AddRange( UniquePassword.LowerCase );
-                dontEscape.AddRange( UniquePassword.Numbers );
+                dontEscape.AddRange( "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray( ) );
+                dontEscape.AddRange( "abcdefghijklmnopqrstuvwxyz".ToCharArray( ) );
+                dontEscape.AddRange( "0123456789".ToCharArray( ) );
 
                 foreach (char c in uploadpath.ToCharArray( )) {
                     cleanUri += dontEscape.Contains( c ) ? c : Uri.HexEscape( c );

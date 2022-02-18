@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
-    public class DecryptionData {
+    public class ManagedChaCha20Poly1305DecryptionData {
 
         [JsonInclude]
         [JsonPropertyName( "Key" )]
@@ -10,11 +10,11 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
 
         [JsonIgnore]
         public byte[] KeyBytes { get; private set; } // Ignore binary data for json, using _key string instead.
-        public List<DecryptionKeyNote> KeyNoteList { get; private set; }
+        public List<ManagedChaCha20Poly1305DecryptionKeyNote> KeyNoteList { get; private set; }
 
-        public DecryptionData(
+        public ManagedChaCha20Poly1305DecryptionData(
             byte[] key,
-            List<DecryptionKeyNote> keyNoteList
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList
         ) {
             KeyBytes = key;
             Key = Convert.ToBase64String( key, 0, key.Length );
@@ -23,9 +23,9 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
         }
 
         [JsonConstructor]
-        public DecryptionData(
+        public ManagedChaCha20Poly1305DecryptionData(
             string key,
-            List<DecryptionKeyNote> keyNoteList
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList
         ) {
             KeyBytes = Convert.FromBase64String( key );
             Key = key;
@@ -42,7 +42,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
             }
 
             int ntpCount = 0;
-            foreach (DecryptionKeyNote ntp in KeyNoteList) {
+            foreach (ManagedChaCha20Poly1305DecryptionKeyNote ntp in KeyNoteList) {
                 // Check Tag Size
                 if (ntp.Tag.Length != 16) {
                     throw new ArgumentOutOfRangeException(
@@ -68,7 +68,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
             return JsonSerializer.Serialize( this, new JsonSerializerOptions { WriteIndented = true } );
         }
 
-        internal static DecryptionData Deserialize( FileInfo keyFile ) {
+        internal static ManagedChaCha20Poly1305DecryptionData Deserialize( FileInfo keyFile ) {
             if (File.Exists( keyFile.FullName )) {
                 // Read KeyFile
                 string? json = File.ReadAllText( keyFile.FullName );
@@ -84,7 +84,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
                 }
 
                 // Interpret KeyNoteList's
-                List<DecryptionKeyNote> decryptionPairs = new( );
+                List<ManagedChaCha20Poly1305DecryptionKeyNote> decryptionPairs = new( );
                 if (root.TryGetProperty( nameof( KeyNoteList ), out JsonElement keyNote )) {
 
                     int ntpCount = 0;
@@ -115,7 +115,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
                 }
 
                 return (key != null && decryptionPairs.Count > 0) ?
-                    new DecryptionData( key, decryptionPairs ) :
+                    new ManagedChaCha20Poly1305DecryptionData( key, decryptionPairs ) :
                     throw new ArgumentOutOfRangeException( nameof( keyFile ), "Invalid Keyfile." );
 
             } else {

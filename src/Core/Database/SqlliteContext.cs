@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Cloud_ShareSync.Core.Database.Entities;
 
-namespace Cloud_ShareSync.Core.Database.Sqlite {
+namespace Cloud_ShareSync.Core.Database {
 #nullable disable
-    public class SqliteContext : DbContext {
+    internal class SqliteContext : DbContext {
 
         public static string DatabasePath { get; set; }
 
