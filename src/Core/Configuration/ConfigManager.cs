@@ -324,8 +324,8 @@ namespace Cloud_ShareSync.Core.Configuration {
             return result;
         }
 
-        private static AwsConfig? BuildAwsConfig( CoreConfig core ) {
-            AwsConfig? result = null;
+        private static S3Config? BuildAwsConfig( CoreConfig core ) {
+            S3Config? result = null;
 
             if (core.EnabledCloudProviders.HasFlag( CloudProviders.AwsS3 )) {
                 throw new NotImplementedException(
@@ -363,8 +363,8 @@ namespace Cloud_ShareSync.Core.Configuration {
             return result;
         }
 
-        private static GcpConfig? BuildGcpConfig( CoreConfig core ) {
-            GcpConfig? result = null;
+        private static GcsConfig? BuildGcpConfig( CoreConfig core ) {
+            GcsConfig? result = null;
 
             if (core.EnabledCloudProviders.HasFlag( CloudProviders.GoogleCloudStorage )) {
                 throw new NotImplementedException(

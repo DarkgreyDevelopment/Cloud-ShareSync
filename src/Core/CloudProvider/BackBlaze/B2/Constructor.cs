@@ -2,6 +2,7 @@
 using Cloud_ShareSync.Core.Cryptography;
 using Microsoft.Extensions.Logging;
 using Cloud_ShareSync.Core.SharedServices;
+using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -34,7 +35,11 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                                 .NewAuthReturn( _applicationData.Credentials )
                                 .Result
                                 .AuthData;
-            ThreadManager = new( _log, uploadThreads );
+            if (B2ThreadManager.ThreadStats.Length == 0) {
+                B2ThreadManager.Inititalize( _log, uploadThreads );
+            } else if (B2ThreadManager.MaximumThreadCount < uploadThreads) {
+                B2ThreadManager.UpdateMaxThreadCount( uploadThreads );
+            }
 
             _regexPatterns = new( );
             _regexPatterns.Add(

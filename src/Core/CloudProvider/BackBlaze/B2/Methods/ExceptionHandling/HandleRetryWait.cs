@@ -11,35 +11,36 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             ConcurrentStack<FilePartInfo> filePartQueue,
             B2ConcurrentStats concurrencyStats
         ) {
-            if (ThreadManager.FailureDetails[thread].PastFailureTime != null) {
-                if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -5 )) {
+
+            if (B2ThreadManager.FailureDetails[thread].PastFailureTime != null) {
+                if (B2ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -5 )) {
                     _log?.LogDebug(
                         "Thread#{string} Previous error was 5 or more minutes ago. " +
                         "Resetting Failure Details.",
                         thread
                     );
-                    ThreadManager.FailureDetails[thread].Reset( );
-                } else if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -4 )) {
+                    B2ThreadManager.FailureDetails[thread].Reset( );
+                } else if (B2ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -4 )) {
                     _log?.LogDebug(
                         "Thread#{string} Previous error was 4 or more minutes ago. " +
                         "Setting wait counter to 15 seconds.",
                         thread
                     );
-                    ThreadManager.FailureDetails[thread].RetryWaitTimer = 15;
-                } else if (ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -3 )) {
+                    B2ThreadManager.FailureDetails[thread].RetryWaitTimer = 15;
+                } else if (B2ThreadManager.FailureDetails[thread].PastFailureTime <= DateTime.Now.AddMinutes( -3 )) {
                     _log?.LogDebug(
                         "Thread#{string} Previous error was 3 or more minutes ago. " +
                         "Setting wait counter to 31 seconds.",
                         thread
                     );
-                    ThreadManager.FailureDetails[thread].RetryWaitTimer = 31;
+                    B2ThreadManager.FailureDetails[thread].RetryWaitTimer = 31;
                 }
             }
 
-            int sleepTime = ThreadManager.FailureDetails[thread].RetryWaitTimer;
+            int sleepTime = B2ThreadManager.FailureDetails[thread].RetryWaitTimer;
 
-            ThreadManager.FailureDetails[thread].RetryWaitTimer = 1 +
-                (2 * ThreadManager.FailureDetails[thread].RetryWaitTimer);
+            B2ThreadManager.FailureDetails[thread].RetryWaitTimer = 1 +
+                (2 * B2ThreadManager.FailureDetails[thread].RetryWaitTimer);
             _log?.LogDebug(
                 "Thread#{string} Sleeping for {string} seconds.",
                 thread,
@@ -54,8 +55,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             // Add Failure Stats
-            ThreadManager.ThreadStats[thread].Failure++;
-            ThreadManager.ThreadStats[thread].AddSleepTimer( sleepCount );
+            B2ThreadManager.ThreadStats[thread].Failure++;
+            B2ThreadManager.ThreadStats[thread].AddSleepTimer( sleepCount );
             if (sleepTime <= sleepCount) { concurrencyStats.RemoveSleeping( thread ); }
         }
 

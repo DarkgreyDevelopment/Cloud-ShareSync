@@ -76,7 +76,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
         /// <param name="file"></param>
         internal async Task<string> GetSha1Hash( FileInfo file ) {
             using Activity? activity = _source.StartActivity( "GetSHA1FileHash" )?.Start( );
-            _log?.LogDebug( "Retrieving Sha1 hash for file '{string}'.", file.FullName );
+            _log?.LogInformation( "Retrieving Sha1 hash for file '{string}'.", file.FullName );
 
             VerifyFileExists( file );
 
@@ -90,7 +90,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
             // Convert to hexidecimal string
             string result = ConvertBytesToHexString( hashBytes );
 
-            _log?.LogDebug( "Retrieved Sha1 hash for file '{string}'. Hash: {string}", file.FullName, result );
+            _log?.LogInformation( "Retrieved Sha1 hash for file '{string}'. Hash: {string}", file.FullName, result );
             activity?.Stop( );
             return result;
         }
@@ -110,7 +110,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
             using Activity? activity = _source.StartActivity( "GetSHA1HashForFileChunkAsync" )?.Start( );
             long end = offset + data.Length;
 
-            _log?.LogDebug(
+            _log?.LogInformation(
                 "Retrieving Sha1 hash for file '{string}' section {long}-{long}.",
                 file.FullName, offset, end
             );
@@ -129,7 +129,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
             // Convert to hexidecimal string
             string result = ConvertBytesToHexString( hashBytes );
 
-            _log?.LogDebug(
+            _log?.LogInformation(
                 "Retrieved Sha1 hash for file '{string}' section {long}-{long}. Hash: {string}",
                 file.FullName, offset, end, result
             );
@@ -148,14 +148,14 @@ namespace Cloud_ShareSync.Core.Cryptography {
         /// <param name="inputString"></param>
         public string GetSha512Hash( string inputString ) {
             using Activity? activity = _source.StartActivity( "GetSha512StringHash" )?.Start( );
-            _log?.LogDebug( "Retrieving Sha512 hash for inputstring '{string}'.", inputString );
+            _log?.LogInformation( "Retrieving Sha512 hash for inputstring '{string}'.", inputString );
 
             SystemMemoryChecker.Update( );
             string result = ConvertBytesToHexString(
                 SHA512.Create( ).ComputeHash( Encoding.UTF8.GetBytes( inputString ) )
             );
 
-            _log?.LogDebug( "Retrieved Sha512 hash for inputstring '{string}'. Hash: {string}", inputString, result );
+            _log?.LogInformation( "Retrieved Sha512 hash for inputstring '{string}'. Hash: {string}", inputString, result );
             activity?.Stop( );
             return result;
         }
@@ -166,7 +166,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
         /// <param name="file"></param>
         public async Task<string> GetSha512Hash( FileInfo file ) {
             using Activity? activity = _source.StartActivity( "GetSha512FileHash" )?.Start( );
-            _log?.LogDebug( "Retrieving Sha512 hash for file '{string}'.", file.FullName );
+            _log?.LogInformation( "Retrieving Sha512 hash for file '{string}'.", file.FullName );
 
             VerifyFileExists( file );
 
@@ -182,7 +182,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
             // Convert to hexidecimal string
             string result = ConvertBytesToHexString( hashBytes );
 
-            _log?.LogDebug( "Retrieved Sha512 hash for file '{string}'. Hash: {string}", file.FullName, result );
+            _log?.LogInformation( "Retrieved Sha512 hash for file '{string}'. Hash: {string}", file.FullName, result );
             activity?.Stop( );
             return result;
         }

@@ -291,10 +291,10 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                 UploadedFileHash = "",
                 IsEncrypted = false,
                 IsCompressed = false,
-                UsesAwsS3 = false,
-                UsesAzureBlobStorage = false,
-                UsesBackBlazeB2 = true,
-                UsesGoogleCloudStorage = false
+                StoredInAwsS3 = false,
+                StoredInAzureBlobStorage = false,
+                StoredInBackBlazeB2 = true,
+                StoredInGoogleCloudStorage = false
             };
 
             SqliteContext sqliteContext = GetSqliteContext( );

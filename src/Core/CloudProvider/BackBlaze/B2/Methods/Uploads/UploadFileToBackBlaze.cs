@@ -13,6 +13,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 activity?.Stop( );
                 throw new InvalidOperationException( "Cannot upload a file that doesn't exist." );
             }
+            _log?.LogInformation( "Uploading '{string}' to backblaze.", upload.FilePath.FullName );
+            _log?.LogInformation( "Uploads original file name: {string}", upload.OriginalFileName );
+            _log?.LogInformation( "Uploading as: {string}", upload.UploadFilePath );
 
             if (string.IsNullOrWhiteSpace( upload.CompleteSha512Hash )) {
                 upload.CompleteSha512Hash = await _fileHash.GetSha512Hash( upload.FilePath );
@@ -41,9 +44,14 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 upload = await NewStartLargeFileURL( upload );
                 _log?.LogDebug( "{string}", upload );
 
-                _log?.LogInformation( "Uploading Large File to Backblaze." );
+                _log?.LogDebug( "Uploading Large File to Backblaze." );
                 upload = await NewLargeFileUpload( upload );
             }
+            _log?.LogInformation(
+                "Successfully uploaded '{string}' to backblaze as '{string}'.",
+                upload.FilePath.FullName,
+                upload.UploadFilePath
+            );
             activity?.Stop( );
             return upload.FileId;
         }

@@ -8,7 +8,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
         public int Failure { get; set; } = 0;
         public decimal SuccessPercentage => CalculatePercentage( Success, Attempt );
         public decimal FailurePercentage => CalculatePercentage( Failure, Attempt );
-        private List<int> SleepTimers { get; } = new( );
+        internal List<int> SleepTimers { get; } = new( );
         public int SleepTimerCount => SleepTimers.Count;
         public decimal SleepTimerAverage => CalculateSleepTimerAverage( SleepTimers );
         public decimal AverageSecondsAsleepPerSuccess => CalculateSleepSuccessAverage( SleepTimers, Success );

@@ -18,9 +18,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 finalLength += recSize;
             }
 
-            int threadCount = totalParts < ThreadManager.ActiveThreadCount ?
-                                totalParts :
-                                ThreadManager.ActiveThreadCount;
+            int threadCount = B2ThreadManager.GetActiveThreadCount( totalParts );
             B2ConcurrentStats concurrencyStats = new( threadCount );
             _log?.LogInformation( "Uploading Large File Parts Async" );
             _log?.LogInformation( "Splitting file into {int} {int} byte chunks and 1 {int} chunk.", totalParts - 1, recSize, finalLength );
@@ -70,15 +68,15 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             _log?.LogInformation( "Concurrency Stats: {string}", concurrencyStats );
-            ThreadManager.ConcurrencyStats.Add( concurrencyStats );
+            B2ThreadManager.ConcurrencyStats.Add( concurrencyStats );
 
             _log?.LogInformation( "Thread UploadStats:" );
-            ThreadManager.ShowThreadStatistics( true );
+            B2ThreadManager.ShowThreadStatistics( true );
 
 
             await FinishUploadLargeFile( uploadObject );
 
-            foreach (FailureInfo failure in ThreadManager.FailureDetails) {
+            foreach (FailureInfo failure in B2ThreadManager.FailureDetails) {
                 failure.Reset( );
             }
 

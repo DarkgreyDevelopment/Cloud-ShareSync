@@ -1,0 +1,41 @@
+name: CloudShareSync
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true
+
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
+
+    steps:
+      - name: Echo Log Information
+        run: |
+          echo "Trigger   : ${{ github.event_name }}"
+          echo "Trigger   : ${{ github.event_name }}"
+          echo "OS        : ${{ runner.os }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch    : ${{ github.ref }}"
+          echo "Job status: ${{ job.status }}"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: List files in the repository
+        run:  ls ${{ github.workspace }}
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Build SimpleBackup
+        shell: pwsh
+        run: |
+          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
+          $Params = @{
+            SOURCEPATH  = (Get-Location).Path
+            BUILDPATH   = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Build'
+            PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
+            Verbose     = $true
+          }
+          & $BuildScript @Params
+      - run: echo "Job status" + ":" + " ${{ job.status }}"

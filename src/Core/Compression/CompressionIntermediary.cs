@@ -142,7 +142,15 @@ namespace Cloud_ShareSync.Core.Compression {
 
         private void FailOnNonZeroExitCode( int exitCode ) {
             if (exitCode != 0) {
-                string failedToZipExp = $"Received non-zero exitcode from 7Zip. ExitCode: {exitCode}";
+                string errorCodeDef = exitCode switch {
+                    1 => "Warning (Non fatal error(s)).",
+                    2 => "Fatal error",
+                    7 => "Command line error",
+                    8 => "Not enough memory for operation",
+                    255 => "User stopped the process",
+                    _ => "Unknown errorcode. Refer to 7-zip documentation for more details."
+                };
+                string failedToZipExp = $"Received non-zero exitcode from 7Zip. ExitCode: {exitCode} - {errorCodeDef}";
                 _log?.LogCritical( "{string}", failedToZipExp );
                 throw new FailedToZipException( failedToZipExp );
             }

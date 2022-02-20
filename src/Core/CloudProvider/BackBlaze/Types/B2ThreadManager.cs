@@ -1,33 +1,151 @@
 ﻿using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    internal class B2ThreadManager {
-        public int ActiveThreadCount { get; private set; }
+    internal static class B2ThreadManager {
         public const int MinimumThreadCount = 1;
-        public readonly int MaximumThreadCount;
-        public readonly UploadThreadStatistic[] ThreadStats;
-        public readonly FailureInfo[] FailureDetails;
-        public readonly List<B2ConcurrentStats> ConcurrencyStats;
+        public static int MaximumThreadCount = 1;
+        public static UploadThreadStatistic[] ThreadStats = Array.Empty<UploadThreadStatistic>( );
+        public static FailureInfo[] FailureDetails = Array.Empty<FailureInfo>( );
+        public static List<B2ConcurrentStats> ConcurrencyStats = new( );
 
-        private readonly ILogger? _log;
+        private static ILogger? s_log;
 
-        public B2ThreadManager( ILogger? log, int maxThreads ) {
-            _log = log;
-            MaximumThreadCount = maxThreads > 0 ? maxThreads : 1;
-            ActiveThreadCount = MaximumThreadCount;
+        private static readonly object s_statsLock = new( );
+        private static int s_activeThreadCount = 0;
+        private static int s_lastChange = 0;
+        private static decimal s_previousAverageSuccessPercentage = 0;
+        private static decimal s_previousSecondsAsleepPerSuccess = 0;
+        private static decimal s_previousAverageSleepTimerLength = 0;
+        private static decimal s_previousAverageHighWaterSleeping = 0;
+        private static int s_previousFailedThreads = 0;
 
-            List<UploadThreadStatistic> threadStats = new( );
-            List<FailureInfo> failureDetails = new( );
-            for (int i = 0; i < MaximumThreadCount; i++) {
-                threadStats.Add( new( i ) );
-                failureDetails.Add( new( ) );
-            }
-            FailureDetails = failureDetails.ToArray( );
-            ThreadStats = threadStats.ToArray( );
-            ConcurrencyStats = new( );
+        public static void Inititalize( ILogger? log, int maxThreads ) {
+            s_log = log;
+            UpdateMaxThreadCount( maxThreads );
+            s_activeThreadCount = MaximumThreadCount;
         }
 
-        public void ShowThreadStatistics( bool? formatTable = null ) {
+        public static void UpdateMaxThreadCount( int maxThreads ) {
+
+            MaximumThreadCount = maxThreads > 0 ? maxThreads : 1;
+            List<UploadThreadStatistic> threadStats = new( );
+            List<FailureInfo> failureDetails = new( );
+
+            lock (s_statsLock) {
+                int startThreadNum = ThreadStats.Length;
+                if (ThreadStats.Length > 0) {
+                    // If we already have items then we want to start at the next available thread number.
+                    startThreadNum += 1;
+                    threadStats.AddRange( ThreadStats );
+                    failureDetails.AddRange( FailureDetails );
+                }
+                for (int i = startThreadNum; i < MaximumThreadCount; i++) {
+                    threadStats.Add( new( i ) );
+                    failureDetails.Add( new( ) );
+                }
+                FailureDetails = failureDetails.ToArray( );
+                ThreadStats = threadStats.ToArray( );
+            }
+        }
+
+        public static int GetActiveThreadCount( int partsTotal ) {
+            AssessActiveThreadCount( );
+            return s_activeThreadCount > partsTotal ? partsTotal : s_activeThreadCount;
+        }
+
+        private static void AssessActiveThreadCount( ) {
+
+            int threadChange = 0;
+            // Gather latest Upload Thread Info:
+            IEnumerable<UploadThreadStatistic> stats = ThreadStats.Where( e => e.Attempt > 0 );
+            long totalAttempts = stats.Select( e => e.Attempt ).Sum( );
+            long totalSuccesses = stats.Select( e => e.Success ).Sum( );
+            decimal averageSuccessPercentage = totalAttempts > 0 ? totalSuccesses / totalAttempts * 100 : 0;
+            IEnumerable<int> sleeptimers = stats.SelectMany( e => e.SleepTimers );
+            long sleepTimerTotal = sleeptimers.Sum( );
+            long sleepTimerCount = sleeptimers.LongCount( );
+            decimal secondsAsleepPerSuccess = totalSuccesses > 0 ? sleepTimerTotal / totalSuccesses : 0;
+            long averageSleepTimerLength = sleepTimerCount > 0 ? sleepTimerTotal / sleepTimerCount : 0;
+
+            // Gather latest concurrent stat info:
+            IEnumerable<B2ConcurrentStats> cStats = ConcurrencyStats.TakeLast( ConcurrencyStats.Count >= 5 ? 5 : ConcurrencyStats.Count );
+            int latestHighWaterSleeping = cStats.Select( e => e.HighWaterSleeping ).Sum( );
+            int cStatsCount = cStats.Count( );
+            decimal latestAverageHighWaterSleeping = cStatsCount > 0 ? latestHighWaterSleeping / cStatsCount : 0;
+            int latestFailedThreads = cStats.Select( e => e.Failed ).Sum( );
+
+            lock (s_statsLock) {
+                bool changedThreadValue = false;
+
+                // A change has been made recently. Allow time for stats to change.
+                if (s_lastChange != 0) {
+                    s_lastChange = threadChange;
+                    return;
+                }
+
+                if (s_activeThreadCount > MinimumThreadCount) {
+                    if (
+                        latestFailedThreads > s_previousFailedThreads &&
+                        changedThreadValue == false
+                    ) {
+                        s_log?.LogDebug( "There number of threads hitting max errors is increasing. Decreasing the number of available threads by 1." );
+                        threadChange = -1;
+                        changedThreadValue = true;
+                    }
+
+                    if (
+                        latestAverageHighWaterSleeping > s_previousAverageHighWaterSleeping &&
+                        changedThreadValue == false
+                    ) {
+                        s_log?.LogDebug( "More threads are sleeping on average. Decreasing the number of available threads by 1." );
+                        threadChange = -1;
+                        changedThreadValue = true;
+                    }
+
+                    // If the sleep timer average is trending up then reduce the number of threads.
+                    if (
+                        averageSleepTimerLength > s_previousAverageSleepTimerLength &&
+                        changedThreadValue == false
+                    ) {
+                        s_log?.LogDebug( "The average sleep timer length is trending upwards. Decreasing the number of available threads by 1." );
+                        threadChange = -1;
+                        changedThreadValue = true;
+                    }
+                }
+
+                if (s_activeThreadCount < MaximumThreadCount) {
+                    // If success percentage is improving then allow more threads to work.
+                    if (
+                        averageSuccessPercentage > s_previousAverageSuccessPercentage &&
+                        changedThreadValue == false
+                    ) {
+                        s_log?.LogDebug( "The success percentage is improving. Increasing the number of available threads by 1." );
+                        threadChange = 1;
+                        changedThreadValue = true;
+                    }
+
+                    if (
+                        secondsAsleepPerSuccess < s_previousSecondsAsleepPerSuccess &&
+                        changedThreadValue == false
+                    ) {
+                        s_log?.LogDebug( "Time spent asleep per success is trending downwards. Increasing the number of available threads by 1." );
+                        threadChange = 1;
+                        changedThreadValue = true;
+                    }
+                }
+
+                s_previousAverageSuccessPercentage = averageSuccessPercentage;
+                s_previousSecondsAsleepPerSuccess = secondsAsleepPerSuccess;
+                s_previousAverageSleepTimerLength = averageSleepTimerLength;
+                s_previousAverageHighWaterSleeping = latestAverageHighWaterSleeping;
+                s_previousFailedThreads = latestFailedThreads;
+
+                s_activeThreadCount += threadChange;
+                s_lastChange = threadChange;
+            }
+        }
+
+        public static void ShowThreadStatistics( bool? formatTable = null ) {
 
             if (formatTable == true) {
                 int threadColumnLength = 7;
@@ -73,7 +191,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 string sleepTimerCountPad = sleepTimerCountColumnLength - sleepTimerCountStringLength > 0 ?
                     new( ' ', sleepTimerCountColumnLength - sleepTimerCountStringLength ) : "";
 
-                _log?.LogInformation(
+                s_log?.LogInformation(
                     "| Thread | Attempts | Success | Success% | Failure | Failure%" +
                     " | SleepTimerCount | AverageSleepTimerLength | SecondsAsleepPerSuccess"
                 );
@@ -89,7 +207,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                         stat.SleepTimerCount.ToString( $"D{sleepTimerCountStringLength}" ) + sleepTimerCountPad + "| " +
                         stat.SleepTimerAverage.ToString( decFormat ) + new string( ' ', averageSleepTimerColumnLength - decFormat.Length ) + "| " +
                         secsAsleep + new string( ' ', secondsAsleepPerSuccessColumnLength - secsAsleep.Length );
-                    _log?.LogInformation( "{string}", msg );
+                    s_log?.LogInformation( "{string}", msg );
                 }
             } else {
                 string stats = "{\n  \"ThreadStats\": [\n";
@@ -98,7 +216,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
                 }
                 stats = stats.TrimEnd( '\n' ).TrimEnd( ',' );
                 stats += "\n  ]\n}";
-                _log?.LogInformation( "{string}", stats );
+                s_log?.LogInformation( "{string}", stats );
             }
         }
     }

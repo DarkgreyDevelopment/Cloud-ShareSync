@@ -140,6 +140,44 @@ namespace Cloud_ShareSync.SimpleBackup {
                     }
                 }
             }
+
+            // REALLY ensure we've completed the queue (or at least log more info anyways).
+            int count = 0;
+            if (uploadTasks.Any( e => e.IsCompleted != true || IUploadFileProcess.Queue.IsEmpty == false )) {
+                foreach (Task task in uploadTasks) {
+                    log?.LogInformation(
+                        "Task{int} Status:\n" +
+                        "Completed: {bool}\n" +
+                        "Cancelled: {bool}\n" +
+                        "Faulted  : {bool}\n",
+                        count,
+                        task.IsCompleted,
+                        task.IsCanceled,
+                        task.IsFaulted
+                    );
+                    count++;
+                }
+                for (int i = 0; i < uploadTasks.Length; i++) {
+                    uploadTasks[i] = UploadWork( host, log );
+                }
+            }
+
+            while (uploadTasks.All( e => e.IsCompleted == false )) { Thread.Sleep( 1000 ); }
+            if (uploadTasks.Any( e => e.IsCompleted != true || IUploadFileProcess.Queue.IsEmpty == false )) {
+                foreach (Task task in uploadTasks) {
+                    log?.LogInformation(
+                        "Task{int} Status:\n" +
+                        "Completed: {bool}\n" +
+                        "Cancelled: {bool}\n" +
+                        "Faulted  : {bool}\n",
+                        count,
+                        task.IsCompleted,
+                        task.IsCanceled,
+                        task.IsFaulted
+                    );
+                    count++;
+                }
+            }
         }
 
         private static async Task PrepWork( IHost host, List<string> fileList, ILogger? log ) {

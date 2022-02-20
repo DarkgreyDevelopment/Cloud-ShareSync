@@ -25,10 +25,10 @@ namespace Cloud_ShareSync.Core.Database.Entities {
 
         public bool IsEncrypted { get; set; } // (what to do if IsEncrypted and ChaCha20Poly1305 encryption is not supported on platform?)
         public bool IsCompressed { get; set; } // (what to do if iscompressed and compression tools not available?)
-        public bool UsesAwsS3 { get; set; }
-        public bool UsesAzureBlobStorage { get; set; }
-        public bool UsesBackBlazeB2 { get; set; }
-        public bool UsesGoogleCloudStorage { get; set; }
+        public bool StoredInAwsS3 { get; set; }
+        public bool StoredInAzureBlobStorage { get; set; }
+        public bool StoredInBackBlazeB2 { get; set; }
+        public bool StoredInGoogleCloudStorage { get; set; }
 
         public PrimaryTable( ) {
             Id = 0;
@@ -38,10 +38,10 @@ namespace Cloud_ShareSync.Core.Database.Entities {
             UploadedFileHash = "";
             IsEncrypted = false;
             IsCompressed = false;
-            UsesAwsS3 = false;
-            UsesAzureBlobStorage = false;
-            UsesBackBlazeB2 = false;
-            UsesGoogleCloudStorage = false;
+            StoredInAwsS3 = false;
+            StoredInAzureBlobStorage = false;
+            StoredInBackBlazeB2 = false;
+            StoredInGoogleCloudStorage = false;
         }
 
         public PrimaryTable(
@@ -64,10 +64,10 @@ namespace Cloud_ShareSync.Core.Database.Entities {
             UploadedFileHash = uploadhash;
             IsEncrypted = encrypted;
             IsCompressed = compressed;
-            UsesAwsS3 = aws;
-            UsesAzureBlobStorage = azure;
-            UsesBackBlazeB2 = backblaze;
-            UsesGoogleCloudStorage = gcs;
+            StoredInAwsS3 = aws;
+            StoredInAzureBlobStorage = azure;
+            StoredInBackBlazeB2 = backblaze;
+            StoredInGoogleCloudStorage = gcs;
         }
 
 

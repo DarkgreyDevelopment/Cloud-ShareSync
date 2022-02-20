@@ -37,7 +37,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             string encDbgStr = $"Encrypting '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'.";
             encDbgStr += keyFile == null ? "" : $" Decryption keyfile will be located at '{keyFile.FullName}'.";
-            _log?.LogDebug( "{string}", encDbgStr );
+            _log?.LogInformation( "{string}", encDbgStr );
 
             if (plaintextFile.Exists == false || plaintextFile.Length == 0) {
                 activity?.Stop( );
@@ -58,8 +58,8 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             string enc2DbgStr = $"Encrypted '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'. ";
             enc2DbgStr += keyFile == null ? "" : $"Decryption keyfile is located at '{keyFile.FullName}'. ";
-            enc2DbgStr += "Decryption Data: " + decryptionData.ToString( );
-            _log?.LogDebug( "{string}", enc2DbgStr );
+            _log?.LogInformation( "{string}", enc2DbgStr );
+            _log?.LogDebug( "Decryption Data: {string}", decryptionData.ToString( ) );
             activity?.Stop( );
             return decryptionData;
         }

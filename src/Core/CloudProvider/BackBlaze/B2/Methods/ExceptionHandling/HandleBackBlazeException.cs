@@ -13,13 +13,13 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             ConcurrentStack<FilePartInfo> filePartQueue,
             B2ConcurrentStats concurrencyStats
         ) {
-            ThreadManager.FailureDetails[thread].PastFailureTime = ThreadManager.FailureDetails[thread].FailureTime;
-            ThreadManager.FailureDetails[thread].FailureTime = DateTime.UtcNow;
-            ThreadManager.FailureDetails[thread].StatusCode = (webExcp.StatusCode == null) ?
+            B2ThreadManager.FailureDetails[thread].PastFailureTime = B2ThreadManager.FailureDetails[thread].FailureTime;
+            B2ThreadManager.FailureDetails[thread].FailureTime = DateTime.UtcNow;
+            B2ThreadManager.FailureDetails[thread].StatusCode = (webExcp.StatusCode == null) ?
                 null : (int)webExcp.StatusCode;
 
             WriteHttpRequestExceptionInfo( webExcp, errCount, thread );
-            HandleStatusCode( webExcp, ThreadManager.FailureDetails[thread].StatusCode );
+            HandleStatusCode( webExcp, B2ThreadManager.FailureDetails[thread].StatusCode );
             HandleRetryWait( thread, filePartQueue, concurrencyStats );
         }
 

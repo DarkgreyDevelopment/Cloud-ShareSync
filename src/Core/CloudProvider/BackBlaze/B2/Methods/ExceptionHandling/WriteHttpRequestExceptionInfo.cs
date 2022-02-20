@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
@@ -13,8 +14,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 $"Thread#{thread} An error has occurred while uploading large file parts. " +
                 $"This is error number {errCount} for this request." :
                 $"Thread#{thread} Failed to upload large file part.";
-            if (ThreadManager.FailureDetails[thread].StatusCode != null) {
-                logMessage += $"\nStatus Code: {ThreadManager.FailureDetails[thread].StatusCode}";
+            if (B2ThreadManager.FailureDetails[thread].StatusCode != null) {
+                logMessage += $"\nStatus Code: {B2ThreadManager.FailureDetails[thread].StatusCode}";
             }
 
             string expMsg = webExcp.Message;

@@ -9,10 +9,10 @@ namespace Cloud_ShareSync.Core.Configuration {
         public DatabaseConfig? Database { get; set; }
         public Log4NetConfig? Log4Net { get; set; }
         public CompressionConfig? Compression { get; set; }
-        public AwsConfig? Aws { get; set; }
+        public S3Config? Aws { get; set; }
         public AzConfig? Azure { get; set; }
         public B2Config? BackBlaze { get; set; }
-        public GcpConfig? Google { get; set; }
+        public GcsConfig? Google { get; set; }
 
         public CompleteConfig( CoreConfig general ) { Core = general; }
 

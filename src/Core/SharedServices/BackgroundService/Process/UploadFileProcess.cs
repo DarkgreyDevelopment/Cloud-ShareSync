@@ -74,38 +74,26 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                 _log.LogDebug( "Upload Work Process. Queue Count: {int}", IUploadFileProcess.Queue.Count );
                 bool deQueue = IUploadFileProcess.Queue.TryDequeue( out UploadFileInput? ufInput );
                 if (deQueue && ufInput != null) {
-                    _log.LogDebug( "Begin upload file process." );
+                    _log.LogInformation(
+                        "Begin upload file process for '{string}'.",
+                        ufInput.TableData.FileName
+                    );
                     try {
                         FileInfo uploadFile = ufInput.UploadFile;
                         string uploadPath = ufInput.RelativePath;
                         PrimaryTable tabledata = ufInput.TableData;
-                        _log.LogInformation( "PrimaryTabledata:\n{string}", tabledata );
+                        _log.LogDebug( "PrimaryTabledata:\n{string}", tabledata );
 
-                        _log.LogDebug( "Copying File to Working Dir." );
                         uploadFile = CopyFileToWorkingDir( uploadFile );
-                        _log.LogDebug( "Copied File to Working Dir." );
 
-
-                        _log.LogDebug( "Setting original file hash." );
                         await SetOriginalFileHash( uploadFile, tabledata );
-                        _log.LogDebug( "Set original file hash." );
 
-
-                        _log.LogDebug( "Encrypting file." );
                         uploadFile = await EncryptFile( uploadFile, tabledata );
-                        _log.LogDebug( "File Encrypted." );
 
-
-                        _log.LogDebug( "Compressing File." );
                         uploadFile = CompressFile( uploadFile, tabledata );
-                        _log.LogDebug( "Compressed File." );
 
-
-                        _log.LogDebug( "Setting upload file hash." );
                         await SetUploadFileHash( uploadFile, tabledata );
-                        _log.LogDebug( "Set upload file hash." );
 
-                        _log.LogDebug( "Starting Upload File to B2." );
                         // Upload File.
                         await UploadFileToB2(
                             tabledata,
@@ -114,20 +102,30 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                             uploadPath,
                             tabledata.FileHash // Use Original FileHash in b2 metadata.
                         );
-                        _log.LogDebug( "File Uploaded to B2." );
+                        _log.LogInformation( "File Uploaded Successfully." );
+                        _log.LogDebug( "PrimaryTabledata:\n{string}", tabledata );
 
                         // Remove file from working directory (if needed).
                         DeleteWorkingFile( uploadFile );
                     } catch (Exception ex) {
-                        _log.LogError( "An error occurred during upload process.", ex );
+                        _log.LogError(
+                            "An error occurred during the upload file process. Error: {exception}",
+                            ex
+                        );
+                        _log.LogInformation(
+                            "Re-enqueueing '{string}' for later re-processing.",
+                            ufInput.UploadFile.FullName
+                        );
                         IUploadFileProcess.Queue.Enqueue( ufInput );
                     }
-                    _log.LogDebug( "Completed upload file process." );
+                    _log.LogInformation(
+                        "Completed upload file process for '{string}'.",
+                        ufInput.TableData.FileName
+                    );
                 }
             }
 
             _log.LogDebug( "Upload Work Process Completed. Queue Count: {int}", IUploadFileProcess.Queue.Count );
-
             activity?.Stop( );
         }
 
@@ -145,10 +143,12 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             FileInfo result = inputFile;
 
             if (_backupConfig.EncryptBeforeUpload || _backupConfig.CompressBeforeUpload) {
+                _log.LogDebug( "Copying '{string}' to Working Dir.", inputFile.FullName );
                 string filePath = Path.Join( _backupConfig.WorkingDirectory, inputFile.Name );
                 _log.LogInformation( "Copying '{string}' to '{string}'.", inputFile.FullName, filePath );
                 File.Copy( inputFile.FullName, filePath, true );
                 result = new FileInfo( filePath );
+                _log.LogDebug( "Copied File to Working Dir." );
             }
 
             activity?.Stop( );
@@ -163,6 +163,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         /// <param name="tabledata"></param>
         private async Task SetOriginalFileHash( FileInfo inputFile, PrimaryTable tabledata ) {
             using Activity? activity = s_source.StartActivity( "GetOriginalFileHash" )?.Start( );
+            _log.LogInformation( "Setting original file hash for '{string}'.", tabledata.FileName );
 
             tabledata.FileHash = await _fileHash.GetSha512Hash( inputFile );
 
@@ -170,6 +171,11 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             sqliteContext.Update( tabledata );
             sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
+            _log.LogInformation(
+                "Set original file hash for '{string}' to {string}",
+                tabledata.FileName,
+                tabledata.FileHash
+            );
 
             activity?.Stop( );
         }
@@ -194,7 +200,6 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             FileInfo result = inputFile;
 
             if (_backupConfig.EncryptBeforeUpload) {
-                _log.LogInformation( "Encrypting file '{string}'.", inputFile.FullName );
                 if (_crypto == null) {
                     throw new InvalidOperationException( "Cannot encrypt if managed crypto provider is null." );
                 }
@@ -253,7 +258,6 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             FileInfo result = inputFile;
 
             if (_backupConfig.CompressBeforeUpload) {
-                _log.LogInformation( "Compressing '{string}'.", inputFile );
                 if (s_compress == null) {
                     throw new InvalidOperationException(
                         "Cannot compress before upload if comprssion tool is null."
@@ -266,6 +270,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     inputFile.Name.Remove( inputFile.Name.Length - inputFile.Extension.Length ) +
                     "-" +
                     Path.GetRandomFileName( );
+                // Remove random extension - add 7z extension.
+                compressionFileName = compressionFileName.Remove( compressionFileName.Length - Path.GetExtension( compressionFileName ).Length ) + ".7z";
 
                 FileInfo compressionPath = new( Path.Join( _backupConfig.WorkingDirectory, compressionFileName ) );
                 result = s_compress.CompressPath( inputFile, compressionPath, password ).Result;
@@ -307,12 +313,20 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         private async Task SetUploadFileHash( FileInfo uploadFile, PrimaryTable tabledata ) {
             using Activity? activity = s_source.StartActivity( "SetUploadFileHash" )?.Start( );
 
+            _log.LogInformation( "Setting upload file hash for '{string}'.", tabledata.FileName );
+
             tabledata.UploadedFileHash = await _fileHash.GetSha512Hash( uploadFile );
 
             SqliteContext sqliteContext = GetSqliteContext( );
             sqliteContext.Update( tabledata );
             sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
+
+            _log.LogInformation(
+                "Set upload file hash for '{string}' to {string}.",
+                tabledata.FileName,
+                tabledata.UploadedFileHash
+            );
 
             activity?.Stop( );
         }
@@ -341,7 +355,6 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                 uploadPath = _fileHash.GetSha512Hash( sha512Hash );
             }
 
-            _log.LogInformation( "Uploading File To BackBlaze." );
             string fileId = await _backBlaze.UploadFile( uploadFile, fileName, uploadPath, sha512Hash );
 
             SqliteContext sqliteContext = GetSqliteContext( );
@@ -363,11 +376,11 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                 b2TableData.BucketId = _backblazeConfig.BucketId;
                 sqliteContext.SaveChanges( );
             }
-            tabledata.UsesBackBlazeB2 = true;
+            tabledata.StoredInBackBlazeB2 = true;
             sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
 
-            _log.LogInformation( "UploadFileToB2 DB Data:\n{string}", b2TableData );
+            _log.LogDebug( "UploadFileToB2 DB Data:\n{string}", b2TableData );
 
             activity?.Stop( );
         }
