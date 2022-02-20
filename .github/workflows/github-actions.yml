@@ -37,4 +37,6 @@ jobs:
             Verbose     = $true
           }
           & $BuildScript @Params
-      - run: echo "Job status" + ":" + " ${{ job.status }}"
+          Get-ChildItem -Path $Params['PUBLISHPATH']
+      - run: |
+        echo "Job status: ${{ job.status }}"
