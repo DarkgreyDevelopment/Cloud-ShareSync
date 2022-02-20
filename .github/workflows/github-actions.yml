@@ -39,4 +39,4 @@ jobs:
           & $BuildScript @Params
           Get-ChildItem -Path $Params['PUBLISHPATH']
       - run: |
-        echo "Job status: ${{ job.status }}"
+          echo "Job status: ${{ job.status }}"
