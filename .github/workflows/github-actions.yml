@@ -33,7 +33,7 @@ jobs:
           $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
           $Params = @{
             SOURCEPATH  = (Get-Location).Path
-            BUILDPATH   = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Build'
+            BUILDPATH   = Join-Path -Path '/' -ChildPath 'Build'
             PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
             Verbose     = $true
           }
