@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOTNET_NOLOGO: true
+      DOCFX_SOURCE_BRANCH_NAME: ${{ github.ref }}
 
     strategy:
       matrix:
@@ -13,7 +14,6 @@ jobs:
     steps:
       - name: Echo Log Information
         run: |
-          echo "Trigger   : ${{ github.event_name }}"
           echo "Trigger   : ${{ github.event_name }}"
           echo "OS        : ${{ runner.os }}"
           echo "Repository: ${{ github.repository }}"
@@ -37,6 +37,6 @@ jobs:
             Verbose     = $true
           }
           & $BuildScript @Params
-          Get-ChildItem -Path $Params['PUBLISHPATH']
+          Get-ChildItem -Path $Params['PUBLISHPATH'] | Select-Object -Property Name,Size | Format-List | Out-String
       - run: |
           echo "Job status: ${{ job.status }}"
