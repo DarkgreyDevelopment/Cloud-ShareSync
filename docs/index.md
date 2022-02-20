@@ -1,6 +1,6 @@
 # Cloud-ShareSync
 
-![example event parameter](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/develop/.github/workflows/github-actions.yml/badge.svg?event=push)
+![example event parameter](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?event=push)
 
 You can use the [editor on GitHub](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
