@@ -14,7 +14,7 @@ Write-Host 'Building and publishing SimpleBackup.' -ForegroundColor Green
 dotnet restore "$SOURCEPATH/src/SimpleBackup/Cloud-ShareSync.SimpleBackup.csproj"
 dotnet publish "$SOURCEPATH/src/SimpleBackup/Cloud-ShareSync.SimpleBackup.csproj" -c Release -o "$PUBLISHPATH"
 
-$AppSettings = Resolve-Path -Path "$SOURCEPATH/src/Core/Configuration/appsettings.json"
+$AppSettings = Resolve-Path -Path "$SOURCEPATH/appsettings.json"
 $DefaultConfigPath = Join-Path -Path $PUBLISHPATH -ChildPath 'Configuration'
 Write-Host "Copying appsettings.json to default config path '$DefaultConfigPath'." -ForegroundColor Green
 if ((Test-Path -Path $DefaultConfigPath) -eq $false) {
