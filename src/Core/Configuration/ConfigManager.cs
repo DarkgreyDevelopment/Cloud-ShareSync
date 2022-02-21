@@ -81,7 +81,7 @@ namespace Cloud_ShareSync.Core.Configuration {
         ) {
             using Activity? activity = s_source.StartActivity( "ValidateConfigSet" )?.Start( );
 
-            if (log != null) { log.LogInformation( "{string}", config.ToString( ) ); }
+            if (log != null) { log.LogDebug( "{string}", config.ToString( ) ); }
 
             if (backup) {
                 if (config.Backup == null) {

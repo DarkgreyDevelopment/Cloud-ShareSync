@@ -39,7 +39,8 @@
 
 
 ## Roadmap: 
-
+The project [planning & development board](https://github.com/orgs/DarkgreyDevelopment/projects/3) is where all roadmap
+can be found.
 
 <br><br>
 

@@ -24,14 +24,67 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region DecompressPath
 
-        public async Task<FileSystemInfo> DecompressPath(
-            FileInfo path,
-            FileInfo decompressedPath,
+        public async Task<IEnumerable<FileSystemInfo>> DecompressPath(
+            FileInfo inputPath,
+            DirectoryInfo decompressedPath,
             string? password
+        ) => await DecompressPath( inputPath, decompressedPath, _dependencyPath, password );
+
+        public async Task<IEnumerable<FileSystemInfo>> DecompressPath(
+            FileInfo inputPath,
+            DirectoryInfo decompressionDir,
+            FileInfo dependencyPath,
+            string? password = null
         ) {
+            using Activity? activity = s_source.StartActivity( "DecompressPath" )?.Start( );
             await _semaphore.WaitAsync( );
+
+            IEnumerable<string> existingItems = Enumerable.Empty<string>( );
+            try {
+                existingItems = Directory.EnumerateFileSystemEntries( dependencyPath.FullName );
+            } catch { }
+
+            _log?.LogInformation(
+                "Extracting '{string}' into '{string}'.",
+                inputPath.FullName,
+                decompressionDir.FullName
+            );
+            SystemMemoryChecker.Update( );
+            Process process = DecompressProcess(
+                inputPath.FullName,
+                decompressionDir.FullName,
+                dependencyPath.FullName,
+                decompressionDir.FullName,
+                password
+            );
+            process.Start( );
+            process.BeginErrorReadLine( );
+            process.BeginOutputReadLine( );
+            process.WaitForExit( );
+            FailOnNonZeroExitCodeOrException( process.ExitCode );
             _semaphore.Release( );
-            throw new NotImplementedException( );
+
+            IEnumerable<string> allItems = Directory.EnumerateFileSystemEntries( dependencyPath.FullName );
+
+            IEnumerable<string> decompressedItems = allItems.Where( e => existingItems.Contains( e ) == false );
+
+            List<FileSystemInfo> result = new( );
+            foreach (string item in decompressedItems) {
+                if (File.Exists( item )) {
+                    result.Add( new FileInfo( item ) );
+                } else {
+                    result.Add( new DirectoryInfo( item ) );
+                }
+            }
+
+            _log?.LogInformation(
+                "Successfully extracted '{string}'. \n" +
+                "Extracted Item Count: '{string}'. \n",
+                inputPath.FullName,
+                decompressedItems.Count( )
+            );
+            activity?.Stop( );
+            return result;
         }
 
         #endregion DecompressPath
@@ -60,7 +113,7 @@ namespace Cloud_ShareSync.Core.Compression {
                 compressedPath.FullName
             );
             SystemMemoryChecker.Update( );
-            Process process = Create7zProcess(
+            Process process = CompressProcess(
                 inputPath.FullName,
                 compressedPath.FullName,
                 dependencyPath.FullName,
@@ -91,14 +144,34 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region PrivateMethods
 
-        private Process Create7zProcess(
+        private Process DecompressProcess(
             string inputPath,
             string outputPath,
             string dependencyPath,
             string workingDirectory,
             string? password = null
         ) {
-            using Activity? activity = s_source.StartActivity( "GetInterimZipPath" )?.Start( );
+            using Activity? activity = s_source.StartActivity( "DecompressProcess" )?.Start( );
+
+            // 7z Cmdline Arguments - Works on both linux + windows.
+            string arguments = $"x \"{inputPath}\" -o\"{outputPath}\"";
+            if (string.IsNullOrWhiteSpace( password )) { arguments += $" -p\"{password}\""; }
+
+            // Create Process
+            Process process = Create7ZProcess( arguments, dependencyPath, workingDirectory );
+
+            activity?.Stop( );
+            return process;
+        }
+
+        private Process CompressProcess(
+            string inputPath,
+            string outputPath,
+            string dependencyPath,
+            string workingDirectory,
+            string? password = null
+        ) {
+            using Activity? activity = s_source.StartActivity( "CompressProcess" )?.Start( );
 
             // 7z Cmdline Arguments - Works on both linux + windows.
             string arguments = $"a \"{outputPath}\" -mfb=257 -mx=9 -mhe=on -mmt=on ";
@@ -106,6 +179,20 @@ namespace Cloud_ShareSync.Core.Compression {
             arguments += string.IsNullOrWhiteSpace( password ) ?
                                 $"-- \"{inputPath}\"" :
                                 $"-p\"{password}\" -- \"{inputPath}\"";
+            // Create Process
+            Process process = Create7ZProcess( arguments, dependencyPath, workingDirectory );
+
+            activity?.Stop( );
+            return process;
+        }
+
+        private Process Create7ZProcess(
+            string arguments,
+            string dependencyPath,
+            string workingDirectory
+        ) {
+            using Activity? activity = s_source.StartActivity( "Create7ZProcess" )?.Start( );
+
             // Create Process
             Process process = new( ) {
                 StartInfo = new( ) {
@@ -143,10 +230,12 @@ namespace Cloud_ShareSync.Core.Compression {
         }
 
         private void FailOnNonZeroExitCodeOrException( int exitCode ) {
+            using Activity? activity = s_source.StartActivity( "FailOnNonZeroExitCodeOrException" )?.Start( );
             if (_exceptions.Count > 0) {
                 FailedToZipException[] exc = _exceptions.ToArray( );
                 _exceptions.Clear( );
                 _semaphore.Release( );
+                activity?.Stop( );
                 throw new AggregateException( exc );
             }
 
@@ -162,8 +251,10 @@ namespace Cloud_ShareSync.Core.Compression {
                 string failedToZipExp = $"Received non-zero exitcode from 7Zip. ExitCode: {exitCode} - {errorCodeDef}";
                 _log?.LogCritical( "{string}", failedToZipExp );
                 _semaphore.Release( );
+                activity?.Stop( );
                 throw new FailedToZipException( failedToZipExp );
             }
+            activity?.Stop( );
         }
 
         #endregion PrivateMethods
