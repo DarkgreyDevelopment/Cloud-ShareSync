@@ -34,7 +34,6 @@ namespace Cloud_ShareSync.SimpleBackup {
 
                 await RunSimpleBackupProcess( host, fileList, log );
 
-                log?.LogInformation( "Simple backup completed." );
                 activity?.Stop( );
             } catch (Exception e) {
                 if (log == null) {
@@ -120,13 +119,16 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         private static async Task RunSimpleBackupProcess( IHost host, List<string> fileList, ILogger? log ) {
 
+            log?.LogInformation( "Kicking off initial prep work." );
             await PrepWork( host, fileList, log );
 
+            log?.LogInformation( "Kicking off prep process tasks." );
             Task[] prepTasks = new Task[5];
             for (int i = 0; i < prepTasks.Length; i++) {
                 prepTasks[i] = PrepProcess( host, log );
             }
 
+            log?.LogInformation( "Kicking off upload process tasks." );
             Task[] uploadTasks = new Task[2];
             for (int i = 0; i < uploadTasks.Length; i++) {
                 uploadTasks[i] = UploadWork( host, log );
@@ -135,6 +137,7 @@ namespace Cloud_ShareSync.SimpleBackup {
             while (prepTasks.Any( e => e.IsCompleted != true ) || uploadTasks.Any( e => e.IsCompleted != true )) {
                 Thread.Sleep( 1000 );
                 if (uploadTasks.All( e => e.IsCompleted == true ) && IUploadFileProcess.Queue.IsEmpty == false) {
+                    log?.LogInformation( "Restarting upload process tasks." );
                     for (int i = 0; i < uploadTasks.Length; i++) {
                         uploadTasks[i] = UploadWork( host, log );
                     }
@@ -143,7 +146,8 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             // REALLY ensure we've completed the queue (or at least log more info anyways).
             int count = 0;
-            if (uploadTasks.Any( e => e.IsCompleted != true || IUploadFileProcess.Queue.IsEmpty == false )) {
+            if (uploadTasks.Any( e => e.IsCompleted != true ) || IUploadFileProcess.Queue.IsEmpty == false) {
+                log?.LogInformation( "Upload process tasks not completed or queue is not empty. Restarting upload process tasks." );
                 foreach (Task task in uploadTasks) {
                     log?.LogInformation(
                         "Task{int} Status:\n" +
@@ -163,7 +167,8 @@ namespace Cloud_ShareSync.SimpleBackup {
             }
 
             while (uploadTasks.All( e => e.IsCompleted == false )) { Thread.Sleep( 1000 ); }
-            if (uploadTasks.Any( e => e.IsCompleted != true || IUploadFileProcess.Queue.IsEmpty == false )) {
+            if (uploadTasks.Any( e => e.IsCompleted != true ) || IUploadFileProcess.Queue.IsEmpty == false) {
+                log?.LogInformation( "Upload process tasks not completed or queue is not empty. Writing task statuses." );
                 foreach (Task task in uploadTasks) {
                     log?.LogInformation(
                         "Task{int} Status:\n" +
@@ -177,6 +182,11 @@ namespace Cloud_ShareSync.SimpleBackup {
                     );
                     count++;
                 }
+            }
+            if (IUploadFileProcess.Queue.IsEmpty) {
+                log?.LogInformation( "Simple backup completed successfully." );
+            } else {
+                log?.LogInformation( "Simple backup process has not completed successfully." );
             }
         }
 

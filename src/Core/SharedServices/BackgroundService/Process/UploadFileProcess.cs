@@ -21,6 +21,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         #region Fields
 
         private static readonly ActivitySource s_source = new( "UploadFileProcess" );
+
+        private static readonly object s_lock = new( );
         private static ICompression? s_compress = null;
 
         private readonly ILogger<UploadFileProcess> _log;
@@ -33,6 +35,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         private readonly DatabaseConfig _databaseConfig;
         private readonly UniquePassword _uniquePassword;
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
+
+        private long _consecutiveExceptionCount = 0;
 
         #endregion Fields
 
@@ -47,12 +51,14 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             _backblazeConfig = backblazeConfig;
             _databaseConfig = databaseConfig;
             _log = log;
-            if (
-                _backupConfig.CompressBeforeUpload == true &&
-                compressionConfig != null &&
-                s_compress == null
-            ) {
-                s_compress = new CompressionIntermediary( compressionConfig, _log );
+            lock (s_lock) {
+                if (
+                    _backupConfig.CompressBeforeUpload == true &&
+                    compressionConfig != null &&
+                    s_compress == null
+                ) {
+                    s_compress = new CompressionIntermediary( compressionConfig, _log );
+                }
             }
             _fileHash = new( _log );
             _services = ConfigManager.ConfigureDatabaseService( _databaseConfig, _log );
@@ -107,21 +113,37 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
 
                         // Remove file from working directory (if needed).
                         DeleteWorkingFile( uploadFile );
+
+                        _log.LogInformation(
+                            "Completed upload file process for '{string}'.",
+                            ufInput.TableData.FileName
+                        );
+                        _ = Interlocked.Exchange( ref _consecutiveExceptionCount, 0 );
                     } catch (Exception ex) {
                         _log.LogError(
                             "An error occurred during the upload file process. Error: {exception}",
                             ex
                         );
-                        _log.LogInformation(
-                            "Re-enqueueing '{string}' for later re-processing.",
-                            ufInput.UploadFile.FullName
-                        );
-                        IUploadFileProcess.Queue.Enqueue( ufInput );
+                        _log.LogWarning( "Consecutive Exception Count: {int}", Interlocked.Read( ref _consecutiveExceptionCount ) );
+                        if (Interlocked.Read( ref _consecutiveExceptionCount ) >= 5) {
+                            string aggMsg = "Upload file process has received too many consecutive errors. " +
+                                "Aborting to avoid an infinite error loop.";
+                            _log.LogCritical( "{string}\n{exception}", aggMsg, ex );
+                            // throwing the exception below isn't killing the app?!?
+                            // Setting exit works.
+                            Environment.Exit( 200 );
+                            //throw new AggregateException( aggMsg, ex );
+                        } else {
+                            _log.LogInformation(
+                                "Re-enqueueing '{string}' for later re-processing.",
+                                ufInput.UploadFile.FullName
+                            );
+                            IUploadFileProcess.Queue.Enqueue( ufInput );
+                            _ = Interlocked.Increment( ref _consecutiveExceptionCount );
+                            _log.LogInformation( "Sleeping for 30 seconds after failure." );
+                            Thread.Sleep( 30 * 1000 );
+                        }
                     }
-                    _log.LogInformation(
-                        "Completed upload file process for '{string}'.",
-                        ufInput.TableData.FileName
-                    );
                 }
             }
 
@@ -204,12 +226,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     throw new InvalidOperationException( "Cannot encrypt if managed crypto provider is null." );
                 }
 
-                string encryptionFileName =
-                    inputFile.Name.Remove( inputFile.Name.Length - inputFile.Extension.Length ) +
-                    "-" +
-                    Path.GetRandomFileName( );
-
-                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, encryptionFileName ) );
+                FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, Path.GetRandomFileName( ) ) );
 
                 byte[] key = RandomNumberGenerator.GetBytes( 32 );
                 ManagedChaCha20Poly1305DecryptionData data = await _crypto.Encrypt( key, inputFile, cypherTxtFile, null );
@@ -265,15 +282,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                 }
 
                 string? password = _backupConfig.UniqueCompressionPasswords ? _uniquePassword.Create( ) : null;
+                FileInfo compressionPath = new( Path.Join( _backupConfig.WorkingDirectory, Path.GetRandomFileName( ) ) );
 
-                string compressionFileName =
-                    inputFile.Name.Remove( inputFile.Name.Length - inputFile.Extension.Length ) +
-                    "-" +
-                    Path.GetRandomFileName( );
-                // Remove random extension - add 7z extension.
-                compressionFileName = compressionFileName.Remove( compressionFileName.Length - Path.GetExtension( compressionFileName ).Length ) + ".7z";
-
-                FileInfo compressionPath = new( Path.Join( _backupConfig.WorkingDirectory, compressionFileName ) );
                 result = s_compress.CompressPath( inputFile, compressionPath, password ).Result;
 
                 SqliteContext sqliteContext = GetSqliteContext( );

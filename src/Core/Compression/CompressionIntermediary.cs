@@ -10,8 +10,9 @@ namespace Cloud_ShareSync.Core.Compression {
         private static readonly ActivitySource s_source = new( "CompressionInterface" );
         private readonly FileInfo _dependencyPath;
         private readonly ILogger? _log;
-
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
+
+        private readonly List<FailedToZipException> _exceptions = new( );
 
         public CompressionIntermediary( CompressionConfig config, ILogger? log = null ) {
             _log = log;
@@ -39,13 +40,13 @@ namespace Cloud_ShareSync.Core.Compression {
         #region CompressPath
 
         public async Task<FileInfo> CompressPath(
-            FileSystemInfo path,
+            FileSystemInfo inputPath,
             FileInfo compressedPath,
             string? password = null
-        ) => await CompressPath( path, compressedPath, _dependencyPath, password );
+        ) => await CompressPath( inputPath, compressedPath, _dependencyPath, password );
 
         public async Task<FileInfo> CompressPath(
-            FileSystemInfo path,
+            FileSystemInfo inputPath,
             FileInfo compressedPath,
             FileInfo dependencyPath,
             string? password = null
@@ -55,30 +56,29 @@ namespace Cloud_ShareSync.Core.Compression {
 
             _log?.LogInformation(
                 "Compressing File '{string}' into '{string}'.",
-                path.FullName,
+                inputPath.FullName,
                 compressedPath.FullName
             );
             SystemMemoryChecker.Update( );
-
             Process process = Create7zProcess(
+                inputPath.FullName,
                 compressedPath.FullName,
-                path,
-                dependencyPath,
-                compressedPath.Directory ?? new( Path.GetTempPath( ) ),
+                dependencyPath.FullName,
+                compressedPath.Directory?.FullName ?? Path.GetTempPath( ),
                 password
             );
             process.Start( );
             process.BeginErrorReadLine( );
             process.BeginOutputReadLine( );
             process.WaitForExit( );
+            FailOnNonZeroExitCodeOrException( process.ExitCode );
             _semaphore.Release( );
-            FailOnNonZeroExitCode( process.ExitCode );
 
             _log?.LogInformation(
                 "Successfully compressed '{string}'. \n" +
                 "Compressed FilePath: '{string}'. \n" +
                 "Compressed FileSize: {long}.",
-                path.FullName,
+                inputPath.FullName,
                 compressedPath.FullName,
                 compressedPath.Length
             );
@@ -92,45 +92,37 @@ namespace Cloud_ShareSync.Core.Compression {
         #region PrivateMethods
 
         private Process Create7zProcess(
-            string interimZipPath,
-            FileSystemInfo zipPath,
-            FileInfo dependencyPath,
-            DirectoryInfo workingDirectory,
+            string inputPath,
+            string outputPath,
+            string dependencyPath,
+            string workingDirectory,
             string? password = null
         ) {
             using Activity? activity = s_source.StartActivity( "GetInterimZipPath" )?.Start( );
 
             // 7z Cmdline Arguments - Works on both linux + windows.
-            string arguments = $"a {interimZipPath} -mfb=257 -mx=9 -mhe=on -mmt=on ";
+            string arguments = $"a \"{outputPath}\" -mfb=257 -mx=9 -mhe=on -mmt=on ";
 
             arguments += string.IsNullOrWhiteSpace( password ) ?
-                                $"-- \"{zipPath.FullName}\"" :
-                                $"-p\"{password}\" -- \"{zipPath.FullName}\"";
-
+                                $"-- \"{inputPath}\"" :
+                                $"-p\"{password}\" -- \"{inputPath}\"";
             // Create Process
             Process process = new( ) {
                 StartInfo = new( ) {
                     WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = $"{dependencyPath.FullName}",
-                    WorkingDirectory = workingDirectory.FullName,
+                    FileName = dependencyPath,
+                    WorkingDirectory = workingDirectory,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     Arguments = arguments
                 }
             };
-            process.ErrorDataReceived += new DataReceivedEventHandler( ( sender, e ) => {
-                if (!string.IsNullOrWhiteSpace( e.Data )) {
-                    _log?.LogCritical( "Zip Failure - {string}", e.Data );
-                    activity?.Stop( );
-                    throw new FailedToZipException( e.Data );
-                }
-            }
-            );
+            process.ErrorDataReceived += ReceiveErrorData;
 
             process.OutputDataReceived += new DataReceivedEventHandler(
                 ( sender, stdOut ) => {
-                    if (!string.IsNullOrWhiteSpace( stdOut.Data )) {
+                    if (string.IsNullOrWhiteSpace( stdOut.Data ) == false) {
                         _log?.LogInformation( "{string}", stdOut.Data );
                     }
                 }
@@ -140,7 +132,24 @@ namespace Cloud_ShareSync.Core.Compression {
             return process;
         }
 
-        private void FailOnNonZeroExitCode( int exitCode ) {
+        private void ReceiveErrorData( object sender, DataReceivedEventArgs e ) {
+            if (string.IsNullOrWhiteSpace( e?.Data ) == false) {
+                _log?.LogCritical( "Compression Failure - Error: {string}", e.Data );
+                if (sender is Process zipProcess && zipProcess.HasExited == false) {
+                    zipProcess.Kill( );
+                }
+                _exceptions.Add( new FailedToZipException( e.Data ) );
+            }
+        }
+
+        private void FailOnNonZeroExitCodeOrException( int exitCode ) {
+            if (_exceptions.Count > 0) {
+                FailedToZipException[] exc = _exceptions.ToArray( );
+                _exceptions.Clear( );
+                _semaphore.Release( );
+                throw new AggregateException( exc );
+            }
+
             if (exitCode != 0) {
                 string errorCodeDef = exitCode switch {
                     1 => "Warning (Non fatal error(s)).",
@@ -152,6 +161,7 @@ namespace Cloud_ShareSync.Core.Compression {
                 };
                 string failedToZipExp = $"Received non-zero exitcode from 7Zip. ExitCode: {exitCode} - {errorCodeDef}";
                 _log?.LogCritical( "{string}", failedToZipExp );
+                _semaphore.Release( );
                 throw new FailedToZipException( failedToZipExp );
             }
         }
