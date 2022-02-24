@@ -51,7 +51,7 @@ namespace Cloud_ShareSync.Core.Configuration {
             return new TelemetryLogger( sourceList, config );
         }
 
-        public static CloudShareSyncServices ConfigureDatabaseService( DatabaseConfig config, ILogger? log ) {
+        internal static CloudShareSyncServices ConfigureDatabaseService( DatabaseConfig config, ILogger? log ) {
             using Activity? activity = s_source.StartActivity( "ConfigureDatabaseService" )?.Start( );
 
             CloudShareSyncServices services = new( config.SqliteDBPath, log );
@@ -81,7 +81,10 @@ namespace Cloud_ShareSync.Core.Configuration {
         ) {
             using Activity? activity = s_source.StartActivity( "ValidateConfigSet" )?.Start( );
 
-            if (log != null) { log.LogDebug( "{string}", config.ToString( ) ); }
+            if (log != null) {
+                log.LogDebug( "{string}", config.ToString( ) );
+                SystemMemoryChecker.Inititalize( log );
+            }
 
             if (backup) {
                 if (config.Backup == null) {
@@ -121,11 +124,11 @@ namespace Cloud_ShareSync.Core.Configuration {
             activity?.Stop( );
         }
 
-        public static IConfigurationSection GetSimpleBackup( ) => Configuration.GetRequiredSection( "Backup" );
-        public static IConfigurationSection GetRestoreConfig( ) => Configuration.GetRequiredSection( "Restore" );
-        public static IConfigurationSection GetBackBlazeB2( ) => Configuration.GetRequiredSection( "BackBlaze" );
-        public static IConfigurationSection GetDatabase( ) => Configuration.GetRequiredSection( "Database" );
-        public static IConfigurationSection? GetCompression( ) => Configuration?.GetSection( "Compression" );
+        internal static IConfigurationSection GetSimpleBackup( ) => Configuration.GetRequiredSection( "Backup" );
+        internal static IConfigurationSection GetRestoreConfig( ) => Configuration.GetRequiredSection( "Restore" );
+        internal static IConfigurationSection GetBackBlazeB2( ) => Configuration.GetRequiredSection( "BackBlaze" );
+        internal static IConfigurationSection GetDatabase( ) => Configuration.GetRequiredSection( "Database" );
+        internal static IConfigurationSection? GetCompression( ) => Configuration?.GetSection( "Compression" );
 
 
         #region Private Functions
@@ -253,7 +256,9 @@ namespace Cloud_ShareSync.Core.Configuration {
             DatabaseConfig? result = null;
             try {
                 result = GetDatabase( ).Get<DatabaseConfig>( );
-            } catch { }
+            } catch (Exception e) {
+                Console.WriteLine( "Failed to get database configuration. Error:\n" + e.ToString( ) );
+            }
 
             // Database configuration cannot be null.
             if (result == null) {

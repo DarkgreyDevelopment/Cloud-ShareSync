@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.Configuration;
-using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.SimpleRestore {
@@ -16,7 +15,6 @@ namespace Cloud_ShareSync.SimpleRestore {
                 s_logger = ConfigManager.ConfigureTelemetryLogger( s_config.Log4Net, Array.Empty<string>( ) );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 ConfigManager.ValidateConfigSet( s_config, true, false, s_logger );
-                SystemMemoryChecker.Inititalize( s_logger );
 
 
 

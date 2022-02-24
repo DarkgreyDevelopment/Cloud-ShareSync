@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.SharedServices {
 
-    public static class SystemMemoryChecker {
+    internal static class SystemMemoryChecker {
         public static long Total { get; private set; }
         public static long Consumed { get; private set; }
         public static long Available => Total - Consumed;

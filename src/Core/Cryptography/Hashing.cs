@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Cryptography {
 
-    public class Hashing {
+    internal class Hashing {
 
         private readonly ActivitySource _source = new( "Hashing" );
 

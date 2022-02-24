@@ -57,7 +57,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             // Add Failure Stats
             B2ThreadManager.ThreadStats[thread].Failure++;
             B2ThreadManager.ThreadStats[thread].AddSleepTimer( sleepCount );
-            if (sleepTime <= sleepCount) { concurrencyStats.RemoveSleeping( thread ); }
+            if (sleepTime <= sleepCount) { concurrencyStats.RemoveSleepingThread( thread ); }
         }
 
     }

@@ -62,10 +62,10 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     success = true;
                 } catch (Exception ex) {
                     if (count == _maxErrors) {
-                        _logger?.LogCritical( "Failed to upload file to backblaze.", ex );
+                        _logger?.LogCritical( "Failed to upload file to backblaze.\n{exception}", ex );
                         throw;
                     } else {
-                        _logger?.LogError( "Error while uploading file to backblaze.", ex );
+                        _logger?.LogError( "Error while uploading file to backblaze.\n{exception}", ex );
                     }
                     count++;
 

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    internal class UploadThreadStatistic {
+    internal class B2ThreadStatistic {
         public int Thread { get; private set; }
         public int Attempt { get; set; } = 0;
         public int Success { get; set; } = 0;
@@ -15,7 +15,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
 
 
         // CTor
-        public UploadThreadStatistic( int thread ) { Thread = thread; }
+        public B2ThreadStatistic( int thread ) { Thread = thread; }
 
         public void AddSleepTimer( int sleepTimer ) {
             SleepTimers.Add( sleepTimer );

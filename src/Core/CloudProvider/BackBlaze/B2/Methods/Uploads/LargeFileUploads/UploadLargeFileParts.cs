@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
+using Cloud_ShareSync.CloudProvider.BackBlaze.Types;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Microsoft.Extensions.Logging;
 
@@ -18,11 +19,16 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             UploadB2File? threadUpload = await NewUploadLargeFilePartUrl( upload );
 
-            int count = 1;
+            ThreadProcessTime threadStats = new( thread );
+
+            int errCount = 1;
             while (filePartQueue.IsEmpty == false) {
 
                 filePartQueue.TryPop( out FilePartInfo? partInfo );
                 if (partInfo == null) { continue; }
+                concurrencyStats.StartThread( thread, partInfo.PartNumber );
+                PartProcessTime partStats = new( partInfo.PartNumber );
+                partStats.AddNewStartTime( );
 
                 string pretxt = $"Thread#{thread} Part#{partInfo.PartNumber}";
 
@@ -38,10 +44,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 bool success = false;
                 try {
                     _log?.LogInformation(
-                        "Thread#{string} Uploading LargeFile '{string}' Part#{string}.",
-                        thread,
-                        upload.OriginalFileName,
-                        partInfo.PartNumber
+                        "{string} Uploading LargeFile '{string}.",
+                        pretxt,
+                        upload.OriginalFileName
                     );
                     _log?.LogInformation( "{string} FileName      : {string}", pretxt, upload.FilePath.Name );
                     _log?.LogInformation( "{string} UploadFilePath: {string}", pretxt, upload.UploadFilePath );
@@ -49,8 +54,6 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     _log?.LogInformation( "{string} ContentSize   : {string}", pretxt, partInfo.Data.Length );
 
                     UploadB2FilePart uploadPart = new( threadUpload, partInfo.Sha1Hash, partInfo.PartNumber, partInfo.Data );
-
-                    concurrencyStats.StartThread( thread );
                     await UploadLargeFilePart( uploadPart, thread );
                     concurrencyStats.ThreadActive( thread );
 
@@ -64,38 +67,46 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     );
                     resultsList.Add( new( partInfo.PartNumber, uploadPart.PartSha1Hash, uploadPart.Content.Length ) );
                     _log?.LogDebug(
-                        "Thread#{string} Part#{string} -  RESULTS LIST COUNT: {int}",
-                        thread,
-                        partInfo.PartNumber,
+                        "{string} -  RESULTS LIST COUNT: {int}",
+                        pretxt,
                         resultsList.Select( x => x.Sha1Hash ).Count( )
                     );
                     success = true;
                 } catch (HttpRequestException e) {
                     filePartQueue.Push( partInfo );
-                    HandleBackBlazeException( e, count, thread, filePartQueue, concurrencyStats );
-                    count++;
+                    threadStats.PartTimes.Add( partStats );
+                    HandleBackBlazeException( e, errCount, thread, filePartQueue, concurrencyStats );
+                    errCount++;
                     threadUpload = await NewUploadLargeFilePartUrl( upload );
                 } catch (Exception ex) {
-                    _log?.LogWarning( "Thread#{string} had an exception.\n{exception}", thread, ex );
+                    _log?.LogWarning( "{string} had an exception.\n{exception}", pretxt, ex );
                     filePartQueue.Push( partInfo );
-                    concurrencyStats.FailThread( thread );
+                    concurrencyStats.FailThread( thread, partInfo.PartNumber );
+                    partStats.AddNewStopTime( );
+                    threadStats.PartTimes.Add( partStats );
+                    B2ThreadManager.ThreadTimeStats.Add( threadStats );
                     activity?.Stop( );
                     return false;
                 }
 
-                if (count >= _applicationData.MaxErrors && success != true) {
-                    _log?.LogError( "Thread#{string} hit max errors. Thread shutting down.", thread );
+                partStats.AddNewStopTime( );
+                threadStats.PartTimes.Add( partStats );
+
+                if (errCount >= _applicationData.MaxErrors && success != true) {
+                    _log?.LogError( "{string} hit max errors. Thread shutting down.", pretxt );
                     filePartQueue.Push( partInfo );
-                    concurrencyStats.FailThread( thread );
+                    concurrencyStats.FailThread( thread, partInfo.PartNumber );
+                    B2ThreadManager.ThreadTimeStats.Add( threadStats );
                     activity?.Stop( );
                     return false;
                 } else if (success) {
-                    count = 1;
+                    errCount = 1;
                 }
             }
 
             _log?.LogInformation( "Thread#{string} Finished Assigned Work.", thread );
             concurrencyStats.ThreadCompleted( thread );
+            B2ThreadManager.ThreadTimeStats.Add( threadStats );
             activity?.Stop( );
             return true;
         }

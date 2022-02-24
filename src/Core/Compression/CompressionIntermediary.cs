@@ -5,6 +5,11 @@ using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Compression {
+
+    /// <summary>
+    /// This class is used to compress/decompress files.
+    /// Requires 7zip.
+    /// </summary>
     public class CompressionIntermediary : ICompression {
 
         private static readonly ActivitySource s_source = new( "CompressionInterface" );
@@ -14,6 +19,12 @@ namespace Cloud_ShareSync.Core.Compression {
 
         private readonly List<FailedToZipException> _exceptions = new( );
 
+        /// <summary>
+        /// Pass in the 7zip dependency path via the <paramref name="config"/>.
+        /// Optionally set <paramref name="log"/> to enable logging.
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="log"></param>
         public CompressionIntermediary( CompressionConfig config, ILogger? log = null ) {
             _log = log;
             _dependencyPath = new( config.DependencyPath );
@@ -24,13 +35,20 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region DecompressPath
 
+        /// <summary>
+        /// ICompression interface method to decompress 7z files using the <see cref="CompressionIntermediary"/>.
+        /// </summary>
+        /// <param name="inputPath"></param>
+        /// <param name="decompressedPath"></param>
+        /// <param name="password"></param>
+        /// <returns>An enumeration of the decompressed FileSystemInfo objects</returns>
         public async Task<IEnumerable<FileSystemInfo>> DecompressPath(
             FileInfo inputPath,
             DirectoryInfo decompressedPath,
             string? password
         ) => await DecompressPath( inputPath, decompressedPath, _dependencyPath, password );
 
-        public async Task<IEnumerable<FileSystemInfo>> DecompressPath(
+        internal async Task<IEnumerable<FileSystemInfo>> DecompressPath(
             FileInfo inputPath,
             DirectoryInfo decompressionDir,
             FileInfo dependencyPath,
@@ -92,13 +110,20 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #region CompressPath
 
+        /// <summary>
+        /// ICompression interface method to compress files using 7zip via the <see cref="CompressionIntermediary"/>.
+        /// </summary>
+        /// <param name="inputPath"></param>
+        /// <param name="compressedFilePath"></param>
+        /// <param name="password"></param>
+        /// <returns>The fileinfo object of the compressed 7z file.</returns>
         public async Task<FileInfo> CompressPath(
             FileSystemInfo inputPath,
-            FileInfo compressedPath,
+            FileInfo compressedFilePath,
             string? password = null
-        ) => await CompressPath( inputPath, compressedPath, _dependencyPath, password );
+        ) => await CompressPath( inputPath, compressedFilePath, _dependencyPath, password );
 
-        public async Task<FileInfo> CompressPath(
+        internal async Task<FileInfo> CompressPath(
             FileSystemInfo inputPath,
             FileInfo compressedPath,
             FileInfo dependencyPath,

@@ -5,15 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>Cloud-ShareSync</AssemblyName>
-    <RootNamespace>Cloud_ShareSync.Core</RootNamespace>
+    <RootNamespace>Cloud_ShareSync</RootNamespace>
     <DebugType>embedded</DebugType>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>CloudShareSync.Core</PackageId>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>CloudShareSync</PackageId>
     <Authors>Taylor Marvin</Authors>
     <Company>Darkgrey Development</Company>
-    <Description>The core dll used by the Cloud-ShareSync services.</Description>
+    <Description></Description>
     <Copyright>Darkgrey Development (2022)</Copyright>
     <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>

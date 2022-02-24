@@ -18,12 +18,6 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 finalLength += recSize;
             }
 
-            int threadCount = B2ThreadManager.GetActiveThreadCount( totalParts );
-            B2ConcurrentStats concurrencyStats = new( threadCount );
-            _log?.LogInformation( "Uploading Large File Parts Async" );
-            _log?.LogInformation( "Splitting file into {int} {int} byte chunks and 1 {int} chunk.", totalParts - 1, recSize, finalLength );
-            _log?.LogInformation( "Chunks will be uploaded asyncronously via {int} upload streams.", threadCount );
-
             ConcurrentBag<LargeFilePartReturn>? resultsList = new( );
             ConcurrentStack<FilePartInfo> filePartQueue = new( );
             long lengthTotal = 0;
@@ -38,8 +32,14 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 throw new InvalidOperationException( "Failed to upload full file." );
             }
 
-            List<Task<bool>> uploadTasks = new( );
+            int threadCount = B2ThreadManager.GetActiveThreadCount( totalParts );
+            B2ConcurrentStats concurrencyStats = new( threadCount, _log );
+            B2ProcessStats uploadStats = new( uploadObject.FilePath.Length );
+            _log?.LogInformation( "Uploading Large File Parts Async" );
+            _log?.LogInformation( "Splitting file into {int} {int} byte chunks and 1 {int} chunk.", totalParts - 1, recSize, finalLength );
+            _log?.LogInformation( "Chunks will be uploaded asyncronously via {int} upload streams.", threadCount );
 
+            List<Task<bool>> uploadTasks = new( );
             for (int thread = 0; thread < threadCount; thread++) {
                 _log?.LogDebug( "Thread#{string} - Adding Task to Task List.", thread );
                 uploadTasks.Add(
@@ -66,15 +66,17 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                     uploadObject.TotalBytesSent += result.DataSize;
                 }
             }
+            await FinishUploadLargeFile( uploadObject );
+
+            uploadStats.SetStopTime( );
+            _log?.LogInformation( "Upload Stats: {string}", uploadStats );
+            B2ThreadManager.B2ProcessStats.Add( uploadStats );
 
             _log?.LogInformation( "Concurrency Stats: {string}", concurrencyStats );
             B2ThreadManager.ConcurrencyStats.Add( concurrencyStats );
 
             _log?.LogInformation( "Thread UploadStats:" );
             B2ThreadManager.ShowThreadStatistics( true );
-
-
-            await FinishUploadLargeFile( uploadObject );
 
             foreach (FailureInfo failure in B2ThreadManager.FailureDetails) {
                 failure.Reset( );

@@ -1,14 +1,12 @@
-﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
+﻿using Cloud_ShareSync.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
+
+namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class B2ConcurrentStats {
-        public B2ConcurrentStats( int available ) {
-            _semaphore.Release( 1 );
-            Available = available;
-            _started = new( );
-            _active = new( );
-            _failed = new( );
-            _sleeping = new( );
-            _completed = new( );
-        }
+
+        #region Fields
+
+        private readonly object _lock = new( );
 
         public readonly int Available;
         public int Started => _started.Count;
@@ -29,15 +27,27 @@
         public int HighWaterActive { get; private set; } = 0;
         public int HighWaterSleeping { get; private set; } = 0;
 
+        private readonly ILogger? _log;
 
-        private readonly SemaphoreSlim _semaphore = new( 0, 1 );
+        #endregion Fields
 
-        private void SetHighWaterMarks( ) {
-            _semaphore.Wait( );
-            HighWaterActive = Active > HighWaterActive ? Active : HighWaterActive;
-            HighWaterSleeping = Sleeping > HighWaterSleeping ? Sleeping : HighWaterSleeping;
-            _semaphore.Release( );
+
+        #region Ctor
+
+        public B2ConcurrentStats( int available, ILogger? log ) {
+            Available = available;
+            _started = new( );
+            _active = new( );
+            _failed = new( );
+            _sleeping = new( );
+            _completed = new( );
+            _log = log;
         }
+
+        #endregion Ctor
+
+
+        #region Methods
 
         public override string ToString( ) {
             return "\n" +
@@ -51,91 +61,152 @@
             $"Completed:         {Completed}";
         }
 
-        private void RemoveStarted( int thread ) {
-            _semaphore.Wait( );
-            if (_started.Contains( thread )) {
-                _started.Remove( thread );
+        #region private and locked.
+
+        private void SetHighWaterMarks( ) {
+            lock (_lock) {
+                HighWaterActive = Active > HighWaterActive ? Active : HighWaterActive;
+                HighWaterSleeping = Sleeping > HighWaterSleeping ? Sleeping : HighWaterSleeping;
             }
-            _semaphore.Release( );
         }
 
-        internal void RemoveSleeping( int thread ) {
-            _semaphore.Wait( );
-            if (_sleeping.Contains( thread )) {
-                _sleeping.Remove( thread );
+        private void AddStartThread( int thread ) {
+            lock (_lock) { _started.Add( thread ); }
+        }
+
+        private void AddActive( int thread ) {
+            lock (_lock) { _active.Add( thread ); }
+        }
+
+        private void AddCompleted( int thread ) {
+            lock (_lock) { _completed.Add( thread ); }
+        }
+
+        private void AddSleeping( int thread ) {
+            lock (_lock) { _sleeping.Add( thread ); }
+        }
+
+        private void AddFailed( int thread ) {
+            lock (_lock) { _failed.Add( thread ); }
+        }
+
+        private void RemoveStarted( int thread ) {
+            lock (_lock) {
+                if (_started.Contains( thread )) {
+                    _started.Remove( thread );
+                }
             }
-            _semaphore.Release( );
         }
 
         private void RemoveActive( int thread ) {
-            _semaphore.Wait( );
-            if (_active.Contains( thread )) {
-                _active.Remove( thread );
+            lock (_lock) {
+                if (_active.Contains( thread )) {
+                    _active.Remove( thread );
+                }
             }
-            _semaphore.Release( );
         }
 
-        internal void StartThread( int thread ) {
+        private void RemoveSleeping( int thread ) {
+            lock (_lock) {
+                if (_sleeping.Contains( thread )) {
+                    _sleeping.Remove( thread );
+                }
+            }
+        }
+
+        private bool CheckStartedOrActive( int thread ) {
+            lock (_lock) {
+                return _started.Contains( thread ) || _active.Contains( thread );
+            }
+        }
+
+        private bool CheckActive( int thread ) {
+            lock (_lock) {
+                return _active.Contains( thread );
+            }
+        }
+
+        private bool CheckSleeping( int thread ) {
+            lock (_lock) {
+                return _sleeping.Contains( thread );
+            }
+        }
+
+        #endregion private and locked.
+
+
+        #region internal.
+
+        internal void RemoveSleepingThread( int thread ) {
+            _log?.LogDebug( "Thread#{int} - Start RemoveSleepingThread", thread );
             SetHighWaterMarks( );
-            _semaphore.Wait( );
-            bool threadStarted = _started.Contains( thread ) || _active.Contains( thread );
-            _semaphore.Release( );
-            if (threadStarted) { return; }
-
             RemoveSleeping( thread );
-            RemoveActive( thread );
-
-            _semaphore.Wait( );
-            _started.Add( thread );
-            _semaphore.Release( );
+            _log?.LogDebug( "Thread#{int} - Exit RemoveSleepingThread", thread );
         }
 
         internal void ThreadActive( int thread ) {
+            _log?.LogDebug( "Thread#{int} - Start ThreadActive", thread );
             SetHighWaterMarks( );
-            _semaphore.Wait( );
-            bool threadActive = _active.Contains( thread );
-            _semaphore.Release( );
-            if (threadActive) { return; }
-
+            bool threadActive = CheckActive( thread );
+            if (threadActive) {
+                _log?.LogDebug( "Thread#{int} - Exit early ThreadActive", thread );
+                return;
+            }
             RemoveStarted( thread );
             RemoveSleeping( thread );
+            AddActive( thread );
+            _log?.LogDebug( "Thread#{int} - Exit ThreadActive", thread );
+        }
 
-            _semaphore.Wait( );
-            _active.Add( thread );
-            _semaphore.Release( );
+        internal void StartThread( int thread, int partNumber ) {
+            _log?.LogDebug( "Thread#{int} - Start StartThread - ParNumber: {int}", thread, partNumber );
+            SetHighWaterMarks( );
+            bool bailOut = CheckStartedOrActive( thread );
+            if (bailOut) {
+                _log?.LogDebug( "Thread#{int} - Exit early StartThread - ParNumber: {int}", thread, partNumber );
+                return;
+            }
+            RemoveSleeping( thread );
+            RemoveActive( thread );
+            AddStartThread( thread );
+            _log?.LogDebug( "Thread#{int} - Exit StartThread - ParNumber: {int}", thread, partNumber );
         }
 
         internal void ThreadSleeping( int thread ) {
+            _log?.LogDebug( "Thread#{int} - Start ThreadSleeping", thread );
             SetHighWaterMarks( );
             RemoveStarted( thread );
             RemoveActive( thread );
-            _semaphore.Wait( );
-            _sleeping.Add( thread );
-            _semaphore.Release( );
+            AddSleeping( thread );
+            _log?.LogDebug( "Thread#{int} - Exit ThreadSleeping", thread );
         }
 
-        internal void FailThread( int thread ) {
+        internal void FailThread( int thread, int partNumber ) {
+            _log?.LogDebug( "Thread#{int} - Start FailThread - ParNumber: {int}", thread, partNumber );
             SetHighWaterMarks( );
             RemoveStarted( thread );
             RemoveActive( thread );
             RemoveSleeping( thread );
-
-            _semaphore.Wait( );
-            _failed.Add( thread );
-            _semaphore.Release( );
+            AddFailed( thread );
+            _log?.LogDebug( "Thread#{int} - Exit FailThread - ParNumber: {int}", thread, partNumber );
         }
 
         internal void ThreadCompleted( int thread ) {
+            _log?.LogDebug( "Thread#{int} - Start ThreadCompleted", thread );
             SetHighWaterMarks( );
-            _semaphore.Wait( );
-            bool threadSleeping = _sleeping.Contains( thread );
-            _semaphore.Release( );
-            if (threadSleeping) { return; }
-
+            bool threadSleeping = CheckSleeping( thread );
+            if (threadSleeping) {
+                _log?.LogDebug( "Thread#{int} - Exit early ThreadCompleted", thread );
+                return;
+            }
             RemoveActive( thread );
-            _semaphore.Wait( );
-            _completed.Add( thread );
-            _semaphore.Release( );
+            AddCompleted( thread );
+            _log?.LogDebug( "Thread#{int} - Exit ThreadCompleted", thread );
         }
+
+        #endregion internal.
+
+
+        #endregion Methods
     }
 }

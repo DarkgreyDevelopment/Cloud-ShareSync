@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Cloud-ShareSync.Core.csproj" />
+    <ProjectReference Include="..\Core\Cloud-ShareSync.csproj" />
   </ItemGroup>
 
   <ItemGroup>

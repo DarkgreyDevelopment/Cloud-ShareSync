@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.SharedServices {
-    public class CloudShareSyncServices {
+    internal class CloudShareSyncServices {
         public readonly ServiceProvider Services;
 
         #region CTor

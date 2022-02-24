@@ -2,7 +2,6 @@
 using System.Text.RegularExpressions;
 using Cloud_ShareSync.Core.Configuration;
 using Cloud_ShareSync.Core.Configuration.Types;
-using Cloud_ShareSync.Core.SharedServices;
 using Cloud_ShareSync.Core.SharedServices.BackgroundService;
 using Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,18 +16,19 @@ namespace Cloud_ShareSync.SimpleBackup {
         internal static async Task Main( string[] args ) {
             ILogger? log = null;
             try {
+                // Get config values.
                 CompleteConfig config = ConfigManager.GetConfiguration( args );
+
+                // Enable logging and telemetry 
                 log = ConfigManager.ConfigureTelemetryLogger( config.Log4Net, Array.Empty<string>( ) );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 ConfigManager.ValidateConfigSet( config, false, true, log );
-                SystemMemoryChecker.Inititalize( log );
                 if (config?.Backup == null) {
-                    throw new InvalidOperationException( "Cannot continue if SimpleBackup Config is null." );
+                    throw new InvalidOperationException(
+                        "Cannot continue if SimpleBackup Config is null."
+                    );
                 }
-                List<string> fileList = PopulateFileList(
-                    config.Backup,
-                    log
-                );
+                List<string> fileList = PopulateFileList( config.Backup, log );
 
                 IHost host = HostProvider.ConfigureHost( log, args, config );
 
