@@ -24,18 +24,16 @@ jobs:
         uses: actions/checkout@v2
       - name: List files in the repository
         run:  ls -R ${{ github.workspace }}
-      - name: Get docfx
-        run: |
-          curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
-          unzip -d .docfx ${{ github.workspace }}/docfx.zip
-          chmod -R 777 ${{ github.workspace }}/docfx
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Build docs
+      - name: Get DocFX & Build docs
         shell: pwsh
         run: |
+          curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o ${{ github.workspace }}/docfx.zip
+          unzip -d ${{ github.workspace }}/docfx ${{ github.workspace }}/docfx.zip
+          chmod -R 777 ${{ github.workspace }}/docfx
           Write-Host "Docs:"
           Get-ChildItem "${{ github.workspace }}/docs/"
           | Select-Object -Property Name,FullName,Size,UnixMode
