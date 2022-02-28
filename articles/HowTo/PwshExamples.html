@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> </title>
+    <title>Config Validation: </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" ">
+    <meta name="title" content="Config Validation: ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -66,106 +66,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="section"></h1>
+<h1 id="config-validation">Config Validation:</h1>
 
-<pre><code class="lang-ps1">Add-Type -LiteralPath .\Cloud_ShareSync.Core.dll
-$Config = [Cloud_ShareSync.Core.Configuration.Config]::GetConfiguration('C:\app\Configuration\appsettings.json')
-$Logger = [Cloud_ShareSync.Core.Logging.TelemetryLogger]::New($null,$Config.Log4Net)
-[Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::Initialize($Config.BackBlaze,$Logger)
-[Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::UploadFile(&quot;C:\Temp\Temp\Testing\Test2\NestedTest2\TestNested2\testFile.xyz&quot;).Result
-</code></pre>
-<pre><code class="lang-ps1">Add-Type -LiteralPath '.\Cloud-ShareSync.Core.dll'
-$Config = [Cloud_ShareSync.Core.Configuration.Config]::GetConfiguration('C:\app\Configuration\appsettings.json')
-$Logger = [Cloud_ShareSync.Core.Logging.TelemetryLogger]::New($null,$Config.Log4Net)
-[Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::Initialize($Config.BackBlaze,$Logger)
-[Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::ListFileVersions().Result
-</code></pre>
-<pre><code class="lang-ps1">Add-Type -LiteralPath '.\Cloud-ShareSync.Core.dll'
-$Config = [Cloud_ShareSync.Core.Configuration.Config]::GetConfiguration('C:\app\Configuration\appsettings.json')
-$Logger = [Cloud_ShareSync.Core.Logging.TelemetryLogger]::New($null,$Config.Log4Net)
-[Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::Initialize($Config.BackBlaze,$Logger)
-$Response = [Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::ListFileVersions().Result
-$Download = [Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.DownloadB2File]::New(
-	[System.IO.FileInfo]::New(&quot;.\100mb.test&quot;),
-	$Response[0].fileId
-)
-$DLResponse = [Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2]::DownloadFile($Download)
-</code></pre>
-<h1 id="cloud_sharesynccryptography-functional-examples">Cloud_ShareSync.Cryptography Functional Examples</h1>
-<pre><code class="lang-ps1">	Add-Type -LiteralPath .\Cloud-ShareSync.Core.dll
-
-	$FolderPath = (Get-Location).path
-	$FileName   = 'Cloud-ShareSync.pdb'
-
-	$FileToEncrypt     = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName)&quot;)
-	$FileToDecryptTo   = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName + '.new')&quot;)
-	$FileToDecryptTo2  = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName + '.new2')&quot;)
-	$EncryptedFile     = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName + '.enc')&quot;)
-	$EncryptedFile2    = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName + '.enc2')&quot;)
-	$EncryptionKeyFile = [System.IO.FileInfo]::New(&quot;$(Join-Path $FolderPath $FileName + '.enc.key')&quot;)
-
-	Write-Host &quot;Getting the SHA512 FileHash of '$($FileToEncrypt.FullName)'.&quot;
-	$Sha512Hash = [Cloud_ShareSync.Cryptography.FileHash.SHA512Hash]::new()
-	$Hash = $Sha512Hash::GetSHA512FileHash($FileToEncrypt.FullName)
-	Write-Host &quot;Sha512 FileHash: $Hash&quot; -ForeGroundColor Green
-
-	$ManagedChaCha20Poly1305 = [Cloud_ShareSync.Cryptography.FileEncryption.ManagedChaCha20Poly1305]::new()
-
-	if ($ManagedChaCha20Poly1305::PlatformSupported) {
-		[byte[]]$Key = [byte[]]::new(32)
-		[System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($Key) # Generate a random key.
-
-		Write-Host &quot;Encrypting File '$($FileToEncrypt.FullName)' and outputting KeyFile to '$($EncryptionKeyFile.FullName)'.&quot;
-		$ManagedChaCha20Poly1305::Encrypt(
-			$Key,
-			$FileToEncrypt,
-			$EncryptedFile,
-			$EncryptionKeyFile
-		).Result | Out-Null
-		Write-Host &quot;Encrypted File '$($FileToEncrypt.FullName)'&quot; -ForeGroundColor Green
-
-		Write-Host &quot;Decrypting File '$($FileToEncrypt.FullName)' using KeyFile '$($EncryptionKeyFile.FullName)'.&quot;
-		$ManagedChaCha20Poly1305::DecryptFromKeyFile(
-			$EncryptionKeyFile,
-			$EncryptedFile,
-			$FileToDecryptTo
-		).Result | Out-Null
-		Write-Host &quot;Decrypted File '$($FileToEncrypt.FullName)'. PlaintextFile: '$($FileToDecryptTo.FullName)'&quot; -ForeGroundColor Green
-		$Hash2 = $Sha512Hash::GetSHA512FileHash($FileToDecryptTo.FullName)
-		Write-Host &quot;Original Sha512 FileHash:  $Hash&quot;
-		Write-Host &quot;Decrypted Sha512 FileHash: $Hash2&quot;
-
-
-		Write-Host &quot;Encrypting File '$($FileToEncrypt.FullName)' and NOT outputting KeyFile.&quot;
-		$DecryptionData = $ManagedChaCha20Poly1305::Encrypt(
-			$Key,
-			$FileToEncrypt,
-			$EncryptedFile2
-		).Result
-		Write-Host &quot;Encrypted File '$($FileToEncrypt.FullName)'&quot; -ForeGroundColor Green
-
-		Write-Host &quot;Decrypting File '$($FileToEncrypt.FullName)' using DecryptionData: $DecryptionData.&quot;
-		$ManagedChaCha20Poly1305::Decrypt(
-			$DecryptionData,
-			$EncryptedFile2,
-			$FileToDecryptTo2
-		).Result | Out-Null
-		Write-Host &quot;Decrypted File '$($EncryptedFile2.FullName)'. PlaintextFile: '$($FileToDecryptTo2.FullName)'&quot; -ForeGroundColor Green
-		$Hash3 = $Sha512Hash::GetSHA512FileHash($FileToDecryptTo2.FullName)
-
-		Write-Host &quot;Original Sha512 FileHash:  $Hash&quot;
-		Write-Host &quot;Decrypted Sha512 FileHash: $Hash3&quot;
-
-		$Sha1Hash = [Cloud_ShareSync.Cryptography.FileHash.SHA1Hash]::new()
-
-		Write-Host &quot;Getting SHA1 FileHashes&quot;
-
-		$Sha1_0 = $Sha1Hash::GetSHA1FileHash($FileToEncrypt.FullName)
-
-	} else {
-		Write-Host 'ChaCha20Poly1305 is not supported on this platform.'
-	}
-</code></pre>
+<p>Examples of how to validate your CloudShareSync appsettings.json file with Powershell are coming soon.</p>
 </article>
           </div>
           
