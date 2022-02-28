@@ -4,8 +4,7 @@
 
 Documentation changes can be tested locally prior to pushing to any commits to github.  
 To host the docs page locally you must
-1. Download a copy of [DocFX](https://github.com/dotnet/docfx/releases/latest/download/docfx.zip).
-2. Extract docfx 
-3. Clone the repo `git clone https://git.cloud-sharesync.com`
-4. Generate API metadata: `docfx.exe metadata Cloud-ShareSync\docs\docfx.json`
-5. Serve the website `docfx.exe Cloud-ShareSync\docs\docfx.json -t templates/CloudShareSync --serve`
+1. Download a copy of [DocFX](https://github.com/dotnet/docfx/releases/latest/download/docfx.zip) and extract it.
+2. Clone the repo `git clone https://git.cloud-sharesync.com`
+3. Generate API metadata: `docfx.exe metadata Cloud-ShareSync\docs\docfx.json`
+4. Serve the website `docfx.exe Cloud-ShareSync\docs\docfx.json -t templates/CloudShareSync --serve`

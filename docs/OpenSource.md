@@ -26,5 +26,5 @@ Cloud-ShareSync utilizes [PostgreSQL](https://www.postgresql.org). PostgreSQL is
 [Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes [DocFX](https://dotnet.github.io/docfx) to generate public documentation. DocFX is licensed under the [MIT license](https://github.com/dotnet/docfx/blob/main/LICENSE)  
 
 ### DocFX Theme - DarkFX
-[Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes the [darkfx](https://github.com/steffen-wilke/darkfx) DocFX theme/template. DarkFX is licensed under the [MIT license](https://github.com/steffen-wilke/darkfx/blob/master/LICENSE)  
+[Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes a modified version of the [darkfx](https://github.com/steffen-wilke/darkfx) DocFX theme/template. DarkFX is licensed under the [MIT license](https://github.com/steffen-wilke/darkfx/blob/master/LICENSE)  
 
