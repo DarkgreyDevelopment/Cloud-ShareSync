@@ -17,8 +17,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: List files in the repository
-        run:  ls ${{ github.workspace }}
-        run:  ls ${{ github.workspace }}/docs
+        run:  ls ${{ github.workspace }} ; ls ${{ github.workspace }}/docs
       - name: Populate API Metadata
         uses: nikeee/docfx-action@v1.0.0
         with:
