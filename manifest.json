@@ -544,15 +544,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "uBswuiD4XtMsKtny6+4K7wHwXCoIsQDOT9HxZA2HUKc="
+          "hash": "z6lX9BqQDIVEaTUvwJ9EceDb/X+pWBAd2EE/fppK5xQ="
         }
       },
       "is_incremental": false,
