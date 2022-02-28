@@ -6,6 +6,12 @@ on:
 jobs:
   document:
     runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true
+      DOCFX_SOURCE_BRANCH_NAME: ${{ github.ref }}
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
     steps:
       - name: Echo Log Information
         run: |
@@ -17,12 +23,15 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: List files in the repository
-        run:  ls ${{ github.workspace }} ; ls ${{ github.workspace }}/docs
+        run:  ls -R ${{ github.workspace }}
       - name: Get docfx
         run: |
           curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
           unzip -d .docfx docfx.zip
-
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
       - name: Build docs
         run: |
           ls "${{ github.workspace }}/docs/"
