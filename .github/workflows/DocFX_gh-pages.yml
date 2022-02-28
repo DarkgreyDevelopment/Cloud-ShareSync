@@ -18,11 +18,15 @@ jobs:
         uses: actions/checkout@v2
       - name: List files in the repository
         run:  ls ${{ github.workspace }} ; ls ${{ github.workspace }}/docs
-      - name: Populate API Metadata
-        uses: nikeee/docfx-action@v1.0.0
-        with:
-          args: metadata ${{ github.workspace }}/docs/docfx.json
-      - name: Build Documentation
-        uses: nikeee/docfx-action@v1.0.0
-        with:
-          args: ${{ github.workspace }}/docs/docfx.json
+      - name: Get docfx
+        run: |
+          curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
+          unzip -d .docfx docfx.zip
+
+      - name: Build docs
+        run: |
+        ls ${{ github.workspace }}/docs/
+        cat ${{ github.workspace }}/docs/docfx.json
+        mono .docfx/docfx.exe metadata ${{ github.workspace }}/docs/docfx.json
+        mono .docfx/docfx.exe ${{ github.workspace }}/docs/docfx.json
+        ls ${{ github.workspace }}/docs/
