@@ -40,7 +40,7 @@ jobs:
           Invoke-WebRequest @IWRParams
           Expand-Archive -Path '${{ github.workspace }}/docfx.zip' -DestinationPath '${{ github.workspace }}/docfx'
           chmod -R 777 '${{ github.workspace }}/docfx'
-          copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/_site/index.md' -Verbose
+          copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/index.md' -Verbose -Force
           Write-Host "`nGenerating API documentation:"
           & ./docfx/docfx.exe metadata '${{ github.workspace }}/docs/docfx.json'
           Write-Host "`nCreating docfx site:"
