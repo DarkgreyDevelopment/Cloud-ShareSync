@@ -46,6 +46,7 @@ jobs:
           & ./docfx/docfx.exe '${{ github.workspace }}/docs/docfx.json'
           copy-item -Path '${{ github.workspace }}/docs/CNAME' -Destination '${{ github.workspace }}/docs/_site' -Verbose
           copy-item -Path '${{ github.workspace }}/docs/_config.yml' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+          copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/_site/index.md' -Verbose
       - name: Deploy Github Pages!
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:

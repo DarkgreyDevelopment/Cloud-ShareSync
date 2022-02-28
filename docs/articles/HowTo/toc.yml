@@ -1,8 +1,8 @@
 - name: Introduction
-  href: intro.md
+  href: ../intro.md
 - name: Dependency
-  href: Dependency.md
+  href: ../Dependency.md
 - name: How-To/Local Documentation Development
-  href: HowTo/LocalDocDev.md
+  href: LocalDocDev.md
 - name: How-To/Powershell Examples
-  href: HowTo/PwshExamples.md
+  href: PwshExamples.md
