@@ -36,29 +36,31 @@ jobs:
           chmod -R 777 ${{ github.workspace }}/docfx
           Write-Host "Docs:"
           Get-ChildItem "${{ github.workspace }}/docs/"
-          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Select-Object -Property FullName,Size,UnixMode
           | Format-Table
           | Out-String
           | Write-Host
           Write-Host "`ndocfx.json:"
           cat "${{ github.workspace }}/docs/docfx.json"
-          Get-ChildItem
-          | Select-Object -Property Name,FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
-          Get-ChildItem ./docfx
-          | Select-Object -Property Name,FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
           Write-Host "`nGenerating API documentation:"
           & ./docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
           Write-Host "`nCreating docfx site:"
           & ./docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
           Write-Host "`nDocs:"
           Get-ChildItem "${{ github.workspace }}/docs/"
-          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Select-Object -Property FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
+          Write-Host "`nDocs Site:"
+          Get-ChildItem "${{ github.workspace }}/docs/_site"
+          | Select-Object -Property FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
+          Write-Host "`nDocs Site:"
+          Get-ChildItem "${{ github.workspace }}/docs/api"
+          | Select-Object -Property FullName,Size,UnixMode
           | Format-Table
           | Out-String
           | Write-Host
