@@ -3,22 +3,29 @@
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     public class BackupConfig {
-        public string WorkingDirectory { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public string RootFolder { get; set; }
-        public string[] ExcludePaths { get; set; }
-        public bool MonitorSubDirectories { get; set; }
-        public bool EncryptBeforeUpload { get; set; }
-        public bool CompressBeforeUpload { get; set; }
-        public bool UniqueCompressionPasswords { get; set; }
-        public bool ObfuscateUploadedFileNames { get; set; }
+        public string[] ExcludePaths { get; set; } = Array.Empty<string>( );
+        public string WorkingDirectory { get; set; }
+        public bool MonitorSubDirectories { get; set; } = true;
+        public bool EncryptBeforeUpload { get; set; } = false;
+        public bool CompressBeforeUpload { get; set; } = false;
+        public bool UniqueCompressionPasswords { get; set; } = false;
+        public bool ObfuscateUploadedFileNames { get; set; } = false;
 
-        public override string ToString( ) {
-            JsonSerializerOptions options = new( ) {
-                IncludeFields = true,
-                WriteIndented = true,
-            };
-            return JsonSerializer.Serialize( this, options );
-        }
+        /// <summary>
+        /// Returns the <see cref="BackupConfig"/> as a json string.
+        /// </summary>
+        public override string ToString( ) =>
+            JsonSerializer.Serialize(
+                this,
+                new JsonSerializerOptions( ) {
+                    IncludeFields = true,
+                    WriteIndented = true,
+                }
+            );
     }
 #nullable enable
 }

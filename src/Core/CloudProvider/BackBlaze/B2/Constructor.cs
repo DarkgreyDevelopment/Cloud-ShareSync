@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
+using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading;
 using Cloud_ShareSync.Core.Cryptography;
-using Microsoft.Extensions.Logging;
 using Cloud_ShareSync.Core.SharedServices;
-using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 

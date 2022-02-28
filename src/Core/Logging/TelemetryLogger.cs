@@ -17,7 +17,7 @@ using OpenTelemetry.Trace;
 
 namespace Cloud_ShareSync.Core.Logging {
 
-    public class TelemetryLogger : Microsoft.Extensions.Logging.ILogger {
+    internal class TelemetryLogger : Microsoft.Extensions.Logging.ILogger {
 
         private const string ServiceName = "Cloud-ShareSync";
         private const string LogMessageFormat =
@@ -44,7 +44,7 @@ namespace Cloud_ShareSync.Core.Logging {
                         // Setup Default Rolling Log File
                         try {
                             if (config.EnableDefaultLog) { ConfigureDefaultLogAppender( hierarchy, config ); }
-                        } catch (InvalidOperationException defaultLogFailure) {
+                        } catch (ApplicationException defaultLogFailure) {
                             string? message =
                                 "Failed to add default Log4Net RollingLogAppender. Logging may be limited.";
                             Console.Error.WriteLine( message + "\n" + defaultLogFailure.ToString( ) );
@@ -55,7 +55,7 @@ namespace Cloud_ShareSync.Core.Logging {
                         // Setup Telemetry Log File
                         try {
                             if (config.EnableTelemetryLog) { ConfigureTelemetryAppender( hierarchy, config ); }
-                        } catch (InvalidOperationException telemetryLogFailure) {
+                        } catch (ApplicationException telemetryLogFailure) {
                             string? message =
                                 "Failed to add telemetry Log4Net RollingLogAppender. Telemetry logging may be limited.";
                             Console.Error.WriteLine( message + "\n" + telemetryLogFailure.ToString( ) );
@@ -72,7 +72,7 @@ namespace Cloud_ShareSync.Core.Logging {
                             Console.Error.WriteLine( consoleMessage + "\n" + dllEx.ToString( ) );
                             // try logging to any configured appenders.
                             ILog?.Error( consoleMessage, dllEx );
-                        } catch (InvalidOperationException consoleLogFailure) {
+                        } catch (ApplicationException consoleLogFailure) {
                             Console.Error.WriteLine( consoleMessage + "\n" + consoleLogFailure.ToString( ) );
                             // try logging to any configured appenders.
                             ILog?.Error( consoleMessage, consoleLogFailure );
@@ -124,7 +124,7 @@ namespace Cloud_ShareSync.Core.Logging {
         ) {
 
             if (log4NetConfig.DefaultLogConfiguration == null) {
-                throw new InvalidOperationException( $"Cannot Enable Default Log if Log Config Is Null." );
+                throw new ApplicationException( $"Cannot Enable Default Log if Log Config Is Null." );
             }
 
             DefaultLogConfig logConfig = log4NetConfig.DefaultLogConfiguration;
@@ -156,7 +156,7 @@ namespace Cloud_ShareSync.Core.Logging {
         ) {
 
             if (log4NetConfig.TelemetryLogConfiguration == null) {
-                throw new InvalidOperationException( $"Cannot Enable Telemetry Log if TelemetryConfig Is Null." );
+                throw new ApplicationException( $"Cannot Enable Telemetry Log if TelemetryConfig Is Null." );
             }
 
             TelemetryLogConfig telemetryConfig = log4NetConfig.TelemetryLogConfiguration;
@@ -224,7 +224,7 @@ namespace Cloud_ShareSync.Core.Logging {
         ) {
 
             if (log4NetConfig.ConsoleConfiguration == null) {
-                throw new InvalidOperationException( $"Cannot Enable Console Log if ConsoleConfig Is Null." );
+                throw new ApplicationException( $"Cannot Enable Console Log if ConsoleConfig Is Null." );
             }
 
             ConsoleLogConfig consoleConfig = log4NetConfig.ConsoleConfiguration;

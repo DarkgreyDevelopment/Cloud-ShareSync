@@ -15,7 +15,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
         public static IHost ConfigureHost( ILogger? log, string[] args, CompleteConfig config ) {
             using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
             if (config?.Database == null) {
-                throw new InvalidOperationException( );
+                throw new ApplicationException( );
             }
             IHostBuilder builder = Host.CreateDefaultBuilder( args )
                                     .ConfigureServices( services => {

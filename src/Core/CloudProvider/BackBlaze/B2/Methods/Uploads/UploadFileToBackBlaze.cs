@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
@@ -11,7 +12,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (File.Exists( upload.FilePath.FullName ) == false) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Cannot upload a file that doesn't exist." );
+                throw new ApplicationException( "Cannot upload a file that doesn't exist." );
             }
             _log?.LogInformation( "Uploading '{string}' to backblaze.", upload.FilePath.FullName );
             _log?.LogInformation( "Uploads original file name: {string}", upload.OriginalFileName );
@@ -28,7 +29,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (minimumLargeFileSize == 0) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Received an invalid response from BackBlaze." );
+                throw new ApplicationException( "Received an invalid response from BackBlaze." );
             }
             bool smallFileUpload = upload.FilePath.Length < minimumLargeFileSize;
 

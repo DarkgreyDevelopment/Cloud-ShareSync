@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
 #nullable disable
-    public class B2FileResponse {
+    internal class B2FileResponse {
 
 #pragma warning disable IDE1006 // Naming Styles - These match the parameter names from backblaze.
         [JsonInclude]

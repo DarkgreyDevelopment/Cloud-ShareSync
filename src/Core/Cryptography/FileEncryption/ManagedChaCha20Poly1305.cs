@@ -5,7 +5,7 @@ using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
-    public class ManagedChaCha20Poly1305 {
+    internal class ManagedChaCha20Poly1305 {
 
         public static bool PlatformSupported { get { return ChaCha20Poly1305.IsSupported; } }
 

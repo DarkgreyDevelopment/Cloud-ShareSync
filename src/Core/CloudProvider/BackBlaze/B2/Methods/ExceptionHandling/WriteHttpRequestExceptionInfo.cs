@@ -1,4 +1,4 @@
-﻿using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
+﻿using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {

@@ -54,7 +54,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             }
 
             if (statusList.Contains( true ) == false || success == false || filePartQueue.IsEmpty != true) {
-                throw new InvalidOperationException( "Multi-Part upload was unsuccessful." );
+                throw new ApplicationException( "Multi-Part upload was unsuccessful." );
             }
 
             activity?.Stop( );

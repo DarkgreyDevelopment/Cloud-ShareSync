@@ -10,7 +10,7 @@ namespace Cloud_ShareSync.Core.Compression {
     /// This class is used to compress/decompress files.
     /// Requires 7zip.
     /// </summary>
-    public class CompressionIntermediary : ICompression {
+    internal class CompressionIntermediary : ICompression {
 
         private static readonly ActivitySource s_source = new( "CompressionInterface" );
         private readonly FileInfo _dependencyPath;

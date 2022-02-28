@@ -72,7 +72,6 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         /// <summary>
         /// The high level/abstracted upload file process.
         /// </summary>
-        /// <param name="ufInput"></param>
         public async Task Process( ) {
             using Activity? activity = s_source.StartActivity( "Process" )?.Start( );
 
@@ -216,14 +215,14 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         /// </summary>
         /// <param name="inputFile"></param>
         /// <param name="tabledata"></param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ApplicationException"></exception>
         private async Task<FileInfo> EncryptFile( FileInfo inputFile, PrimaryTable tabledata ) {
             using Activity? activity = s_source.StartActivity( "EncryptFile" )?.Start( );
             FileInfo result = inputFile;
 
             if (_backupConfig.EncryptBeforeUpload) {
                 if (_crypto == null) {
-                    throw new InvalidOperationException( "Cannot encrypt if managed crypto provider is null." );
+                    throw new ApplicationException( "Cannot encrypt if managed crypto provider is null." );
                 }
 
                 FileInfo cypherTxtFile = new( Path.Join( _backupConfig.WorkingDirectory, Path.GetRandomFileName( ) ) );
@@ -268,7 +267,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         /// </summary>
         /// <param name="inputFile"></param>
         /// <param name="tabledata"></param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ApplicationException"></exception>
         private FileInfo CompressFile( FileInfo inputFile, PrimaryTable tabledata ) {
             using Activity? activity = s_source.StartActivity( "CompressFile" )?.Start( );
 
@@ -276,7 +275,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
 
             if (_backupConfig.CompressBeforeUpload) {
                 if (s_compress == null) {
-                    throw new InvalidOperationException(
+                    throw new ApplicationException(
                         "Cannot compress before upload if comprssion tool is null."
                     );
                 }

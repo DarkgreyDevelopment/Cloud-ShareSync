@@ -3,25 +3,30 @@ using Cloud_ShareSync.Core.Configuration.Types;
 
 namespace Cloud_ShareSync.Core.Configuration {
     public class CompleteConfig {
-        public CoreConfig Core { get; set; }
-        public BackupConfig? Backup { get; set; }
-        public RestoreConfig? Restore { get; set; }
-        public DatabaseConfig? Database { get; set; }
-        public Log4NetConfig? Log4Net { get; set; }
-        public CompressionConfig? Compression { get; set; }
-        public S3Config? Aws { get; set; }
-        public AzConfig? Azure { get; set; }
-        public B2Config? BackBlaze { get; set; }
-        public GcsConfig? Google { get; set; }
+        public CoreConfig Core { get; set; } = new( );
+        public BackupConfig? Backup { get; set; } = null;
+        public RestoreConfig? Restore { get; set; } = null;
+        public DatabaseConfig? Database { get; set; } = new( );
+        public Log4NetConfig? Log4Net { get; set; } = new( );
+        public CompressionConfig? Compression { get; set; } = null;
+        public B2Config? BackBlaze { get; set; } = null;
 
-        public CompleteConfig( CoreConfig general ) { Core = general; }
+        /// <summary>
+        /// Creating the <see cref="CompleteConfig"/> requires the <see cref="CoreConfig"/> be set at a minimum.
+        /// </summary>
+        /// <param name="core"></param>
+        public CompleteConfig( CoreConfig core ) { Core = core; }
 
-        public override string ToString( ) {
-            JsonSerializerOptions options = new( ) {
-                IncludeFields = true,
-                WriteIndented = true,
-            };
-            return JsonSerializer.Serialize( this, options );
-        }
+        /// <summary>
+        /// Returns the <see cref="CompleteConfig"/> as a json string.
+        /// </summary>
+        public override string ToString( ) =>
+            JsonSerializer.Serialize(
+                this,
+                new JsonSerializerOptions( ) {
+                    IncludeFields = true,
+                    WriteIndented = true,
+                }
+            );
     }
 }

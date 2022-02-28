@@ -26,7 +26,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                 true when args.Length > 0 && File.Exists( args[0] ) => args[0],
                 true when File.Exists( defaultConfig ) => defaultConfig,
                 true when envConfig != null && File.Exists( envConfig ) => envConfig,
-                _ => throw new InvalidOperationException(
+                _ => throw new ApplicationException(
                     "Missing required configuration file. " +
                     "The configuration file path can be specified in one of three ways.\n" +
                     "  1. Pass the path to the configuration file as the first cmdline" +
@@ -43,7 +43,7 @@ namespace Cloud_ShareSync.Core.Configuration {
             if (config == null) {
                 Console.WriteLine(
                     "Log configuration is null. " +
-                    "This means that Log4Net was excluded from the Cloud_ShareSync EnabledFeatures. " +
+                    "This means that Log4Net was excluded from the Cloud-ShareSync EnabledFeatures. " +
                     "Add Log4Net to the core enabledfeatures to re-enable logging."
                 );
             }
@@ -101,24 +101,9 @@ namespace Cloud_ShareSync.Core.Configuration {
             if (config.Database == null) { throw new InvalidDataException( "Database configuration required." ); }
 
             if (
-                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.AwsS3 ) &&
-                config.Aws == null
-            ) { throw new InvalidDataException( "Aws configuration required." ); }
-
-            if (
-                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.AzureBlobStorage ) &&
-                config.Azure == null
-            ) { throw new InvalidDataException( "Azure configuration required." ); }
-
-            if (
                 config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 ) &&
                 config.BackBlaze == null
             ) { throw new InvalidDataException( "Backblaze configuration required." ); }
-
-            if (
-                config.Core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.GoogleCloudStorage ) &&
-                config.Google == null
-            ) { throw new InvalidDataException( "Google configuration required." ); }
 
             log?.LogInformation( "Configuration Validated." );
             activity?.Stop( );
@@ -155,10 +140,7 @@ namespace Cloud_ShareSync.Core.Configuration {
             returnConfig.Database = BuildDatabaseConfig( returnConfig.Core );
             returnConfig.Log4Net = BuildLog4NetConfig( returnConfig.Core );
             returnConfig.Compression = BuildCompressionConfig( returnConfig.Core );
-            returnConfig.Aws = BuildAwsConfig( returnConfig.Core );
-            returnConfig.Azure = BuildAzConfig( returnConfig.Core );
             returnConfig.BackBlaze = BuildBackBlazeConfig( returnConfig.Core );
-            returnConfig.Google = BuildGcpConfig( returnConfig.Core );
 
             // Validate encryption is supported on this platform if enabled.
             if (
@@ -186,7 +168,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                     result.EncryptBeforeUpload &&
                     core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) == false
                 ) {
-                    throw new InvalidOperationException(
+                    throw new ApplicationException(
                         "Encryption must also be listed as an EnabledFeature in the Core config " +
                         "before setting EncryptBeforeUpload to true."
                     );
@@ -196,7 +178,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                     result.CompressBeforeUpload &&
                     core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression ) == false
                 ) {
-                    throw new InvalidOperationException(
+                    throw new ApplicationException(
                         "Compression must also be listed as an EnabledFeature in the Core config " +
                         "before setting CompressBeforeUpload to true."
                     );
@@ -329,32 +311,6 @@ namespace Cloud_ShareSync.Core.Configuration {
             return result;
         }
 
-        private static S3Config? BuildAwsConfig( CoreConfig core ) {
-            S3Config? result = null;
-
-            if (core.EnabledCloudProviders.HasFlag( CloudProviders.AwsS3 )) {
-                throw new NotImplementedException(
-                    "AwsS3 CloudProvider Functionality Not Implemented Yet. " +
-                    "Remove AwsS3 from the 'EnabledCloudProviders' enumeration in the Core config before restarting."
-                );
-            }
-
-            return result;
-        }
-
-        private static AzConfig? BuildAzConfig( CoreConfig core ) {
-            AzConfig? result = null;
-
-            if (core.EnabledCloudProviders.HasFlag( CloudProviders.AzureBlobStorage )) {
-                throw new NotImplementedException(
-                    "AzureBlobStorage CloudProvider Functionality Not Implemented Yet. " +
-                    "Remove AzureBlobStorage from the 'EnabledCloudProviders' enumeration in the Core config before restarting."
-                );
-            }
-
-            return result;
-        }
-
         private static B2Config? BuildBackBlazeConfig( CoreConfig core ) {
             B2Config? result = null;
 
@@ -363,19 +319,6 @@ namespace Cloud_ShareSync.Core.Configuration {
                 core.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 )
             ) {
                 result = GetBackBlazeB2( ).Get<B2Config>( );
-            }
-
-            return result;
-        }
-
-        private static GcsConfig? BuildGcpConfig( CoreConfig core ) {
-            GcsConfig? result = null;
-
-            if (core.EnabledCloudProviders.HasFlag( CloudProviders.GoogleCloudStorage )) {
-                throw new NotImplementedException(
-                    "GoogleCloudStorage CloudProvider Functionality Not Implemented Yet. " +
-                    "Remove GoogleCloudStorage from the 'EnabledCloudProviders' enumeration in the Core config before restarting."
-                );
             }
 
             return result;

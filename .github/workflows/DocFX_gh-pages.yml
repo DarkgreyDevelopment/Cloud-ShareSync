@@ -1,0 +1,19 @@
+name: DocFX - Documentation Process
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  document:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+      - name: Populate API Metadata
+        uses: nikeee/docfx-action@v1.0.0
+        with:
+          args: metadata ${{ github.workspace }}/docs/docfx.json
+      - name: Build Documentation
+        uses: nikeee/docfx-action@v1.0.0
+        with:
+          args: ${{ github.workspace }}/docs/docfx.json

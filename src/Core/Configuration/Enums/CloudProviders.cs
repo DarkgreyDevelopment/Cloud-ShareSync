@@ -1,9 +1,14 @@
 ﻿namespace Cloud_ShareSync.Core.Configuration.Enums {
+    /// <summary>
+    /// The list of supported cloud providers that can be optionally enabled.
+    /// At least one of these is required and its configuration must be specified
+    /// for the application to run.
+    /// </summary>
     [Flags]
     public enum CloudProviders {
-        AwsS3 = 2,
-        AzureBlobStorage = 4,
-        BackBlazeB2 = 8,
-        GoogleCloudStorage = 16
+        /// <summary>
+        /// Enables Cloud-ShareSync to upload and download to BackBlaze B2 cloud storage.
+        /// </summary>
+        BackBlazeB2 = 2
     }
 }

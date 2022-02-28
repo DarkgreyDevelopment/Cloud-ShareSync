@@ -2,7 +2,7 @@
     /// <summary>
     /// Represents a type used to perform compression/decompression. 
     /// </summary>
-    public interface ICompression {
+    internal interface ICompression {
         /// <summary>
         /// Compresses the <paramref name="inputPath"/> and outputs it to <paramref name="compressedFilePath"/>.
         /// Optionally <paramref name="password"/> protect the compressed file.

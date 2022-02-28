@@ -6,7 +6,7 @@ using Cloud_ShareSync.Core.Cryptography;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
-    public class BackBlazeB2 : ICloudProvider {
+    internal class BackBlazeB2 : ICloudProvider {
 
         private static readonly ActivitySource s_source = new( "BackBlazeB2.PublicInterface" );
         private readonly B2? _b2Api;
@@ -25,7 +25,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 config.ApplicationKeyId,
                 config.ApplicationKey,
                 _maxErrors,
-                (config.UploadThreads <= 0) ? 1 : config.UploadThreads, // Requires a minimum of 1.
+                (config.ProcessThreads <= 0) ? 1 : config.ProcessThreads, // Requires a minimum of 1.
                 config.BucketName,
                 config.BucketId,
                 _logger
@@ -50,7 +50,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (b2Api == null) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Initialize before uploading." );
+                throw new ApplicationException( "Initialize before uploading." );
             }
 
             int count = 1;
@@ -90,7 +90,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (_b2Api == null) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Initialize before downloading." );
+                throw new ApplicationException( "Initialize before downloading." );
             }
             _ = DownloadFile( download, _b2Api ).Result;
 
@@ -102,7 +102,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
 
             if (_fileHash == null) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Initialize before downloading." );
+                throw new ApplicationException( "Initialize before downloading." );
             }
 
             if (string.IsNullOrWhiteSpace( download.FileId ) == false) {
@@ -143,7 +143,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             using Activity? activity = s_source.StartActivity( "ListFileVersions" )?.Start( );
             if (_b2Api == null) {
                 activity?.Stop( );
-                throw new InvalidOperationException( "Initialize before listing file versions." );
+                throw new ApplicationException( "Initialize before listing file versions." );
             }
 
             List<B2FileResponse> result = await _b2Api.ListFileVersions(

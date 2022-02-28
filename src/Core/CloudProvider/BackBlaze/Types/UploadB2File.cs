@@ -2,7 +2,7 @@
 using Cloud_ShareSync.Core.CloudProvider.Interface;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
-    public class UploadB2File : ICloudProviderUpload {
+    internal class UploadB2File : ICloudProviderUpload {
 
         public FileInfo FilePath { get; set; }
         public string OriginalFileName { get; set; }

@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Cloud_ShareSync.Core.Database.Entities;
+﻿using Cloud_ShareSync.Core.Database.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cloud_ShareSync.Core.Database {
 #nullable disable

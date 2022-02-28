@@ -5,13 +5,17 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
     public class CompressionConfig {
         public string DependencyPath { get; set; }
 
-        public override string ToString( ) {
-            JsonSerializerOptions options = new( ) {
-                IncludeFields = true,
-                WriteIndented = true,
-            };
-            return JsonSerializer.Serialize( this, options );
-        }
+        /// <summary>
+        /// Returns the <see cref="CompressionConfig"/> as a json string.
+        /// </summary>
+        public override string ToString( ) =>
+            JsonSerializer.Serialize(
+                this,
+                new JsonSerializerOptions( ) {
+                    IncludeFields = true,
+                    WriteIndented = true,
+                }
+            );
     }
 #nullable enable
 }

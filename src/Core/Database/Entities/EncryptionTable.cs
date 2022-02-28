@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.Database.Entities {
             DecryptionData = decryptionData;
         }
 
-        public EncryptionTable(
+        internal EncryptionTable(
             long id,
             ManagedChaCha20Poly1305DecryptionData decryptionData
         ) {

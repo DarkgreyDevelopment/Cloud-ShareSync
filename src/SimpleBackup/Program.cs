@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace Cloud_ShareSync.SimpleBackup {
 
     public class Program {
-        private static readonly ActivitySource s_source = new( "Cloud_ShareSync.SimpleBackup.Program" );
+        private static readonly ActivitySource s_source = new( "Cloud-ShareSync.SimpleBackup.Program" );
 
         internal static async Task Main( string[] args ) {
             ILogger? log = null;
@@ -24,7 +24,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 ConfigManager.ValidateConfigSet( config, false, true, log );
                 if (config?.Backup == null) {
-                    throw new InvalidOperationException(
+                    throw new ApplicationException(
                         "Cannot continue if SimpleBackup Config is null."
                     );
                 }

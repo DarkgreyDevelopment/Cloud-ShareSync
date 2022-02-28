@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using Cloud_ShareSync.CloudProvider.BackBlaze.Types;
+using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
 using Microsoft.Extensions.Logging;
 

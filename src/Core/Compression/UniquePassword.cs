@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 
 namespace Cloud_ShareSync.Core.Compression {
-    public class UniquePassword {
+    internal class UniquePassword {
 
         #region Fields
 

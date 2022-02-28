@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync", "src\Core\Cloud-ShareSync.csproj", "{D8C99A1A-8E91-4698-8034-D97A8A8CB797}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.BucketSync", "src\BucketSync\Cloud-ShareSync.BucketSync.csproj", "{4EFA97DA-28ED-4D4F-B432-C78C77927453}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleBackup", "src\SimpleBackup\Cloud-ShareSync.SimpleBackup.csproj", "{899DD248-D1F4-47DF-A00A-124B4C733627}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleRestore", "src\SimpleRestore\Cloud-ShareSync.SimpleRestore.csproj", "{06E4A0B1-7C21-4DE1-B670-DA1EF14D6B81}"
@@ -28,10 +26,6 @@ Global
 		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8C99A1A-8E91-4698-8034-D97A8A8CB797}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EFA97DA-28ED-4D4F-B432-C78C77927453}.Release|Any CPU.Build.0 = Release|Any CPU
 		{899DD248-D1F4-47DF-A00A-124B4C733627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{899DD248-D1F4-47DF-A00A-124B4C733627}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{899DD248-D1F4-47DF-A00A-124B4C733627}.Release|Any CPU.ActiveCfg = Release|Any CPU
