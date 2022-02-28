@@ -34,7 +34,7 @@ jobs:
           $IWRParams = @{
             Uri     = 'https://github.com/dotnet/docfx/releases/latest/download/docfx.zip'
             OutFile = '${{ github.workspace }}/docfx.zip'
-            Method  = Get
+            Method  = 'Get'
           }
           Invoke-WebRequest @IWRParams
           Expand-Archive -Path '${{ github.workspace }}/docfx.zip' -DestinationPath '${{ github.workspace }}/docfx'
