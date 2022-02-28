@@ -27,8 +27,8 @@ jobs:
       - name: Get docfx
         run: |
           curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
-          unzip -d .docfx docfx.zip
-          chmod -R 777 .docfx
+          unzip -d .docfx ${{ github.workspace }}/docfx.zip
+          chmod -R 777 ${{ github.workspace }}/docfx
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
@@ -37,15 +37,30 @@ jobs:
         shell: pwsh
         run: |
           Write-Host "Docs:"
-          Get-ChildItem "${{ github.workspace }}/docs/" | Select-Object -Property Name,FullName,Size,UnixMode | Write-Host
+          Get-ChildItem "${{ github.workspace }}/docs/"
+          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
           Write-Host "`ndocfx.json:"
           cat "${{ github.workspace }}/docs/docfx.json"
-
-          Get-ChildItem | Select-Object -Property Name,FullName,Size,UnixMode | Write-Host
-          Get-ChildItem ./docfx | Select-Object -Property Name,FullName,Size,UnixMode | Write-Host
+          Get-ChildItem
+          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
+          Get-ChildItem ./docfx
+          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
           Write-Host "`nGenerating API documentation:"
           & ./docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
           Write-Host "`nCreating docfx site:"
           & ./docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
           Write-Host "`nDocs:"
-          Get-ChildItem "${{ github.workspace }}/docs/" | Select-Object -Property Name,FullName,Size,UnixMode
+          Get-ChildItem "${{ github.workspace }}/docs/"
+          | Select-Object -Property Name,FullName,Size,UnixMode
+          | Format-Table
+          | Out-String
+          | Write-Host
