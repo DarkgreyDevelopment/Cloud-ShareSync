@@ -5,35 +5,11 @@
   "files": [
     {
       "type": "Conceptual",
-      "source_relative_path": "Dependency.md",
-      "output": {
-        ".html": {
-          "relative_path": "Dependency.html",
-          "hash": "fl6QobO02AIWB0019RK+ID8bLAwvGk5sUEmtoZ6fwKU="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "OpenSource.md",
       "output": {
         ".html": {
           "relative_path": "OpenSource.html",
           "hash": "TnryYCeIzIhtKIpj7zGurym0tXSsv3res4VNrH+tZEY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "PwshExamples.md",
-      "output": {
-        ".html": {
-          "relative_path": "PwshExamples.html",
-          "hash": "oTMYkeZLeIn8Kvn0GSulBlZIQOhdZx8pGjmhCiaYpvs="
         }
       },
       "is_incremental": false,
@@ -485,6 +461,66 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/Dependency.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Dependency.html",
+          "hash": "fY0GJbVzayRyeq9Mr/1zh0lySdqNxRYH6hLoCrHi4NI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/LocalDocDev.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/LocalDocDev.html",
+          "hash": "jADxmmXysgzm0KZb+C0vyCGI3FVFBCZO69AfKA8Kv1I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/PwshExamples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/PwshExamples.html",
+          "hash": "SgAUVtEstKC6M2oTuIYJPGT/FLtGbr4uN07KvFsT6AA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/index.html",
+          "hash": "Ol8HgEpYJm3Rt0cyZ21R8Mw/ytE3CZG+w5oePhQlNS4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/HowTo/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/toc.html",
+          "hash": "JM6vIwjyn2qQJl3yP9iHRypBXrELxPq2hmISCdgeVb0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
@@ -501,19 +537,22 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+          "hash": "O6Fy5LbSqgldzRqRbZnN9Rnsex++hroMJYISoJh494M="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "brsu4NsJWvzg2aw66UD8e2rlvtx+yAnSWCsbmMHNiEA="
+          "hash": "uBswuiD4XtMsKtny6+4K7wHwXCoIsQDOT9HxZA2HUKc="
         }
       },
       "is_incremental": false,
@@ -546,7 +585,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 6,
+          "total_file_count": 8,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
