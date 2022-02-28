@@ -28,15 +28,21 @@ jobs:
         run: |
           curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
           unzip -d .docfx docfx.zip
+          chmod -R 777 .docfx
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Build docs
+        shell: pwsh
         run: |
-          which dotnet
-          ls "${{ github.workspace }}/docs/"
+          Write-Host "Docs:"
+          Get-ChildItem "${{ github.workspace }}/docs/"
+          Write-Host "`ndocfx.json:"
           cat "${{ github.workspace }}/docs/docfx.json"
-          .docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
-          .docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
-          ls "${{ github.workspace }}/docs"
+          Write-Host "`nGenerating API documentation:"
+          & ./docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
+          Write-Host "`nCreating docfx site:"
+          & ./docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
+          Write-Host "`nDocs:"
+          Get-ChildItem "${{ github.workspace }}/docs/"
