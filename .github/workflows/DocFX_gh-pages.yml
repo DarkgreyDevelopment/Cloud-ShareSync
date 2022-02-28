@@ -7,8 +7,18 @@ jobs:
   document:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Echo Log Information
+        run: |
+          echo "Trigger   : ${{ github.event_name }}"
+          echo "OS        : ${{ runner.os }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch    : ${{ github.ref }}"
+          echo "Job status: ${{ job.status }}"
+      - name: Check out repository code
         uses: actions/checkout@v2
+      - name: List files in the repository
+        run:  ls ${{ github.workspace }}
+        run:  ls ${{ github.workspace }}/docs
       - name: Populate API Metadata
         uses: nikeee/docfx-action@v1.0.0
         with:
