@@ -31,36 +31,23 @@ jobs:
       - name: Get DocFX & Build docs
         shell: pwsh
         run: |
-          curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o ${{ github.workspace }}/docfx.zip
-          unzip -d ${{ github.workspace }}/docfx ${{ github.workspace }}/docfx.zip
-          chmod -R 777 ${{ github.workspace }}/docfx
-          Write-Host "Docs:"
-          Get-ChildItem "${{ github.workspace }}/docs/"
-          | Select-Object -Property FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
-          Write-Host "`ndocfx.json:"
-          cat "${{ github.workspace }}/docs/docfx.json"
+          $IWRParams = @{
+            Uri     = 'https://github.com/dotnet/docfx/releases/latest/download/docfx.zip'
+            OutFile = '${{ github.workspace }}/docfx.zip'
+            Method  = Get
+          }
+          Invoke-WebRequest @IWRParams
+          Expand-Archive -Path '${{ github.workspace }}/docfx.zip' -DestinationPath '${{ github.workspace }}/docfx'
+          chmod -R 777 '${{ github.workspace }}/docfx'
           Write-Host "`nGenerating API documentation:"
-          & ./docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
+          & ./docfx/docfx.exe metadata '${{ github.workspace }}/docs/docfx.json'
           Write-Host "`nCreating docfx site:"
-          & ./docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
-          Write-Host "`nDocs:"
-          Get-ChildItem "${{ github.workspace }}/docs/"
-          | Select-Object -Property FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
-          Write-Host "`nDocs Site:"
-          Get-ChildItem "${{ github.workspace }}/docs/_site"
-          | Select-Object -Property FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
-          Write-Host "`nDocs Site:"
-          Get-ChildItem "${{ github.workspace }}/docs/api"
-          | Select-Object -Property FullName,Size,UnixMode
-          | Format-Table
-          | Out-String
-          | Write-Host
+          & ./docfx/docfx.exe '${{ github.workspace }}/docs/docfx.json'
+          copy-item -Path '${{ github.workspace }}/docs/CNAME' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+          copy-item -Path '${{ github.workspace }}/docs/_config.yml' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+      - name: Deploy Github Pages!
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          GITHUB_TOKEN: $
+          BRANCH: Docs
+          FOLDER: ${{ github.workspace }}/docs/_site
