@@ -25,8 +25,8 @@ jobs:
 
       - name: Build docs
         run: |
-        ls ${{ github.workspace }}/docs/
-        cat ${{ github.workspace }}/docs/docfx.json
-        mono .docfx/docfx.exe metadata ${{ github.workspace }}/docs/docfx.json
-        mono .docfx/docfx.exe ${{ github.workspace }}/docs/docfx.json
-        ls ${{ github.workspace }}/docs/
+          ls "${{ github.workspace }}/docs/"
+          cat "${{ github.workspace }}/docs/docfx.json"
+          mono .docfx/docfx.exe metadata "${{ github.workspace }}/docs/docfx.json"
+          mono .docfx/docfx.exe "${{ github.workspace }}/docs/docfx.json"
+          ls "${{ github.workspace }}/docs"
