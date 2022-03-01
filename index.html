@@ -67,25 +67,46 @@
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main" alt="main"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" alt="main"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main" alt="main"></a></p>
+<br>
+<h1 id="-cloud-sharesync-is-currently-in-a-pre-release-state-">💥❗ Cloud-ShareSync is currently in a pre-release state. ❗💥</h1>
+<p>Documentation may change at any time and without any notice.</p>
+<p style='text-align: right;'>
+<img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.svg">
+</p>
 <h2 id="description">Description:</h2>
+<p>Cloud-ShareSync is an open source backup application that allows you to backup a local directory to a cloud storage bucket.</p>
+<p>The long term goal of this project is to build a backup application, akin to <a href="https://onedrive.com">OneDrive</a>, that extends the Files On Demand/Fuse functionality to new public cloud storage providers. Supporting platforms such as linux and MacOS is also a priority.</p>
+<p>Currently Cloud-ShareSync (v1.x) has a much more limited scope. The project consists of two separate applications; SimpleBackup, and SimpleRestore.</p>
+<p>SimpleBackup and SimpleRestore are both console applications that runs on Windows, Linux<a href="a" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="a" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
+<br>
+<h3 id="simplebackup">SimpleBackup:</h3>
+<p>SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured <a href="https://www.backblaze.com/b2/cloud-storage.html">BackBlaze B2</a> cloud storage bucket. File compression and encryption is also supported prior to upload to upload. A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html">here</a>.</p>
+<br>
+<h3 id="simplerestore">SimpleRestore:</h3>
+<p>SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download. A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html">here</a>.</p>
 <br>
 <h2 id="documentation">Documentation:</h2>
-<p>Project documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.<br>
-<a href="https://docs.cloud-sharesync.com/api/index.html">Api Documentation</a>, <a href="https://docs.cloud-sharesync.com/articles/HowTo/index.html">How-To Articles</a></p>
+<p>Documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
 <br>
 <h2 id="getting-started">Getting Started:</h2>
+<p>Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally a container images are provided to make trying Cloud-ShareSync as simple as possible.</p>
+<p>Please refer to the <a href="https://docs.cloud-sharesync.com/articles/HowTo/index.html">How-To Articles</a> before opening any <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/issues">issues</a>.</p>
 <h3 id="installation">Installation:</h3>
-<br>
-<h3 id="docker">Docker:</h3>
-<br>
-<h3 id="configuration">Configuration:</h3>
-<br>
-<h3 id="tests">Tests:</h3>
+<ul>
+<li>Windows Install Guide.</li>
+<li>Linux Install Guide.</li>
+<li>MacOS Install Guide.</li>
+<li>Docker container setup.</li>
+</ul>
 <br>
 <h2 id="roadmap">Roadmap:</h2>
-<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the initial development roadmap can be found.</p>
+<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the initial development roadmap can be found.<br>
+Files On Demand/Fuse functionality will be added after the projects primary cloud storage providers are supported. Next on the list for support is Azure Blob Storage. After that the roadmap contains both AWS S3 as well as Google Cloud Storage.</p>
 <br>
-<h2 id="contributing">Contributing:</h2>
+<br>
+<h3 id="disclaimers">Disclaimers*</h3>
+<p>Cloud-ShareSync is not affiliated with Microsoft, BackBlaze, Google, or Amazon.<br>
+All code is provided free of charge, as is, and with no warranty under an <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE">MIT license</a>.</p>
 </article>
           </div>
           

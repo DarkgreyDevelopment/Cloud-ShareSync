@@ -521,6 +521,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/SimpleBackupFeatures.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/SimpleBackupFeatures.html",
+          "hash": "0aA8FfWWbeyctrMysZht1Oh+tQGPV+ZJXWzpb5XGaqw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/SimpleRestoreFeatures.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/SimpleRestoreFeatures.html",
+          "hash": "Jnw06Gq4LcnEfqERPhLNQE2HcIC6JJy8dXizkrUNt+U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
@@ -544,12 +568,26 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/CloudShareSyncLogo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/CloudShareSyncLogo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "z6lX9BqQDIVEaTUvwJ9EceDb/X+pWBAd2EE/fppK5xQ="
+          "hash": "xxlkj3fRjgD6qo1F/JNef/OENoYS77ZVX8loD32bGHI="
         }
       },
       "is_incremental": false,
@@ -582,13 +620,20 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 8,
+          "total_file_count": 10,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 35,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
