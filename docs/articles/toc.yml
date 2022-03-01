@@ -1,8 +1,10 @@
 - name: About The Developer
   href: intro.md
-- name: Dependency
-  href: Dependency.md
-- name: How-To/Local Documentation Development
-  href: HowTo/LocalDocDev.md
-- name: How-To/Powershell Examples
-  href: HowTo/PwshExamples.md
+- name: How-To Articles
+  href: HowTo/index.md
+- name: SimpleBackup Application Features
+  href: SimpleBackupFeatures.md
+- name: SimpleRestore Application Features
+  href: SimpleRestoreFeatures.md
+- name: 7Zip Dependency
+  href: 7ZipDependency.md

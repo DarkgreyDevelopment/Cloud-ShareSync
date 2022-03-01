@@ -1,8 +1,4 @@
-- name: About The Developer
-  href: ../intro.md
-- name: Dependency
-  href: ../Dependency.md
-- name: How-To/Local Documentation Development
+- name: Local Documentation Development
   href: LocalDocDev.md
-- name: How-To/Powershell Examples
+- name: Powershell Examples
   href: PwshExamples.md

@@ -1,3 +1,8 @@
+# 💥❗ Cloud-ShareSync is in a pre-release state. ❗💥
+Documentation may change at any time and without any notice.
+
+<br><br>
+
 # Cloud/ShareSync
 [![GitHub](https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&label=latest%20release&style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/)
@@ -8,11 +13,8 @@
 
 <br>
 
-# 💥❗ Cloud-ShareSync is currently in a pre-release state. ❗💥
-Documentation may change at any time and without any notice.
-
-<p style='text-align: right;'>
-<img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.svg">
+<p style='text-align: center;'>
+<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.svg" alt="Cloud-ShareSync Logo" style="width:250px;height:250px"></a>
 </p>
 
 ## Description:
@@ -27,21 +29,19 @@ SimpleBackup and SimpleRestore are both console applications that runs on Window
 <br>
 
 ### SimpleBackup:
-SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured [BackBlaze B2](https://www.backblaze.com/b2/cloud-storage.html) cloud storage bucket. File compression and encryption is also supported prior to upload to upload. A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html).  
-
-<br>
+SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured [BackBlaze B2](https://www.backblaze.com/b2/cloud-storage.html) cloud storage bucket. File compression and encryption is also supported prior to upload to upload.  
+A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html).  
 
 ### SimpleRestore:
-SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download. A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html).  
+SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.  
+A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html).  
 
 <br>
 
 ## Documentation:
-Documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
+Application documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
 
-<br>
-
-## Getting Started:
+### Getting Started:
 Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally a container images are provided to make trying Cloud-ShareSync as simple as possible.  
 
 Please refer to the [How-To Articles](https://docs.cloud-sharesync.com/articles/HowTo/index.html) before opening any [issues](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/issues).  
@@ -59,7 +59,6 @@ Please refer to the [How-To Articles](https://docs.cloud-sharesync.com/articles/
 The project [planning & development board](https://github.com/orgs/DarkgreyDevelopment/projects/3) is where the initial development roadmap can be found.  
 Files On Demand/Fuse functionality will be added after the projects primary cloud storage providers are supported. Next on the list for support is Azure Blob Storage. After that the roadmap contains both AWS S3 as well as Google Cloud Storage.
 
-<br>
 <br>
 
 ### Disclaimers*
