@@ -22,14 +22,7 @@ jobs:
           echo "Job status: ${{ job.status }}"
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: List files in the repository
-        shell: pwsh
-        run:  Get-ChildItem -Path ${{ github.workspace }} -Recurse | Select-Object FullName | Write-Host
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Get DocFX & Build docs
+      - name: Get DocFX
         shell: pwsh
         run: |
           $IWRParams = @{
@@ -40,7 +33,13 @@ jobs:
           Invoke-WebRequest @IWRParams
           Expand-Archive -Path '${{ github.workspace }}/docfx.zip' -DestinationPath '${{ github.workspace }}/docfx'
           chmod -R 777 '${{ github.workspace }}/docfx'
+      - name: Custom README processing.
+        shell: pwsh
+        run: |
           copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/index.md' -Verbose -Force
+      - name: Generate Documentation and build site.
+        shell: pwsh
+        run: |
           Write-Host "`nGenerating API documentation:"
           & ./docfx/docfx.exe metadata '${{ github.workspace }}/docs/docfx.json'
           Write-Host "`nCreating docfx site:"
