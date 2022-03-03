@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
-    internal class ManagedChaCha20Poly1305DecryptionKeyNote {
+    public class ManagedChaCha20Poly1305DecryptionKeyNote {
 
         public byte[] Nonce { get; private set; }
         public byte[] Tag { get; private set; }
