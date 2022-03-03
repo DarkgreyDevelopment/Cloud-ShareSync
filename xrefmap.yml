@@ -1046,6 +1046,251 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.RestoreConfig.WorkingDirectory
   nameWithType: RestoreConfig.WorkingDirectory
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption
+  name: Cloud_ShareSync.Core.Cryptography.FileEncryption
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.html
+  commentId: N:Cloud_ShareSync.Core.Cryptography.FileEncryption
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption
+  nameWithType: Cloud_ShareSync.Core.Cryptography.FileEncryption
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305
+  name: ManagedChaCha20Poly1305
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html
+  commentId: T:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305
+  nameWithType: ManagedChaCha20Poly1305
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor(System.Nullable{ILogger})
+  name: ManagedChaCha20Poly1305(Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305__ctor_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor(System.Nullable{ILogger})
+  name.vb: ManagedChaCha20Poly1305(Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.ManagedChaCha20Poly1305(System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.ManagedChaCha20Poly1305(System.Nullable(Of ILogger))
+  nameWithType: ManagedChaCha20Poly1305.ManagedChaCha20Poly1305(Nullable<ILogger>)
+  nameWithType.vb: ManagedChaCha20Poly1305.ManagedChaCha20Poly1305(Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor*
+  name: ManagedChaCha20Poly1305
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305__ctor_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.ManagedChaCha20Poly1305
+  nameWithType: ManagedChaCha20Poly1305.ManagedChaCha20Poly1305
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt(Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData,FileInfo,FileInfo)
+  name: Decrypt(ManagedChaCha20Poly1305DecryptionData, FileInfo, FileInfo)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_Decrypt_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_FileInfo_FileInfo_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt(Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData,FileInfo,FileInfo)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt(Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData, FileInfo, FileInfo)
+  nameWithType: ManagedChaCha20Poly1305.Decrypt(ManagedChaCha20Poly1305DecryptionData, FileInfo, FileInfo)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt*
+  name: Decrypt
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_Decrypt_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Decrypt
+  nameWithType: ManagedChaCha20Poly1305.Decrypt
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile(FileInfo,FileInfo,FileInfo)
+  name: DecryptFromKeyFile(FileInfo, FileInfo, FileInfo)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_DecryptFromKeyFile_FileInfo_FileInfo_FileInfo_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile(FileInfo,FileInfo,FileInfo)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile(FileInfo, FileInfo, FileInfo)
+  nameWithType: ManagedChaCha20Poly1305.DecryptFromKeyFile(FileInfo, FileInfo, FileInfo)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile*
+  name: DecryptFromKeyFile
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_DecryptFromKeyFile_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile
+  nameWithType: ManagedChaCha20Poly1305.DecryptFromKeyFile
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt(System.Byte[],FileInfo,FileInfo,System.Nullable{FileInfo})
+  name: Encrypt(Byte[], FileInfo, FileInfo, Nullable<FileInfo>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_Encrypt_System_Byte___FileInfo_FileInfo_System_Nullable_FileInfo__
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt(System.Byte[],FileInfo,FileInfo,System.Nullable{FileInfo})
+  name.vb: Encrypt(Byte(), FileInfo, FileInfo, Nullable(Of FileInfo))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt(System.Byte[], FileInfo, FileInfo, System.Nullable<FileInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt(System.Byte(), FileInfo, FileInfo, System.Nullable(Of FileInfo))
+  nameWithType: ManagedChaCha20Poly1305.Encrypt(Byte[], FileInfo, FileInfo, Nullable<FileInfo>)
+  nameWithType.vb: ManagedChaCha20Poly1305.Encrypt(Byte(), FileInfo, FileInfo, Nullable(Of FileInfo))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt*
+  name: Encrypt
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_Encrypt_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.Encrypt
+  nameWithType: ManagedChaCha20Poly1305.Encrypt
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported
+  name: PlatformSupported
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_PlatformSupported
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported
+  nameWithType: ManagedChaCha20Poly1305.PlatformSupported
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported*
+  name: PlatformSupported
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_PlatformSupported_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported
+  nameWithType: ManagedChaCha20Poly1305.PlatformSupported
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
+  name: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.html
+  commentId: N:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
+  nameWithType: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData
+  name: ManagedChaCha20Poly1305DecryptionData
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html
+  commentId: T:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData
+  nameWithType: ManagedChaCha20Poly1305DecryptionData
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor(System.Byte[],List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote})
+  name: ManagedChaCha20Poly1305DecryptionData(Byte[], List<ManagedChaCha20Poly1305DecryptionKeyNote>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData__ctor_System_Byte___List_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor(System.Byte[],List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote})
+  name.vb: ManagedChaCha20Poly1305DecryptionData(Byte(), List(Of ManagedChaCha20Poly1305DecryptionKeyNote))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(System.Byte[], List<Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(System.Byte(), List(Of Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote))
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(Byte[], List<ManagedChaCha20Poly1305DecryptionKeyNote>)
+  nameWithType.vb: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(Byte(), List(Of ManagedChaCha20Poly1305DecryptionKeyNote))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor(System.String,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote})
+  name: ManagedChaCha20Poly1305DecryptionData(String, List<ManagedChaCha20Poly1305DecryptionKeyNote>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData__ctor_System_String_List_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor(System.String,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote})
+  name.vb: ManagedChaCha20Poly1305DecryptionData(String, List(Of ManagedChaCha20Poly1305DecryptionKeyNote))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(System.String, List<Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(System.String, List(Of Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote))
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(String, List<ManagedChaCha20Poly1305DecryptionKeyNote>)
+  nameWithType.vb: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData(String, List(Of ManagedChaCha20Poly1305DecryptionKeyNote))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor*
+  name: ManagedChaCha20Poly1305DecryptionData
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData__ctor_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Key
+  name: Key
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_Key
+  commentId: F:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Key
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Key
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.Key
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes
+  name: KeyBytes
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_KeyBytes
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.KeyBytes
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes*
+  name: KeyBytes
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_KeyBytes_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyBytes
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.KeyBytes
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+  name: KeyNoteList
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_KeyNoteList
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList*
+  name: KeyNoteList
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_KeyNoteList_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.KeyNoteList
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString
+  name: ToString()
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_ToString
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString()
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.ToString()
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString*
+  name: ToString
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_ToString_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ToString
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.ToString
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote
+  name: ManagedChaCha20Poly1305DecryptionKeyNote
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html
+  commentId: T:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor(System.Byte[],System.Byte[],System.Int32)
+  name: ManagedChaCha20Poly1305DecryptionKeyNote(Byte[], Byte[], Int32)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__ctor_System_Byte___System_Byte___System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor(System.Byte[],System.Byte[],System.Int32)
+  name.vb: ManagedChaCha20Poly1305DecryptionKeyNote(Byte(), Byte(), Int32)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(System.Byte[], System.Byte[], System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(System.Byte(), System.Byte(), System.Int32)
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(Byte[], Byte[], Int32)
+  nameWithType.vb: ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(Byte(), Byte(), Int32)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor(System.String,System.String,System.Int32)
+  name: ManagedChaCha20Poly1305DecryptionKeyNote(String, String, Int32)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__ctor_System_String_System_String_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor(System.String,System.String,System.Int32)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(System.String, System.String, System.Int32)
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote(String, String, Int32)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor*
+  name: ManagedChaCha20Poly1305DecryptionKeyNote
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__ctor_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.ManagedChaCha20Poly1305DecryptionKeyNote
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+  name: Nonce
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Nonce
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce*
+  name: Nonce
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Nonce_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Nonce
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order
+  name: Order
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Order
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Order
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order*
+  name: Order
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Order_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Order
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Order
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+  name: Tag
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Tag
+  commentId: P:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag*
+  name: Tag
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_Tag_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.Tag
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString
+  name: ToString()
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_ToString
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString()
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.ToString()
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString*
+  name: ToString
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote_ToString_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.ToString
+  nameWithType: ManagedChaCha20Poly1305DecryptionKeyNote.ToString
 - uid: Cloud_ShareSync.Core.Database.Entities
   name: Cloud_ShareSync.Core.Database.Entities
   href: api/Cloud_ShareSync.Core.Database.Entities.html

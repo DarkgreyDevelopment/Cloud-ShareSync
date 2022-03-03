@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html",
-          "hash": "x7L0jI9Pm8mgqV+6oxEj7X6rgRZZRx3IN9E4a77RnTs="
+          "hash": "tUw2yARnasHsVfScnMuAkWGFNFvDU0ZbaGFJmVHX9Yk="
         }
       },
       "is_incremental": false,
@@ -250,6 +250,66 @@
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.html",
           "hash": "OQsNl0f3YAdE5CeP1vdKs6XsqjK5YLYQDWiNeBWobrE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html",
+          "hash": "Qqj/fqBPc/4twCRFDbvlfd8ghLgkwCYFgs8H15cGKTw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html",
+          "hash": "WRekEQhjNJlNNz4RkMZvT/3Quqh1DP/pDFEmIj2nlNw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html",
+          "hash": "zGGhiYWywzmnsoN7i7ln7JZeu11s9tAnZ3xs1vZ97/E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.html",
+          "hash": "q3MPZyLygKp95jw4QFKQOKAtVXAzdKOMHq1HNY7uEs4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.html",
+          "hash": "sr68+LQh2ikQ0tWz7efjeiGOaKTihpUWwOQWVT7Gp/k="
         }
       },
       "is_incremental": false,
@@ -465,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "dQPpBZfov7TyDsPwmFnKwM1ostotfB1vWy/TlOzCHgs="
+          "hash": "F8nexeWMMvcNmhG8ESSmLba6EwK/BPSSWsTsCl/SSPI="
         }
       },
       "is_incremental": false,
@@ -485,6 +545,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/DockerSetup.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/DockerSetup.html",
+          "hash": "fkwiry7o2l0VFbh18oiFZX7RMneJk2xA5JAgW4wapKY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/LinuxSetup.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/LinuxSetup.html",
+          "hash": "ISj3p2akNreBTxl/sOC4JWGd0imtMhiWyKv+ukJWflg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/HowTo/LocalDocDev.md",
       "output": {
         ".html": {
@@ -497,11 +581,35 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/MacOsSetup.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/MacOsSetup.html",
+          "hash": "36uLp6nYyb2YpWIsl2KlrrbFB68DtKCr6UOzAHQ/TuU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/HowTo/PwshExamples.md",
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/PwshExamples.html",
           "hash": "idSXmAsHZB8jYVCRMmwXzcjXpjVHZiUAGERZInSeTVs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/HowTo/WindowsSetup.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/HowTo/WindowsSetup.html",
+          "hash": "h6LyIwUFE18JX4x1ZDVEgBSiKbZadZmNNLRVkC/XGBc="
         }
       },
       "is_incremental": false,
@@ -599,7 +707,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "VTnp/fnhXBotdFmx2Cl+BAXMk/VCUGMmdsUHIk2q1/U="
+          "hash": "L2ysH/0p9y8j+X6mYFiDLHD6EevCE3BjYrKBSQwpZA0="
         }
       },
       "is_incremental": false,
@@ -632,13 +740,13 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 11,
+          "total_file_count": 15,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 35,
+          "total_file_count": 40,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
