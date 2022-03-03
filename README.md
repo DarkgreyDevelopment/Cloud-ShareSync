@@ -42,23 +42,80 @@ A complete feature list can be found [here](https://docs.cloud-sharesync.com/art
 Application documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
 
 ### Getting Started:
-Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally a container images are provided to make trying Cloud-ShareSync as simple as possible.  
+Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally container images are also available.  
 
 Please refer to the [How-To Articles](https://docs.cloud-sharesync.com/articles/HowTo/index.html) before opening any [issues](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/issues).  
 
-
-### Installation:
-- Windows Install Guide.
-- Linux Install Guide.
-- MacOS Install Guide.
+### Initial Setup:
+- Windows Setup.
+- Linux Setup.
+- MacOS Setup.
 - Docker container setup.
 
 <br>
 
 ## Roadmap:
-The project [planning & development board](https://github.com/orgs/DarkgreyDevelopment/projects/3) is where the initial development roadmap can be found.  
-Files On Demand/Fuse functionality will be added after the projects primary cloud storage providers are supported. Next on the list for support is Azure Blob Storage. After that the roadmap contains both AWS S3 as well as Google Cloud Storage.
+The project [planning & development board](https://github.com/orgs/DarkgreyDevelopment/projects/3) is where the specifics of the roadmap can be found.  
 
+Cloud-ShareSync is currently in a pre-release state and will follow [semantic versioning](https://semver.org) upon release.  
+Pre-Release/Phase 01:  
+  - Status  : In Progress.  
+  - Goal    : Establish initial functional backup and restore functionality.  
+  - Features:  
+    - A single config file controls all application settings.  
+    - Console logging and rolling log files are enabled by default. OpenTelemetry trace logging is also available when enabled.  
+    - Application data can be stored in either a local Sqlite database or a remote postgres database.  
+    - Backup application is a simple console app.
+      - Files are uploaded to a BackBlaze B2 bucket.  
+        - BackBlaze B2 bucket specified by user in config.  
+      - When the backup application is run repeatedly; Files that were uploaded to the bucket on prior runs will be skipped if they are unchanged.  
+      - Optionally compress files before upload.  
+        - You may also elect to have a unique password generated during the compression process to password protect compressed files.  
+      - Optionally encrypt files before upload.  
+        - File encryption depends on ChaCha20Poly1305 platform support.
+    - Restore application downloads files from BackBlaze B2 that were uploaded by the the backup application. 
+      - When the restore application is run repeatedly; Unchanged files that were downloaded from the bucket on prior runs will not be re-downloaded.  
+      - Decompresses the optionally compressed files after download.  
+      - Decrypts the optionally encrypted files after download.  
+
+Phase 02:  
+  - Status  : Developing Acceptance Criteria.  
+  - Goal    : Build Selective Restore Application  
+  - Features:  
+    - All phase 01 features retained.  
+    - Selective restore must be a GUI application.  
+    - Selective restore will present a table/spreadsheet like view of previously uploaded files and will restore files upon selection.
+
+Phase 03:  
+  - Status  : Developing Acceptance Criteria.  
+  - Goal    : Add additional cloud providers.  
+  - Features:  
+    - Retain features from all previous phases.  
+    - Add ability to upload/download files to/from Azure Blob Storage.  
+    - Add ability to upload/download files to/from Aws S3.  
+    - Add ability to upload/download files to/from Google Cloud Storage.  
+
+Phase 04:  
+  - Status  : Developing Acceptance Criteria.  
+  - Goal    : Combine SimpleBackup, SimpleRestore, and SelectiveRestore into a single app.  
+  - Features:  
+    - Unified application should run as a background service.  
+    - Unified application should have an associated management GUI.  
+      - Management GUI should primarily allow input of app settings.  
+      - GUI should also contain the SelectiveRestore menu.  
+
+Phase 05:  
+  - Status  : Developing Acceptance Criteria.  
+  - Goal    : Add Files On Demand/FUSE functionality.  
+  - Features:  
+    - Feature set TBD.  
+
+
+Phase 06:  
+  - Status  : Developing Acceptance Criteria.  
+  - Goal    : Enable multi device support.  
+  - Features:  
+    - Feature set TBD.  
 <br>
 
 ### Disclaimers*
