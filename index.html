@@ -90,20 +90,120 @@ A complete feature list can be found <a href="https://docs.cloud-sharesync.com/a
 <h2 id="documentation">Documentation:</h2>
 <p>Application documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
 <h3 id="getting-started">Getting Started:</h3>
-<p>Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally a container images are provided to make trying Cloud-ShareSync as simple as possible.</p>
+<p>Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally container images are also available.</p>
 <p>Please refer to the <a href="https://docs.cloud-sharesync.com/articles/HowTo/index.html">How-To Articles</a> before opening any <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/issues">issues</a>.</p>
-<h3 id="installation">Installation:</h3>
+<h3 id="initial-setup">Initial Setup:</h3>
 <ul>
-<li>Windows Install Guide.</li>
-<li>Linux Install Guide.</li>
-<li>MacOS Install Guide.</li>
+<li>Windows Setup.</li>
+<li>Linux Setup.</li>
+<li>MacOS Setup.</li>
 <li>Docker container setup.</li>
 </ul>
 <br>
 <h2 id="roadmap">Roadmap:</h2>
-<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the initial development roadmap can be found.<br>
-Files On Demand/Fuse functionality will be added after the projects primary cloud storage providers are supported. Next on the list for support is Azure Blob Storage. After that the roadmap contains both AWS S3 as well as Google Cloud Storage.</p>
-<br>
+<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the specifics of the roadmap can be found.</p>
+<p>Cloud-ShareSync is currently in a pre-release state and will follow <a href="https://semver.org">semantic versioning</a> upon release.<br>
+Pre-Release/Phase 01:</p>
+<ul>
+<li>Status  : In Progress.</li>
+<li>Goal    : Establish initial functional backup and restore functionality.</li>
+<li>Features:
+<ul>
+<li>A single config file controls all application settings.</li>
+<li>Console logging and rolling log files are enabled by default. OpenTelemetry trace logging is also available when enabled.</li>
+<li>Application data can be stored in either a local Sqlite database or a remote postgres database.</li>
+<li>Backup application is a simple console app.
+<ul>
+<li>Files are uploaded to a BackBlaze B2 bucket.
+<ul>
+<li>BackBlaze B2 bucket specified by user in config.</li>
+</ul>
+</li>
+<li>When the backup application is run repeatedly; Files that were uploaded to the bucket on prior runs will be skipped if they are unchanged.</li>
+<li>Optionally compress files before upload.
+<ul>
+<li>You may also elect to have a unique password generated during the compression process to password protect compressed files.</li>
+</ul>
+</li>
+<li>Optionally encrypt files before upload.
+<ul>
+<li>File encryption depends on ChaCha20Poly1305 platform support.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Restore application downloads files from BackBlaze B2 that were uploaded by the the backup application.
+<ul>
+<li>When the restore application is run repeatedly; Unchanged files that were downloaded from the bucket on prior runs will not be re-downloaded.</li>
+<li>Decompresses the optionally compressed files after download.</li>
+<li>Decrypts the optionally encrypted files after download.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Phase 02:</p>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Build Selective Restore Application</li>
+<li>Features:
+<ul>
+<li>All phase 01 features retained.</li>
+<li>Selective restore must be a GUI application.</li>
+<li>Selective restore will present a table/spreadsheet like view of previously uploaded files and will restore files upon selection.</li>
+</ul>
+</li>
+</ul>
+<p>Phase 03:</p>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Add additional cloud providers.</li>
+<li>Features:
+<ul>
+<li>Retain features from all previous phases.</li>
+<li>Add ability to upload/download files to/from Azure Blob Storage.</li>
+<li>Add ability to upload/download files to/from Aws S3.</li>
+<li>Add ability to upload/download files to/from Google Cloud Storage.</li>
+</ul>
+</li>
+</ul>
+<p>Phase 04:</p>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Combine SimpleBackup, SimpleRestore, and SelectiveRestore into a single app.</li>
+<li>Features:
+<ul>
+<li>Unified application should run as a background service.</li>
+<li>Unified application should have an associated management GUI.
+<ul>
+<li>Management GUI should primarily allow input of app settings.</li>
+<li>GUI should also contain the SelectiveRestore menu.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Phase 05:</p>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Add Files On Demand/FUSE functionality.</li>
+<li>Features:
+<ul>
+<li>Feature set TBD.</li>
+</ul>
+</li>
+</ul>
+<p>Phase 06:</p>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Enable multi device support.</li>
+<li>Features:
+<ul>
+<li>Feature set TBD.<br>
+<br></li>
+</ul>
+</li>
+</ul>
 <h3 id="disclaimers">Disclaimers*</h3>
 <p>Cloud-ShareSync is not affiliated with Microsoft, BackBlaze, Google, or Amazon.<br>
 All code is provided free of charge, as is, and with no warranty under an <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE">MIT license</a>.</p>
