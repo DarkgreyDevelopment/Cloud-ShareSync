@@ -1,15 +1,15 @@
 :root, body.dark-theme {
     --color-foreground: #ccd5dc;
     --color-navbar: #66666d;
-    --color-breadcrumb: #006400;
-    --color-underline: #006400;
-    --color-toc-hover: #006400;
+    --color-breadcrumb: #00D700;
+    --color-underline: #00D700;
+    --color-toc-hover: #00D700;
     --color-background: #2d2d30;
     --color-background-subnav: #333337;
     --color-background-dark: #1e1e1e;
     --color-background-table-alt: #212123;
     --color-background-quote: #69696e;
-    --color-links: darkgreen;
+    --color-links: #00D700;
 }
 
 body.light-theme {
@@ -379,7 +379,7 @@ blockquote {
   height: 20px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
