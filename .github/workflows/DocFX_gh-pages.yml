@@ -1,0 +1,53 @@
+name: DocFX - Documentation Process
+on:
+  push:
+    branches:
+      - main
+jobs:
+  document:
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true
+      DOCFX_SOURCE_BRANCH_NAME: ${{ github.ref }}
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
+    steps:
+      - name: Echo Log Information
+        run: |
+          echo "Trigger   : ${{ github.event_name }}"
+          echo "OS        : ${{ runner.os }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch    : ${{ github.ref }}"
+          echo "Job status: ${{ job.status }}"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Get DocFX
+        shell: pwsh
+        run: |
+          $IWRParams = @{
+            Uri     = 'https://github.com/dotnet/docfx/releases/latest/download/docfx.zip'
+            OutFile = '${{ github.workspace }}/docfx.zip'
+            Method  = 'Get'
+          }
+          Invoke-WebRequest @IWRParams
+          Expand-Archive -Path '${{ github.workspace }}/docfx.zip' -DestinationPath '${{ github.workspace }}/docfx'
+          chmod -R 777 '${{ github.workspace }}/docfx'
+      - name: Custom README processing.
+        shell: pwsh
+        run: |
+          copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/index.md' -Verbose -Force
+      - name: Generate Documentation and build site.
+        shell: pwsh
+        run: |
+          Write-Host "`nGenerating API documentation:"
+          & ./docfx/docfx.exe metadata '${{ github.workspace }}/docs/docfx.json'
+          Write-Host "`nCreating docfx site:"
+          & ./docfx/docfx.exe '${{ github.workspace }}/docs/docfx.json'
+          copy-item -Path '${{ github.workspace }}/docs/CNAME' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+          copy-item -Path '${{ github.workspace }}/docs/_config.yml' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+      - name: Deploy Github Pages!
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          BRANCH: Docs
+          FOLDER: ${{ github.workspace }}/docs/_site

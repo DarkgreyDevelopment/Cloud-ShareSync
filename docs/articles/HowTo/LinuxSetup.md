@@ -1,0 +1,1 @@
+Step 1: Download application from github release page.  
