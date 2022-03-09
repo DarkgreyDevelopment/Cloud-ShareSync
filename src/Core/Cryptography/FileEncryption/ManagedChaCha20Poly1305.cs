@@ -5,12 +5,27 @@ using Cloud_ShareSync.Core.SharedServices;
 using Microsoft.Extensions.Logging;
 
 namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
+    /// <summary>
+    /// Creates a managed instance of the <see cref="System.Security.Cryptography.ChaCha20Poly1305"/> class.
+    /// 
+    /// <see cref="ManagedChaCha20Poly1305"/> handles encrypting and decrypting files.
+    /// </summary>
     public class ManagedChaCha20Poly1305 {
 
+        /// <summary>
+        /// <para>
+        /// Describes ChaCha20Poly1305 platform support status.
+        /// </para>
+        /// See: <seealso cref="System.Security.Cryptography.ChaCha20Poly1305.IsSupported"/>
+        /// </summary>
         public static bool PlatformSupported { get { return ChaCha20Poly1305.IsSupported; } }
 
+        /// <summary>
+        /// The number of bytes to process before changing nonces.
+        /// </summary>
+        public const int MaxValue = 500000000;
+
         private readonly ActivitySource _source = new( "ManagedChaCha20Poly1305" );
-        private const int MaxValue = 500000000;
         private readonly ILogger? _log;
 
         public ManagedChaCha20Poly1305( ILogger? log = null ) { _log = log; }
@@ -18,9 +33,12 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         #region Encryption
 
         /// <summary>
-        /// Uses <see cref="ChaCha20Poly1305"/> initialized with <paramref name="key"/> to 
+        /// <para>
+        /// Uses <see cref="ChaCha20Poly1305"/> initialized with a <paramref name="key"/> to 
         /// encrypt <paramref name="plaintextFile"/> into <paramref name="cypherTxtFile"/>.
-        /// DecryptionData is returned. Optionally DecryptionData can be written to <paramref name="keyFile"/>.
+        /// <see cref="ManagedChaCha20Poly1305DecryptionData"/> is returned.
+        /// </para>
+        /// <see cref="ManagedChaCha20Poly1305DecryptionData"/> can also optionally be written to a <paramref name="keyFile"/>.
         /// </summary>
         /// <param name="key"></param>
         /// <param name="plaintextFile"></param>
@@ -158,7 +176,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         }
 
         /// <summary>
-        /// Gets one random 12 byte array (nonce) per (<see cref="MaxValue"/>) of file to encrypt.
+        /// Gets one random 12 byte array (nonce) per (<see cref="MaxValue"/>) bytes of file to encrypt.
         /// </summary>
         /// <param name="dataLength"></param>
         private List<byte[]> GetNonces( long dataLength ) {

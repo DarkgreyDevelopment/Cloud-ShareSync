@@ -7,7 +7,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
     /// <para>
     /// Required configuration values to connect to a BackBlazeB2 bucket.
     /// </para>
-    /// Related BackBlaze Documentation: <see href="https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys"/>
+    /// <see href="https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys"/>
     /// </summary>
     public class B2Config : ICloudProviderConfig {
         /// <summary>
