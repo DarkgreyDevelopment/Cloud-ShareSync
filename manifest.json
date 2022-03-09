@@ -29,6 +29,486 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.B2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.B2.html",
+          "hash": "Zba4sVYzxwg1jWsB0PmOl8GloKScWWw1wLKhMT4DqxY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2.html",
+          "hash": "AD0zfYaePxKiI4upFGfLa82OPigG+jU+pnLlzGMlplE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ConcurrentStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ConcurrentStats.html",
+          "hash": "YF6ovQT000i0pXQ4noyvSgLji+Pej6cUZoIOfQJWJ/s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ProcessStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ProcessStats.html",
+          "hash": "ojwKyAhgFHBysD4NML0wWA08TMmDPmduo0DOU+tJszE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadManager.html",
+          "hash": "EkyzB5CrjaRNAi0hww3QGkLjfkI3boLhtFTONa1YlqE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadStatistic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadStatistic.html",
+          "hash": "bXdkY1B5NcF4tH2egff2rUqKkHwrTGjrZ/lN2THIaRY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.PartProcessTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.PartProcessTime.html",
+          "hash": "CTxsX9F9tvckBedxKSR+AtFtUQKCgLrUPn7TKOwVnGI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadProcessTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadProcessTime.html",
+          "hash": "8cu1MYHKBk8eb5k9aSpD2KOx1Jw3TE8bSPlHegS4hmE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html",
+          "hash": "r1CcokhXJRZ+JkUhhM+JZDduUr45gzPdKbxNJKIFkYw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.html",
+          "hash": "LA1oGba5UcZWsCQgqePQfkodZZe6iIEummiIxSikmx4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html",
+          "hash": "/Neg1DlDuIeP1uARP8w3Z54UsKS4djAse8MWYlKs+FE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthReturn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthReturn.html",
+          "hash": "mXWw0KcC3ul8WISGgSFhhTZW2YQ7lHXF8ODo+CnYQfg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.TempJsonObj.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.TempJsonObj.html",
+          "hash": "FN+d8xBa8G8tALDe1mfTnJLRrN16+04uMTmbfqBQ/L8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.html",
+          "hash": "LGrwKaoAwWr6JC0wbOAzzADtvqHzsY0F9WRLdJbvZu0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FileResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FileResponse.html",
+          "hash": "McwJXLPtfUTcbmCHrM+VygQPo/k7JwTxxKdXqAsp6Q0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FilesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FilesResponse.html",
+          "hash": "cnx48Ppe8vw+Dp1rqpQp+uxDHYVR/YwO2hPEYXgdFBw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest._tempJsonObj.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest._tempJsonObj.html",
+          "hash": "6ud38psyXPEhpsuILLKZMPw3BOaxBUisXX6BEzR5/b0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest.html",
+          "hash": "AY6xfU5i9AELD9rh7ILaLx8evaP5VB4M1JjUs1OO/00="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.DownloadB2File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.DownloadB2File.html",
+          "hash": "1ZYo9bqq9q8ghn/Gqy1ZKsdVw8DEXWazVoKs8ZfxZgU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FailureInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FailureInfo.html",
+          "hash": "hDDjbT86yF2G4DF7NAqvW27/zAevrxuIBlnJ0KWv5Oo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FilePartInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FilePartInfo.html",
+          "hash": "ZLtQn6Z1uAFsTpdZsKwBEGkFD/FRWanCR/5/gU23x/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.HttpClientData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.HttpClientData.html",
+          "hash": "6Lhm6bqEsvFPX39+uA83kN0h80JAenZd3ohpQgZvPFs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InitializationData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InitializationData.html",
+          "hash": "jYQufXqQomRh9Gx+410tVrTMOulcfS1NqmFhazsNaRI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InvalidB2Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InvalidB2Response.html",
+          "hash": "fM30iXB937MunC/MhJelvH/d7EU3jJXbM4yFNZN9PS4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.LargeFilePartReturn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.LargeFilePartReturn.html",
+          "hash": "HeqjMuGSHgVYZ7ptTsufu758eJ6yfDaRJLMsOIh6Dmo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.TempJsonObj.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.TempJsonObj.html",
+          "hash": "gLLBSzV5R0tTU9Rb8IUstODKBDSOIDy9Hy9YCl19pSw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.html",
+          "hash": "YeWTHjd14m2hSYVC/uQRXHWinOkUzPHgKxVUrlhIFdk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2FilePart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2FilePart.html",
+          "hash": "PMP1DV7LVo6nPsOS2VfdzlayluRgyc3ozVqLYSePnKc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.html",
+          "hash": "pzy842vbRUBMta9fKI/81t/EkXjoP9TR4YPzIDM6vog="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.html",
+          "hash": "3ZZopPuAWlAueA/RMmvfAPWEZ+jm5Ma7DIvsOvIok2s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProvider.html",
+          "hash": "DKaDgFaS1CHwQqaPVuotEbD7eQ0D9MOICeZCo6l+u1s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProviderDownload.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProviderDownload.html",
+          "hash": "IuSP7euvk4C5LkZfGGIbh8gyEuXLZ7T4dG5EIXUmN/M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProviderUpload.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.ICloudProviderUpload.html",
+          "hash": "h9gThZrIvxUPhS4GNQPGzYNNdTa/4wugbMRsfhUEll4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interface.html",
+          "hash": "DkCGnQ28YTI7elTdHsK0ZTGz7pA0dRePOEzfeCmlY2k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.html",
+          "hash": "hnOTGlWCOU/UPPUW92hH1qiONezP9boR34rhEhCZFh4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.FailedToZipException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.FailedToZipException.html",
+          "hash": "EuWpXEWeksGMU5cWmaDP15SEc7xE1wvXO6USDuVfvdk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.ICompression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.ICompression.html",
+          "hash": "p4XjMdzt1Vs56ZEYyeMIko6aLeVWLNunR6PMcZvPWlU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.html",
+          "hash": "r3R0a30hd+A6l1GfNcfoQuMd2IrggFsEdCEBDnFTmHM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.UniquePassword.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.UniquePassword.html",
+          "hash": "mi+u4WoBd7BZJ9Fz74fb2MYPfjMRPLR+f3XmskrGHUI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Compression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Compression.html",
+          "hash": "pn9sWIR7YKqVS2k2ipMmIJlaMFcFJqlpjbmF2mp0rfM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Cloud_ShareSync.Core.Configuration.CompleteConfig.yml",
       "output": {
         ".html": {
@@ -45,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.ConfigManager.html",
-          "hash": "/DeHbifKeFr8H1hducHl23GPOT1GsaKAkkKpeEnO9sk="
+          "hash": "/pzcNwZnJre/ORFF4hkRikt7i43XRnJdcStJ40lFPW4="
         }
       },
       "is_incremental": false,
@@ -69,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html",
-          "hash": "3ehpYTviUbZ6N00vpFtAuJR6ZHzVgiIA/fFbKgFyfpo="
+          "hash": "d5sgWw9enaV1V6e6elJXmZkytj6Bd5WSUcE0eEdm2Xo="
         }
       },
       "is_incremental": false,
@@ -101,11 +581,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.ICloudProviderConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.ICloudProviderConfig.html",
+          "hash": "Mj3HrC2BVsDND4xu2zjM7ZcMLy7NHV10e6l4EHrGCEY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.html",
+          "hash": "UqfN//sYIFFDgTK6rVt+wgROmnNCQssfPJo7TyhCrCQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.B2Config.yml",
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.B2Config.html",
-          "hash": "l4P6znfWKtyDmddFYa/ipkj8seVauwZPw0Yhq8gIX2U="
+          "hash": "VOwC4rF1Manpu3Pu6nKZffhzbh+a8EG/rbQdgqQ729A="
         }
       },
       "is_incremental": false,
@@ -153,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.html",
-          "hash": "QzoYjGL5AnPVLOBj9NInd89swLOI/ZJnWZXgZHlKrIY="
+          "hash": "X82RTzOn1ZVsAwqm9xiQpLo46dCDiIw85qIgMmBpkTc="
         }
       },
       "is_incremental": false,
@@ -165,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html",
-          "hash": "MIHmqtFi8pJDjEmkwZQWuYFn+nZ9vO+1lq6PZAAWwGU="
+          "hash": "HJ3/Wo5yts49uQgsg3r2SPiJeBIKuQ7Xof4T9Su0tN4="
         }
       },
       "is_incremental": false,
@@ -189,7 +693,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.html",
-          "hash": "Vm0LEZk5and8hbvE3kAhbt0ooRw+3qatp7VJ/60sVxQ="
+          "hash": "54w4IwOki1ncFru9oeSnYuPZvW2EIS3PMG6z0+l6tk4="
         }
       },
       "is_incremental": false,
@@ -201,7 +705,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.html",
-          "hash": "ew93xxT8OV0JqZP7lgOsQ5lzaTL6GKf8Vcqrx0VOwDM="
+          "hash": "3HFz+aY3xi3AIrGz3Cx6gkrUQzFBLV6J4R2/ImAsHso="
         }
       },
       "is_incremental": false,
@@ -237,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.html",
-          "hash": "MVuwrR8Rli+pxWX/XSxoHS8TD3nQDxcfNNESETLkoB0="
+          "hash": "1h4gqgHyjDxq7XDYAuCJHlEoJmdcd4acWmnmCsBwwhg="
         }
       },
       "is_incremental": false,
@@ -261,7 +765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html",
-          "hash": "jL3nPPrMvrsxDV/dpSp8NerXPF7ahUccDwZ0dev/mH4="
+          "hash": "vTgF0o0x4Uh5K9RZA+ckLNiCRI0XQTrMCcnkoXb4Ans="
         }
       },
       "is_incremental": false,
@@ -273,7 +777,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html",
-          "hash": "eu4PuyEy2HJR4BrH7gKVWxPYoRw1d6dS4B4EW9wwkFA="
+          "hash": "dyzuGlEARWsF/m9AzgMUC2JDPNwbQfIZd0d/olpT8R8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.DecryptionKeyNoteBase64Stringified.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.DecryptionKeyNoteBase64Stringified.html",
+          "hash": "hzu8tijihczn1d7X5Xxdf/m0d4RIsyZMVa1pp5umolI="
         }
       },
       "is_incremental": false,
@@ -297,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.html",
-          "hash": "z5gZa8Zc0CLD93XzcNTNOX4NHvCvivg4gXGuJDu6IqI="
+          "hash": "Xo4kmwP6fjAKzoUE5ebE3o2C64ed1RM5LXrE7Ag3C3M="
         }
       },
       "is_incremental": false,
@@ -309,7 +825,55 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.html",
-          "hash": "vQZDSVbzTw8D5xRPNK/w/jaukSaHV3rM8Qr/yEdVQMI="
+          "hash": "jkD68cC+GyFFWyoUn8ew9/OsVsg+RL+Ph8/ucpik9Ec="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.Hashing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.Hashing.html",
+          "hash": "b0dZJ3AF9B72gwSibapbhaQFzLt6d2KKmFRDCEdo7kk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Cryptography.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Cryptography.html",
+          "hash": "FZC33elGoUFAAlRm9ZdHUR13ujPH3b6yHtRlcWXN6UQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AwsS3Table.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AwsS3Table.html",
+          "hash": "p2y9A4ly4gZg3OIg2aVQMRBztNTbESmc8QI6s++71no="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AzureBlobStorageTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AzureBlobStorageTable.html",
+          "hash": "1Ebvy6Cvv+woldAiv5v6JS6OQbPuM51mNuyUap0R7Vk="
         }
       },
       "is_incremental": false,
@@ -345,7 +909,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.EncryptionTable.html",
-          "hash": "A5fC0hj6gtt5R73xIJkYDDzsft6nEpGjjR9pgQYrc/U="
+          "hash": "f4QDXKpf4AJW16OAqRnBnnAoX9FhYA8Im3F6v1DaAMM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.Entities.GoogleCloudStorageTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.GoogleCloudStorageTable.html",
+          "hash": "LVSerOnOWJkI1rLdPLoOhJ3HwvTqY8fB+eacO35KHEw="
         }
       },
       "is_incremental": false,
@@ -369,7 +945,127 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.html",
-          "hash": "jwHED1oe3IyQj2fruLARp+NfEpZ3qYpt6zKYQZHaJg4="
+          "hash": "mh6ibO1L6XkVn8ZaO7V3lO86oETal6P+67cBCCTlfPg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.PostgresContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.PostgresContext.html",
+          "hash": "9s2yvliJ03dKuughYNwtKMb9J5vMDgzRkadFNvBPS1U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.SqliteContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.SqliteContext.html",
+          "hash": "rOwQKVg0sDLrGNtNjQ92eg8yOEaaALHq5lpfloYrZOk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Database.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Database.html",
+          "hash": "T52eTgr8gNSf12JJR/BWd5LM/UASvBkEMBxPbidiemM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.Log4NetProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.Log4NetProvider.html",
+          "hash": "4ibZAcrQnWh7mcVe4R6g5g9+Uh8dMRDmXqS0TQLZ+yo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporter.html",
+          "hash": "qNrRdOzkh/Q0VgVw+PRnrai6p5R1FOFViHwiNor1Ww8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporterExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporterExtensions.html",
+          "hash": "inVeMf+JBxGuoUYDTGX5RooyYlR650tOG2I0XO50ifg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogLevelExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogLevelExtension.html",
+          "hash": "siGo3GGocn3IqkbhPk9SZvgRHgY29jrEbD/oPLEx+Nk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html",
+          "hash": "FkwM4Viry/FB8NAlSXTqtIIP5YiJSu980RYyzGYvtPc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.Logging.html",
+          "hash": "qaGzZvTcQFmRxvjhDeBnhPia9kPKIJ05Eg3RtCbzhYg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html",
+          "hash": "9mwoSLArgTSnbHBXGFLSL1kU+/sTpbvBSBizQQgyA0Y="
         }
       },
       "is_incremental": false,
@@ -381,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html",
-          "hash": "GddYt6N7nyXaDD9yCENPt0T4B4MoLNQC5kubXSsxbWU="
+          "hash": "5Shx7R2D3SQIKCPT+zfSgc6EXJ+JrX9TNvEGVIdmquI="
         }
       },
       "is_incremental": false,
@@ -425,6 +1121,66 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.PrepUploadFileProcess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.PrepUploadFileProcess.html",
+          "hash": "psStqvIg5KjsCReuGT/NOMDoaEok+ZYMU4WzIyFESyo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.html",
+          "hash": "DTcxNgnZljZZFkSZ/ovRIT6mn1w5MkK74n+MlwkyA9A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.html",
+          "hash": "607dQ9WOZRmvGMLMl0XII8PjxFoJsdWNspBeSpywkwc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.TmpJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.TmpJson.html",
+          "hash": "LqLEm8zFnCjPT3t2uJ+XH/Y4FG+JsEp1pymMA1TYOgI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.html",
+          "hash": "C7fAdrHnAh6foOB3MK8rgdrbMe+laXBZuqc4dmBDFuA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.UploadFileInput.yml",
       "output": {
         ".html": {
@@ -441,7 +1197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.html",
-          "hash": "ZNEDNASDTNr5LKyAffJ+CLjvhpk0JgNQacSJblffE5s="
+          "hash": "kun02oYvoG44In6yIf5pheJwtXYHWNDURMEU6tI+a5A="
         }
       },
       "is_incremental": false,
@@ -461,11 +1217,71 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html",
+          "hash": "WvAxQdxvqxM0rE/L2ygISTLHVcJ6lqhHkk33cwH4rIk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices.html",
+          "hash": "GdsWZK+xLZ73/iY3Qeztz2JzZ6ra8sIN0ai2mmTUUPQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.MimeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.MimeType.html",
+          "hash": "hlxiCXuUKLzbdNzeePFt71oo+pH3lh9V3Hhvj513Sjk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.SystemMemoryChecker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.SystemMemoryChecker.html",
+          "hash": "NNUc/GYneDbDVZmMm1l/EoSI8nf5GUnx9r8AvAJS/F4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.Core.SharedServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.Core.SharedServices.html",
+          "hash": "A1p1afQsCWQsKNtOWKi+hYhpcAXuw1S5R3nEkT5bD/o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Cloud_ShareSync.SimpleBackup.Program.yml",
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.SimpleBackup.Program.html",
-          "hash": "ChtX2DXsSimJkA6VEVoywZEuywn6II5TI2uJQsDBndE="
+          "hash": "4faWJ7AoXztCymSdDIQwCQJgrepR26+iaG100OyS1Sk="
         }
       },
       "is_incremental": false,
@@ -489,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.SimpleRestore.Program.html",
-          "hash": "gji0mQuDvjvUlb0o8xxzt6cyzBbtp5LtSQkD9oZQpMY="
+          "hash": "be+40mcOoCMDSCXP2s+JNe8ORqn3J0qamskNsEFxAOk="
         }
       },
       "is_incremental": false,
@@ -525,7 +1341,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "F8nexeWMMvcNmhG8ESSmLba6EwK/BPSSWsTsCl/SSPI="
+          "hash": "A+jM4AT78J7AdR4LsrVeDKRM/0OxpBIuCLVWfAm3jLA="
         }
       },
       "is_incremental": false,
@@ -573,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/LocalDocDev.html",
-          "hash": "6rR0oMNEJoKTwjQFH978RHljD9EDE3VXGUNAvrwD2w8="
+          "hash": "B2HFdnmcTin27VJCftIhr4dB7Evw+vUCfD6DiBTH/lI="
         }
       },
       "is_incremental": false,
@@ -633,7 +1449,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/toc.html",
-          "hash": "fuTa5ZxsGjM150m0kpG4e8MQPUi4WmrM2DVWRmwDApU="
+          "hash": "oAM7LJkEkHYBCAz1W8DbLMA5Xm12DD8X4Z8zL5xrJ2c="
         }
       },
       "is_incremental": false,
@@ -746,7 +1562,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 40,
+          "total_file_count": 108,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
