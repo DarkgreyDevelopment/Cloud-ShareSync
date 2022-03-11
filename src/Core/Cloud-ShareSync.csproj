@@ -1,26 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>Cloud-ShareSync</AssemblyName>
+    <RootNamespace>Cloud_ShareSync</RootNamespace>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <InformationalVersionAttribute>1.0.0-PreRelease0+0000</InformationalVersionAttribute>
+    <PackageId>CloudShareSync</PackageId>
+    <Authors>Taylor Marvin</Authors>
+    <Company>Darkgrey Development</Company>
+    <Description>Primary assembly for Cloud-ShareSync.</Description>
+    <Copyright>Darkgrey Development (2022)</Copyright>
+    <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>Cloud-ShareSync</AssemblyName>
-    <RootNamespace>Cloud_ShareSync</RootNamespace>
     <DebugType>embedded</DebugType>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <PackageId>CloudShareSync</PackageId>
-    <Authors>Taylor Marvin</Authors>
-    <Company>Darkgrey Development</Company>
-    <Description></Description>
-    <Copyright>Darkgrey Development (2022)</Copyright>
-    <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <AssemblyVersion>0.0.0.1</AssemblyVersion>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,13 +43,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.1" />
     <PackageReference Include="log4net" Version="2.0.14" />
     <PackageReference Include="OpenTelemetry" Version="1.2.0-rc2" />
   </ItemGroup>

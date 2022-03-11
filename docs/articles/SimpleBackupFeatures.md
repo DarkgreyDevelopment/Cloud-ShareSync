@@ -1,5 +1,6 @@
-Work in progress!
+More to come!  
 
+<br>
 
 ### Configuration:
 SimpleBackup expects that you have already created an account with BackBlaze and that you have the ability to create an [application key](https://www.backblaze.com/b2/docs/application_keys.html) for your account.  

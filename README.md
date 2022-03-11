@@ -7,9 +7,9 @@ Documentation may change at any time and without any notice.
 [![GitHub](https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&label=latest%20release&style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/)
 [![official release](https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/)  
-[![main](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml)
-[![main](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml)
-[![main](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment)
+[![Releases](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml)
+[![CodeQL](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml)
+[![Documentation](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment)
 
 <br>
 
@@ -18,28 +18,28 @@ Documentation may change at any time and without any notice.
 </p>
 
 ## Description:
-Cloud-ShareSync is an open source backup application that allows you to backup a local directory to a cloud storage bucket.  
+Cloud-ShareSync is an open source cloud storage backup application.
 
 The long term goal of this project is to build a backup application, akin to [OneDrive](https://onedrive.com), that extends the Files On Demand/Fuse functionality to new public cloud storage providers. Supporting platforms such as linux and MacOS is also a priority.  
 
-Currently Cloud-ShareSync (v1.x) has a much more limited scope. The project consists of two separate applications; SimpleBackup, and SimpleRestore.  
+Cloud-ShareSync (v1.x) will have a much more limited scope. The project consists of two separate applications; [SimpleBackup](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html) and [SimpleRestore](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html).  
 
-SimpleBackup and SimpleRestore are both console applications that runs on Windows, Linux[*](a "Linux is tested on Ubuntu latest."), and MacOS[*](a "MacOS is tested on macOS 11 Big Sur.").  
+SimpleBackup and SimpleRestore are both console applications that run on Windows, Linux[*](a "Linux is tested on Ubuntu latest."), and MacOS[*](a "MacOS is tested on macOS 11 Big Sur.").  
 
 <br>
 
 ### SimpleBackup:
-[SimpleBackup](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html) is a backup app that can recursively search through a directory tree and upload files to a preconfigured [BackBlaze B2](https://www.backblaze.com/b2/cloud-storage.html) cloud storage bucket. File compression and encryption is also supported prior to upload to upload.  
+SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured [BackBlaze B2](https://www.backblaze.com/b2/cloud-storage.html) cloud storage bucket. SimpleBackup also offers optional file compression and encryption prior to upload.  
 A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html).  
 
 ### SimpleRestore:
-[SimpleRestore](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html) is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.  
+SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.  
 A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html).  
 
 <br>
 
 ## Documentation:
-Application / Project documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
+Project documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
 
 ### Getting Started:
 Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally container images are also available.  

@@ -2,4 +2,5 @@
 
 <a class="navbar-brand" href="{{_rel}}index.html">
   <img id="logo" class="svg" src="{{_rel}}{{{_appLogoPath}}}{{^_appLogoPath}}logo.svg{{/_appLogoPath}}" alt="{{_appName}}" >
+  <img id="logo" class="png" width="45" length="45" src="{{_rel}}{{{_appLogoPath}}}{{^_appLogoPath}}logo.png{{/_appLogoPath}}" alt="{{_appName}}" >
 </a>

@@ -36,6 +36,6 @@ DocFX is licensed under the [MIT license](https://github.com/dotnet/docfx/blob/m
 [Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes a modified version of the [darkfx](https://github.com/steffen-wilke/darkfx) DocFX theme/template.  
 DarkFX is licensed under the [MIT license](https://github.com/steffen-wilke/darkfx/blob/master/LICENSE)  
 
-### DocFX Theme - DiscordFX
-[Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes the code blocks coloring and css from the [DiscordFX](https://github.com/steffen-wilke/darkfx) DocFX theme/template.  
-DiscordFX is licensed under the [MIT license](https://github.com/jbltx/DiscordFX/blob/master/LICENSE)  
+### Cascadia Code Font
+[Cloud-ShareSync](https://docs.Cloud-ShareSync.com) utilizes the Cascadia Code font.  
+Cascadia Code is licensed under the [SIL OPEN FONT LICENSE](https://github.com/microsoft/cascadia-code/blob/main/LICENSE).  
