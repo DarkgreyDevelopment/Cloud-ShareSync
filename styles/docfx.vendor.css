@@ -21,7 +21,6 @@ sub{bottom:-.25em}
 img{border:0;vertical-align:middle}
 svg:not(:root){overflow:hidden}
 hr{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;height:0}
-code,kbd,pre,samp{font-size:1em}
 button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
 button{overflow:visible}
 button,select{text-transform:none}
@@ -55,6 +54,7 @@ h2,h3{page-break-after:avoid}
 .table td,.table th{background-color:#fff!important}
 .table-bordered td,.table-bordered th{border:1px solid #ddd!important}
 }
+@font-face{font-family:"Cascadia Code";src:url("../fonts/CascadiaCodePL.woff2") format("woff2"),url("../fonts/CascadiaCodePL.ttf") format("truetype")}
 @font-face{font-family:"Glyphicons Halflings";src:url("../fonts/glyphicons-halflings-regular.eot");src:url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"),url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"),url("../fonts/glyphicons-halflings-regular.woff") format("woff"),url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"),url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")}
 .glyphicon{position:relative;top:1px;display:inline-block;font-family:"Glyphicons Halflings";font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .glyphicon-asterisk:before{content:"\002a"}
@@ -401,11 +401,11 @@ blockquote .small:before,blockquote footer:before,blockquote small:before{conten
 .blockquote-reverse .small:before,.blockquote-reverse footer:before,.blockquote-reverse small:before,blockquote.pull-right .small:before,blockquote.pull-right footer:before,blockquote.pull-right small:before{content:""}
 .blockquote-reverse .small:after,.blockquote-reverse footer:after,.blockquote-reverse small:after,blockquote.pull-right .small:after,blockquote.pull-right footer:after,blockquote.pull-right small:after{content:"\00A0 \2014"}
 address{margin-bottom:20px;font-style:normal;line-height:1.42857143}
-code,kbd,pre,samp{font-family:Menlo,Monaco,Consolas,"Courier New",monospace}
-code{padding:2px 4px;font-size:90%;color:#c7254e;background-color:#f9f2f4;border-radius:4px}
+code,kbd,pre,samp{font-family:"Cascadia Code",Menlo,Monaco,Consolas,"Courier New",monospace}
+code{padding:2px 4px;font-size:90%;border-radius:4px}
 kbd{padding:2px 4px;font-size:90%;color:#fff;background-color:#333;border-radius:3px;-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.25);box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}
 kbd kbd{padding:0;font-size:100%;font-weight:700;-webkit-box-shadow:none;box-shadow:none}
-pre{overflow:auto;display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:1.42857143;color:#333;word-break:break-all;word-wrap:break-word;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}
+pre{overflow:auto;display:block;line-height:1.42857143;}
 pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}
 .pre-scrollable{max-height:340px;overflow-y:scroll}
 .container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}
@@ -1500,14 +1500,81 @@ td.visible-print,th.visible-print{display:table-cell!important}
 .visible-print-inline-block{display:inline-block!important}
 .hidden-print{display:none!important}
 }
-.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}
-.hljs-comment,.hljs-meta{color:#969896}
-.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}
-.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}
-.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-symbol{color:#0086b3}
-.hljs-name,.hljs-section{color:#63a35c}
-.hljs-tag{color:#333}
-.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}
-.hljs-addition{color:#55a532;background-color:#eaffea}
-.hljs-deletion{color:#bd2c00;background-color:#ffecec}
-.hljs-link{text-decoration:underline}
+
+.hljs-comment {color: #008000;}
+.hljs-pscommand,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-string .hljs-subst,
+.hljs-tag {color: #0101fd;}
+.hljs-literal {color: darken(#09885a, 5%);}
+.hljs-string .hljs-subst,
+.hljs-attr {color: #0451a5;}
+.hljs-string,
+.hljs-string .hljs-subst .hljs-string,
+.hljs-section,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-deletion,
+.hljs-code {color: #a31515;}
+.hljs-parameter,
+.hljs-type,
+.hljs-attribute,
+.hljs-title,
+.hljs-addition,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {color: darken(#007d9a, 5%);}
+.hljs-doctag {color: darken(#737373, 5%);}
+.hljs-control {color: #af00db;}
+.hljs-helper {color: #795e26;}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {color: darken(#0071e1, 5%);}
+.hljs-emphasis {font-style: italic;}
+.hljs-reserved,
+.hljs-constant {color: #cd3131;}
+.line-highlight {background-color: darkgreen;}
+.hljs-comment {color: lighten(#57a64a, 5%);}
+.hljs-number {color: #b5cea8;}
+.hljs-pscommand,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {color: #569cd6;}
+.hljs-literal {color: #569cd6;}
+.hljs-title {color: #4ec9b0;}
+.hljs-string .hljs-subst,
+.hljs-attr {color: #9cdcfe;}
+.hljs-string,
+.hljs-string .hljs-subst .hljs-string,
+.hljs-section,
+.hljs-attribute,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-deletion,
+.hljs-type,
+.hljs-code {color: #ce9178;}
+.hljs-addition,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {color: #2b91af;}
+.hljs-parameter,
+.hljs-type,
+.hljs-attribute,
+.hljs-title,
+.hljs-addition,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {color: lighten(#007d9a, 20%);}
+.hljs-control {color: #c586c0;}
+.hljs-helper {color: #dcdcaa;}
+.hljs-doctag,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {color: lighten(#808080, 15%);}
+.hljs-reserved,
+.hljs-constant {color: lighten(#f44747, 10%);}

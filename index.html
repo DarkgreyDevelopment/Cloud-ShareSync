@@ -13,13 +13,13 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
     <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
     <meta property="docfx:navrel" content="toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
     
     
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -35,6 +35,7 @@
               
               <a class="navbar-brand" href="index.html">
                 <img id="logo" class="svg" src="logo.svg" alt="">
+                <img id="logo" class="png" width="45" length="45" src="logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -67,28 +68,28 @@
 <p><a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic" alt="GitHub"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&amp;label=latest%20release&amp;style=plastic" alt="latest release"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&amp;style=plastic" alt="official release"></a><br>
-<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main" alt="main"></a>
-<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" alt="main"></a>
-<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main" alt="main"></a></p>
+<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main" alt="Releases"></a>
+<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" alt="CodeQL"></a>
+<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Documentation"></a></p>
 <br>
 <p style='text-align: center;'>
 <a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.svg" alt="Cloud-ShareSync Logo" style="width:250px;height:250px"></a>
 </p>
 <h2 id="description">Description:</h2>
-<p>Cloud-ShareSync is an open source backup application that allows you to backup a local directory to a cloud storage bucket.</p>
+<p>Cloud-ShareSync is an open source cloud storage backup application.</p>
 <p>The long term goal of this project is to build a backup application, akin to <a href="https://onedrive.com">OneDrive</a>, that extends the Files On Demand/Fuse functionality to new public cloud storage providers. Supporting platforms such as linux and MacOS is also a priority.</p>
-<p>Currently Cloud-ShareSync (v1.x) has a much more limited scope. The project consists of two separate applications; SimpleBackup, and SimpleRestore.</p>
-<p>SimpleBackup and SimpleRestore are both console applications that runs on Windows, Linux<a href="a" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="a" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
+<p>Cloud-ShareSync (v1.x) will have a much more limited scope. The project consists of two separate applications; <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html">SimpleBackup</a> and <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html">SimpleRestore</a>.</p>
+<p>SimpleBackup and SimpleRestore are both console applications that run on Windows, Linux<a href="a" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="a" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
 <br>
 <h3 id="simplebackup">SimpleBackup:</h3>
-<p><a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html">SimpleBackup</a> is a backup app that can recursively search through a directory tree and upload files to a preconfigured <a href="https://www.backblaze.com/b2/cloud-storage.html">BackBlaze B2</a> cloud storage bucket. File compression and encryption is also supported prior to upload to upload.<br>
+<p>SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured <a href="https://www.backblaze.com/b2/cloud-storage.html">BackBlaze B2</a> cloud storage bucket. SimpleBackup also offers optional file compression and encryption prior to upload.<br>
 A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html">here</a>.</p>
 <h3 id="simplerestore">SimpleRestore:</h3>
-<p><a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html">SimpleRestore</a> is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.<br>
+<p>SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.<br>
 A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html">here</a>.</p>
 <br>
 <h2 id="documentation">Documentation:</h2>
-<p>Application / Project documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
+<p>Project documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
 <h3 id="getting-started">Getting Started:</h3>
 <p>Cloud-ShareSync runs on Windows, Linux, and MacOS. Additionally container images are also available.</p>
 <p>Please refer to the <a href="https://docs.cloud-sharesync.com/articles/HowTo/index.html">How-To Articles</a> before opening any <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/issues">issues</a>.</p>
@@ -223,7 +224,7 @@ All code is provided free of charge, as is, and with no warranty under an <a hre
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
