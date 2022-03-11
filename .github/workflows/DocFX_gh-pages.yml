@@ -36,7 +36,7 @@ jobs:
       - name: Custom README processing.
         shell: pwsh
         run: |
-          $CopyREADMEParams @{
+          $CopyREADMEParams = @{
             Path        = '${{ github.workspace }}/README.md'
             Destination = '${{ github.workspace }}/docs/index.md'
             Verbose     = $true
@@ -52,7 +52,7 @@ jobs:
           & ./docfx/docfx.exe '${{ github.workspace }}/docs/docfx.json'
           $CopyToSiteParams = @{
             Destination = '${{ github.workspace }}/docs/_site'
-            Verbose = $true
+            Verbose     = $true
           }
           copy-item -Path '${{ github.workspace }}/docs/CNAME' @CopyToSiteParams
           copy-item -Path '${{ github.workspace }}/docs/_config.yml' @CopyToSiteParams
