@@ -14,7 +14,7 @@ Documentation may change at any time and without any notice.
 <br>
 
 <p style='text-align: center;'>
-<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.svg" alt="Cloud-ShareSync Logo" style="width:250px;height:250px"></a>
+<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.png" alt="Cloud-ShareSync Logo" style="width:250px;height:250px"></a>
 </p>
 
 ## Description:
