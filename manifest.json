@@ -1481,6 +1481,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/Testing.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Testing.html",
+          "hash": "WmWgxIJodDruFsladJdAWgB6nPA2YdYN/Zv1066iWMs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
@@ -1498,6 +1510,17 @@
         ".html": {
           "relative_path": "articles/toc.html",
           "hash": "Rlf5ctAI4hg7FYLzcK35sWEGVjNxUPm1Nt6XJcPhjts="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Cloud-ShareSyncLogo250px.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Cloud-ShareSyncLogo250px.png"
         }
       },
       "is_incremental": false,
@@ -1526,15 +1549,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "fLo5csYwv2tHpJhuftqRlx9QauCuA982tEXwzPuOkiA="
+          "hash": "YgJa95VBaGJ3J2YgDmKs4CKspmaiY34A6WglJWOj1io="
         }
       },
       "is_incremental": false,
@@ -1567,7 +1587,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 15,
+          "total_file_count": 16,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
