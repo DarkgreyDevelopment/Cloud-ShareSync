@@ -14,7 +14,7 @@ Documentation may change at any time and without any notice.
 <br>
 
 <p style='text-align: center;'>
-<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo.png" alt="Cloud-ShareSync Logo" style="width:250px;height:250px"></a>
+<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo250px.png" alt="Cloud-ShareSync Logo"></a>
 </p>
 
 ## Description:
@@ -24,7 +24,7 @@ The long term goal of this project is to build a backup application, akin to [On
 
 Cloud-ShareSync (v1.x) will have a much more limited scope. The project consists of two separate applications; [SimpleBackup](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html) and [SimpleRestore](https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html).  
 
-SimpleBackup and SimpleRestore are both console applications that run on Windows, Linux[*](a "Linux is tested on Ubuntu latest."), and MacOS[*](a "MacOS is tested on macOS 11 Big Sur.").  
+SimpleBackup and SimpleRestore are both console applications that run on Windows[*](https://docs.cloud-sharesync.com/articles/Testing.html "Windows is tested on Windows Server 2022."), Linux[*](https://docs.cloud-sharesync.com/articles/Testing.html "Linux is tested on Ubuntu latest."), and MacOS[*](https://docs.cloud-sharesync.com/articles/Testing.html "MacOS is tested on macOS 11 Big Sur.").  
 
 <br>
 
