@@ -11,10 +11,12 @@ Documentation may change at any time and without any notice.
 [![CodeQL](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml)
 [![Documentation](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment)
 
+
 <br>
 
+
 <p style='text-align: center;'>
-<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncLogo250px.png" alt="Cloud-ShareSync Logo"></a>
+<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/Cloud-ShareSyncLogo250px.png" alt="Cloud-ShareSync Logo"></a>
 </p>
 
 ## Description:
@@ -26,7 +28,9 @@ Cloud-ShareSync (v1.x) will have a much more limited scope. The project consists
 
 SimpleBackup and SimpleRestore are both console applications that run on Windows[*](https://docs.cloud-sharesync.com/articles/Testing.html "Windows is tested on Windows Server 2022."), Linux[*](https://docs.cloud-sharesync.com/articles/Testing.html "Linux is tested on Ubuntu latest."), and MacOS[*](https://docs.cloud-sharesync.com/articles/Testing.html "MacOS is tested on macOS 11 Big Sur.").  
 
+
 <br>
+
 
 ### SimpleBackup:
 SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured [BackBlaze B2](https://www.backblaze.com/b2/cloud-storage.html) cloud storage bucket. SimpleBackup also offers optional file compression and encryption prior to upload.  
@@ -36,7 +40,9 @@ A complete feature list can be found [here](https://docs.cloud-sharesync.com/art
 SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.  
 A complete feature list can be found [here](https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html).  
 
+
 <br>
+
 
 ## Documentation:
 Project documentation can be found at [docs.cloud-sharesync.com](https://docs.cloud-sharesync.com).  
@@ -52,7 +58,9 @@ Please refer to the [How-To Articles](https://docs.cloud-sharesync.com/articles/
 - [MacOS Setup](https://docs.cloud-sharesync.com/articles/HowTo/MacOsSetup.html).
 - [Docker container setup](https://docs.cloud-sharesync.com/articles/HowTo/DockerSetup.html).
 
+
 <br>
+
 
 ## Roadmap:
 The project [planning & development board](https://github.com/orgs/DarkgreyDevelopment/projects/3) is where the specifics of the roadmap can be found. Cloud-ShareSync is currently in a pre-release state and will follow [semantic versioning](https://semver.org) upon release.  
@@ -121,7 +129,15 @@ The project [planning & development board](https://github.com/orgs/DarkgreyDevel
   - Features:  
     - Feature set TBD.  
 
+
 <br>
+
+
+### Contributing:  
+Please help us keep this repository clean, inclusive, and fun! We will not tolerate any abusive, rude, disrespectful or inappropriate behavior. Read our Code of Conduct for more details.
+
+<br>
+
 
 ### Disclaimers*
 Cloud-ShareSync is not affiliated with Microsoft, BackBlaze, Google, or Amazon.  
