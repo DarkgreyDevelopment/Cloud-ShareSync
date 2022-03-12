@@ -1515,6 +1515,17 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/CloudShareSyncLogo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/CloudShareSyncLogo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "log_codes": [
         "InvalidFileLink"
       ],
