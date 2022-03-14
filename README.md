@@ -1,9 +1,7 @@
-# 💥❗ Cloud-ShareSync is in a pre-release state. ❗💥
-Documentation may change at any time and without any notice.
+<p style='text-align: center;'>
+<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/CloudShareSyncBanner.png" alt="Cloud-ShareSync Banner"></a>
+</p>
 
-<br><br>
-
-# Cloud-ShareSync
 [![GitHub](https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&label=latest%20release&style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/)
 [![official release](https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&style=plastic)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/)  
@@ -11,13 +9,13 @@ Documentation may change at any time and without any notice.
 [![CodeQL](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml)
 [![Documentation](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment)
 
-
 <br>
 
 
-<p style='text-align: center;'>
-<a href="https://cloud-sharesync.com"><img src="https://docs.cloud-sharesync.com/images/Cloud-ShareSyncLogo250px.png" alt="Cloud-ShareSync Logo"></a>
-</p>
+# 💥❗ Cloud-ShareSync is in a pre-release state. ❗💥
+Note: Documentation may change at any time and without any notice.
+
+<br>
 
 ## Description:
 Cloud-ShareSync is an open source cloud storage backup application.
@@ -134,7 +132,9 @@ The project [planning & development board](https://github.com/orgs/DarkgreyDevel
 
 
 ### Contributing:  
-Please help us keep this repository clean, inclusive, and fun! We will not tolerate any abusive, rude, disrespectful or inappropriate behavior. Read our Code of Conduct for more details.
+Please help keep the repository inclusive and fun! Abusive, rude, disrespectful or inappropriate behavior will not be tolerated. Read the [Code of Conduct](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/CODE_OF_CONDUCT.md) for more details.  
+- ToDo: Finish writing contribution guides. Good examples: [here](https://github.com/microsoft/terminal/blob/main/CONTRIBUTING.md), [here](https://github.com/microsoft/vscode#contributing), and [here](https://github.com/microsoft/PowerToys/blob/main/CONTRIBUTING.md). Example [CLA](https://opensource.microsoft.com/pdf/microsoft-contribution-license-agreement.pdf).
+
 
 <br>
 

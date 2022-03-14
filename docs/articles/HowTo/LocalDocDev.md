@@ -1,6 +1,6 @@
 # Local Documentation Development
-[docs.cloud-sharesync.com](https://docs.cloud-sharesync.com) is hosted on github pages and is generated using [docfx](https://dotnet.github.io/docfx/) from markdown pages housed in the [github repository](https://main.cloud-sharesync.com).  
-Docfx also generates the API documentation based on the XML documentation in the code itself.  
+[docs.cloud-sharesync.com](https://docs.cloud-sharesync.com) is hosted on github pages and is generated using [docfx](https://dotnet.github.io/docfx/) from markdown pages housed in the [github repository](https://main.cloud-sharesync.com/docs).  
+Docfx also generates the API documentation based on the XML documentation in the [code](https://main.cloud-sharesync.com/src) itself.  
 
 You can test how documentation changes look locally prior to pushing any commits to github.  
 To host the docs page locally you must
