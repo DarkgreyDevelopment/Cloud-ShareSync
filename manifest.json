@@ -1389,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/LocalDocDev.html",
-          "hash": "Mz3vcPtcmyTPwJdPGkw5NNGV091GeJmlj/ewfzc/rAo="
+          "hash": "7DXWyOOgOp2DmgCFDgOGiM6tihxdAXANRSLZknVZXvE="
         }
       },
       "is_incremental": false,
@@ -1528,6 +1528,17 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/CloudShareSyncBanner.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/CloudShareSyncBanner.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/CloudShareSyncLogo.png",
       "output": {
         "resource": {
@@ -1554,7 +1565,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "vF75WcBtC/Cy/7WcUmYLAjesfW930RzG3ZEeSDlx1VQ="
+          "hash": "WPQlYqd+n1wHwyQasBVhWch9AzxDMP0WzCAHteWcls8="
         }
       },
       "is_incremental": false,
