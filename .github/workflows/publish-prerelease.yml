@@ -41,7 +41,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-        name: Extract metadata (tags, labels) for Docker
+      - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
         with:
@@ -57,6 +57,7 @@ jobs:
             type=semver,pattern={{version}}
             type=sha
             ${{ github.event.inputs.tags }}
+
       - name: Build and push SimpleBackup Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
