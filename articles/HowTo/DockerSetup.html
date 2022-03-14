@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> </title>
+    <title>Docker Setup: </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" ">
+    <meta name="title" content="Docker Setup: ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.png">
@@ -66,10 +66,94 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="docker-setup">Docker Setup:</h1>
 
-<p>A list of available container images can be <a href="https://github.com/darkgreydevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync/versions">found here</a>.</p>
-<p>Step 1: Download container image.
-docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:latest</p>
+<p>This how to article assumes that you are already reasonably familiar with <a href="https://docs.docker.com/get-started/overview/">docker</a>.<br>
+If you are not familiar with docker please refer to the <a href="https://docs.docker.com/get-started/">docker startup guide</a>.</p>
+<br>
+<h2 id="step-1-download-container-image">Step 1: Download container image.</h2>
+<p>Start off by downloading the appropriate container image. A list of available container image tags can be <a href="https://github.com/darkgreydevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync/versions">found here</a>.</p>
+<pre><code>docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:{version-tag}
+</code></pre>
+<br>
+<h2 id="step-2-create-local-containers">Step 2: Create local containers.</h2>
+<h3 id="simplebackup">SimpleBackup:</h3>
+<pre><code class="lang-bash">docker create \
+    --name=simplebackup \
+    --restart=no \
+    -v /App/Config:/config \
+    -v /mnt/FileShare:/backup \
+    -v /App/Working:/working \
+    -v /App/Log:/log \
+    -v /App/Database:/database \
+    -e &quot;CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json&quot; \
+    ghcr.io/darkgreydevelopment/cloud-sharesync:simplebackup-prerelease20220314
+</code></pre>
+<h3 id="parameters">Parameters:</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--restart=no</td>
+<td>Do not auto restart on errors.</td>
+</tr>
+<tr>
+<td>-v /App/Config:/config</td>
+<td>Attaches the local path <code>/App/Config</code> to the container path <code>/config</code>.</td>
+</tr>
+<tr>
+<td>-v /mnt/FileShare:/backup</td>
+<td>Attaches the local path <code>/mnt/FileShare</code> to the container path <code>/backup</code>.</td>
+</tr>
+<tr>
+<td>-v /App/Working:/working</td>
+<td>Attaches the local path <code>/App/Working</code> to the container path <code>/working</code>.</td>
+</tr>
+<tr>
+<td>-v /App/Log:/log</td>
+<td>Attaches the local path <code>/App/Log</code> to the container path <code>/log</code>.</td>
+</tr>
+<tr>
+<td>-v /App/Database:/database</td>
+<td>Attaches the local path <code>/App/Database</code> to the container path <code>/database</code>.</td>
+</tr>
+<tr>
+<td>-e &quot;CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json&quot;</td>
+<td>Sets the <code>CLOUDSHARESYNC_CONFIGPATH</code> environment variable to <code>/config/appsettings.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>The paths mentioned in the container creation parameters should correlate with the paths listed in the appsettings.json config file.</p>
+<br>
+<h3 id="simplerestore">SimpleRestore:</h3>
+<pre><code class="lang-bash"></code></pre>
+<h3 id="parameters-1">Parameters:</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-3-start-containers">Step 3: Start containers.</h2>
+<p><code>docker start simplebackup</code>
+<code>docker start simplerestore</code></p>
 </article>
           </div>
           
@@ -78,7 +162,7 @@ docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:latest</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/docs/articles/HowTo/DockerSetup.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/docs/articles/HowTo/DockerSetup.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
