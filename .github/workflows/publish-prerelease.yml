@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
-        id: meta
+        id: meta-sb
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
@@ -50,30 +50,13 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=semver,pattern={{version}}
             type=sha
-            ${{ github.event.inputs.tags }}
+            simplebackup-${{ github.event.inputs.tags }}
 
       - name: Build and push SimpleBackup Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           file: ./src/SimpleBackup/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Build SimpleBackup
-        shell: pwsh
-        run: |
-          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
-          $Params = @{
-            SOURCEPATH  = (Get-Location).Path
-            PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
-            Verbose     = $true
-          }
-          & $BuildScript @Params
-          Get-ChildItem -Path $Params['PUBLISHPATH'] | Select-Object -Property Name,Size | Format-List | Out-String
-      - run: |
-          echo "Job status: ${{ job.status }}"
+          tags: ${{ steps.meta-sb.outputs.tags }}
+          labels: ${{ steps.meta-sb.outputs.labels }}
