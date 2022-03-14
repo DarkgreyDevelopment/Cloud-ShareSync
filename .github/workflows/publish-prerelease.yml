@@ -1,8 +1,5 @@
 name: Publish PreRelease
 on:
-  push:
-    branches:
-      - develop
   workflow_dispatch:
     inputs:
       tags:
@@ -50,12 +47,28 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+        name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            name/app
+            ghcr.io/username/app
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=sha
+            ${{ github.event.inputs.tags }}
       - name: Build and push SimpleBackup Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           file: ./src/SimpleBackup/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}, ${{ github.event.inputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build SimpleBackup
