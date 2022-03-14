@@ -3,17 +3,16 @@ on:
   push:
     branches:
       - develop
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
-on:
   workflow_dispatch:
     inputs:
       tags:
         description: 'PreRelease Tag'
         required: true
         type: string
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
