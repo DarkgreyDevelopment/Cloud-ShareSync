@@ -2,7 +2,7 @@ name: DocFX - Documentation Process
 on:
   push:
     branches:
-      - develop
+      - main
 jobs:
   document:
     runs-on: ubuntu-latest
@@ -13,13 +13,6 @@ jobs:
       matrix:
         dotnet-version: [ '6.0.x' ]
     steps:
-      - name: Echo Log Information
-        run: |
-          echo "Trigger   : ${{ github.event_name }}"
-          echo "OS        : ${{ runner.os }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch    : ${{ github.ref }}"
-          echo "Job status: ${{ job.status }}"
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Get DocFX
