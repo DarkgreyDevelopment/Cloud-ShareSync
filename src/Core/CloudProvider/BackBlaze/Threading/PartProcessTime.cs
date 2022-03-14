@@ -36,7 +36,7 @@
 
         public void AddNewStopTime( ) {
             lock (_lock) {
-                KeyValuePair<DateTime, DateTime?> t = _processTimes.Where( e => e.Value == null ).First( );
+                KeyValuePair<DateTime, DateTime?> t = _processTimes.First( e => e.Value == null );
                 _processTimes[t.Key] = DateTime.Now;
             }
         }

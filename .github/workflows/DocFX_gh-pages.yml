@@ -13,13 +13,6 @@ jobs:
       matrix:
         dotnet-version: [ '6.0.x' ]
     steps:
-      - name: Echo Log Information
-        run: |
-          echo "Trigger   : ${{ github.event_name }}"
-          echo "OS        : ${{ runner.os }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch    : ${{ github.ref }}"
-          echo "Job status: ${{ job.status }}"
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Get DocFX
@@ -36,7 +29,13 @@ jobs:
       - name: Custom README processing.
         shell: pwsh
         run: |
-          copy-item -Path '${{ github.workspace }}/README.md' -Destination '${{ github.workspace }}/docs/index.md' -Verbose -Force
+          $CopyREADMEParams = @{
+            Path        = '${{ github.workspace }}/README.md'
+            Destination = '${{ github.workspace }}/docs/index.md'
+            Verbose     = $true
+            Force       = $true
+          }
+          copy-item @CopyREADMEParams
       - name: Generate Documentation and build site.
         shell: pwsh
         run: |
@@ -44,8 +43,12 @@ jobs:
           & ./docfx/docfx.exe metadata '${{ github.workspace }}/docs/docfx.json'
           Write-Host "`nCreating docfx site:"
           & ./docfx/docfx.exe '${{ github.workspace }}/docs/docfx.json'
-          copy-item -Path '${{ github.workspace }}/docs/CNAME' -Destination '${{ github.workspace }}/docs/_site' -Verbose
-          copy-item -Path '${{ github.workspace }}/docs/_config.yml' -Destination '${{ github.workspace }}/docs/_site' -Verbose
+          $CopyToSiteParams = @{
+            Destination = '${{ github.workspace }}/docs/_site'
+            Verbose     = $true
+          }
+          copy-item -Path '${{ github.workspace }}/docs/CNAME' @CopyToSiteParams
+          copy-item -Path '${{ github.workspace }}/docs/_config.yml' @CopyToSiteParams
       - name: Deploy Github Pages!
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:

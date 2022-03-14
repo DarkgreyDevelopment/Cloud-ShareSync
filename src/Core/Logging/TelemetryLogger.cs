@@ -88,7 +88,7 @@ namespace Cloud_ShareSync.Core.Logging {
                             );
                         }
 
-                        XmlConfigurator.Configure(
+                        _ = XmlConfigurator.Configure(
                             LogManager.GetRepository( Assembly.GetEntryAssembly( ) ),
                             new FileInfo( config.ConfigurationFile )
                         );

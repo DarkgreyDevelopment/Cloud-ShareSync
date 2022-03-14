@@ -59,7 +59,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             StringBuilder sb = new( );
 
-            foreach (byte b in hashBytes) { sb.Append( b.ToString( "x2" ) ); }
+            foreach (byte b in hashBytes) { _ = sb.Append( b.ToString( "x2" ) ); }
 
             activity?.Stop( );
             return sb.ToString( );
@@ -85,7 +85,9 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             // Compute hash
             SystemMemoryChecker.Update( );
+#pragma warning disable CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
             byte[] hashBytes = await SHA1.Create( ).ComputeHashAsync( inputFileStream );
+#pragma warning restore CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
 
             // Convert to hexidecimal string
             string result = ConvertBytesToHexString( hashBytes );
@@ -124,7 +126,10 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             // Compute Hash
             SystemMemoryChecker.Update( );
+
+#pragma warning disable CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
             byte[] hashBytes = SHA1.Create( ).ComputeHash( data, 0, data.Length );
+#pragma warning restore CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
 
             // Convert to hexidecimal string
             string result = ConvertBytesToHexString( hashBytes );
