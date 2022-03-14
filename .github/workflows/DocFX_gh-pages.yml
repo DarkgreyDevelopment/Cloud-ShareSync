@@ -2,7 +2,7 @@ name: DocFX - Documentation Process
 on:
   push:
     branches:
-      - main
+      - develop
 jobs:
   document:
     runs-on: ubuntu-latest
