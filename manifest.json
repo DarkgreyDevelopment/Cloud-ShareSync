@@ -1517,43 +1517,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/Cloud-ShareSyncLogo250px.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/Cloud-ShareSyncLogo250px.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "images/CloudShareSyncBanner.png",
       "output": {
         "resource": {
           "relative_path": "images/CloudShareSyncBanner.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/CloudShareSyncLogo.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/CloudShareSyncLogo.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/CloudShareSyncLogo.svg",
-      "output": {
-        "resource": {
-          "relative_path": "images/CloudShareSyncLogo.svg"
         }
       },
       "is_incremental": false,
