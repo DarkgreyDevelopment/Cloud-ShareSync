@@ -22,7 +22,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
                                         services.Configure<DatabaseConfig>( ConfigManager.GetDatabase( ) );
                                         services.AddSingleton( _ => config.Database );
                                         services.Configure<CompressionConfig?>( ConfigManager.GetCompression( ) );
-                                        if (config.Compression != null) _ = services.AddSingleton( _ => config.Compression );
+                                        _ = services.AddSingleton( _ => config.Compression ?? new( ) { DependencyPath = "" } );
                                         if (config.BackBlaze != null) {
                                             services.Configure<B2Config>( ConfigManager.GetBackBlazeB2( ) );
                                             services.AddSingleton( _ => config.BackBlaze );
