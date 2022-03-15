@@ -8032,6 +8032,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.SimpleBackup.Program.UploadWork
   nameWithType: Program.UploadWork
+- uid: Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo(Task[],System.Nullable{ILogger})
+  name: WriteTaskStatusInfo(Task[], Nullable<ILogger>)
+  href: api/Cloud_ShareSync.SimpleBackup.Program.html#Cloud_ShareSync_SimpleBackup_Program_WriteTaskStatusInfo_Task___System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo(Task[],System.Nullable{ILogger})
+  name.vb: WriteTaskStatusInfo(Task(), Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo(Task[], System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo(Task(), System.Nullable(Of ILogger))
+  nameWithType: Program.WriteTaskStatusInfo(Task[], Nullable<ILogger>)
+  nameWithType.vb: Program.WriteTaskStatusInfo(Task(), Nullable(Of ILogger))
+- uid: Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo*
+  name: WriteTaskStatusInfo
+  href: api/Cloud_ShareSync.SimpleBackup.Program.html#Cloud_ShareSync_SimpleBackup_Program_WriteTaskStatusInfo_
+  commentId: Overload:Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo
+  isSpec: "True"
+  fullName: Cloud_ShareSync.SimpleBackup.Program.WriteTaskStatusInfo
+  nameWithType: Program.WriteTaskStatusInfo
 - uid: Cloud_ShareSync.SimpleRestore
   name: Cloud_ShareSync.SimpleRestore
   href: api/Cloud_ShareSync.SimpleRestore.html
