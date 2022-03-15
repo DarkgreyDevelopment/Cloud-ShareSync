@@ -159,6 +159,25 @@ namespace Cloud_ShareSync.SimpleBackup {
                         task.IsCanceled,
                         task.IsFaulted
                     );
+
+                    if (task.IsFaulted) {
+                        if (task.Exception != null) {
+                            log?.LogInformation( "An error has occurred in task{string}.", count.ToString( ) );
+                            log?.LogError(
+                                "{string}\n{string}",
+                                task.Exception.Message,
+                                task.Exception.StackTrace
+                            );
+                            foreach (Exception ex in task.Exception.InnerExceptions) {
+                                log?.LogInformation( "Task{string} inner exception:", count.ToString( ) );
+                                log?.LogError(
+                                    "{string}\n{string}",
+                                    ex.Message,
+                                    ex.StackTrace
+                                );
+                            }
+                        }
+                    }
                     count++;
                 }
                 for (int i = 0; i < uploadTasks.Length; i++) {
@@ -180,6 +199,24 @@ namespace Cloud_ShareSync.SimpleBackup {
                         task.IsCanceled,
                         task.IsFaulted
                     );
+                    if (task.IsFaulted) {
+                        if (task.Exception != null) {
+                            log?.LogInformation( "An error has occurred in task{string}.", count.ToString( ) );
+                            log?.LogError(
+                                "{string}\n{string}",
+                                task.Exception.Message,
+                                task.Exception.StackTrace
+                            );
+                            foreach (Exception ex in task.Exception.InnerExceptions) {
+                                log?.LogInformation( "Task{string} inner exception:", count.ToString( ) );
+                                log?.LogError(
+                                    "{string}\n{string}",
+                                    ex.Message,
+                                    ex.StackTrace
+                                );
+                            }
+                        }
+                    }
                     count++;
                 }
             }
