@@ -143,12 +143,12 @@ jobs:
           $PublishPath  = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
 
           try {
-            Get-PackageSource -Name 'PSGallery' -ErrorAction Stop
+            Get-PackageSource -Name 'nuget.org' -ErrorAction Stop
           } catch {
             $registerPackageSourceSplat = @{
-                ProviderName = 'PowerShellGet'
-                Name         = 'PSGallery'
-                Location     = 'https://www.powershellgallery.com/api/v2'
+                ProviderName = 'nuget'
+                Name         = 'nuget.org'
+                Location     = 'https://api.nuget.org/v3/index.json'
                 Trusted      = $true
             }
             Register-PackageSource @registerPackageSourceSplat
