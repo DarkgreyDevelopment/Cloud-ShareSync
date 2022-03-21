@@ -160,7 +160,7 @@ jobs:
           $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
 
           Write-Host "Running The Metrics Application Now."
-          & "$MetricsApp" /s:"$SolutionPath" /o:"$MetricsPath" *>&1 | Write-Host
+          (& "$MetricsApp" /s:"$SolutionPath" /o:"$MetricsPath") *>&1 | Write-Host
 
           if (Test-Path -Path $MetricsPath -PathType Leaf){
             [xml]$TestMetrics = Get-Content -Path $MetricsPath
