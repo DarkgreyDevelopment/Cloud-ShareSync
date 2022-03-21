@@ -184,7 +184,7 @@ jobs:
         uses: microsoft/infersharpaction@v1.2.1
         id: runinfersharp
         with:
-          binary-path: ${{ GITHUB_WORKSPACE }}/Publish/Linux/
+          binary-path: "${{ GITHUB_WORKSPACE }}/Publish/Linux/"
 
       - name: Write Infer# output to artifact
         shell: pwsh
