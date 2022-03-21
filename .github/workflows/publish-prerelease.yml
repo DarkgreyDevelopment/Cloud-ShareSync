@@ -159,6 +159,9 @@ jobs:
           $MetricsDir = Get-ChildItem -Path $PackageDir.FullName -Filter 'Metrics' -Directory
           $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
 
+          if (Test-Path -Path $SolutionPath -PathType Leaf){ Write-Host 'SolutionPath Exists' }
+          if (Test-Path -Path $MetricsApp -PathType Leaf){ Write-Host 'MetricsApp Exists' }
+
           Write-Host "Running The Metrics Application Now."
           (& "$MetricsApp" /s:"$SolutionPath" /o:"$MetricsPath") *>&1 | Write-Host
 
