@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
@@ -7,9 +6,6 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
     /// Cloud-ShareSync database configuration settings.
     /// </summary>
     public class DatabaseConfig {
-        private static readonly string s_assemblyPath = Directory.GetParent(
-                                        Assembly.GetExecutingAssembly( ).Location
-                                     )?.FullName ?? "";
         /// <summary>
         /// <para>
         /// When enabled Cloud-ShareSync will store data in a local sqlite database.
@@ -29,7 +25,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         /// </para>
         /// </summary>
         /// <value>Default value is the application root directory.</value>
-        public string SqliteDBPath { get; set; } = s_assemblyPath;
+        public string SqliteDBPath { get; set; } = AppContext.BaseDirectory;
 
         /// <summary>
         /// <para>
@@ -43,7 +39,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         /// </para>
         /// </summary>
         /// <value>Defaults to false.</value>
-        public bool UsePostgres { get; set; } = false;
+        public bool UsePostgres { get; set; }
 
         /// <summary>
         /// The connection string for a postgres database.

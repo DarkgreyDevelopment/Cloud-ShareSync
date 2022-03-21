@@ -29,7 +29,7 @@ namespace Cloud_ShareSync.Core.Compression {
             _log = log;
             _dependencyPath = new( config.DependencyPath );
             SystemMemoryChecker.Update( );
-            _semaphore.Release( 1 );
+            _ = _semaphore.Release( 1 );
         }
 
 
@@ -75,12 +75,12 @@ namespace Cloud_ShareSync.Core.Compression {
                 decompressionDir.FullName,
                 password
             );
-            process.Start( );
+            _ = process.Start( );
             process.BeginErrorReadLine( );
             process.BeginOutputReadLine( );
             process.WaitForExit( );
             FailOnNonZeroExitCodeOrException( process.ExitCode );
-            _semaphore.Release( );
+            _ = _semaphore.Release( );
 
             IEnumerable<string> allItems = Directory.EnumerateFileSystemEntries( dependencyPath.FullName );
 
@@ -145,12 +145,12 @@ namespace Cloud_ShareSync.Core.Compression {
                 compressedPath.Directory?.FullName ?? Path.GetTempPath( ),
                 password
             );
-            process.Start( );
+            _ = process.Start( );
             process.BeginErrorReadLine( );
             process.BeginOutputReadLine( );
             process.WaitForExit( );
             FailOnNonZeroExitCodeOrException( process.ExitCode );
-            _semaphore.Release( );
+            _ = _semaphore.Release( );
 
             _log?.LogInformation(
                 "Successfully compressed '{string}'. \n" +
@@ -259,7 +259,7 @@ namespace Cloud_ShareSync.Core.Compression {
             if (_exceptions.Count > 0) {
                 FailedToZipException[] exc = _exceptions.ToArray( );
                 _exceptions.Clear( );
-                _semaphore.Release( );
+                _ = _semaphore.Release( );
                 activity?.Stop( );
                 throw new AggregateException( exc );
             }
@@ -275,7 +275,7 @@ namespace Cloud_ShareSync.Core.Compression {
                 };
                 string failedToZipExp = $"Received non-zero exitcode from 7Zip. ExitCode: {exitCode} - {errorCodeDef}";
                 _log?.LogCritical( "{string}", failedToZipExp );
-                _semaphore.Release( );
+                _ = _semaphore.Release( );
                 activity?.Stop( );
                 throw new FailedToZipException( failedToZipExp );
             }

@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         /// <summary>
         /// To override the default logging configuration specify the path to a log4net (xml) config file.
         /// </summary>
-        public string? ConfigurationFile { get; set; } = null;
+        public string? ConfigurationFile { get; set; }
 
         /// <summary>
         /// By default Cloud-ShareSync implements a custom rolling log file process if <see cref="ConfigurationFile"/> 
@@ -39,7 +39,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         /// OpenTelemetry content if <see cref="ConfigurationFile"/> is not set.
         /// This field enables or disables the built in telemetry log configuration.
         /// </summary>
-        public bool EnableTelemetryLog { get; set; } = false;
+        public bool EnableTelemetryLog { get; set; }
 
         /// <summary>
         /// The configuration settings for the built in OpenTelemetry log export process. 

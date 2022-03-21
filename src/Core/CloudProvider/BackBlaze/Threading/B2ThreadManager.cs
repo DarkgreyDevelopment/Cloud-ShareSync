@@ -14,15 +14,15 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         private static ILogger? s_log;
 
         private static readonly object s_statsLock = new( );
-        private static int s_activeThreadCount = 0;
+        private static int s_activeThreadCount;
         private static DateTime s_lastChange = DateTime.Now;
         private static TimeSpan s_previousAverageTimeSpan = TimeSpan.Zero;
         private static decimal s_previousAverageSuccessPercentage = 0;
         private static decimal s_previousSecondsAsleepPerSuccess = 0;
         private static decimal s_previousAverageSleepTimerLength = 0;
         private static decimal s_previousAverageHighWaterSleeping = 0;
-        private static int s_previousFailedThreads = 0;
-        private static double s_previousAverageBytesPerMS = 0;
+        private static int s_previousFailedThreads;
+        private static double s_previousAverageBytesPerMS;
 
         public static void Inititalize( ILogger? log, int maxThreads ) {
             s_log = log;

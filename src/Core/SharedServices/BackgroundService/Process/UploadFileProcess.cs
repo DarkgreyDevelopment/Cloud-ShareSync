@@ -23,7 +23,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         private static readonly ActivitySource s_source = new( "UploadFileProcess" );
 
         private static readonly object s_lock = new( );
-        private static ICompression? s_compress = null;
+        private static ICompression? s_compress;
 
         private readonly ILogger<UploadFileProcess> _log;
         private readonly Hashing _fileHash;
@@ -33,10 +33,9 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         private readonly BackupConfig _backupConfig;
         private readonly B2Config _backblazeConfig;
         private readonly DatabaseConfig _databaseConfig;
-        private readonly UniquePassword _uniquePassword;
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
 
-        private long _consecutiveExceptionCount = 0;
+        private long _consecutiveExceptionCount;
 
         #endregion Fields
 
@@ -62,10 +61,9 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             }
             _fileHash = new( _log );
             _services = ConfigManager.ConfigureDatabaseService( _databaseConfig, _log );
-            _semaphore.Release( 1 );
+            _ = _semaphore.Release( 1 );
             _backBlaze = new( _backblazeConfig, _log );
             _crypto = (backupConfig.EncryptBeforeUpload) ? new( _log ) : null;
-            _uniquePassword = new( );
         }
 
 
@@ -189,8 +187,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             tabledata.FileHash = await _fileHash.GetSha512Hash( inputFile );
 
             SqliteContext sqliteContext = GetSqliteContext( );
-            sqliteContext.Update( tabledata );
-            sqliteContext.SaveChanges( );
+            _ = sqliteContext.Update( tabledata );
+            _ = sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
             _log.LogInformation(
                 "Set original file hash for '{string}' to {string}",
@@ -237,12 +235,12 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     .FirstOrDefault( );
 
                 if (encTableData == null) {
-                    sqliteContext.Add( new EncryptionTable( tabledata.Id, data ) );
+                    _ = sqliteContext.Add( new EncryptionTable( tabledata.Id, data ) );
                 } else {
                     encTableData.DecryptionData = data.ToString( );
                 }
                 tabledata.IsEncrypted = true;
-                sqliteContext.SaveChanges( );
+                _ = sqliteContext.SaveChanges( );
                 ReleaseSqliteContext( );
 
                 // Remove plaintext file.
@@ -280,7 +278,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     );
                 }
 
-                string? password = _backupConfig.UniqueCompressionPasswords ? _uniquePassword.Create( ) : null;
+                string? password = _backupConfig.UniqueCompressionPasswords ? UniquePassword.Create( ) : null;
                 FileInfo compressionPath = new( Path.Join( _backupConfig.WorkingDirectory, Path.GetRandomFileName( ) ) );
 
                 result = s_compress.CompressPath( inputFile, compressionPath, password ).Result;
@@ -291,18 +289,19 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     .FirstOrDefault( );
 
                 if (compTableData == null) {
-                    sqliteContext.Add(
+                    _ = sqliteContext.Add(
                         new CompressionTable(
                             id: tabledata.Id,
                             passwordProtected: string.IsNullOrWhiteSpace( password ) == false,
                             password: password
-                        ) );
+                        )
+                    );
                 } else {
                     compTableData.PasswordProtected = string.IsNullOrWhiteSpace( password ) == false;
                     compTableData.Password = password;
                 }
                 tabledata.IsCompressed = true;
-                sqliteContext.SaveChanges( );
+                _ = sqliteContext.SaveChanges( );
                 ReleaseSqliteContext( );
 
                 // Remove plaintext file.
@@ -327,8 +326,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             tabledata.UploadedFileHash = await _fileHash.GetSha512Hash( uploadFile );
 
             SqliteContext sqliteContext = GetSqliteContext( );
-            sqliteContext.Update( tabledata );
-            sqliteContext.SaveChanges( );
+            _ = sqliteContext.Update( tabledata );
+            _ = sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
 
             _log.LogInformation(
@@ -377,16 +376,16 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     _backblazeConfig.BucketId,
                     fileId
                 );
-                sqliteContext.Add( b2TableData );
-                sqliteContext.SaveChanges( );
+                _ = sqliteContext.Add( b2TableData );
+                _ = sqliteContext.SaveChanges( );
             } else {
                 b2TableData.FileID = fileId;
                 b2TableData.BucketName = _backblazeConfig.BucketName;
                 b2TableData.BucketId = _backblazeConfig.BucketId;
-                sqliteContext.SaveChanges( );
+                _ = sqliteContext.SaveChanges( );
             }
             tabledata.StoredInBackBlazeB2 = true;
-            sqliteContext.SaveChanges( );
+            _ = sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
 
             _log.LogDebug( "UploadFileToB2 DB Data:\n{string}", b2TableData );
@@ -423,7 +422,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         /// </summary>
         private void ReleaseSqliteContext( ) {
             using Activity? activity = s_source.StartActivity( "ReleaseSqliteContext" )?.Start( );
-            _semaphore.Release( );
+            _ = _semaphore.Release( );
             activity?.Stop( );
         }
 

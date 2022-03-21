@@ -3,9 +3,9 @@
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
     internal class B2ThreadStatistic {
         public int Thread { get; private set; }
-        public int Attempt { get; set; } = 0;
-        public int Success { get; set; } = 0;
-        public int Failure { get; set; } = 0;
+        public int Attempt { get; set; }
+        public int Success { get; set; }
+        public int Failure { get; set; }
         public decimal SuccessPercentage => CalculatePercentage( Success, Attempt );
         public decimal FailurePercentage => CalculatePercentage( Failure, Attempt );
         internal List<int> SleepTimers { get; } = new( );

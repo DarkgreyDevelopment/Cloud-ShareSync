@@ -16,9 +16,9 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
             HttpRequestMessage requestMessage = new( method, uri );
             // Add Authorization Headers
-            requestMessage.Headers.TryAddWithoutValidation( "Authorization", credentials );
+            _ = requestMessage.Headers.TryAddWithoutValidation( "Authorization", credentials );
             // Add UserAgent Headers
-            requestMessage.Headers.TryAddWithoutValidation( "UserAgent", BackBlazeUserAgent );
+            _ = requestMessage.Headers.TryAddWithoutValidation( "UserAgent", BackBlazeUserAgent );
 
             return requestMessage;
         }
@@ -83,23 +83,41 @@ namespace Cloud_ShareSync.Core.SharedServices {
             List<KeyValuePair<string, string>> contentHeaders
         ) {
 
-            KeyValuePair<string, string> contentType = contentHeaders
-                                                        .Where( x => x.Key == "ContentType" )?
-                                                        .FirstOrDefault( ) ?? new( "", "" );
-
-            if (string.IsNullOrWhiteSpace( contentType.Value ) == false &&
-                request.Content?.Headers.ContentType != null
-            ) {
-                request.Content.Headers.ContentType = new MediaTypeHeaderValue( contentType.Value );
-                if (contentHeaders.Contains( contentType ))
-                    contentHeaders.Remove( contentType );
-            }
+            KeyValuePair<string, string> contentType = GetContentTypeHeader( contentHeaders );
+            SetContentTypeHeader(
+                contentType,
+                request,
+                contentHeaders
+            );
 
             foreach (KeyValuePair<string, string> header in contentHeaders) {
                 request.Content?.Headers.Add( header.Key, header.Value );
             }
 
             return request;
+        }
+
+        private static KeyValuePair<string, string> GetContentTypeHeader(
+            List<KeyValuePair<string, string>> contentHeaders
+        ) {
+            return contentHeaders
+                    .Where( x => x.Key == "ContentType" )?
+                    .FirstOrDefault( )
+                    ?? new( "", "" );
+        }
+
+        private static void SetContentTypeHeader(
+            KeyValuePair<string, string> contentType,
+            HttpRequestMessage request,
+            List<KeyValuePair<string, string>> contentHeaders
+        ) {
+            if (string.IsNullOrWhiteSpace( contentType.Value ) == false &&
+                request.Content?.Headers.ContentType != null
+            ) {
+                request.Content.Headers.ContentType = new MediaTypeHeaderValue( contentType.Value );
+                if (contentHeaders.Contains( contentType ))
+                    _ = contentHeaders.Remove( contentType );
+            }
         }
 
     }

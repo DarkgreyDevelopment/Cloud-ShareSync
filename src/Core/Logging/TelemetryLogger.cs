@@ -89,7 +89,7 @@ namespace Cloud_ShareSync.Core.Logging {
                         }
 
                         _ = XmlConfigurator.Configure(
-                            LogManager.GetRepository( Assembly.GetEntryAssembly( ) ),
+                            _loggerRepository,
                             new FileInfo( config.ConfigurationFile )
                         );
 
@@ -288,63 +288,101 @@ namespace Cloud_ShareSync.Core.Logging {
         }
 
         private static List<ColoredConsoleAppender.LevelColors> CreateMappingsList( Level[] requestedLogLevels ) {
-
             List<ColoredConsoleAppender.LevelColors> map = new( );
             foreach (Level level in requestedLogLevels) {
-                switch (true) {
-                    case true when level == Level.Fatal:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.White,
-                                BackColor = ColoredConsoleAppender.Colors.Red,
-                                Level = Level.Fatal
-                            }
-                        );
-                        break;
-                    case true when level == Level.Error:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.Red,
-                                Level = Level.Error
-                            }
-                        );
-                        break;
-                    case true when level == Level.Warn:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.Yellow,
-                                Level = Level.Warn
-                            }
-                        );
-                        break;
-                    case true when level == Level.Info:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.Green,
-                                Level = Level.Info
-                            }
-                        );
-                        break;
-                    case true when level == Level.Debug:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.Blue,
-                                Level = Level.Debug
-                            }
-                        );
-                        break;
-                    case true when level == TelemetryLogLevelExtension.TelemetryLevel:
-                        map.Add(
-                            new ColoredConsoleAppender.LevelColors {
-                                ForeColor = ColoredConsoleAppender.Colors.White,
-                                Level = TelemetryLogLevelExtension.TelemetryLevel
-                            }
-                        );
-                        break;
-                }
+                GetFatalColor( level, map );
+                GetErrorColor( level, map );
+                GetWarnColor( level, map );
+                GetInfoColor( level, map );
+                GetDebugColor( level, map );
+                GetTelemetryColor( level, map );
             }
-
             return map;
+        }
+
+        private static void GetFatalColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == Level.Fatal) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.White,
+                        BackColor = ColoredConsoleAppender.Colors.Red,
+                        Level = Level.Fatal
+                    }
+                );
+            }
+        }
+
+        private static void GetErrorColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == Level.Error) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.Red,
+                        Level = Level.Error
+                    }
+                );
+            }
+        }
+
+        private static void GetWarnColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == Level.Warn) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.Yellow,
+                        Level = Level.Warn
+                    }
+                );
+            }
+        }
+
+        private static void GetInfoColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == Level.Info) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.Green,
+                        Level = Level.Info
+                    }
+                );
+            }
+        }
+
+        private static void GetDebugColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == Level.Debug) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.Blue,
+                        Level = Level.Debug
+                    }
+                );
+            }
+        }
+
+        private static void GetTelemetryColor(
+            Level level,
+            List<ColoredConsoleAppender.LevelColors> map
+        ) {
+            if (level == TelemetryLogLevelExtension.TelemetryLevel) {
+                map.Add(
+                    new ColoredConsoleAppender.LevelColors {
+                        ForeColor = ColoredConsoleAppender.Colors.White,
+                        Level = TelemetryLogLevelExtension.TelemetryLevel
+                    }
+                );
+            }
         }
 
         private static RollingFileAppender NewRollingFileAppender(
@@ -391,16 +429,22 @@ namespace Cloud_ShareSync.Core.Logging {
 
         public bool IsEnabled( LogLevel logLevel ) {
             return logLevel switch {
-                LogLevel.Critical => ILog?.IsFatalEnabled ?? false,
-                LogLevel.Error => ILog?.IsErrorEnabled ?? false,
-                LogLevel.Warning => ILog?.IsWarnEnabled ?? false,
-                LogLevel.Information => ILog?.IsInfoEnabled ?? false,
-                LogLevel.Debug => ILog?.IsDebugEnabled ?? false,
-                LogLevel.Trace => ILog?.IsDebugEnabled ?? false,
+                LogLevel.Critical => IsFatalEnabled( ),
+                LogLevel.Error => IsErrorEnabled( ),
+                LogLevel.Warning => IsWarnEnabled( ),
+                LogLevel.Information => IsInfoEnabled( ),
+                LogLevel.Debug => IsDebugEnabled( ),
+                LogLevel.Trace => IsDebugEnabled( ),
                 LogLevel.None => false,
                 _ => throw new ArgumentOutOfRangeException( nameof( logLevel ) )
             };
         }
+
+        private bool IsFatalEnabled( ) { return ILog?.IsFatalEnabled ?? false; }
+        private bool IsErrorEnabled( ) { return ILog?.IsErrorEnabled ?? false; }
+        private bool IsWarnEnabled( ) { return ILog?.IsWarnEnabled ?? false; }
+        private bool IsInfoEnabled( ) { return ILog?.IsInfoEnabled ?? false; }
+        private bool IsDebugEnabled( ) { return ILog?.IsDebugEnabled ?? false; }
 
         public void Log<TState>(
             LogLevel logLevel,
@@ -409,36 +453,33 @@ namespace Cloud_ShareSync.Core.Logging {
             Exception? exception,
             Func<TState, Exception?, string> formatter
         ) {
-            if (IsEnabled( logLevel ) == false) { return; }
-
-            if (formatter == null) { throw new ArgumentNullException( nameof( formatter ) ); }
+            if (ILog == null || IsEnabled( logLevel ) == false) { return; }
 
             string message = $"{formatter( state, exception )} {exception}";
 
-            if (!string.IsNullOrEmpty( message ) || exception != null) {
-                switch (logLevel) {
-                    case LogLevel.Critical:
-                        ILog?.Fatal( message );
-                        break;
-                    case LogLevel.Error:
-                        ILog?.Error( message );
-                        break;
-                    case LogLevel.Warning:
-                        ILog?.Warn( message );
-                        break;
-                    case LogLevel.Information:
-                        ILog?.Info( message );
-                        break;
-                    case LogLevel.Debug:
-                    case LogLevel.Trace:
-                        ILog?.Debug( message );
-                        break;
-                    default:
-                        ILog?.Warn( $"Encountered unknown log level {logLevel}, writing out as Info." );
-                        ILog?.Info( message, exception );
-                        break;
-                }
+            if (string.IsNullOrEmpty( message ) == false) {
+                WriteFatalMessage( ILog, logLevel, message );
+                WriteErrorMessage( ILog, logLevel, message );
+                WriteWarnMessage( ILog, logLevel, message );
+                WriteInfoMessage( ILog, logLevel, message );
+                WriteDebugMessage( ILog, logLevel, message );
             }
+        }
+
+        private static void WriteFatalMessage( ILog log, LogLevel level, string message ) {
+            if (level == LogLevel.Critical) { log.Fatal( message ); }
+        }
+        private static void WriteErrorMessage( ILog log, LogLevel level, string message ) {
+            if (level == LogLevel.Error) { log.Error( message ); }
+        }
+        private static void WriteWarnMessage( ILog log, LogLevel level, string message ) {
+            if (level == LogLevel.Warning) { log.Warn( message ); }
+        }
+        private static void WriteInfoMessage( ILog log, LogLevel level, string message ) {
+            if (level == LogLevel.Information) { log.Info( message ); }
+        }
+        private static void WriteDebugMessage( ILog log, LogLevel level, string message ) {
+            if (level == LogLevel.Trace || level == LogLevel.Debug) { log.Debug( message ); }
         }
 
         #endregion ILogger Additions

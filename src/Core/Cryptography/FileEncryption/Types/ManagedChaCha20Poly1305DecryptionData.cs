@@ -69,57 +69,57 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption.Types {
         }
 
         internal static ManagedChaCha20Poly1305DecryptionData Deserialize( FileInfo keyFile ) {
-            if (File.Exists( keyFile.FullName )) {
-                // Read KeyFile
-                string? json = File.ReadAllText( keyFile.FullName );
 
-                // Parse JsonDocument
-                using JsonDocument document = JsonDocument.Parse( json );
-                JsonElement root = document.RootElement;
+            // Read KeyFile
+            string json = File.ReadAllText( keyFile.FullName );
 
-                // Interpret Key
-                string? key = null;
-                if (root.TryGetProperty( nameof( KeyBytes ), out JsonElement keyElement )) {
-                    key = keyElement.GetString( );
+            // Parse JsonDocument
+            using JsonDocument document = JsonDocument.Parse( json );
+            JsonElement root = document.RootElement;
+
+            string key = DeserializeKeyData( root );
+
+            // Interpret KeyNoteList's
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> decryptionPairs = new( );
+            if (root.TryGetProperty( nameof( KeyNoteList ), out JsonElement keyNoteList )) {
+                int ntpCount = 0;
+                foreach (JsonElement keyNote in keyNoteList.EnumerateArray( )) {
+                    AddNonceTagPairToList( keyNote, decryptionPairs, ntpCount );
+                    ntpCount++;
                 }
+            }
 
-                // Interpret KeyNoteList's
-                List<ManagedChaCha20Poly1305DecryptionKeyNote> decryptionPairs = new( );
-                if (root.TryGetProperty( nameof( KeyNoteList ), out JsonElement keyNote )) {
+            return (decryptionPairs.Count > 0) ?
+                new ManagedChaCha20Poly1305DecryptionData( key, decryptionPairs ) :
+                throw new ArgumentOutOfRangeException( nameof( keyFile ), "Invalid Keyfile. No decryption keynotes found." );
+        }
 
-                    int ntpCount = 0;
-                    foreach (JsonElement kn in keyNote.EnumerateArray( )) {
-                        string? nonce = null;
-                        string? tag = null;
-                        int? order = null;
+        private static string DeserializeKeyData( JsonElement root ) {
+            // Interpret Key
+            string? key = null;
+            if (root.TryGetProperty( nameof( KeyBytes ), out JsonElement keyElement )) {
+                key = keyElement.GetString( );
+            }
+            return key ?? throw new Exception( "Unable to deserialize key from keyfile." );
+        }
 
-                        if (kn.TryGetProperty( "Nonce", out JsonElement nonceElement )) { nonce = nonceElement.GetString( ); }
-                        if (kn.TryGetProperty( "Tag", out JsonElement tagElement )) { tag = tagElement.GetString( ); }
-                        if (kn.TryGetProperty( "Order", out JsonElement orderElement )) { order = orderElement.GetInt32( ); }
+        private static void AddNonceTagPairToList(
+            JsonElement keyNote,
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> decryptionPairs,
+            int ntpCount
+        ) {
+            _ = keyNote.TryGetProperty( "Nonce", out JsonElement nonceElement );
+            _ = keyNote.TryGetProperty( "Tag", out JsonElement tagElement );
+            _ = keyNote.TryGetProperty( "Order", out JsonElement orderElement );
 
-                        if (
-                            nonce != null &&
-                            tag != null &&
-                            order != null
-                        ) {
-                            decryptionPairs.Add( new( nonce, tag, (int)order ) );
-                        } else {
-                            throw new ArgumentOutOfRangeException(
-                                nameof( keyFile ),
-                                $"KeyNoteList[{ntpCount}] Is Invalid. Invalid Keyfile."
-                            );
-                        }
+            string? nonce = nonceElement.GetString( );
+            string? tag = tagElement.GetString( );
+            int? order = orderElement.GetInt32( );
 
-                        ntpCount++;
-                    }
-                }
-
-                return (key != null && decryptionPairs.Count > 0) ?
-                    new ManagedChaCha20Poly1305DecryptionData( key, decryptionPairs ) :
-                    throw new ArgumentOutOfRangeException( nameof( keyFile ), "Invalid Keyfile." );
-
+            if (nonce != null && tag != null && order != null) {
+                decryptionPairs.Add( new( nonce, tag, (int)order ) );
             } else {
-                throw new ArgumentException( "KeyFile doesn't exist.", nameof( keyFile ) );
+                throw new Exception( $"KeyNoteList[{ntpCount}] Is Invalid. Invalid Keyfile." );
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cloud_ShareSync.Core.Configuration.Enums;
 
@@ -9,9 +8,6 @@ namespace Cloud_ShareSync.Core.Configuration.Types.Logging {
     /// Configuration values for the built in rolling log file process.
     /// </summary>
     public class DefaultLogConfig {
-        private static readonly string s_assemblyPath = Directory.GetParent(
-                                                Assembly.GetExecutingAssembly( ).Location
-                                             )?.FullName ?? "";
         /// <summary>
         /// <para>
         /// The file name and extension for the primary rolling log file.
@@ -32,7 +28,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types.Logging {
         /// </para>
         /// Default value is the applications root directory.
         /// </summary>
-        public string LogDirectory { get; set; } = s_assemblyPath;
+        public string LogDirectory { get; set; } = Path.Join( AppContext.BaseDirectory, "log" );
 
         /// <summary>
         /// <para>

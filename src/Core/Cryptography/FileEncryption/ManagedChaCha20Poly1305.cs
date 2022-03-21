@@ -234,7 +234,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             // Validate Input
             if (File.Exists( keyFile.FullName ) == false) {
                 activity?.Stop( );
-                throw new ArgumentException( $"KeyFile \"{keyFile.FullName}\" doesn't exist.", nameof( keyFile ) );
+                throw new FileNotFoundException( $"KeyFile \"{keyFile.FullName}\" doesn't exist." );
             }
 
             await Decrypt( ManagedChaCha20Poly1305DecryptionData.Deserialize( keyFile ), cypherTxtFile, plaintextFile );
@@ -376,7 +376,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 10240,
                 FileOptions.Asynchronous
             );
-            outputFS.Seek( 0, SeekOrigin.End );
+            _ = outputFS.Seek( 0, SeekOrigin.End );
             await outputFS.WriteAsync( data.AsMemory( 0, data.Length ) );
 
             activity?.Stop( );
@@ -406,8 +406,8 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 FileOptions.Asynchronous
             );
             // Read File from offset
-            inputFS.Seek( offset, SeekOrigin.Begin );
-            await inputFS.ReadAsync( data.AsMemory( 0, data.Length ) );
+            _ = inputFS.Seek( offset, SeekOrigin.Begin );
+            _ = await inputFS.ReadAsync( data.AsMemory( 0, data.Length ) );
 
             activity?.Stop( );
             return data;

@@ -12,36 +12,36 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
     public class HostProvider {
         private static readonly ActivitySource s_source = new( "HostProvider" );
 
-        public static IHost ConfigureHost( ILogger? log, string[] args, CompleteConfig config ) {
+        public static IHost ConfigureHost( ILogger? log, string[] args, CompleteConfig config, ConfigManager cfgMgr ) {
             using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
             if (config?.Database == null) {
                 throw new ApplicationException( );
             }
             IHostBuilder builder = Host.CreateDefaultBuilder( args )
                                     .ConfigureServices( services => {
-                                        services.Configure<DatabaseConfig>( ConfigManager.GetDatabase( ) );
-                                        services.AddSingleton( _ => config.Database );
-                                        services.Configure<CompressionConfig?>( ConfigManager.GetCompression( ) );
+                                        _ = services.Configure<DatabaseConfig>( cfgMgr.GetDatabase( ) );
+                                        _ = services.AddSingleton( _ => config.Database );
+                                        _ = services.Configure<CompressionConfig?>( cfgMgr.GetCompression( ) );
                                         _ = services.AddSingleton( _ => config.Compression ?? new( ) { DependencyPath = "" } );
                                         if (config.BackBlaze != null) {
-                                            services.Configure<B2Config>( ConfigManager.GetBackBlazeB2( ) );
-                                            services.AddSingleton( _ => config.BackBlaze );
+                                            _ = services.Configure<B2Config>( cfgMgr.GetBackBlazeB2( ) );
+                                            _ = services.AddSingleton( _ => config.BackBlaze );
                                         }
                                         if (config.Backup != null) {
-                                            services.Configure<BackupConfig>( ConfigManager.GetSimpleBackup( ) );
-                                            services.AddSingleton( _ => config.Backup );
-                                            services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
-                                            services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
+                                            _ = services.Configure<BackupConfig>( cfgMgr.GetSimpleBackup( ) );
+                                            _ = services.AddSingleton( _ => config.Backup );
+                                            _ = services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
+                                            _ = services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
                                         }
                                     } );
 
             if (log != null) {
                 log.LogInformation( "Configuring host logging." );
 
-                builder.ConfigureLogging( logging => {
-                    logging.ClearProviders( );
-                    logging.SetMinimumLevel( GetMinimumLogLevel( log ) );
-                    logging.AddProvider( new Log4NetProvider( log ) );
+                _ = builder.ConfigureLogging( logging => {
+                    _ = logging.ClearProviders( );
+                    _ = logging.SetMinimumLevel( GetMinimumLogLevel( log ) );
+                    _ = logging.AddProvider( new Log4NetProvider( log ) );
                 } );
             }
             IHost host = builder.Build( );

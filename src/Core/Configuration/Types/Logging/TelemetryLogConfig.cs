@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Cloud_ShareSync.Core.Configuration.Types.Logging {
 #nullable disable
@@ -7,9 +6,6 @@ namespace Cloud_ShareSync.Core.Configuration.Types.Logging {
     /// Configuration values for the built in rolling telemetry log file process.
     /// </summary>
     public class TelemetryLogConfig {
-        private static readonly string s_assemblyPath = Directory.GetParent(
-                                        Assembly.GetExecutingAssembly( ).Location
-                                     )?.FullName ?? "";
         /// <summary>
         /// <para>
         /// The file name and extension for the telemetry rolling log file.
@@ -28,9 +24,9 @@ namespace Cloud_ShareSync.Core.Configuration.Types.Logging {
         /// The path, either relative or complete, to the directory
         /// where the rolling log files should be output.
         /// </para>
-        /// Default value is the applications root directory.
+        /// The default places files under applicationroot/log.
         /// </summary>
-        public string LogDirectory { get; set; } = s_assemblyPath;
+        public string LogDirectory { get; set; } = Path.Join( AppContext.BaseDirectory, "log" );
 
         /// <summary>
         /// <para>

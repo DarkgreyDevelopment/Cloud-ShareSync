@@ -39,7 +39,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             _log = log;
             _fileHash = new( _log );
             _services = ConfigManager.ConfigureDatabaseService( databaseConfig, _log );
-            _semaphore.Release( 1 );
+            _ = _semaphore.Release( 1 );
             _backBlaze = new( backblazeConfig, _log );
             _rootFolder = backupConfig.RootFolder;
             _lastRetrieved = DateTime.Now.AddMinutes( -5 );
@@ -61,7 +61,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             // Add unmatched before matched.
             foreach (PrepItem item in unMatched) {
                 s_queue.Enqueue( item );
-                list.Remove( item );
+                _ = list.Remove( item );
             }
             foreach (PrepItem item in list) { s_queue.Enqueue( item ); }
 
@@ -117,11 +117,11 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
 
             int count = 0;
             foreach (PrimaryTable rec in dbRecords) {
-                PrepItem? item = list.Where(
+                PrepItem? item = list.FirstOrDefault(
                     e =>
-                    e.UploadFile.Name == rec.FileName &&
-                    e.UploadPath == rec.RelativeUploadPath
-                ).FirstOrDefault( );
+                        e.UploadFile.Name == rec.FileName &&
+                        e.UploadPath == rec.RelativeUploadPath
+                );
 
                 if (item != null) {
                     item.CoreData = rec;
@@ -152,11 +152,11 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
 
             int count = 0;
             foreach (BackBlazeB2Table rec in dbRecords) {
-                PrepItem? item = list.Where(
+                PrepItem? item = list.FirstOrDefault(
                     e =>
-                    e.CoreData?.Id != null &&
-                    e.CoreData.Id == rec.Id
-                ).FirstOrDefault( );
+                        e.CoreData?.Id != null &&
+                        e.CoreData.Id == rec.Id
+                );
 
                 if (item != null) {
                     item.BackBlazeData = rec;
@@ -225,7 +225,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             string startFileName = string.IsNullOrWhiteSpace( item.CoreData.RelativeUploadPath ) ?
                     item.CoreData.FileName : item.CoreData.RelativeUploadPath;
 
-            B2FileResponse? b2Resp = fileResponse.Where( e => e.fileId == item.BackBlazeData.FileID ).FirstOrDefault( );
+            B2FileResponse? b2Resp = fileResponse.FirstOrDefault( e => e.fileId == item.BackBlazeData.FileID );
 
             if (b2Resp == null) {
                 _log.LogInformation(
@@ -298,8 +298,8 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             };
 
             SqliteContext sqliteContext = GetSqliteContext( );
-            sqliteContext.Add( result );
-            sqliteContext.SaveChanges( );
+            _ = sqliteContext.Add( result );
+            _ = sqliteContext.SaveChanges( );
             ReleaseSqliteContext( );
 
             activity?.Stop( );
@@ -326,7 +326,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             return result;
         }
 
-        private void ReleaseSqliteContext( ) { _semaphore.Release( ); }
+        private void ReleaseSqliteContext( ) { _ = _semaphore.Release( ); }
 
         #endregion PrivateMethods
     }

@@ -24,8 +24,6 @@ jobs:
           echo "Job status: ${{ job.status }}"
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: List files in the repository
-        run:  ls ${{ github.workspace }}
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
@@ -40,6 +38,11 @@ jobs:
             Verbose     = $true
           }
           & $BuildScript @Params
-          Get-ChildItem -Path $Params['PUBLISHPATH'] | Select-Object -Property Name,Size | Format-List | Out-String
+
+          # Write out what was built.
+          Get-ChildItem -Path $Params['PUBLISHPATH'] -recurse
+          | Select-Object -Property Name,Size
+          | Format-List
+          | Write-Host
       - run: |
           echo "Job status: ${{ job.status }}"

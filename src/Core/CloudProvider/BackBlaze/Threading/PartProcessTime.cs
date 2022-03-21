@@ -7,7 +7,7 @@
 
         private readonly Dictionary<DateTime, DateTime?> _processTimes;
 
-        public TimeSpan? _processTime = null;
+        public TimeSpan? _processTime;
 
         public PartProcessTime( int partNumber ) {
             PartNumber = partNumber;

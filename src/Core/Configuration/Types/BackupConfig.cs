@@ -3,17 +3,14 @@
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     public class BackupConfig {
-        /// <summary>
-        /// 
-        /// </summary>
         public string RootFolder { get; set; }
         public string[] ExcludePaths { get; set; } = Array.Empty<string>( );
-        public string WorkingDirectory { get; set; }
-        public bool MonitorSubDirectories { get; set; } = true;
-        public bool EncryptBeforeUpload { get; set; } = false;
-        public bool CompressBeforeUpload { get; set; } = false;
-        public bool UniqueCompressionPasswords { get; set; } = false;
-        public bool ObfuscateUploadedFileNames { get; set; } = false;
+        public string WorkingDirectory { get; set; } = "";
+        public bool Recurse { get; set; } = true;
+        public bool EncryptBeforeUpload { get; set; }
+        public bool CompressBeforeUpload { get; set; }
+        public bool UniqueCompressionPasswords { get; set; }
+        public bool ObfuscateUploadedFileNames { get; set; }
 
         /// <summary>
         /// Returns the <see cref="BackupConfig"/> as a json string.

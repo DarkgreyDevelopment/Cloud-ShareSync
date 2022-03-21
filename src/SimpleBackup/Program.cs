@@ -17,10 +17,11 @@ namespace Cloud_ShareSync.SimpleBackup {
             ILogger? log = null;
             try {
                 // Get config values.
-                CompleteConfig config = ConfigManager.GetConfiguration( args );
+                ConfigManager cfgMgr = new( args );
+                CompleteConfig config = cfgMgr.BuildConfiguration( );
 
                 // Enable logging and telemetry 
-                log = ConfigManager.ConfigureTelemetryLogger( config.Log4Net, Array.Empty<string>( ) );
+                log = ConfigManager.CreateTelemetryLogger( config.Log4Net, Array.Empty<string>( ) );
                 using Activity? activity = s_source.StartActivity( "Main" )?.Start( );
                 ConfigManager.ValidateConfigSet( config, false, true, log );
                 if (config?.Backup == null) {
@@ -30,7 +31,7 @@ namespace Cloud_ShareSync.SimpleBackup {
                 }
                 List<string> fileList = PopulateFileList( config.Backup, log );
 
-                IHost host = HostProvider.ConfigureHost( log, args, config );
+                IHost host = HostProvider.ConfigureHost( log, args, config, cfgMgr );
 
                 await RunSimpleBackupProcess( host, fileList, log );
 
@@ -52,7 +53,11 @@ namespace Cloud_ShareSync.SimpleBackup {
 
             Regex[] excludePatterns = BuildExcludeRegexArray( config.ExcludePaths );
 
-            IEnumerable<string> files = EnumerateRootFolder( config, log );
+            SearchOption search = config.Recurse ?
+                        SearchOption.AllDirectories :
+                        SearchOption.TopDirectoryOnly;
+
+            IEnumerable<string> files = EnumerateRootFolder( config, search, log );
             List<string> fileList = new( );
 
             log?.LogInformation( "Building file upload queue." );
@@ -95,23 +100,29 @@ namespace Cloud_ShareSync.SimpleBackup {
 
         private static IEnumerable<string> EnumerateRootFolder(
             BackupConfig config,
+            SearchOption search,
             ILogger? log = null
         ) {
             using Activity? activity = s_source.StartActivity( "EnumerateRootFolder" )?.Start( );
 
-            string txt = config.MonitorSubDirectories ? " recursively " : " ";
-            log?.LogInformation( "Populating file list{string}from root folder '{string}'.", txt, config.RootFolder );
+            log?.LogInformation(
+                "Populating file list from root folder '{string}'.",
+                config.RootFolder
+            );
 
             IEnumerable<string> files = config.RootFolder == null ?
                 Enumerable.Empty<string>( ) :
                 Directory.EnumerateFiles(
                     config.RootFolder,
                     "*",
-                    config.MonitorSubDirectories ?
-                        SearchOption.AllDirectories :
-                        SearchOption.TopDirectoryOnly
+                    search
                 );
-            log?.LogInformation( "Discovered {int} files under '{string}'.", files.Count( ), config.RootFolder );
+
+            log?.LogInformation(
+                "Discovered {int} files under '{string}'.",
+                files.Count( ),
+                config.RootFolder
+            );
 
             activity?.Stop( );
             return files;

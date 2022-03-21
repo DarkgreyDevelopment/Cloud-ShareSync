@@ -1,11 +1,18 @@
 ﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class AuthProcessData {
-        internal string? AccountId { get; set; }
-        internal string? ApiUrl { get; set; }
-        internal string? S3ApiUrl { get; set; }
-        internal string? DownloadUrl { get; set; }
-        internal int? RecommendedPartSize { get; set; }
-        internal int? AbsoluteMinimumPartSize { get; set; }
+        private static readonly NullReferenceException s_accountId = new( nameof( AccountId ) );
+        private static readonly NullReferenceException s_apiUrl = new( nameof( ApiUrl ) );
+        private static readonly NullReferenceException s_s3ApiUrl = new( nameof( S3ApiUrl ) );
+        private static readonly NullReferenceException s_downloadUrl = new( nameof( DownloadUrl ) );
+        private static readonly NullReferenceException s_recommendedPartSize = new( nameof( RecommendedPartSize ) );
+        private static readonly NullReferenceException s_absoluteMinimumPartSize = new( nameof( AbsoluteMinimumPartSize ) );
+
+        internal string AccountId { get; set; }
+        internal string ApiUrl { get; set; }
+        internal string S3ApiUrl { get; set; }
+        internal string DownloadUrl { get; set; }
+        internal int RecommendedPartSize { get; set; }
+        internal int AbsoluteMinimumPartSize { get; set; }
 
         internal AuthProcessData(
             string? accountId,
@@ -15,60 +22,52 @@
             int? recommendedPartSize,
             int? absoluteMinimumPartSize
         ) {
-            AccountId = accountId;
-            ApiUrl = apiUrl;
-            S3ApiUrl = s3ApiUrl;
-            DownloadUrl = downloadUrl;
-            RecommendedPartSize = recommendedPartSize;
-            AbsoluteMinimumPartSize = absoluteMinimumPartSize;
+            AccountId = ValidateAccountID( accountId );
+            ApiUrl = ValidateApiUrl( apiUrl );
+            S3ApiUrl = ValidateS3ApiUrl( s3ApiUrl );
+            DownloadUrl = ValidateDownloadUrl( downloadUrl );
+            RecommendedPartSize = ValidateRecommendedPartSize( recommendedPartSize );
+            AbsoluteMinimumPartSize = ValidateAbsoluteMinimumPartSize( absoluteMinimumPartSize );
         }
 
-        internal AuthProcessData( ) {
-            AccountId = null;
-            ApiUrl = null;
-            S3ApiUrl = null;
-            DownloadUrl = null;
-            RecommendedPartSize = null;
-            AbsoluteMinimumPartSize = null;
-        }
+        private static string ValidateAccountID( string? accountId ) =>
+            accountId ?? throw new InvalidB2Response(
+                    B2.AuthorizationURI,
+                    s_accountId
+                );
 
-        internal void ValidateNotNull( ) {
-            if (AccountId == null) {
+        private static string ValidateApiUrl( string? apiUrl ) =>
+            apiUrl ?? throw new InvalidB2Response(
+                    B2.AuthorizationURI,
+                    s_apiUrl
+                );
+
+        private static string ValidateS3ApiUrl( string? s3ApiUrl ) =>
+            s3ApiUrl ?? throw new InvalidB2Response(
+                    B2.AuthorizationURI,
+                    s_s3ApiUrl
+                );
+
+        private static string ValidateDownloadUrl( string? downloadUrl ) =>
+            downloadUrl ?? throw new InvalidB2Response(
+                    B2.AuthorizationURI,
+                    s_downloadUrl
+                );
+
+        private static int ValidateRecommendedPartSize( int? recommendedPartSize ) =>
+            recommendedPartSize is not null and not 0 ?
+                (int)recommendedPartSize :
                 throw new InvalidB2Response(
                     B2.AuthorizationURI,
-                    new NullReferenceException( nameof( AccountId ) )
+                    s_recommendedPartSize
                 );
-            }
-            if (ApiUrl == null) {
+
+        private static int ValidateAbsoluteMinimumPartSize( int? absoluteMinimumPartSize ) =>
+            absoluteMinimumPartSize != null ?
+                (int)absoluteMinimumPartSize :
                 throw new InvalidB2Response(
                     B2.AuthorizationURI,
-                    new NullReferenceException( nameof( ApiUrl ) )
+                    s_absoluteMinimumPartSize
                 );
-            }
-            if (S3ApiUrl == null) {
-                throw new InvalidB2Response(
-                    B2.AuthorizationURI,
-                    new NullReferenceException( nameof( S3ApiUrl ) )
-                );
-            }
-            if (DownloadUrl == null) {
-                throw new InvalidB2Response(
-                    B2.AuthorizationURI,
-                    new NullReferenceException( nameof( DownloadUrl ) )
-                );
-            }
-            if (RecommendedPartSize == null || RecommendedPartSize == 0) {
-                throw new InvalidB2Response(
-                    B2.AuthorizationURI,
-                    new NullReferenceException( nameof( RecommendedPartSize ) )
-                );
-            }
-            if (AbsoluteMinimumPartSize == null) {
-                throw new InvalidB2Response(
-                    B2.AuthorizationURI,
-                    new NullReferenceException( nameof( AbsoluteMinimumPartSize ) )
-                );
-            }
-        }
     }
 }

@@ -14,7 +14,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
         public string FileId { get; set; } = "";
         public string UploadUrl { get; set; } = "";
         public string AuthorizationToken { get; set; } = "";
-        public long TotalBytesSent { get; set; } = 0;
+        public long TotalBytesSent { get; set; }
 
         public UploadB2File(
             FileInfo filePath,

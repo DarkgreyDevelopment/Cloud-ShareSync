@@ -5,7 +5,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
     internal class B2ProcessStats {
         private readonly ILogger? _log;
         private readonly DateTime _startTime;
-        private DateTime? _stopTime = null;
+        private DateTime? _stopTime;
 
         internal readonly long FileLength;
         internal double BytesPerMillisecond =>

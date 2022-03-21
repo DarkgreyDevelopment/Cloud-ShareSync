@@ -21,12 +21,12 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             ConcurrentStack<FilePartInfo> filePartQueue = new( );
             long lengthTotal = 0;
             // Populate the queue.
-            for (int i = 1; i <= threadDeets.TotalParts; i++) {
-                int partLength = i == threadDeets.TotalParts ? threadDeets.FinalSize : threadDeets.PartSize;
+            for (int i = 1; i <= threadDeets._totalParts; i++) {
+                int partLength = i == threadDeets._totalParts ? threadDeets._finalSize : threadDeets._partSize;
                 filePartQueue.Push( new FilePartInfo( i, partLength ) );
                 lengthTotal += partLength;
             }
-            if (lengthTotal != threadDeets.FileSize) {
+            if (lengthTotal != threadDeets._fileSize) {
                 _log?.LogCritical( $"filePartQueue part length total does not equal files length." );
                 throw new ApplicationException( "Failed to upload full file." );
             }
@@ -36,11 +36,11 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             _log?.LogInformation( "Uploading Large File Parts Async" );
             _log?.LogInformation(
                 "Splitting file into {int} {int} byte chunks and 1 {int} chunk.",
-                threadDeets.TotalParts - 1,
-                threadDeets.PartSize,
-                threadDeets.FinalSize
+                threadDeets._totalParts - 1,
+                threadDeets._partSize,
+                threadDeets._finalSize
             );
-            int taskTotal = threadCount > threadDeets.TotalParts ? threadDeets.TotalParts : threadCount;
+            int taskTotal = threadCount > threadDeets._totalParts ? threadDeets._totalParts : threadCount;
             _log?.LogInformation( "Chunks will be uploaded asyncronously via {int} upload streams.", taskTotal );
 
             List<Task<bool>> uploadTasks = new( );
@@ -49,7 +49,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
                 uploadTasks.Add(
                     UploadLargeFileParts(
                         uploadObject,
-                        threadDeets.PartSize,
+                        threadDeets._partSize,
                         resultsList,
                         filePartQueue,
                         thread,

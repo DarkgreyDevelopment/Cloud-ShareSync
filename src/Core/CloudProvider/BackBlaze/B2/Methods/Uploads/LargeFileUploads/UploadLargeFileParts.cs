@@ -24,7 +24,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             int errCount = 1;
             while (filePartQueue.IsEmpty == false) {
 
-                filePartQueue.TryPop( out FilePartInfo? partInfo );
+                _ = filePartQueue.TryPop( out FilePartInfo? partInfo );
                 if (partInfo == null) { continue; }
                 concurrencyStats.StartThread( thread, partInfo.PartNumber );
                 PartProcessTime partStats = new( partInfo.PartNumber );

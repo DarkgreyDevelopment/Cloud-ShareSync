@@ -5,7 +5,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
     internal class BackBlazeHttpClient {
 
-        HttpClient HttpClient { get; }
+        private HttpClient HttpClient { get; }
 
         public BackBlazeHttpClient( HttpClient client ) { HttpClient = client; }
 
@@ -14,7 +14,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
         public async Task<JsonElement> GetJsonResponse( HttpRequestMessage request ) {
 
             using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-            result.EnsureSuccessStatusCode( );
+            _ = result.EnsureSuccessStatusCode( );
 
             using Stream? contentstream = await result.Content.ReadAsStreamAsync( );
 
@@ -42,7 +42,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
             );
 
             using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-            result.EnsureSuccessStatusCode( );
+            _ = result.EnsureSuccessStatusCode( );
 
             using Stream? contentstream = await result.Content.ReadAsStreamAsync( );
 
@@ -66,7 +66,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
             );
 
             using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-            result.EnsureSuccessStatusCode( );
+            _ = result.EnsureSuccessStatusCode( );
         }
 
         #endregion Generic Methods
@@ -89,7 +89,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
             try {
                 using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-                result.EnsureSuccessStatusCode( );
+                _ = result.EnsureSuccessStatusCode( );
                 return null;
             } catch (HttpRequestException ex) {
                 return ex;
@@ -131,7 +131,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 request,
                 HttpCompletionOption.ResponseHeadersRead
             );
-            result.EnsureSuccessStatusCode( );
+            _ = result.EnsureSuccessStatusCode( );
 
             response = GetDownloadResponseValues( result, response );
 
@@ -159,19 +159,19 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
             if (headers.Any( )) {
                 KeyValuePair<string, IEnumerable<string>>? filenameHeader =
-                    headers.Where( e => e.Key == "x-bz-file-name" ).FirstOrDefault( );
+                    headers.FirstOrDefault( e => e.Key == "x-bz-file-name" );
                 if (filenameHeader != null) {
                     downloadResponse.FileName = filenameHeader.Value.Value.First( );
                 }
 
                 KeyValuePair<string, IEnumerable<string>>? fileidHeader =
-                    headers.Where( e => e.Key == "x-bz-file-id" ).FirstOrDefault( );
+                    headers.FirstOrDefault( e => e.Key == "x-bz-file-id" );
                 if (fileidHeader != null) {
                     downloadResponse.FileID = fileidHeader.Value.Value.First( );
                 }
 
                 KeyValuePair<string, IEnumerable<string>>? lastModifiedHeader =
-                    headers.Where( e => e.Key == "x-bz-info-src_last_modified_millis" ).FirstOrDefault( );
+                    headers.FirstOrDefault( e => e.Key == "x-bz-info-src_last_modified_millis" );
                 if (lastModifiedHeader != null) {
                     downloadResponse.LastModified = DateTimeOffset.FromUnixTimeMilliseconds(
                                                 long.Parse( lastModifiedHeader.Value.Value.First( ) )
@@ -179,13 +179,13 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 }
 
                 KeyValuePair<string, IEnumerable<string>>? sha1contentHeader =
-                    headers.Where( e => e.Key == "x-bz-content-sha1" ).FirstOrDefault( );
+                    headers.FirstOrDefault( e => e.Key == "x-bz-content-sha1" );
                 if (sha1contentHeader != null) {
                     downloadResponse.Sha1FileHash = sha1contentHeader.Value.Value.First( );
                 }
 
                 KeyValuePair<string, IEnumerable<string>>? sha512contentHeader =
-                    headers.Where( e => e.Key == "x-bz-info-sha512_filehash" ).FirstOrDefault( );
+                    headers.FirstOrDefault( e => e.Key == "x-bz-info-sha512_filehash" );
                 if (sha512contentHeader != null) {
                     downloadResponse.Sha512FileHash = sha512contentHeader.Value.Value.First( );
                 }
@@ -205,7 +205,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
                                         );
 
             using HttpResponseMessage? result = await HttpClient.SendAsync( request );
-            result.EnsureSuccessStatusCode( );
+            _ = result.EnsureSuccessStatusCode( );
 
             // Send Auth Request & Read Response.
             using Stream? contentstream = await result.Content.ReadAsStreamAsync( );
@@ -229,7 +229,6 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 root.GetProperty( "recommendedPartSize" ).GetInt32( ),
                 root.GetProperty( "absoluteMinimumPartSize" ).GetInt32( )
             );
-            authProcessData.ValidateNotNull( );
 
             string? authorizationToken = root.GetProperty( "authorizationToken" ).GetString( );
             return new( authProcessData, authorizationToken );

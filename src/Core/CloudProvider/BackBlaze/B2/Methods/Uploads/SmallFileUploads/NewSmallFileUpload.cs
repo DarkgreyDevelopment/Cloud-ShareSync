@@ -22,9 +22,9 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             // Create Initial Request
             HttpRequestMessage request = new( HttpMethod.Post, uploadObject.UploadUrl );
             // Add Authorization Headers
-            request.Headers.TryAddWithoutValidation( "Authorization", uploadObject.AuthorizationToken );
+            _ = request.Headers.TryAddWithoutValidation( "Authorization", uploadObject.AuthorizationToken );
             // Add UserAgent Headers
-            request.Headers.TryAddWithoutValidation( "UserAgent", UserAgent );
+            _ = request.Headers.TryAddWithoutValidation( "UserAgent", UserAgent );
             // Create request content
             request.Content = new ByteArrayContent( data );
             // Set request Content-Type

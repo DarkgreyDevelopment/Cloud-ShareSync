@@ -23,8 +23,8 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         public int Completed => _completed.Count;
         private readonly List<int> _completed;
 
-        public int HighWaterActive { get; private set; } = 0;
-        public int HighWaterSleeping { get; private set; } = 0;
+        public int HighWaterActive { get; private set; }
+        public int HighWaterSleeping { get; private set; }
 
         private readonly ILogger? _log;
 
@@ -92,7 +92,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         private void RemoveStarted( int thread ) {
             lock (_lock) {
                 if (_started.Contains( thread )) {
-                    _started.Remove( thread );
+                    _ = _started.Remove( thread );
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         private void RemoveActive( int thread ) {
             lock (_lock) {
                 if (_active.Contains( thread )) {
-                    _active.Remove( thread );
+                    _ = _active.Remove( thread );
                 }
             }
         }
@@ -108,7 +108,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         private void RemoveSleeping( int thread ) {
             lock (_lock) {
                 if (_sleeping.Contains( thread )) {
-                    _sleeping.Remove( thread );
+                    _ = _sleeping.Remove( thread );
                 }
             }
         }

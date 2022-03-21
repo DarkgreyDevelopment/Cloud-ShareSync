@@ -1,54 +1,63 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyName>Cloud-ShareSync</AssemblyName>
+        <RootNamespace>Cloud_ShareSync</RootNamespace>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <FileVersion>0.0.0.0</FileVersion>
+        <Version>$(VersionPrefix)</Version>
+        <InformationalVersionAttribute>1.0.0-PreRelease0+0000</InformationalVersionAttribute>
+        <PackageId>CloudShareSync</PackageId>
+        <Authors>Taylor Marvin</Authors>
+        <Company>Darkgrey Development</Company>
+        <Description>Primary assembly for Cloud-ShareSync.</Description>
+        <Copyright>Darkgrey Development (2022)</Copyright>
+        <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <PackageIcon>..\..\docs\images\Logo.png</PackageIcon>
+        <ApplicationIcon>..\..\docs\images\logo.ico</ApplicationIcon>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cloud-ShareSync</AssemblyName>
-    <RootNamespace>Cloud_ShareSync</RootNamespace>
-    <AssemblyVersion>0.0.0.0</AssemblyVersion>
-    <FileVersion>0.0.0.0</FileVersion>
-    <InformationalVersionAttribute>1.0.0-PreRelease0+0000</InformationalVersionAttribute>
-    <PackageId>CloudShareSync</PackageId>
-    <Authors>Taylor Marvin</Authors>
-    <Company>Darkgrey Development</Company>
-    <Description>Primary assembly for Cloud-ShareSync.</Description>
-    <Copyright>Darkgrey Development (2022)</Copyright>
-    <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <DebugType>embedded</DebugType>
-    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="SharedServices\MimeTypes.json" />
+        <None Remove="SharedServices\MimeTypes.json" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="LICENSE">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\docs\images\Logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\docs\images\logo.ico"></None>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-    <PackageReference Include="log4net" Version="2.0.14" />
-    <PackageReference Include="OpenTelemetry" Version="1.2.0-rc2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+        <PackageReference Include="log4net" Version="2.0.14" />
+        <PackageReference Include="OpenTelemetry" Version="1.2.0-rc3" />
+    </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="pwsh -c &quot;$ErrorActionPreference = 'Stop';$SolutionDir = (Resolve-Path -Path '$(MSBuildProjectDirectory)/../../').Path;$CopyParam = @{ Verbose = $true; Force = $true };$ConfigDir = Join-Path -Path '$(PublishDir)' -ChildPath 'Configuration';New-Item -Path $ConfigDir -ItemType Directory -Force | Out-Null;$AppSettings = Join-Path -Path $SolutionDir -ChildPath 'appsettings.json';$ASOutput = Join-Path -Path $ConfigDir -ChildPath 'appsettings.json';Copy-Item -Path $AppSettings -Destination $ASOutput @CopyParam;$LicensePath = Join-Path -Path $SolutionDir -ChildPath 'LICENSE';$LicenseOutput = Join-Path -Path '$(PublishDir)' -ChildPath 'LICENSE';Copy-Item -Path $LicensePath -Destination $LicenseOutput @CopyParam;$READMEPath = Join-Path -Path $SolutionDir -ChildPath 'README.md';$READMEOutput = Join-Path -Path '$(PublishDir)' -ChildPath 'README.md';Copy-Item -Path $READMEPath -Destination $READMEOutput @CopyParam&quot;" />
+    </Target>
 
 </Project>

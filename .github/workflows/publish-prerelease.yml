@@ -26,13 +26,220 @@ jobs:
         dotnet-version: [ '6.0.x' ]
 
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Get Code Metrics
+        shell: pwsh
+        run: |
+          Function Convert-XMLMetricsToFlatObjects {
+            [CmdletBinding()]
+            param (
+              [Parameter(Mandatory)]
+              [xml]$InputMetrics
+            )
+
+            class CodeMetricsReport {
+              [string]$AssemblyName       = ''
+              [string]$NameSpace          = ''
+              [string]$Type               = ''
+              [string]$Method             = ''
+              [int]$MaintainabilityIndex  = 0
+              [int]$CyclomaticComplexity  = 0
+              [int]$ClassCoupling         = 0
+              $DepthOfInheritance         = 0
+              [int]$LinesOfSourceCode     = 0
+              [int]$LinesOfExecutableCode = 0
+            }
+
+            Filter Select-Metric {
+              [CmdletBinding()]
+              param (
+                [Parameter(Mandatory,ValueFromPipeline)]
+                $InputObject,
+
+                [Parameter(Mandatory)]
+                [ValidateSet(
+                  'MaintainabilityIndex',
+                  'CyclomaticComplexity',
+                  'ClassCoupling',
+                  'DepthOfInheritance',
+                  'SourceLines',
+                  'ExecutableLines'
+                )]
+                [string]$Metric
+              )
+              $InputObject | Where-Object {$_.Name -eq $Metric} | Select-Object -ExpandProperty 'Value'
+            }
+
+            $Result = Foreach ($Assembly in $InputMetrics.CodeMetricsReport.Targets.Target) {
+              $AssemblyStats = [CodeMetricsReport]::new()
+              $AssemblyName = $Assembly.Assembly.Name
+              $AssemblyMetrics = $Assembly.Assembly.Metrics.Metric
+              $AssemblyStats.AssemblyName          = $AssemblyName
+              $AssemblyStats.MaintainabilityIndex  = $AssemblyMetrics | Select-Metric -Metric MaintainabilityIndex
+              $AssemblyStats.CyclomaticComplexity  = $AssemblyMetrics | Select-Metric -Metric CyclomaticComplexity
+              $AssemblyStats.ClassCoupling         = $AssemblyMetrics | Select-Metric -Metric ClassCoupling
+              $AssemblyStats.DepthOfInheritance    = $AssemblyMetrics | Select-Metric -Metric DepthOfInheritance
+              $AssemblyStats.LinesOfSourceCode     = $AssemblyMetrics | Select-Metric -Metric SourceLines
+              $AssemblyStats.LinesOfExecutableCode = $AssemblyMetrics | Select-Metric -Metric ExecutableLines
+              Write-Output -InputObject $AssemblyStats # Return AssemblyStats
+
+              foreach ($NameSpace in $Assembly.ChildNodes.NameSpaces.NameSpace) {
+                $NameSpaceStats = [CodeMetricsReport]::new()
+                $NameSpaceMetrics = $NameSpace.Metrics.Metric
+                $NameSpaceStats.AssemblyName          = $AssemblyName
+                $NameSpaceStats.NameSpace             = $NameSpace.Name
+                $NameSpaceStats.MaintainabilityIndex  = $NameSpaceMetrics | Select-Metric -Metric MaintainabilityIndex
+                $NameSpaceStats.CyclomaticComplexity  = $NameSpaceMetrics | Select-Metric -Metric CyclomaticComplexity
+                $NameSpaceStats.ClassCoupling         = $NameSpaceMetrics | Select-Metric -Metric ClassCoupling
+                $NameSpaceStats.DepthOfInheritance    = $NameSpaceMetrics | Select-Metric -Metric DepthOfInheritance
+                $NameSpaceStats.LinesOfSourceCode     = $NameSpaceMetrics | Select-Metric -Metric SourceLines
+                $NameSpaceStats.LinesOfExecutableCode = $NameSpaceMetrics | Select-Metric -Metric ExecutableLines
+                Write-Output -InputObject $NameSpaceStats # Return NameSpaceStats
+
+                Foreach ($Type in $NameSpace.Types.NamedType) {
+                  $TypeStats = [CodeMetricsReport]::new()
+                  $TypeMetrics = $Type.Metrics.Metric
+                  $TypeStats.AssemblyName          = $AssemblyName
+                  $TypeStats.NameSpace             = $NameSpace.Name
+                  $TypeStats.Type                  = $Type.Name
+                  $TypeStats.MaintainabilityIndex  = $TypeMetrics | Select-Metric -Metric MaintainabilityIndex
+                  $TypeStats.CyclomaticComplexity  = $TypeMetrics | Select-Metric -Metric CyclomaticComplexity
+                  $TypeStats.ClassCoupling         = $TypeMetrics | Select-Metric -Metric ClassCoupling
+                  $TypeStats.DepthOfInheritance    = $TypeMetrics | Select-Metric -Metric DepthOfInheritance
+                  $TypeStats.LinesOfSourceCode     = $TypeMetrics | Select-Metric -Metric SourceLines
+                  $TypeStats.LinesOfExecutableCode = $TypeMetrics | Select-Metric -Metric ExecutableLines
+                  Write-Output -InputObject $TypeStats # Return TypeStats
+
+                  Foreach ($Method in $Type.Members.Method) {
+                    $MethodStats = [CodeMetricsReport]::new()
+                    $MethodMetrics = $Method.Metrics.Metric
+                    $MethodStats.AssemblyName          = $AssemblyName
+                    $MethodStats.NameSpace             = $NameSpace.Name
+                    $MethodStats.Type                  = $Type.Name
+                    $MethodStats.Method                = $Method.Name
+                    $MethodStats.MaintainabilityIndex  = $MethodMetrics | Select-Metric -Metric MaintainabilityIndex
+                    $MethodStats.CyclomaticComplexity  = $MethodMetrics | Select-Metric -Metric CyclomaticComplexity
+                    $MethodStats.ClassCoupling         = $MethodMetrics | Select-Metric -Metric ClassCoupling
+                    $MethodStats.DepthOfInheritance    = $MethodMetrics | Select-Metric -Metric DepthOfInheritance
+                    $MethodStats.LinesOfSourceCode     = $MethodMetrics | Select-Metric -Metric SourceLines
+                    $MethodStats.LinesOfExecutableCode = $MethodMetrics | Select-Metric -Metric ExecutableLines
+                    Write-Output -InputObject $MethodStats # Return MethodStats
+                  }
+                }
+              }
+            }
+            return $Result
+          }
+
+          $SolutionPath = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Cloud-ShareSync.sln'
+          $MetricsPath  = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Metrics.xml'
+          $PublishPath  = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
+
+          Install-Package Microsoft.CodeAnalysis.Metrics -MinimumVersion 3.3.3 -Scope CurrentUser -Force
+          $PackageDir = (Get-Item (Get-Package Microsoft.CodeAnalysis.Metrics).source).Directory
+          $MetricsDir = Get-ChildItem -Path $PackageDir.FullName -Filter 'Metrics' -Directory
+          $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
+          & $MetricsApp "/s:`"$SolutionPath`"" "/o:`"$MetricsPath`""
+          [xml]$TestMetrics = Get-Content -Path $MetricsPath
+          $Metrics = Convert-XMLMetricsToFlatObjects -InputMetrics $TestMetrics
+
+          $PublishMetrics = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics.csv'
+          $Metrics | ConvertTo-Csv | Out-File -FilePath $PublishMetrics -Encoding utf8
+
+          $MethodData =  $Metrics | Where-Object { $_.Method -ne '' }
+          $LowQualityMethods = $MethodData | Where-Object {
+            ($_.CyclomaticComplexity -gt 6) -or
+            ($_.MaintainabilityIndex -lt 60)
+          }
+
+          if ($null -ne $LowQualityMethods){
+            $PublishLowQuality = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics_LowQualityMethods.csv'
+            $LowQualityCSV = $LowQualityMethods | ConvertTo-Csv
+            Write-Host "The following methods are below the code quality reqirements."
+            Write-Host "  - MaintainabilityIndex must be 60 or higher."
+            Write-Host "  - CyclomaticComplexity must be 6 or less."
+            Write-Host $LowQualityCSV
+            $LowQualityCSV | Out-File -FilePath  $PublishLowQuality -Encoding utf8
+          }
+
+      - name: Build SimpleBackup
+        shell: pwsh
+        run: |
+          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
+          $Params = @{
+            SOURCEPATH  = (Get-Location).Path
+            PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
+            Verbose     = $true
+          }
+          & $BuildScript @Params
+
+      - name: Run Infer#
+        uses: microsoft/infersharpaction@v1.2.1
+        id: runinfersharp
+        with:
+          binary-path: ${{ GITHUB_WORKSPACE }}/Publish/Linux/
+
+      - name: Write Infer# output to artifact
+        shell: pwsh
+        run: |
+          $InferPath = Join-Path -Path '${{ GITHUB_WORKSPACE }}' -ChildPath 'Publish' -AdditionalChildPath "InferReport.txt"
+          Write-Output "${{ steps.runinfersharp.outputs.results }}" >> $InferPath
+
+      - name: Prepare Artifacts For Upload
+        shell: pwsh
+        run: |
+          $ArtifactsDir = New-Item -Path '${{ GITHUB_WORKSPACE }}/Artifacts' -ItemType Directory
+          $PublishPath = Join-Path -Path '${{ GITHUB_WORKSPACE }}' -ChildPath 'Publish'
+          $LinuxPublish = Join-Path -Path $PublishPath -ChildPath 'Linux'
+          $MacOSPublish = Join-Path -Path $PublishPath -ChildPath 'MacOS'
+          $WindowsPublish = Join-Path -Path $PublishPath -ChildPath 'Windows'
+
+          $LinuxArtifact = Join-Path -Path $ArtifactsDir.FullName -ChildPath 'Linux.tar.gz'
+          $MacOSArtifact = Join-Path -Path $ArtifactsDir.FullName -ChildPath 'MacOS.tar.gz'
+          $WindowsArtifact = Join-Path -Path $ArtifactsDir.FullName -ChildPath 'Windows.zip'
+          $AutomatedArtifact = Join-Path -Path $ArtifactsDir.FullName -ChildPath 'AutomatedAnalysis.tar.gz'
+
+          tar -czvf $LinuxArtifact $LinuxPublish
+          tar -czvf $MacOSArtifact $MacOSPublish
+          tar -czvf "$PublishPath/*" --exclude="$LinuxPublish" --exclude="$MacOSPublish" --exclude="$WindowsPublish" $AutomatedArtifact
+          Compress-Archive -Path $WindowsPublish -DestinationPath $WindowsArtifact
+
+          $CombinedSha512 = find $PublishPath -type f -print0 | sort -z | xargs -0 sha512sum | sha512sum
+          Write-Host "Setting "
+          $EnvironmentVars = Get-Content -Path '/etc/environment'
+          $EnvironmentVars += "`nArtifactsHash=`"$CombinedSha512`""
+          $EnvironmentVars | Set-Content -Path '/etc/environment'
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux_{{ env.ArtifactsHash }}
+          path: ${{ GITHUB_WORKSPACE }}/Artifacts/Linux.tar.gz
+
+      - name: Upload MacOS artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MacOS_{{ env.ArtifactsHash }}
+          path: ${{ GITHUB_WORKSPACE }}/Artifacts/MacOS.tar.gz
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Windows_{{ env.ArtifactsHash }}
+          path: ${{ GITHUB_WORKSPACE }}/Artifacts/Windows.zip
+
+      - name: Upload AutomatedAnalysis artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AutomatedAnalysis_{{ env.ArtifactsHash }}
+          path: ${{ GITHUB_WORKSPACE }}/Artifacts/AutomatedAnalysis.tar.gz
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -50,8 +257,9 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=sha
-            simplebackup-${{ github.event.inputs.tags }}
+            type=sha,format=long
+            type=raw,value=simplebackup-${{ github.event.inputs.tags }}
+            type=raw,value={{branch}}-{{date 'YYYYMMDD'}}
 
       - name: Build and push SimpleBackup Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc

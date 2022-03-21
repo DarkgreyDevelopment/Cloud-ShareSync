@@ -6,8 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B48458E-81EB-4DDF-8892-C03EA692A9B4}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 		appsettings.json = appsettings.json
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync", "src\Core\Cloud-ShareSync.csproj", "{D8C99A1A-8E91-4698-8034-D97A8A8CB797}"
@@ -15,6 +17,23 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleBackup", "src\SimpleBackup\Cloud-ShareSync.SimpleBackup.csproj", "{899DD248-D1F4-47DF-A00A-124B4C733627}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.SimpleRestore", "src\SimpleRestore\Cloud-ShareSync.SimpleRestore.csproj", "{06E4A0B1-7C21-4DE1-B670-DA1EF14D6B81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomFileGenerator", "src\Test\Tools\RandomFileGenerator\RandomFileGenerator.csproj", "{EEAB8DAD-006B-4E29-B98A-1F5168BB472C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5330D3B4-4447-43FB-965E-D03CD59488B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{8AB1F857-1ED2-45CF-B23C-5731FE4F79DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CE972D0B-1EED-4FBC-BD9F-BF0D0FB30DBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloudProvider", "CloudProvider", "{4B1942DA-3B8E-4A6D-862E-633195526CE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackBlaze", "BackBlaze", "{B3F1C99A-9A9F-4EA2-985D-AAE304A6F5EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Threading", "Threading", "{B5059DCB-F681-482C-A359-C9F5B858A68E}"
+	ProjectSection(SolutionItems) = preProject
+		src\Test\src\Core\CloudProvider\BackBlaze\Threading\TestThreadQueueDetails.cs = src\Test\src\Core\CloudProvider\BackBlaze\Threading\TestThreadQueueDetails.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +53,21 @@ Global
 		{06E4A0B1-7C21-4DE1-B670-DA1EF14D6B81}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{06E4A0B1-7C21-4DE1-B670-DA1EF14D6B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E4A0B1-7C21-4DE1-B670-DA1EF14D6B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEAB8DAD-006B-4E29-B98A-1F5168BB472C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAB8DAD-006B-4E29-B98A-1F5168BB472C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAB8DAD-006B-4E29-B98A-1F5168BB472C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAB8DAD-006B-4E29-B98A-1F5168BB472C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EEAB8DAD-006B-4E29-B98A-1F5168BB472C} = {8AB1F857-1ED2-45CF-B23C-5731FE4F79DB}
+		{8AB1F857-1ED2-45CF-B23C-5731FE4F79DB} = {5330D3B4-4447-43FB-965E-D03CD59488B8}
+		{CE972D0B-1EED-4FBC-BD9F-BF0D0FB30DBE} = {5330D3B4-4447-43FB-965E-D03CD59488B8}
+		{4B1942DA-3B8E-4A6D-862E-633195526CE4} = {CE972D0B-1EED-4FBC-BD9F-BF0D0FB30DBE}
+		{B3F1C99A-9A9F-4EA2-985D-AAE304A6F5EA} = {4B1942DA-3B8E-4A6D-862E-633195526CE4}
+		{B5059DCB-F681-482C-A359-C9F5B858A68E} = {B3F1C99A-9A9F-4EA2-985D-AAE304A6F5EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A8B7112-1BF8-476A-B0B6-821CB2A97C08}

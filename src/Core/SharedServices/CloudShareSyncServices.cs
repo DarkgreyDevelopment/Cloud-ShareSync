@@ -46,7 +46,7 @@ namespace Cloud_ShareSync.Core.SharedServices {
             int? uploadThreads
         ) {
             // Register HTTP Clients
-            services
+            _ = services
                 .AddHttpClient<BackBlazeHttpClient>( )
                 .ConfigurePrimaryHttpMessageHandler(
                     ( ) => new SocketsHttpHandler {
@@ -60,10 +60,10 @@ namespace Cloud_ShareSync.Core.SharedServices {
             string? dbPath
         ) {
             // Register dbContext
-            string sqliteDBSource = SqliteContext.DetermineDbPath( dbPath );
+            string sqliteDBSource = SqliteContext.DetermineDbPath( dbPath ?? "" );
             SqliteContext.DatabasePath = sqliteDBSource;
-            services.AddDbContextFactory<SqliteContext>( options =>
-                options.UseSqlite( $"Data Source={sqliteDBSource}" )
+            _ = services.AddDbContextFactory<SqliteContext>( options =>
+                  options.UseSqlite( $"Data Source={sqliteDBSource}" )
             );
         }
 
@@ -72,8 +72,8 @@ namespace Cloud_ShareSync.Core.SharedServices {
             ILogger? logger
         ) {
             if (logger != null)
-                services.AddLogging( loggerBuilder => {
-                    loggerBuilder.AddProvider( new Log4NetProvider( logger ) );
+                _ = services.AddLogging( loggerBuilder => {
+                    _ = loggerBuilder.AddProvider( new Log4NetProvider( logger ) );
                 } );
         }
 

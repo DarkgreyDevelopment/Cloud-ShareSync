@@ -1,43 +1,50 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>Cloud_ShareSync.SimpleRestore</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblyName>SimpleRestore</AssemblyName>
-    <DebugType>embedded</DebugType>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <Copyright>Darkgrey Development (2022)</Copyright>
-    <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
-    <PackageTags>Restore Utility;backblaze-b2;compression;encryption</PackageTags>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-    <Description>A restore application that can restore files from Backblaze B2 cloud storage.</Description>
-    <Company>Darkgrey Development</Company>
-    <Authors>Taylor Marvin</Authors>
-    <PackageId>CloudShareSync.SimpleRestore</PackageId>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <AssemblyVersion>0.0.0.1</AssemblyVersion>
-    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>SimpleRestore</AssemblyName>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>Cloud_ShareSync.SimpleRestore</RootNamespace>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <FileVersion>0.0.0.0</FileVersion>
+        <InformationalVersionAttribute>1.0.0-PreRelease0+0000</InformationalVersionAttribute>
+        <PackageId>CloudShareSync.SimpleRestore</PackageId>
+        <Authors>Taylor Marvin</Authors>
+        <Company>Darkgrey Development</Company>
+        <Description>A restore application that can restore files from Backblaze B2 cloud storage.</Description>
+        <Copyright>Darkgrey Development (2022)</Copyright>
+        <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+        <PackageTags>Restore Utility;backblaze-b2;compression;encryption</PackageTags>
+        <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <NeutralLanguage>en</NeutralLanguage>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <PackageIcon>..\..\docs\images\Logo.png</PackageIcon>
+        <ApplicationIcon>..\..\docs\images\logo.ico</ApplicationIcon>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Cloud-ShareSync.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\docs\images\Logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\docs\images\logo.ico"></None>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Core\Cloud-ShareSync.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-  </ItemGroup>
-
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    </ItemGroup>
 </Project>

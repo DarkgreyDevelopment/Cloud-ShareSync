@@ -12,6 +12,11 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
         private readonly ILogger? _log;
 
+#pragma warning disable CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
+        private readonly SHA1 _sha1 = SHA1.Create( );
+#pragma warning restore CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
+        private readonly SHA512 _sha512 = SHA512.Create( );
+
         public Hashing( ILogger? log = null ) { _log = log; }
 
         #region Shared Private Methods
@@ -24,12 +29,12 @@ namespace Cloud_ShareSync.Core.Cryptography {
         private void VerifyFileExists( FileInfo path ) {
             using Activity? activity = _source.StartActivity( "VerifyFileExists" )?.Start( );
             if (File.Exists( path.FullName ) == false) {
-                string expMessage = $"File \"{path.FullName}\" doesn't exist. Cannot get the hash of a non-existent file.";
-                _log?.LogCritical( "{string}", expMessage );
+                _log?.LogCritical(
+                    "File '{string}' doesn't exist. Cannot get the hash of a non-existent file.",
+                    path.FullName
+                );
                 activity?.Stop( );
-                throw new FileNotFoundException( expMessage );
-            } else {
-                _log?.LogDebug( "File '{string}' exists.", path.FullName );
+                throw new FileNotFoundException( path.FullName );
             }
             activity?.Stop( );
         }
@@ -85,16 +90,11 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             // Compute hash
             SystemMemoryChecker.Update( );
-#pragma warning disable CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
-            byte[] hashBytes = await SHA1.Create( ).ComputeHashAsync( inputFileStream );
-#pragma warning restore CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
 
-            // Convert to hexidecimal string
-            string result = ConvertBytesToHexString( hashBytes );
+            byte[] hashBytes = await _sha1.ComputeHashAsync( inputFileStream );
 
-            _log?.LogInformation( "Retrieved Sha1 hash for file '{string}'. Hash: {string}", file.FullName, result );
             activity?.Stop( );
-            return result;
+            return ConvertBytesToHexString( hashBytes ); // Convert to hexidecimal string
         }
 
         /// <summary>
@@ -110,36 +110,24 @@ namespace Cloud_ShareSync.Core.Cryptography {
             long offset
         ) {
             using Activity? activity = _source.StartActivity( "GetSHA1HashForFileChunkAsync" )?.Start( );
-            long end = offset + data.Length;
-
             _log?.LogInformation(
                 "Retrieving Sha1 hash for file '{string}' section {long}-{long}.",
-                file.FullName, offset, end
+                file.FullName, offset, offset + data.Length
             );
 
             VerifyFileExists( file );
 
             // Open filestream to read file.
             using FileStream inputFileStream = GetFileStream( file.FullName, false );
-            inputFileStream.Seek( offset, SeekOrigin.Begin );
-            await inputFileStream.ReadAsync( data.AsMemory( 0, data.Length ) );
-
-            // Compute Hash
+            _ = inputFileStream.Seek( offset, SeekOrigin.Begin );
+            _ = await inputFileStream.ReadAsync( data.AsMemory( 0, data.Length ) );
             SystemMemoryChecker.Update( );
 
-#pragma warning disable CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
-            byte[] hashBytes = SHA1.Create( ).ComputeHash( data, 0, data.Length );
-#pragma warning restore CA5350 // Do Not Use Weak Cryptographic Algorithms - SHA1 required by BackBlaze.
+            // Compute Hash
+            byte[] hashBytes = _sha1.ComputeHash( data, 0, data.Length );
 
-            // Convert to hexidecimal string
-            string result = ConvertBytesToHexString( hashBytes );
-
-            _log?.LogInformation(
-                "Retrieved Sha1 hash for file '{string}' section {long}-{long}. Hash: {string}",
-                file.FullName, offset, end, result
-            );
             activity?.Stop( );
-            return result;
+            return ConvertBytesToHexString( hashBytes ); // Convert to hexidecimal string
         }
 
         #endregion SHA1Hash
@@ -157,7 +145,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             SystemMemoryChecker.Update( );
             string result = ConvertBytesToHexString(
-                SHA512.Create( ).ComputeHash( Encoding.UTF8.GetBytes( inputString ) )
+                _sha512.ComputeHash( Encoding.UTF8.GetBytes( inputString ) )
             );
 
             _log?.LogInformation( "Retrieved Sha512 hash for inputstring '{string}'. Hash: {string}", inputString, result );
@@ -182,14 +170,10 @@ namespace Cloud_ShareSync.Core.Cryptography {
 
             // Compute Hash
             SystemMemoryChecker.Update( );
-            byte[] hashBytes = await SHA512.Create( ).ComputeHashAsync( base64Stream );
+            byte[] hashBytes = await _sha512.ComputeHashAsync( base64Stream );
 
-            // Convert to hexidecimal string
-            string result = ConvertBytesToHexString( hashBytes );
-
-            _log?.LogInformation( "Retrieved Sha512 hash for file '{string}'. Hash: {string}", file.FullName, result );
             activity?.Stop( );
-            return result;
+            return ConvertBytesToHexString( hashBytes ); // Convert to hexidecimal string
         }
 
         #endregion SHA512Hash

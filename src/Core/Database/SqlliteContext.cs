@@ -20,15 +20,15 @@ namespace Cloud_ShareSync.Core.Database {
             DbPath = path.FullName;
 
             if (File.Exists( DbPath ) == false) {
-                Database.EnsureDeleted( );
-                Database.EnsureCreated( );
+                _ = Database.EnsureDeleted( );
+                _ = Database.EnsureCreated( );
             }
         }
 
         protected override void OnModelCreating( ModelBuilder modelBuilder ) {
-            modelBuilder.Entity<PrimaryTable>( )
+            _ = modelBuilder.Entity<PrimaryTable>( )
                 .HasKey( x => x.Id );
-            modelBuilder.Entity<PrimaryTable>( )
+            _ = modelBuilder.Entity<PrimaryTable>( )
                 .Property( o => o.Id )
                 .IsRequired( );
         }
@@ -43,32 +43,33 @@ namespace Cloud_ShareSync.Core.Database {
                 result = Path.Join( path, result );
             } else if (File.Exists( path )) {
                 result = path;
-            } else if (path != null) {
-                string[] pathPieces = path.Split(
-                    new char[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar },
-                    StringSplitOptions.RemoveEmptyEntries
-                );
-                if (path.StartsWith( '/' )) {
-                    List<string> pieces = new( ) {
-                        "/"
-                    };
-                    pieces.AddRange( pathPieces );
-                    pathPieces = pieces.ToArray( );
-                } else if (path.StartsWith( "\\\\" )) {
-                    List<string> pieces = new( ) {
-                        "\\\\"
-                    };
-                    pieces.AddRange( pathPieces );
-                    pathPieces = pieces.ToArray( );
-                }
-                string pathPieceCombo = Path.Join( pathPieces.SkipLast( 1 ).ToArray( ) );
-                if (Directory.Exists( pathPieceCombo )) {
-                    result = path;
-                } else {
-                }
+            } else {
+                if (Directory.Exists( ParseDBDirectoryPath( path ) )) { result = path; }
             }
 
             return result;
+        }
+
+        // Assumes that we've received the path to file we should create.
+        internal static string ParseDBDirectoryPath( string path ) {
+            string[] pathPieces = path.Split(
+                                new char[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar },
+                                StringSplitOptions.RemoveEmptyEntries
+                            );
+
+            if (path.StartsWith( '/' )) { // Re-Add Linux root
+                List<string> pieces = new( ) { "/" };
+                pieces.AddRange( pathPieces );
+                pathPieces = pieces.ToArray( );
+            } else if (path.StartsWith( "\\\\" )) { // Re-Add UNC root
+                List<string> pieces = new( ) {
+                    "\\\\"
+                };
+                pieces.AddRange( pathPieces );
+                pathPieces = pieces.ToArray( );
+            }
+
+            return Path.Join( pathPieces.SkipLast( 1 ).ToArray( ) );
         }
     }
 #nullable enable

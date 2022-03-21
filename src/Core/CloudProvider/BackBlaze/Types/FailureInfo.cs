@@ -1,9 +1,9 @@
 ﻿namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class FailureInfo {
         public int RetryWaitTimer { get; set; }
-        public int? StatusCode { get; set; } = null;
-        public DateTime? FailureTime { get; set; } = null;
-        public DateTime? PastFailureTime { get; set; } = null;
+        public int? StatusCode { get; set; }
+        public DateTime? FailureTime { get; set; }
+        public DateTime? PastFailureTime { get; set; }
 
         private static readonly Random s_random = new( );
         private static readonly int[] s_retryStartSec = new int[] { 0, 1, 3, 7 };
