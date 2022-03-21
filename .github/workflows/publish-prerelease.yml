@@ -183,8 +183,8 @@ jobs:
       - name: Prepare Artifacts For Upload
         shell: pwsh
         run: |
-          $ArtifactsDir = New-Item -Path '${{ GITHUB_WORKSPACE }}/Artifacts' -ItemType Directory
-          $PublishPath = Join-Path -Path '${{ GITHUB_WORKSPACE }}' -ChildPath 'Publish'
+          $ArtifactsDir = New-Item -Path "$env:GITHUB_WORKSPACE/Artifacts" -ItemType Directory
+          $PublishPath = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
           $LinuxPublish = Join-Path -Path $PublishPath -ChildPath 'Linux'
           $MacOSPublish = Join-Path -Path $PublishPath -ChildPath 'MacOS'
           $WindowsPublish = Join-Path -Path $PublishPath -ChildPath 'Windows'
