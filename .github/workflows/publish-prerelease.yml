@@ -209,25 +209,25 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Linux_{{ env.ArtifactsHash }}
-          path: ${{ GITHUB_WORKSPACE }}/Artifacts/Linux.tar.gz
+          path: ${{ github.workspace }}/Artifacts/Linux.tar.gz
 
       - name: Upload MacOS artifact
         uses: actions/upload-artifact@v3
         with:
           name: MacOS_{{ env.ArtifactsHash }}
-          path: ${{ GITHUB_WORKSPACE }}/Artifacts/MacOS.tar.gz
+          path: ${{ github.workspace }}/Artifacts/MacOS.tar.gz
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         with:
           name: Windows_{{ env.ArtifactsHash }}
-          path: ${{ GITHUB_WORKSPACE }}/Artifacts/Windows.zip
+          path: ${{ github.workspace }}/Artifacts/Windows.zip
 
       - name: Upload AutomatedAnalysis artifact
         uses: actions/upload-artifact@v3
         with:
           name: AutomatedAnalysis_{{ env.ArtifactsHash }}
-          path: ${{ GITHUB_WORKSPACE }}/Artifacts/AutomatedAnalysis.tar.gz
+          path: ${{ github.workspace }}/Artifacts/AutomatedAnalysis.tar.gz
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
