@@ -160,28 +160,31 @@ jobs:
           $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
 
           Write-Host "Running The Metrics Application Now."
-          Write-Host "CommandLine: & $MetricsApp /s:`"$SolutionPath`" /o:`"$MetricsPath`""
-          & $MetricsApp /s:"$SolutionPath" /o:"$MetricsPath"
-          [xml]$TestMetrics = Get-Content -Path $MetricsPath
-          $Metrics = Convert-XMLMetricsToFlatObjects -InputMetrics $TestMetrics
+          & "$MetricsApp" /s:"$SolutionPath" /o:"$MetricsPath" *>&1 | Write-Host
 
-          $PublishMetrics = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics.csv'
-          $Metrics | ConvertTo-Csv | Out-File -FilePath $PublishMetrics -Encoding utf8
+          if (Test-Path -Path $MetricsPath -PathType Leaf){
+            [xml]$TestMetrics = Get-Content -Path $MetricsPath
+            $Metrics = Convert-XMLMetricsToFlatObjects -InputMetrics $TestMetrics
+            $PublishMetrics = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics.csv'
+            $Metrics | ConvertTo-Csv | Out-File -FilePath $PublishMetrics -Encoding utf8
 
-          $MethodData =  $Metrics | Where-Object { $_.Method -ne '' }
-          $LowQualityMethods = $MethodData | Where-Object {
-            ($_.CyclomaticComplexity -gt 6) -or
-            ($_.MaintainabilityIndex -lt 60)
-          }
+            $MethodData =  $Metrics | Where-Object { $_.Method -ne '' }
+            $LowQualityMethods = $MethodData | Where-Object {
+              ($_.CyclomaticComplexity -gt 6) -or
+              ($_.MaintainabilityIndex -lt 60)
+            }
 
-          if ($null -ne $LowQualityMethods){
-            $PublishLowQuality = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics_LowQualityMethods.csv'
-            $LowQualityCSV = $LowQualityMethods | ConvertTo-Csv
-            Write-Host "The following methods are below the code quality reqirements."
-            Write-Host "  - MaintainabilityIndex must be 60 or higher."
-            Write-Host "  - CyclomaticComplexity must be 6 or less."
-            Write-Host $LowQualityCSV
-            $LowQualityCSV | Out-File -FilePath  $PublishLowQuality -Encoding utf8
+            if ($null -ne $LowQualityMethods){
+              $PublishLowQuality = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics_LowQualityMethods.csv'
+              $LowQualityCSV = $LowQualityMethods | ConvertTo-Csv
+              Write-Host "The following methods are below the code quality reqirements."
+              Write-Host "  - MaintainabilityIndex must be 60 or higher."
+              Write-Host "  - CyclomaticComplexity must be 6 or less."
+              Write-Host $LowQualityCSV
+              $LowQualityCSV | Out-File -FilePath  $PublishLowQuality -Encoding utf8
+            }
+          } else {
+            Write-Host "Metric were not output."
           }
 
       - name: Build SimpleBackup
