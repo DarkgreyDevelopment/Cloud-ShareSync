@@ -233,10 +233,7 @@ jobs:
           Compress-Archive -Path $WindowsPublish -DestinationPath $WindowsArtifact
 
           $CombinedSha512 = find $PublishPath -type f -print0 | sort -z | xargs -0 sha512sum | sha512sum
-          Write-Host "Setting "
-          $EnvironmentVars = Get-Content -Path '/etc/environment'
-          $EnvironmentVars += "`nArtifactsHash=`"$CombinedSha512`""
-          $EnvironmentVars | Set-Content -Path '/etc/environment'
+          Write-Output "ArtifactsHash=`"$CombinedSha512`"" >> $GITHUB_ENV
 
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
