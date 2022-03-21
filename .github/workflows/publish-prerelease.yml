@@ -180,18 +180,6 @@ jobs:
           }
           & $BuildScript @Params
 
-      - name: Run Infer#
-        uses: microsoft/infersharpaction@v1.2.1
-        id: runinfersharp
-        with:
-          binary-path: "${{ GITHUB_WORKSPACE }}/Publish/Linux/"
-
-      - name: Write Infer# output to artifact
-        shell: pwsh
-        run: |
-          $InferPath = Join-Path -Path '${{ GITHUB_WORKSPACE }}' -ChildPath 'Publish' -AdditionalChildPath "InferReport.txt"
-          Write-Output "${{ steps.runinfersharp.outputs.results }}" >> $InferPath
-
       - name: Prepare Artifacts For Upload
         shell: pwsh
         run: |
