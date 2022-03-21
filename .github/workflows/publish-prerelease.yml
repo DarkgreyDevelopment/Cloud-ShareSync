@@ -158,7 +158,10 @@ jobs:
           $PackageDir = (Get-Item (Get-Package Microsoft.CodeAnalysis.Metrics).source).Directory
           $MetricsDir = Get-ChildItem -Path $PackageDir.FullName -Filter 'Metrics' -Directory
           $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
-          & $MetricsApp "/s:`"$SolutionPath`"" "/o:`"$MetricsPath`""
+
+          Write-Host "Running The Metrics Application Now."
+          Write-Host "CommandLine: & $MetricsApp /s:`"$SolutionPath`" /o:`"$MetricsPath`""
+          & $MetricsApp /s:"$SolutionPath" /o:"$MetricsPath"
           [xml]$TestMetrics = Get-Content -Path $MetricsPath
           $Metrics = Convert-XMLMetricsToFlatObjects -InputMetrics $TestMetrics
 
