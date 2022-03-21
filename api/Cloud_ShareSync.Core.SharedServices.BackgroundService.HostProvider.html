@@ -120,18 +120,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable%7BILogger%7D%2CSystem.String%5B%5D%2CCloud_ShareSync.Core.Configuration.CompleteConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_Cloud_ShareSync_Core_Configuration_ConfigManager_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable%7BILogger%7D%2CSystem.String%5B%5D%2CCloud_ShareSync.Core.Configuration.CompleteConfig%2CCloud_ShareSync.Core.Configuration.ConfigManager)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/SharedServices/BackgroundService/HostProvider.cs/#L15">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_" data-uid="Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost*"></a>
-  <h4 id="Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_" data-uid="Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig)">ConfigureHost(Nullable&lt;ILogger&gt;, String[], CompleteConfig)</h4>
+  <h4 id="Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_Cloud_ShareSync_Core_Configuration_ConfigManager_" data-uid="Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig,Cloud_ShareSync.Core.Configuration.ConfigManager)">ConfigureHost(Nullable&lt;ILogger&gt;, String[], CompleteConfig, ConfigManager)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IHost ConfigureHost(ILogger? log, string[] args, CompleteConfig config)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IHost ConfigureHost(ILogger? log, string[] args, CompleteConfig config, ConfigManager cfgMgr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,6 +156,11 @@
       <tr>
         <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.CompleteConfig.html">CompleteConfig</a></td>
         <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.ConfigManager.html">ConfigManager</a></td>
+        <td><span class="parametername">cfgMgr</span></td>
         <td></td>
       </tr>
     </tbody>

@@ -1583,6 +1583,12 @@ references:
   commentId: T:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails
   fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails
   nameWithType: ThreadQueueDetails
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.#ctor
+  name: ThreadQueueDetails()
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__ctor
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.#ctor
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ThreadQueueDetails()
+  nameWithType: ThreadQueueDetails.ThreadQueueDetails()
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.#ctor(System.Int64,System.Int32,System.Int32,System.Int32,System.Nullable{ILogger})
   name: ThreadQueueDetails(Int64, Int32, Int32, Int32, Nullable<ILogger>)
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__ctor_System_Int64_System_Int32_System_Int32_System_Int32_System_Nullable_ILogger__
@@ -1599,36 +1605,127 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ThreadQueueDetails
   nameWithType: ThreadQueueDetails.ThreadQueueDetails
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FileSize
-  name: FileSize
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_FileSize
-  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FileSize
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FileSize
-  nameWithType: ThreadQueueDetails.FileSize
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FinalSize
-  name: FinalSize
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_FinalSize
-  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FinalSize
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.FinalSize
-  nameWithType: ThreadQueueDetails.FinalSize
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.PartSize
-  name: PartSize
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_PartSize
-  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.PartSize
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.PartSize
-  nameWithType: ThreadQueueDetails.PartSize
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ThreadCount
-  name: ThreadCount
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_ThreadCount
-  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ThreadCount
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ThreadCount
-  nameWithType: ThreadQueueDetails.ThreadCount
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.TotalParts
-  name: TotalParts
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_TotalParts
-  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.TotalParts
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.TotalParts
-  nameWithType: ThreadQueueDetails.TotalParts
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._fileSize
+  name: _fileSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__fileSize
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._fileSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._fileSize
+  nameWithType: ThreadQueueDetails._fileSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._finalSize
+  name: _finalSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__finalSize
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._finalSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._finalSize
+  nameWithType: ThreadQueueDetails._finalSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._partSize
+  name: _partSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__partSize
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._partSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._partSize
+  nameWithType: ThreadQueueDetails._partSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._threadCount
+  name: _threadCount
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__threadCount
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._threadCount
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._threadCount
+  nameWithType: ThreadQueueDetails._threadCount
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._totalParts
+  name: _totalParts
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails__totalParts
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._totalParts
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails._totalParts
+  nameWithType: ThreadQueueDetails._totalParts
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes(System.Int32,System.Int32)
+  name: AssignPartSizes(Int32, Int32)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_AssignPartSizes_System_Int32_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes(System.Int32,System.Int32)
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes(System.Int32, System.Int32)
+  nameWithType: ThreadQueueDetails.AssignPartSizes(Int32, Int32)
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes*
+  name: AssignPartSizes
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_AssignPartSizes_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.AssignPartSizes
+  nameWithType: ThreadQueueDetails.AssignPartSizes
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize
+  name: BetweenRecSizeAndMinSize()
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_BetweenRecSizeAndMinSize
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize()
+  nameWithType: ThreadQueueDetails.BetweenRecSizeAndMinSize()
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize*
+  name: BetweenRecSizeAndMinSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_BetweenRecSizeAndMinSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.BetweenRecSizeAndMinSize
+  nameWithType: ThreadQueueDetails.BetweenRecSizeAndMinSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts(System.Int64,System.Int32)
+  name: GetTotalParts(Int64, Int32)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_GetTotalParts_System_Int64_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts(System.Int64,System.Int32)
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts(System.Int64, System.Int32)
+  nameWithType: ThreadQueueDetails.GetTotalParts(Int64, Int32)
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts*
+  name: GetTotalParts
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_GetTotalParts_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.GetTotalParts
+  nameWithType: ThreadQueueDetails.GetTotalParts
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize(System.Int32)
+  name: MatchesMinSize(Int32)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_MatchesMinSize_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize(System.Int32)
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize(System.Int32)
+  nameWithType: ThreadQueueDetails.MatchesMinSize(Int32)
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize*
+  name: MatchesMinSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_MatchesMinSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesMinSize
+  nameWithType: ThreadQueueDetails.MatchesMinSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize(System.Int32)
+  name: MatchesRecSize(Int32)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_MatchesRecSize_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize(System.Int32)
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize(System.Int32)
+  nameWithType: ThreadQueueDetails.MatchesRecSize(Int32)
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize*
+  name: MatchesRecSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_MatchesRecSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.MatchesRecSize
+  nameWithType: ThreadQueueDetails.MatchesRecSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize
+  name: SetFinalSize()
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_SetFinalSize
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize()
+  nameWithType: ThreadQueueDetails.SetFinalSize()
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize*
+  name: SetFinalSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_SetFinalSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.SetFinalSize
+  nameWithType: ThreadQueueDetails.SetFinalSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString(System.Int32,System.Int32)
+  name: ToString(Int32, Int32)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_ToString_System_Int32_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString(System.Int32,System.Int32)
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString(System.Int32, System.Int32)
+  nameWithType: ThreadQueueDetails.ToString(Int32, Int32)
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString*
+  name: ToString
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Threading_ThreadQueueDetails_ToString_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.ToString
+  nameWithType: ThreadQueueDetails.ToString
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types
   name: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.html
@@ -1641,12 +1738,6 @@ references:
   commentId: T:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData
   fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData
   nameWithType: AuthProcessData
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.#ctor
-  name: AuthProcessData()
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData__ctor
-  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.#ctor
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.AuthProcessData()
-  nameWithType: AuthProcessData.AuthProcessData()
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{System.String},System.Nullable{System.String},System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: AuthProcessData(Nullable<String>, Nullable<String>, Nullable<String>, Nullable<String>, Nullable<Int32>, Nullable<Int32>)
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData__ctor_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -1728,6 +1819,42 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.RecommendedPartSize
   nameWithType: AuthProcessData.RecommendedPartSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_absoluteMinimumPartSize
+  name: s_absoluteMinimumPartSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_absoluteMinimumPartSize
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_absoluteMinimumPartSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_absoluteMinimumPartSize
+  nameWithType: AuthProcessData.s_absoluteMinimumPartSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_accountId
+  name: s_accountId
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_accountId
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_accountId
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_accountId
+  nameWithType: AuthProcessData.s_accountId
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_apiUrl
+  name: s_apiUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_apiUrl
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_apiUrl
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_apiUrl
+  nameWithType: AuthProcessData.s_apiUrl
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_downloadUrl
+  name: s_downloadUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_downloadUrl
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_downloadUrl
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_downloadUrl
+  nameWithType: AuthProcessData.s_downloadUrl
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_recommendedPartSize
+  name: s_recommendedPartSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_recommendedPartSize
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_recommendedPartSize
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_recommendedPartSize
+  nameWithType: AuthProcessData.s_recommendedPartSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_s3ApiUrl
+  name: s_s3ApiUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_s_s3ApiUrl
+  commentId: F:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_s3ApiUrl
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.s_s3ApiUrl
+  nameWithType: AuthProcessData.s_s3ApiUrl
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.S3ApiUrl
   name: S3ApiUrl
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_S3ApiUrl
@@ -1741,19 +1868,102 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.S3ApiUrl
   nameWithType: AuthProcessData.S3ApiUrl
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull
-  name: ValidateNotNull()
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateNotNull
-  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull()
-  nameWithType: AuthProcessData.ValidateNotNull()
-- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull*
-  name: ValidateNotNull
-  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateNotNull_
-  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize(System.Nullable{System.Int32})
+  name: ValidateAbsoluteMinimumPartSize(Nullable<Int32>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateAbsoluteMinimumPartSize_System_Nullable_System_Int32__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize(System.Nullable{System.Int32})
+  name.vb: ValidateAbsoluteMinimumPartSize(Nullable(Of Int32))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize(System.Nullable<System.Int32>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize(System.Nullable(Of System.Int32))
+  nameWithType: AuthProcessData.ValidateAbsoluteMinimumPartSize(Nullable<Int32>)
+  nameWithType.vb: AuthProcessData.ValidateAbsoluteMinimumPartSize(Nullable(Of Int32))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize*
+  name: ValidateAbsoluteMinimumPartSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateAbsoluteMinimumPartSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize
   isSpec: "True"
-  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateNotNull
-  nameWithType: AuthProcessData.ValidateNotNull
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAbsoluteMinimumPartSize
+  nameWithType: AuthProcessData.ValidateAbsoluteMinimumPartSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID(System.Nullable{System.String})
+  name: ValidateAccountID(Nullable<String>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateAccountID_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID(System.Nullable{System.String})
+  name.vb: ValidateAccountID(Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID(System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID(System.Nullable(Of System.String))
+  nameWithType: AuthProcessData.ValidateAccountID(Nullable<String>)
+  nameWithType.vb: AuthProcessData.ValidateAccountID(Nullable(Of String))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID*
+  name: ValidateAccountID
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateAccountID_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateAccountID
+  nameWithType: AuthProcessData.ValidateAccountID
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl(System.Nullable{System.String})
+  name: ValidateApiUrl(Nullable<String>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateApiUrl_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl(System.Nullable{System.String})
+  name.vb: ValidateApiUrl(Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl(System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl(System.Nullable(Of System.String))
+  nameWithType: AuthProcessData.ValidateApiUrl(Nullable<String>)
+  nameWithType.vb: AuthProcessData.ValidateApiUrl(Nullable(Of String))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl*
+  name: ValidateApiUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateApiUrl_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateApiUrl
+  nameWithType: AuthProcessData.ValidateApiUrl
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl(System.Nullable{System.String})
+  name: ValidateDownloadUrl(Nullable<String>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateDownloadUrl_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl(System.Nullable{System.String})
+  name.vb: ValidateDownloadUrl(Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl(System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl(System.Nullable(Of System.String))
+  nameWithType: AuthProcessData.ValidateDownloadUrl(Nullable<String>)
+  nameWithType.vb: AuthProcessData.ValidateDownloadUrl(Nullable(Of String))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl*
+  name: ValidateDownloadUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateDownloadUrl_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateDownloadUrl
+  nameWithType: AuthProcessData.ValidateDownloadUrl
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize(System.Nullable{System.Int32})
+  name: ValidateRecommendedPartSize(Nullable<Int32>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateRecommendedPartSize_System_Nullable_System_Int32__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize(System.Nullable{System.Int32})
+  name.vb: ValidateRecommendedPartSize(Nullable(Of Int32))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize(System.Nullable<System.Int32>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize(System.Nullable(Of System.Int32))
+  nameWithType: AuthProcessData.ValidateRecommendedPartSize(Nullable<Int32>)
+  nameWithType.vb: AuthProcessData.ValidateRecommendedPartSize(Nullable(Of Int32))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize*
+  name: ValidateRecommendedPartSize
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateRecommendedPartSize_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateRecommendedPartSize
+  nameWithType: AuthProcessData.ValidateRecommendedPartSize
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl(System.Nullable{System.String})
+  name: ValidateS3ApiUrl(Nullable<String>)
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateS3ApiUrl_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl(System.Nullable{System.String})
+  name.vb: ValidateS3ApiUrl(Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl(System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl(System.Nullable(Of System.String))
+  nameWithType: AuthProcessData.ValidateS3ApiUrl(Nullable<String>)
+  nameWithType.vb: AuthProcessData.ValidateS3ApiUrl(Nullable(Of String))
+- uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl*
+  name: ValidateS3ApiUrl
+  href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html#Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_AuthProcessData_ValidateS3ApiUrl_
+  commentId: Overload:Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.ValidateS3ApiUrl
+  nameWithType: AuthProcessData.ValidateS3ApiUrl
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthReturn
   name: AuthReturn
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthReturn.html
@@ -3580,12 +3790,19 @@ references:
   commentId: T:Cloud_ShareSync.Core.Compression.UniquePassword
   fullName: Cloud_ShareSync.Core.Compression.UniquePassword
   nameWithType: UniquePassword
-- uid: Cloud_ShareSync.Core.Compression.UniquePassword._positions
-  name: _positions
-  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword__positions
-  commentId: F:Cloud_ShareSync.Core.Compression.UniquePassword._positions
-  fullName: Cloud_ShareSync.Core.Compression.UniquePassword._positions
-  nameWithType: UniquePassword._positions
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.#cctor
+  name: .cctor()
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword__cctor
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.#cctor
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword..cctor()
+  nameWithType: UniquePassword..cctor()
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.#cctor*
+  name: .cctor
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword__cctor_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.#cctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword..cctor
+  nameWithType: UniquePassword..cctor
 - uid: Cloud_ShareSync.Core.Compression.UniquePassword.AllChars
   name: AllChars
   href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_AllChars
@@ -3664,15 +3881,15 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.UniquePassword.Numbers
   nameWithType: UniquePassword.Numbers
-- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Char[],System.Char[])
-  name: ReplaceMissing(Char[], Char[])
-  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_ReplaceMissing_System_Char___System_Char___
-  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Char[],System.Char[])
-  name.vb: ReplaceMissing(Char(), Char())
-  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Char[], System.Char[])
-  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Char(), System.Char())
-  nameWithType: UniquePassword.ReplaceMissing(Char[], Char[])
-  nameWithType.vb: UniquePassword.ReplaceMissing(Char(), Char())
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Boolean,System.Char[],System.Char[],List{System.Int32})
+  name: ReplaceMissing(Boolean, Char[], Char[], List<Int32>)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_ReplaceMissing_System_Boolean_System_Char___System_Char___List_System_Int32__
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Boolean,System.Char[],System.Char[],List{System.Int32})
+  name.vb: ReplaceMissing(Boolean, Char(), Char(), List(Of Int32))
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Boolean, System.Char[], System.Char[], List<System.Int32>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing(System.Boolean, System.Char(), System.Char(), List(Of System.Int32))
+  nameWithType: UniquePassword.ReplaceMissing(Boolean, Char[], Char[], List<Int32>)
+  nameWithType.vb: UniquePassword.ReplaceMissing(Boolean, Char(), Char(), List(Of Int32))
 - uid: Cloud_ShareSync.Core.Compression.UniquePassword.ReplaceMissing*
   name: ReplaceMissing
   href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_ReplaceMissing_
@@ -3699,6 +3916,86 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.UniquePassword.Symbols
   nameWithType: UniquePassword.Symbols
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name: TestHasLowerCase(Char, Boolean, List<Int32>, Int32)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasLowerCase_System_Char_System_Boolean_List_System_Int32__System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name.vb: TestHasLowerCase(Char, Boolean, List(Of Int32), Int32)
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase(System.Char, System.Boolean, List<System.Int32>, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase(System.Char, System.Boolean, List(Of System.Int32), System.Int32)
+  nameWithType: UniquePassword.TestHasLowerCase(Char, Boolean, List<Int32>, Int32)
+  nameWithType.vb: UniquePassword.TestHasLowerCase(Char, Boolean, List(Of Int32), Int32)
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase*
+  name: TestHasLowerCase
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasLowerCase_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasLowerCase
+  nameWithType: UniquePassword.TestHasLowerCase
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name: TestHasNumber(Char, Boolean, List<Int32>, Int32)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasNumber_System_Char_System_Boolean_List_System_Int32__System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name.vb: TestHasNumber(Char, Boolean, List(Of Int32), Int32)
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber(System.Char, System.Boolean, List<System.Int32>, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber(System.Char, System.Boolean, List(Of System.Int32), System.Int32)
+  nameWithType: UniquePassword.TestHasNumber(Char, Boolean, List<Int32>, Int32)
+  nameWithType.vb: UniquePassword.TestHasNumber(Char, Boolean, List(Of Int32), Int32)
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber*
+  name: TestHasNumber
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasNumber_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasNumber
+  nameWithType: UniquePassword.TestHasNumber
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name: TestHasSymbol(Char, Boolean, List<Int32>, Int32)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasSymbol_System_Char_System_Boolean_List_System_Int32__System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name.vb: TestHasSymbol(Char, Boolean, List(Of Int32), Int32)
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol(System.Char, System.Boolean, List<System.Int32>, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol(System.Char, System.Boolean, List(Of System.Int32), System.Int32)
+  nameWithType: UniquePassword.TestHasSymbol(Char, Boolean, List<Int32>, Int32)
+  nameWithType.vb: UniquePassword.TestHasSymbol(Char, Boolean, List(Of Int32), Int32)
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol*
+  name: TestHasSymbol
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasSymbol_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasSymbol
+  nameWithType: UniquePassword.TestHasSymbol
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name: TestHasUpperCase(Char, Boolean, List<Int32>, Int32)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasUpperCase_System_Char_System_Boolean_List_System_Int32__System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase(System.Char,System.Boolean,List{System.Int32},System.Int32)
+  name.vb: TestHasUpperCase(Char, Boolean, List(Of Int32), Int32)
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase(System.Char, System.Boolean, List<System.Int32>, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase(System.Char, System.Boolean, List(Of System.Int32), System.Int32)
+  nameWithType: UniquePassword.TestHasUpperCase(Char, Boolean, List<Int32>, Int32)
+  nameWithType.vb: UniquePassword.TestHasUpperCase(Char, Boolean, List(Of Int32), Int32)
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase*
+  name: TestHasUpperCase
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestHasUpperCase_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestHasUpperCase
+  nameWithType: UniquePassword.TestHasUpperCase
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity(System.Char[],List{System.Int32})
+  name: TestInitialComplexity(Char[], List<Int32>)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestInitialComplexity_System_Char___List_System_Int32__
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity(System.Char[],List{System.Int32})
+  name.vb: TestInitialComplexity(Char(), List(Of Int32))
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity(System.Char[], List<System.Int32>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity(System.Char(), List(Of System.Int32))
+  nameWithType: UniquePassword.TestInitialComplexity(Char[], List<Int32>)
+  nameWithType.vb: UniquePassword.TestInitialComplexity(Char(), List(Of Int32))
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity*
+  name: TestInitialComplexity
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_TestInitialComplexity_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.TestInitialComplexity
+  nameWithType: UniquePassword.TestInitialComplexity
 - uid: Cloud_ShareSync.Core.Compression.UniquePassword.UpperCase
   name: UpperCase
   href: api/Cloud_ShareSync.Core.Compression.UniquePassword.html#Cloud_ShareSync_Core_Compression_UniquePassword_UpperCase
@@ -3728,6 +4025,77 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateComplexity
   nameWithType: UniquePassword.ValidateComplexity
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn
+  name: UniquePassword.ValidateReturn
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html
+  commentId: T:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn
+  nameWithType: UniquePassword.ValidateReturn
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower
+  name: HasLower
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasLower
+  commentId: P:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower
+  nameWithType: UniquePassword.ValidateReturn.HasLower
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower*
+  name: HasLower
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasLower_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasLower
+  nameWithType: UniquePassword.ValidateReturn.HasLower
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber
+  name: HasNumber
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasNumber
+  commentId: P:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber
+  nameWithType: UniquePassword.ValidateReturn.HasNumber
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber*
+  name: HasNumber
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasNumber_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasNumber
+  nameWithType: UniquePassword.ValidateReturn.HasNumber
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol
+  name: HasSymbol
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasSymbol
+  commentId: P:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol
+  nameWithType: UniquePassword.ValidateReturn.HasSymbol
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol*
+  name: HasSymbol
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasSymbol_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasSymbol
+  nameWithType: UniquePassword.ValidateReturn.HasSymbol
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper
+  name: HasUpper
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasUpper
+  commentId: P:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper
+  nameWithType: UniquePassword.ValidateReturn.HasUpper
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper*
+  name: HasUpper
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_HasUpper_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.HasUpper
+  nameWithType: UniquePassword.ValidateReturn.HasUpper
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex(Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn)
+  name: IsComplex(UniquePassword.ValidateReturn)
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_IsComplex_Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_
+  commentId: M:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex(Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn)
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex(Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn)
+  nameWithType: UniquePassword.ValidateReturn.IsComplex(UniquePassword.ValidateReturn)
+- uid: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex*
+  name: IsComplex
+  href: api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html#Cloud_ShareSync_Core_Compression_UniquePassword_ValidateReturn_IsComplex_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.IsComplex
+  nameWithType: UniquePassword.ValidateReturn.IsComplex
 - uid: Cloud_ShareSync.Core.Configuration
   name: Cloud_ShareSync.Core.Configuration
   href: api/Cloud_ShareSync.Core.Configuration.html
@@ -3863,6 +4231,28 @@ references:
   commentId: T:Cloud_ShareSync.Core.Configuration.ConfigManager
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager
   nameWithType: ConfigManager
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor(System.String[])
+  name: ConfigManager(String[])
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__ctor_System_String___
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor(System.String[])
+  name.vb: ConfigManager(String())
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager(System.String[])
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager(System.String())
+  nameWithType: ConfigManager.ConfigManager(String[])
+  nameWithType.vb: ConfigManager.ConfigManager(String())
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor*
+  name: ConfigManager
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__ctor_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager
+  nameWithType: ConfigManager.ConfigManager
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager._configuration
+  name: _configuration
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__configuration
+  commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager._configuration
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager._configuration
+  nameWithType: ConfigManager._configuration
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildBackBlazeConfig(Cloud_ShareSync.Core.Configuration.Types.CoreConfig)
   name: BuildBackBlazeConfig(CoreConfig)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildBackBlazeConfig_Cloud_ShareSync_Core_Configuration_Types_CoreConfig_
@@ -3902,12 +4292,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildCompressionConfig
   nameWithType: ConfigManager.BuildCompressionConfig
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration(FileInfo)
-  name: BuildConfiguration(FileInfo)
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildConfiguration_FileInfo_
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration(FileInfo)
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration(FileInfo)
-  nameWithType: ConfigManager.BuildConfiguration(FileInfo)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration
+  name: BuildConfiguration()
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildConfiguration
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration()
+  nameWithType: ConfigManager.BuildConfiguration()
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration*
   name: BuildConfiguration
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildConfiguration_
@@ -3915,12 +4305,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildConfiguration
   nameWithType: ConfigManager.BuildConfiguration
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig(Cloud_ShareSync.Core.Configuration.Types.CoreConfig)
-  name: BuildDatabaseConfig(CoreConfig)
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildDatabaseConfig_Cloud_ShareSync_Core_Configuration_Types_CoreConfig_
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig(Cloud_ShareSync.Core.Configuration.Types.CoreConfig)
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig(Cloud_ShareSync.Core.Configuration.Types.CoreConfig)
-  nameWithType: ConfigManager.BuildDatabaseConfig(CoreConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig
+  name: BuildDatabaseConfig()
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildDatabaseConfig
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig()
+  nameWithType: ConfigManager.BuildDatabaseConfig()
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildDatabaseConfig*
   name: BuildDatabaseConfig
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_BuildDatabaseConfig_
@@ -3954,19 +4344,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildRestoreConfig
   nameWithType: ConfigManager.BuildRestoreConfig
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration
-  name: Configuration
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_Configuration
-  commentId: P:Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration
-  nameWithType: ConfigManager.Configuration
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration*
-  name: Configuration
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_Configuration_
-  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration
-  isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.Configuration
-  nameWithType: ConfigManager.Configuration
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
+  name: ConfigPath
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigPath
+  commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
+  nameWithType: ConfigManager.ConfigPath
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureDatabaseService(Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig,System.Nullable{ILogger})
   name: ConfigureDatabaseService(DatabaseConfig, Nullable<ILogger>)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigureDatabaseService_Cloud_ShareSync_Core_Configuration_Types_DatabaseConfig_System_Nullable_ILogger__
@@ -3983,22 +4366,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureDatabaseService
   nameWithType: ConfigManager.ConfigureDatabaseService
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
-  name: ConfigureTelemetryLogger(Log4NetConfig, String[])
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigureTelemetryLogger_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_System_String___
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
-  name.vb: ConfigureTelemetryLogger(Log4NetConfig, String())
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String[])
-  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String())
-  nameWithType: ConfigManager.ConfigureTelemetryLogger(Log4NetConfig, String[])
-  nameWithType.vb: ConfigManager.ConfigureTelemetryLogger(Log4NetConfig, String())
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger*
-  name: ConfigureTelemetryLogger
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigureTelemetryLogger_
-  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
+  name: CreateTelemetryLogger(Log4NetConfig, String[])
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_CreateTelemetryLogger_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_System_String___
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
+  name.vb: CreateTelemetryLogger(Log4NetConfig, String())
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String[])
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String())
+  nameWithType: ConfigManager.CreateTelemetryLogger(Log4NetConfig, String[])
+  nameWithType.vb: ConfigManager.CreateTelemetryLogger(Log4NetConfig, String())
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger*
+  name: CreateTelemetryLogger
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_CreateTelemetryLogger_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger
   isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureTelemetryLogger
-  nameWithType: ConfigManager.ConfigureTelemetryLogger
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger
+  nameWithType: ConfigManager.CreateTelemetryLogger
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetBackBlazeB2
   name: GetBackBlazeB2()
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetBackBlazeB2
@@ -4012,12 +4395,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetBackBlazeB2
   nameWithType: ConfigManager.GetBackBlazeB2
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression
-  name: GetCompression()
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetCompression
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression()
-  nameWithType: ConfigManager.GetCompression()
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression(System.Boolean)
+  name: GetCompression(Boolean)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetCompression_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression(System.Boolean)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression(System.Boolean)
+  nameWithType: ConfigManager.GetCompression(Boolean)
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression*
   name: GetCompression
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetCompression_
@@ -4025,15 +4408,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression
   nameWithType: ConfigManager.GetCompression
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(System.String[])
-  name: GetConfiguration(String[])
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_System_String___
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(System.String[])
-  name.vb: GetConfiguration(String())
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(System.String[])
-  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(System.String())
-  nameWithType: ConfigManager.GetConfiguration(String[])
-  nameWithType.vb: ConfigManager.GetConfiguration(String())
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
+  name: GetConfiguration(FileInfo)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_FileInfo_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
+  nameWithType: ConfigManager.GetConfiguration(FileInfo)
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration*
   name: GetConfiguration
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_
@@ -4041,6 +4421,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration
   nameWithType: ConfigManager.GetConfiguration
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath(System.String[])
+  name: GetConfigurationPath(String[])
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfigurationPath_System_String___
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath(System.String[])
+  name.vb: GetConfigurationPath(String())
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath(System.String[])
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath(System.String())
+  nameWithType: ConfigManager.GetConfigurationPath(String[])
+  nameWithType.vb: ConfigManager.GetConfigurationPath(String())
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath*
+  name: GetConfigurationPath
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfigurationPath_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfigurationPath
+  nameWithType: ConfigManager.GetConfigurationPath
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetDatabase
   name: GetDatabase()
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetDatabase
@@ -4092,6 +4488,19 @@ references:
   commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager.s_source
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.s_source
   nameWithType: ConfigManager.s_source
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: ValidateAndAssignDefaults(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.ValidateAndAssignDefaults(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults*
+  name: ValidateAndAssignDefaults
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignDefaults_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults
+  nameWithType: ConfigManager.ValidateAndAssignDefaults
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateConfigSet(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.Boolean,System.Boolean,System.Nullable{ILogger})
   name: ValidateConfigSet(CompleteConfig, Boolean, Boolean, Nullable<ILogger>)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateConfigSet_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_Boolean_System_Boolean_System_Nullable_ILogger__
@@ -4395,19 +4804,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.ExcludePaths
   nameWithType: BackupConfig.ExcludePaths
-- uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories
-  name: MonitorSubDirectories
-  href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_MonitorSubDirectories
-  commentId: P:Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories
-  fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories
-  nameWithType: BackupConfig.MonitorSubDirectories
-- uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories*
-  name: MonitorSubDirectories
-  href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_MonitorSubDirectories_
-  commentId: Overload:Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories
-  isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.MonitorSubDirectories
-  nameWithType: BackupConfig.MonitorSubDirectories
 - uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.ObfuscateUploadedFileNames
   name: ObfuscateUploadedFileNames
   href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_ObfuscateUploadedFileNames
@@ -4421,6 +4817,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.ObfuscateUploadedFileNames
   nameWithType: BackupConfig.ObfuscateUploadedFileNames
+- uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse
+  name: Recurse
+  href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_Recurse
+  commentId: P:Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse
+  fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse
+  nameWithType: BackupConfig.Recurse
+- uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse*
+  name: Recurse
+  href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_Recurse_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.Recurse
+  nameWithType: BackupConfig.Recurse
 - uid: Cloud_ShareSync.Core.Configuration.Types.BackupConfig.RootFolder
   name: RootFolder
   href: api/Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html#Cloud_ShareSync_Core_Configuration_Types_BackupConfig_RootFolder
@@ -4569,12 +4978,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.PostgresConnectionString
   nameWithType: DatabaseConfig.PostgresConnectionString
-- uid: Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.s_assemblyPath
-  name: s_assemblyPath
-  href: api/Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.html#Cloud_ShareSync_Core_Configuration_Types_DatabaseConfig_s_assemblyPath
-  commentId: F:Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.s_assemblyPath
-  fullName: Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.s_assemblyPath
-  nameWithType: DatabaseConfig.s_assemblyPath
 - uid: Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.SqliteDBPath
   name: SqliteDBPath
   href: api/Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.html#Cloud_ShareSync_Core_Configuration_Types_DatabaseConfig_SqliteDBPath
@@ -4749,6 +5152,19 @@ references:
   commentId: T:Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig
   fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig
   nameWithType: ConsoleLogConfig
+- uid: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole
+  name: EnableColoredConsole
+  href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_ConsoleLogConfig_EnableColoredConsole
+  commentId: P:Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole
+  fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole
+  nameWithType: ConsoleLogConfig.EnableColoredConsole
+- uid: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole*
+  name: EnableColoredConsole
+  href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_ConsoleLogConfig_EnableColoredConsole_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.EnableColoredConsole
+  nameWithType: ConsoleLogConfig.EnableColoredConsole
 - uid: Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.LogLevels
   name: LogLevels
   href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_ConsoleLogConfig_LogLevels
@@ -4859,12 +5275,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.RolloverCount
   nameWithType: DefaultLogConfig.RolloverCount
-- uid: Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.s_assemblyPath
-  name: s_assemblyPath
-  href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_DefaultLogConfig_s_assemblyPath
-  commentId: F:Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.s_assemblyPath
-  fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.s_assemblyPath
-  nameWithType: DefaultLogConfig.s_assemblyPath
 - uid: Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.ToString
   name: ToString()
   href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_DefaultLogConfig_ToString
@@ -4936,12 +5346,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.RolloverCount
   nameWithType: TelemetryLogConfig.RolloverCount
-- uid: Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.s_assemblyPath
-  name: s_assemblyPath
-  href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_TelemetryLogConfig_s_assemblyPath
-  commentId: F:Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.s_assemblyPath
-  fullName: Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.s_assemblyPath
-  nameWithType: TelemetryLogConfig.s_assemblyPath
 - uid: Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.ToString
   name: ToString()
   href: api/Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.html#Cloud_ShareSync_Core_Configuration_Types_Logging_TelemetryLogConfig_ToString
@@ -5250,6 +5654,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData
   nameWithType: ManagedChaCha20Poly1305DecryptionData.ManagedChaCha20Poly1305DecryptionData
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int32)
+  name: AddNonceTagPairToList(JsonElement, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int32)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_AddNonceTagPairToList_JsonElement_List_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int32)
+  name.vb: AddNonceTagPairToList(JsonElement, List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int32)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement, List<Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote>, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement, List(Of Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote), System.Int32)
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int32)
+  nameWithType.vb: ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList(JsonElement, List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int32)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList*
+  name: AddNonceTagPairToList
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_AddNonceTagPairToList_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.AddNonceTagPairToList
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Deserialize(FileInfo)
   name: Deserialize(FileInfo)
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_Deserialize_FileInfo_
@@ -5263,6 +5683,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Deserialize
   nameWithType: ManagedChaCha20Poly1305DecryptionData.Deserialize
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData(JsonElement)
+  name: DeserializeKeyData(JsonElement)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_DeserializeKeyData_JsonElement_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData(JsonElement)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData(JsonElement)
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData(JsonElement)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData*
+  name: DeserializeKeyData
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_DeserializeKeyData_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData
+  nameWithType: ManagedChaCha20Poly1305DecryptionData.DeserializeKeyData
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.Key
   name: Key
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_Key
@@ -5490,6 +5923,18 @@ references:
   commentId: F:Cloud_ShareSync.Core.Cryptography.Hashing._log
   fullName: Cloud_ShareSync.Core.Cryptography.Hashing._log
   nameWithType: Hashing._log
+- uid: Cloud_ShareSync.Core.Cryptography.Hashing._sha1
+  name: _sha1
+  href: api/Cloud_ShareSync.Core.Cryptography.Hashing.html#Cloud_ShareSync_Core_Cryptography_Hashing__sha1
+  commentId: F:Cloud_ShareSync.Core.Cryptography.Hashing._sha1
+  fullName: Cloud_ShareSync.Core.Cryptography.Hashing._sha1
+  nameWithType: Hashing._sha1
+- uid: Cloud_ShareSync.Core.Cryptography.Hashing._sha512
+  name: _sha512
+  href: api/Cloud_ShareSync.Core.Cryptography.Hashing.html#Cloud_ShareSync_Core_Cryptography_Hashing__sha512
+  commentId: F:Cloud_ShareSync.Core.Cryptography.Hashing._sha512
+  fullName: Cloud_ShareSync.Core.Cryptography.Hashing._sha512
+  nameWithType: Hashing._sha512
 - uid: Cloud_ShareSync.Core.Cryptography.Hashing._source
   name: _source
   href: api/Cloud_ShareSync.Core.Cryptography.Hashing.html#Cloud_ShareSync_Core_Cryptography_Hashing__source
@@ -6251,6 +6696,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Database.SqliteContext.OnModelCreating
   nameWithType: SqliteContext.OnModelCreating
+- uid: Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath(System.String)
+  name: ParseDBDirectoryPath(String)
+  href: api/Cloud_ShareSync.Core.Database.SqliteContext.html#Cloud_ShareSync_Core_Database_SqliteContext_ParseDBDirectoryPath_System_String_
+  commentId: M:Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath(System.String)
+  fullName: Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath(System.String)
+  nameWithType: SqliteContext.ParseDBDirectoryPath(String)
+- uid: Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath*
+  name: ParseDBDirectoryPath
+  href: api/Cloud_ShareSync.Core.Database.SqliteContext.html#Cloud_ShareSync_Core_Database_SqliteContext_ParseDBDirectoryPath_
+  commentId: Overload:Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Database.SqliteContext.ParseDBDirectoryPath
+  nameWithType: SqliteContext.ParseDBDirectoryPath
 - uid: Cloud_ShareSync.Core.Logging
   name: Cloud_ShareSync.Core.Logging
   href: api/Cloud_ShareSync.Core.Logging.html
@@ -6565,12 +7023,121 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateMappingsList
   nameWithType: TelemetryLogger.CreateMappingsList
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetDebugColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetDebugColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetDebugColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetDebugColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor*
+  name: GetDebugColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor
+  nameWithType: TelemetryLogger.GetDebugColor
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetErrorColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetErrorColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetErrorColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetErrorColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetErrorColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor*
+  name: GetErrorColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetErrorColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor
+  nameWithType: TelemetryLogger.GetErrorColor
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetFatalColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetFatalColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetFatalColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetFatalColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetFatalColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor*
+  name: GetFatalColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetFatalColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor
+  nameWithType: TelemetryLogger.GetFatalColor
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetInfoColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetInfoColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetInfoColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetInfoColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetInfoColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor*
+  name: GetInfoColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetInfoColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor
+  nameWithType: TelemetryLogger.GetInfoColor
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetTelemetryColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetTelemetryColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetTelemetryColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetTelemetryColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetTelemetryColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor*
+  name: GetTelemetryColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetTelemetryColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor
+  nameWithType: TelemetryLogger.GetTelemetryColor
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name: GetWarnColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetWarnColor_Level_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level,List{ColoredConsoleAppender.LevelColors})
+  name.vb: GetWarnColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.GetWarnColor(Level, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.GetWarnColor(Level, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor*
+  name: GetWarnColor
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetWarnColor_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor
+  nameWithType: TelemetryLogger.GetWarnColor
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ILog
   name: ILog
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ILog
   commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger.ILog
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ILog
   nameWithType: TelemetryLogger.ILog
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled
+  name: IsDebugEnabled()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsDebugEnabled
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled()
+  nameWithType: TelemetryLogger.IsDebugEnabled()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled*
+  name: IsDebugEnabled
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsDebugEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled
+  nameWithType: TelemetryLogger.IsDebugEnabled
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsEnabled(LogLevel)
   name: IsEnabled(LogLevel)
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsEnabled_LogLevel_
@@ -6584,6 +7151,58 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsEnabled
   nameWithType: TelemetryLogger.IsEnabled
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled
+  name: IsErrorEnabled()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsErrorEnabled
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled()
+  nameWithType: TelemetryLogger.IsErrorEnabled()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled*
+  name: IsErrorEnabled
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsErrorEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled
+  nameWithType: TelemetryLogger.IsErrorEnabled
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled
+  name: IsFatalEnabled()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsFatalEnabled
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled()
+  nameWithType: TelemetryLogger.IsFatalEnabled()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled*
+  name: IsFatalEnabled
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsFatalEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled
+  nameWithType: TelemetryLogger.IsFatalEnabled
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled
+  name: IsInfoEnabled()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsInfoEnabled
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled()
+  nameWithType: TelemetryLogger.IsInfoEnabled()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled*
+  name: IsInfoEnabled
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsInfoEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled
+  nameWithType: TelemetryLogger.IsInfoEnabled
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled
+  name: IsWarnEnabled()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsWarnEnabled
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled()
+  nameWithType: TelemetryLogger.IsWarnEnabled()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled*
+  name: IsWarnEnabled
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_IsWarnEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled
+  nameWithType: TelemetryLogger.IsWarnEnabled
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.Log*
   name: Log
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_Log_
@@ -6644,6 +7263,71 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel
   nameWithType: TelemetryLogger.TranslateLogLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage(ILog,LogLevel,System.String)
+  name: WriteDebugMessage(ILog, LogLevel, String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteDebugMessage_ILog_LogLevel_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage(ILog,LogLevel,System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage(ILog, LogLevel, System.String)
+  nameWithType: TelemetryLogger.WriteDebugMessage(ILog, LogLevel, String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage*
+  name: WriteDebugMessage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteDebugMessage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage
+  nameWithType: TelemetryLogger.WriteDebugMessage
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage(ILog,LogLevel,System.String)
+  name: WriteErrorMessage(ILog, LogLevel, String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteErrorMessage_ILog_LogLevel_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage(ILog,LogLevel,System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage(ILog, LogLevel, System.String)
+  nameWithType: TelemetryLogger.WriteErrorMessage(ILog, LogLevel, String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage*
+  name: WriteErrorMessage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteErrorMessage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage
+  nameWithType: TelemetryLogger.WriteErrorMessage
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage(ILog,LogLevel,System.String)
+  name: WriteFatalMessage(ILog, LogLevel, String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteFatalMessage_ILog_LogLevel_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage(ILog,LogLevel,System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage(ILog, LogLevel, System.String)
+  nameWithType: TelemetryLogger.WriteFatalMessage(ILog, LogLevel, String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage*
+  name: WriteFatalMessage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteFatalMessage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage
+  nameWithType: TelemetryLogger.WriteFatalMessage
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage(ILog,LogLevel,System.String)
+  name: WriteInfoMessage(ILog, LogLevel, String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteInfoMessage_ILog_LogLevel_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage(ILog,LogLevel,System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage(ILog, LogLevel, System.String)
+  nameWithType: TelemetryLogger.WriteInfoMessage(ILog, LogLevel, String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage*
+  name: WriteInfoMessage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteInfoMessage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage
+  nameWithType: TelemetryLogger.WriteInfoMessage
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage(ILog,LogLevel,System.String)
+  name: WriteWarnMessage(ILog, LogLevel, String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteWarnMessage_ILog_LogLevel_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage(ILog,LogLevel,System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage(ILog, LogLevel, System.String)
+  nameWithType: TelemetryLogger.WriteWarnMessage(ILog, LogLevel, String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage*
+  name: WriteWarnMessage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteWarnMessage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage
+  nameWithType: TelemetryLogger.WriteWarnMessage
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogLevelExtension
   name: TelemetryLogLevelExtension
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogLevelExtension.html
@@ -6815,15 +7499,15 @@ references:
   commentId: T:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   nameWithType: HostProvider
-- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig)
-  name: ConfigureHost(Nullable<ILogger>, String[], CompleteConfig)
-  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_
-  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig)
-  name.vb: ConfigureHost(Nullable(Of ILogger), String(), CompleteConfig)
-  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable<ILogger>, System.String[], Cloud_ShareSync.Core.Configuration.CompleteConfig)
-  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable(Of ILogger), System.String(), Cloud_ShareSync.Core.Configuration.CompleteConfig)
-  nameWithType: HostProvider.ConfigureHost(Nullable<ILogger>, String[], CompleteConfig)
-  nameWithType.vb: HostProvider.ConfigureHost(Nullable(Of ILogger), String(), CompleteConfig)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureHost(Nullable<ILogger>, String[], CompleteConfig, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__System_String___Cloud_ShareSync_Core_Configuration_CompleteConfig_Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},System.String[],Cloud_ShareSync.Core.Configuration.CompleteConfig,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name.vb: ConfigureHost(Nullable(Of ILogger), String(), CompleteConfig, ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable<ILogger>, System.String[], Cloud_ShareSync.Core.Configuration.CompleteConfig, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable(Of ILogger), System.String(), Cloud_ShareSync.Core.Configuration.CompleteConfig, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureHost(Nullable<ILogger>, String[], CompleteConfig, ConfigManager)
+  nameWithType.vb: HostProvider.ConfigureHost(Nullable(Of ILogger), String(), CompleteConfig, ConfigManager)
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost*
   name: ConfigureHost
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_
@@ -7212,12 +7896,6 @@ references:
   commentId: F:Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess._services
   fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess._services
   nameWithType: UploadFileProcess._services
-- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess._uniquePassword
-  name: _uniquePassword
-  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_Process_UploadFileProcess__uniquePassword
-  commentId: F:Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess._uniquePassword
-  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess._uniquePassword
-  nameWithType: UploadFileProcess._uniquePassword
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.CompressFile(FileInfo,Cloud_ShareSync.Core.Database.Entities.PrimaryTable)
   name: CompressFile(FileInfo, PrimaryTable)
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_Process_UploadFileProcess_CompressFile_FileInfo_Cloud_ShareSync_Core_Database_Entities_PrimaryTable_
@@ -7639,6 +8317,22 @@ references:
   commentId: F:Cloud_ShareSync.Core.SharedServices.ClientUtilities.BackBlazeUserAgent
   fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.BackBlazeUserAgent
   nameWithType: ClientUtilities.BackBlazeUserAgent
+- uid: Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader(List{KeyValuePair{System.String,System.String}})
+  name: GetContentTypeHeader(List<KeyValuePair<String, String>>)
+  href: api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html#Cloud_ShareSync_Core_SharedServices_ClientUtilities_GetContentTypeHeader_List_KeyValuePair_System_String_System_String___
+  commentId: M:Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader(List{KeyValuePair{System.String,System.String}})
+  name.vb: GetContentTypeHeader(List(Of KeyValuePair(Of String, String)))
+  fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader(List<KeyValuePair<System.String, System.String>>)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader(List(Of KeyValuePair(Of System.String, System.String)))
+  nameWithType: ClientUtilities.GetContentTypeHeader(List<KeyValuePair<String, String>>)
+  nameWithType.vb: ClientUtilities.GetContentTypeHeader(List(Of KeyValuePair(Of String, String)))
+- uid: Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader*
+  name: GetContentTypeHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html#Cloud_ShareSync_Core_SharedServices_ClientUtilities_GetContentTypeHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.GetContentTypeHeader
+  nameWithType: ClientUtilities.GetContentTypeHeader
 - uid: Cloud_ShareSync.Core.SharedServices.ClientUtilities.NewBackBlazeHttpRequestMessage(System.String,HttpMethod,System.String)
   name: NewBackBlazeHttpRequestMessage(String, HttpMethod, String)
   href: api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html#Cloud_ShareSync_Core_SharedServices_ClientUtilities_NewBackBlazeHttpRequestMessage_System_String_HttpMethod_System_String_
@@ -7683,6 +8377,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.NewBackBlazeWebRequest
   nameWithType: ClientUtilities.NewBackBlazeWebRequest
+- uid: Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader(KeyValuePair{System.String,System.String},HttpRequestMessage,List{KeyValuePair{System.String,System.String}})
+  name: SetContentTypeHeader(KeyValuePair<String, String>, HttpRequestMessage, List<KeyValuePair<String, String>>)
+  href: api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html#Cloud_ShareSync_Core_SharedServices_ClientUtilities_SetContentTypeHeader_KeyValuePair_System_String_System_String__HttpRequestMessage_List_KeyValuePair_System_String_System_String___
+  commentId: M:Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader(KeyValuePair{System.String,System.String},HttpRequestMessage,List{KeyValuePair{System.String,System.String}})
+  name.vb: SetContentTypeHeader(KeyValuePair(Of String, String), HttpRequestMessage, List(Of KeyValuePair(Of String, String)))
+  fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader(KeyValuePair<System.String, System.String>, HttpRequestMessage, List<KeyValuePair<System.String, System.String>>)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader(KeyValuePair(Of System.String, System.String), HttpRequestMessage, List(Of KeyValuePair(Of System.String, System.String)))
+  nameWithType: ClientUtilities.SetContentTypeHeader(KeyValuePair<String, String>, HttpRequestMessage, List<KeyValuePair<String, String>>)
+  nameWithType.vb: ClientUtilities.SetContentTypeHeader(KeyValuePair(Of String, String), HttpRequestMessage, List(Of KeyValuePair(Of String, String)))
+- uid: Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader*
+  name: SetContentTypeHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html#Cloud_ShareSync_Core_SharedServices_ClientUtilities_SetContentTypeHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.ClientUtilities.SetContentTypeHeader
+  nameWithType: ClientUtilities.SetContentTypeHeader
 - uid: Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices
   name: CloudShareSyncServices
   href: api/Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices.html
@@ -7774,6 +8484,19 @@ references:
   commentId: T:Cloud_ShareSync.Core.SharedServices.MimeType
   fullName: Cloud_ShareSync.Core.SharedServices.MimeType
   nameWithType: MimeType
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.#cctor
+  name: .cctor()
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType__cctor
+  commentId: M:Cloud_ShareSync.Core.SharedServices.MimeType.#cctor
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType..cctor()
+  nameWithType: MimeType..cctor()
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.#cctor*
+  name: .cctor
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType__cctor_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.MimeType.#cctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType..cctor
+  nameWithType: MimeType..cctor
 - uid: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypeByExtension(FileInfo)
   name: GetMimeTypeByExtension(FileInfo)
   href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_GetMimeTypeByExtension_FileInfo_
@@ -7787,25 +8510,47 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypeByExtension
   nameWithType: MimeType.GetMimeTypeByExtension
-- uid: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes
-  name: GetMimeTypes()
-  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_GetMimeTypes
-  commentId: M:Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes
-  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes()
-  nameWithType: MimeType.GetMimeTypes()
-- uid: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes*
-  name: GetMimeTypes
-  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_GetMimeTypes_
-  commentId: Overload:Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary(System.Nullable{Stream})
+  name: ReadMimeTypeDictionary(Nullable<Stream>)
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_ReadMimeTypeDictionary_System_Nullable_Stream__
+  commentId: M:Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary(System.Nullable{Stream})
+  name.vb: ReadMimeTypeDictionary(Nullable(Of Stream))
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary(System.Nullable<Stream>)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary(System.Nullable(Of Stream))
+  nameWithType: MimeType.ReadMimeTypeDictionary(Nullable<Stream>)
+  nameWithType.vb: MimeType.ReadMimeTypeDictionary(Nullable(Of Stream))
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary*
+  name: ReadMimeTypeDictionary
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_ReadMimeTypeDictionary_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary
   isSpec: "True"
-  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.GetMimeTypes
-  nameWithType: MimeType.GetMimeTypes
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.ReadMimeTypeDictionary
+  nameWithType: MimeType.ReadMimeTypeDictionary
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.s_mimeTypes
+  name: s_mimeTypes
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_s_mimeTypes
+  commentId: F:Cloud_ShareSync.Core.SharedServices.MimeType.s_mimeTypes
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.s_mimeTypes
+  nameWithType: MimeType.s_mimeTypes
 - uid: Cloud_ShareSync.Core.SharedServices.MimeType.s_source
   name: s_source
   href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_s_source
   commentId: F:Cloud_ShareSync.Core.SharedServices.MimeType.s_source
   fullName: Cloud_ShareSync.Core.SharedServices.MimeType.s_source
   nameWithType: MimeType.s_source
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes
+  name: SetMimeTypes()
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_SetMimeTypes
+  commentId: M:Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes()
+  nameWithType: MimeType.SetMimeTypes()
+- uid: Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes*
+  name: SetMimeTypes
+  href: api/Cloud_ShareSync.Core.SharedServices.MimeType.html#Cloud_ShareSync_Core_SharedServices_MimeType_SetMimeTypes_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.MimeType.SetMimeTypes
+  nameWithType: MimeType.SetMimeTypes
 - uid: Cloud_ShareSync.Core.SharedServices.SystemMemoryChecker
   name: SystemMemoryChecker
   href: api/Cloud_ShareSync.Core.SharedServices.SystemMemoryChecker.html
@@ -7914,15 +8659,15 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.SimpleBackup.Program.BuildExcludeRegexArray
   nameWithType: Program.BuildExcludeRegexArray
-- uid: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,System.Nullable{ILogger})
-  name: EnumerateRootFolder(BackupConfig, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.SimpleBackup.Program.html#Cloud_ShareSync_SimpleBackup_Program_EnumerateRootFolder_Cloud_ShareSync_Core_Configuration_Types_BackupConfig_System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,System.Nullable{ILogger})
-  name.vb: EnumerateRootFolder(BackupConfig, Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, System.Nullable(Of ILogger))
-  nameWithType: Program.EnumerateRootFolder(BackupConfig, Nullable<ILogger>)
-  nameWithType.vb: Program.EnumerateRootFolder(BackupConfig, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,SearchOption,System.Nullable{ILogger})
+  name: EnumerateRootFolder(BackupConfig, SearchOption, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.SimpleBackup.Program.html#Cloud_ShareSync_SimpleBackup_Program_EnumerateRootFolder_Cloud_ShareSync_Core_Configuration_Types_BackupConfig_SearchOption_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,SearchOption,System.Nullable{ILogger})
+  name.vb: EnumerateRootFolder(BackupConfig, SearchOption, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, SearchOption, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, SearchOption, System.Nullable(Of ILogger))
+  nameWithType: Program.EnumerateRootFolder(BackupConfig, SearchOption, Nullable<ILogger>)
+  nameWithType.vb: Program.EnumerateRootFolder(BackupConfig, SearchOption, Nullable(Of ILogger))
 - uid: Cloud_ShareSync.SimpleBackup.Program.EnumerateRootFolder*
   name: EnumerateRootFolder
   href: api/Cloud_ShareSync.SimpleBackup.Program.html#Cloud_ShareSync_SimpleBackup_Program_EnumerateRootFolder_
@@ -8076,12 +8821,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.SimpleRestore.Program.Main
   nameWithType: Program.Main
-- uid: Cloud_ShareSync.SimpleRestore.Program.s_config
-  name: s_config
-  href: api/Cloud_ShareSync.SimpleRestore.Program.html#Cloud_ShareSync_SimpleRestore_Program_s_config
-  commentId: F:Cloud_ShareSync.SimpleRestore.Program.s_config
-  fullName: Cloud_ShareSync.SimpleRestore.Program.s_config
-  nameWithType: Program.s_config
 - uid: Cloud_ShareSync.SimpleRestore.Program.s_logger
   name: s_logger
   href: api/Cloud_ShareSync.SimpleRestore.Program.html#Cloud_ShareSync_SimpleRestore_Program_s_logger
