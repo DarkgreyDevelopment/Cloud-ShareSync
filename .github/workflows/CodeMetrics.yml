@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  Perform Code Analysis:
+  Perform-Code-Analysis:
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
