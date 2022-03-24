@@ -3684,6 +3684,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.CompressionIntermediary.FailOnNonZeroExitCodeOrException
   nameWithType: CompressionIntermediary.FailOnNonZeroExitCodeOrException
+- uid: Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported
+  name: PlatformSupported
+  href: api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.html#Cloud_ShareSync_Core_Compression_CompressionIntermediary_PlatformSupported
+  commentId: P:Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported
+  fullName: Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported
+  nameWithType: CompressionIntermediary.PlatformSupported
+- uid: Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported*
+  name: PlatformSupported
+  href: api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.html#Cloud_ShareSync_Core_Compression_CompressionIntermediary_PlatformSupported_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.CompressionIntermediary.PlatformSupported
+  nameWithType: CompressionIntermediary.PlatformSupported
 - uid: Cloud_ShareSync.Core.Compression.CompressionIntermediary.ReceiveErrorData(System.Object,DataReceivedEventArgs)
   name: ReceiveErrorData(Object, DataReceivedEventArgs)
   href: api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.html#Cloud_ShareSync_Core_Compression_CompressionIntermediary_ReceiveErrorData_System_Object_DataReceivedEventArgs_
@@ -5422,6 +5435,12 @@ references:
   commentId: T:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305
   nameWithType: ManagedChaCha20Poly1305
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor
+  name: ManagedChaCha20Poly1305()
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305__ctor
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.ManagedChaCha20Poly1305()
+  nameWithType: ManagedChaCha20Poly1305.ManagedChaCha20Poly1305()
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.#ctor(System.Nullable{ILogger})
   name: ManagedChaCha20Poly1305(Nullable<ILogger>)
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305__ctor_System_Nullable_ILogger__

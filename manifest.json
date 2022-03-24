@@ -441,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.CompressionIntermediary.html",
-          "hash": "049jGcuHzQsjznVIuntP8Mlzs3FIxM+UD/0yhxix8Ik="
+          "hash": "UgM4n+H4wRrH6dsI3Y7ZGxPGv1f4CLOjimXBrLbRFQ4="
         }
       },
       "is_incremental": false,
@@ -777,7 +777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html",
-          "hash": "yrAGwqocRrFvi3+u5dqBm6cPxyWZRbeLNSIemdsxTTE="
+          "hash": "GX1M6yqzr9nmA7BgOOAt2U29fp/G+tOWcm1VeyG+Z00="
         }
       },
       "is_incremental": false,
