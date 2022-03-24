@@ -18,7 +18,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         /// </para>
         /// See: <seealso cref="System.Security.Cryptography.ChaCha20Poly1305.IsSupported"/>
         /// </summary>
-        public static bool PlatformSupported { get { return ChaCha20Poly1305.IsSupported; } }
+        public static bool PlatformSupported { get { return !OperatingSystem.IsIOS( ) && ChaCha20Poly1305.IsSupported; } }
 
         /// <summary>
         /// The number of bytes to process before changing nonces.
@@ -28,8 +28,19 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         private readonly ActivitySource _source = new( "ManagedChaCha20Poly1305" );
         private readonly ILogger? _log;
 
-        public ManagedChaCha20Poly1305( ILogger? log = null ) { _log = log; }
+        public ManagedChaCha20Poly1305( ILogger? log = null ) {
+            if (PlatformSupported == false) {
+                throw new InvalidOperationException(
+                    "ChaCha20Poly1305 isn't supported on this platform. " +
+                    "Cannot create a managed instance."
+                );
+            }
+            _log = log;
+        }
 
+        public ManagedChaCha20Poly1305( ) : this( null ) { }
+
+#pragma warning disable CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
         #region Encryption
 
         /// <summary>
@@ -329,6 +340,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             long offset,
             int order
         ) {
+            if (PlatformSupported == false) { throw new InvalidOperationException( "ChaCha20Poly1305 isn't supported on this platform. Cannot create managed instance." ); }
             using Activity? activity = _source.StartActivity( "DecryptFileChunk" )?.Start( );
 
             byte[]? plainText = new byte[cypherTxt.Length];
@@ -415,4 +427,5 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
         #endregion Helper Methods
     }
+#pragma warning restore CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
 }

@@ -19,6 +19,8 @@ namespace Cloud_ShareSync.Core.Compression {
 
         private readonly List<FailedToZipException> _exceptions = new( );
 
+        public static bool PlatformSupported => OperatingSystem.IsWindows( ) || OperatingSystem.IsLinux( );
+
         /// <summary>
         /// Pass in the 7zip dependency path via the <paramref name="config"/>.
         /// Optionally set <paramref name="log"/> to enable logging.
@@ -26,13 +28,18 @@ namespace Cloud_ShareSync.Core.Compression {
         /// <param name="config"></param>
         /// <param name="log"></param>
         public CompressionIntermediary( CompressionConfig config, ILogger? log = null ) {
+            if (PlatformSupported == false) {
+                throw new InvalidOperationException(
+                    "Compression isn't supported on this platform at this time."
+                );
+            }
             _log = log;
             _dependencyPath = new( config.DependencyPath );
             SystemMemoryChecker.Update( );
             _ = _semaphore.Release( 1 );
         }
 
-
+#pragma warning disable CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
         #region DecompressPath
 
         /// <summary>
@@ -283,6 +290,6 @@ namespace Cloud_ShareSync.Core.Compression {
         }
 
         #endregion PrivateMethods
-
     }
+#pragma warning restore CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
 }

@@ -30,6 +30,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <SupportedPlatform Include="Windows" />
+        <SupportedPlatform Include="Linux" />
+        <SupportedPlatform Include="macOS" />
+        <SupportedPlatform Include="android" />
+        <SupportedPlatform Include="ios" />
+    </ItemGroup>
+
+    <ItemGroup>
         <EmbeddedResource Include="SharedServices\MimeTypes.json" />
         <None Remove="SharedServices\MimeTypes.json" />
     </ItemGroup>
