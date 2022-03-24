@@ -186,11 +186,11 @@ jobs:
       - name: Upload Code Metrics as an artifact
         uses: actions/upload-artifact@v3
         with:
-          name: CodeMetrics_{{ github.sha }}
+          name: CodeMetrics_${{ github.sha }}.csv
           path: ${{ github.workspace }}/Publish/CodeMetrics.csv
 
       - name: Upload Low Quality Code Metrics as an artifact
         uses: actions/upload-artifact@v3
         with:
-          name: CodeMetrics_LowQualityMethods_{{ github.sha }}
+          name: CodeMetrics_LowQualityMethods_${{ github.sha }}.csv
           path: ${{ github.workspace }}/Publish/CodeMetrics_LowQualityMethods.csv

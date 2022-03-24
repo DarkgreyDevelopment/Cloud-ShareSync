@@ -1,11 +1,6 @@
 name: Publish PreRelease
 on:
   workflow_dispatch:
-    inputs:
-      tags:
-        description: 'PreRelease Tag'
-        required: true
-        type: string
 
 env:
   REGISTRY: ghcr.io
@@ -60,25 +55,25 @@ jobs:
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Linux_{{ github.sha }}
+          name: Linux_${{ github.sha }}
           path: ${{ github.workspace }}/Publish/Linux
 
       - name: Upload MacOS artifact
         uses: actions/upload-artifact@v3
         with:
-          name: MacOS_{{ github.sha }}
+          name: MacOS_${{ github.sha }}
           path: ${{ github.workspace }}/Publish/MacOS
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Windows_{{ github.sha }}
+          name: Windows_${{ github.sha }}
           path: ${{ github.workspace }}/Publish/Windows
 
       - name: Upload InferReport artifact
         uses: actions/upload-artifact@v3
         with:
-          name: InferReport_{{ github.sha }}
+          name: InferReport_${{ github.sha }}
           path: ${{ github.workspace }}/Publish/InferReport.txt
 
       - name: Log in to the Container registry
@@ -98,7 +93,7 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=sha,format=long
-            type=raw,value=simplebackup-${{ github.event.inputs.tags }}
+            type=raw,value=simplebackup-prerelease-{{date 'YYYYMMDD'}}
             type=raw,value={{branch}}-{{date 'YYYYMMDD'}}
 
       - name: Build and push SimpleBackup Docker image
