@@ -1,21 +1,29 @@
 [CmdletBinding()]
 param (
-	[Parameter(Mandatory)]
-	[string]$SOURCEPATH,
+    [Parameter(Mandatory)]
+    [string]$SOURCEPATH,
 
-	[Parameter(Mandatory)]
-	[string]$PUBLISHPATH
+    [Parameter(Mandatory)]
+    [string]$PUBLISHPATH
 )
 
 # Restore, Build, Publish SimpleBackup.
+Push-Location $SOURCEPATH
 $ProjectPath = Resolve-Path -Path "$SOURCEPATH/src/Cloud-ShareSync.csproj"
 Write-Host 'Restoring Cloud-ShareSync' -ForegroundColor Green
 dotnet restore $ProjectPath
 
 $PublishProfiles = @('PublishWindows', 'PublishLinux', 'PublishMacOS')
-Foreach ($PubProfile in $PublishProfiles){
+Foreach ($PubProfile in $PublishProfiles) {
+    $joinPathSplat = @{
+        Path                = $SOURCEPATH
+        ChildPath           = 'src'
+        AdditionalChildPath = @('Properties', 'PublishProfiles', "$PubProfile.pubxml")
+        Resolve             = $true
+    }
+    $ProfilePath = Join-Path @joinPathSplat
     Write-Host "Cloud-ShareSync $PubProfile" -ForegroundColor Green
-    dotnet publish "/p:PublishProfile=$PubProfile"
+    dotnet publish "/p:PublishProfile=$ProfilePath"
 }
 
 $AppSettings = Join-Path -Path $SOURCEPATH -ChildPath 'appsettings.json'
