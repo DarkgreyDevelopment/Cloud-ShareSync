@@ -34,46 +34,28 @@ jobs:
           $BuildScript = (Resolve-Path -Path ./build/BuildCloudShareSync.ps1).Path
           $Params = @{
             SOURCEPATH  = (Get-Location).Path
-            PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
+            PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'publish'
             Verbose     = $true
           }
           & $BuildScript @Params
-
-      - name: Run Infer#
-        uses: microsoft/infersharpaction@v1.2.1
-        id: runinfersharp
-        with:
-          binary-path: "${{ github.workspace }}/Publish/Linux/"
-
-      - name: Write Infer# output to artifact
-        shell: pwsh
-        run: |
-          $InferPath = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish' -AdditionalChildPath "InferReport.txt"
-          Write-Output "${{ steps.runinfersharp.outputs.results }}"  | Tee-Object -FilePath $InferPath -Append
-
-      - name: Upload InferReport artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: InferReport_${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/InferReport.txt
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         with:
           name: windows.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/Windows
+          path: ${{ github.workspace }}/publish/windows
 
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
         with:
           name: linux.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/Linux
+          path: ${{ github.workspace }}/publish/linux
 
       - name: Upload MacOS artifact
         uses: actions/upload-artifact@v3
         with:
           name: macos.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/MacOS
+          path: ${{ github.workspace }}/publish/macos
 
       - name: Create DockerFiles
         shell: pwsh

@@ -14,7 +14,7 @@ dotnet restore $ProjectPath
 
 $PublishProfiles = @('PublishWindows', 'PublishLinux', 'PublishMacOS')
 Foreach ($PubProfile in $PublishProfiles){
-    Write-Host ('Publishing Cloud-ShareSync for ' + $PubProfile) -ForegroundColor Green
+    Write-Host "Cloud-ShareSync $PubProfile" -ForegroundColor Green
     dotnet publish "/p:PublishProfile=$PubProfile"
 }
 
@@ -26,7 +26,7 @@ $CopyParam = @{
     Force   = $true
 }
 
-Foreach ($OsDir in "$PUBLISHPATH/Windows", "$PUBLISHPATH/Linux", "$PUBLISHPATH/MacOS") {
+Foreach ($OsDir in "$PUBLISHPATH/windows", "$PUBLISHPATH/linux", "$PUBLISHPATH/macos") {
     $ConfigDir = Join-Path -Path $OsDir -ChildPath 'Configuration'
     New-Item -Path $ConfigDir -ItemType Directory -Force | Out-Null
 
