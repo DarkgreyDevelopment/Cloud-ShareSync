@@ -65,7 +65,7 @@
 </p>
 <p><a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic" alt="GitHub"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&amp;label=latest%20release&amp;style=plastic" alt="latest release"></a>
-<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&amp;style=plastic" alt="official release"></a><br>
+<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&amp;style=plastic" alt="official release"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main" alt="Releases"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" alt="CodeQL"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Documentation"></a></p>
@@ -76,15 +76,8 @@
 <h2 id="description">Description:</h2>
 <p>Cloud-ShareSync is an open source cloud storage backup application.</p>
 <p>The long term goal of this project is to build a backup application, akin to <a href="https://onedrive.com">OneDrive</a>, that extends the Files On Demand/Fuse functionality to new public cloud storage providers. Supporting platforms such as linux and MacOS is also a priority.</p>
-<p>Cloud-ShareSync (v1.x) will have a much more limited scope. The project consists of two separate applications; <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleRestore.html">SimpleBackup</a> and <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.SimpleBackup.html">SimpleRestore</a>.</p>
-<p>SimpleBackup and SimpleRestore are both console applications that run on Windows<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Windows is tested on Windows Server 2022.">*</a>, Linux<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
-<br>
-<h3 id="simplebackup">SimpleBackup:</h3>
-<p>SimpleBackup is a backup app that can recursively search through a directory tree and upload files to a preconfigured <a href="https://www.backblaze.com/b2/cloud-storage.html">BackBlaze B2</a> cloud storage bucket. SimpleBackup also offers optional file compression and encryption prior to upload.<br>
-A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleBackupFeatures.html">here</a>.</p>
-<h3 id="simplerestore">SimpleRestore:</h3>
-<p>SimpleRestore is a complete restore app that takes the database output from SimpleBackup and uses it to download files and restore them to the path specified in the config. File decompression/decryption is also supported after download.<br>
-A complete feature list can be found <a href="https://docs.cloud-sharesync.com/articles/SimpleRestoreFeatures.html">here</a>.</p>
+<p>Cloud-ShareSync (v1.x) will have a much more limited scope. The application currently has two separate modes of operation; <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Backup.html">Backup</a> and <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Restore.html">Restore</a>.</p>
+<p>Cloud-ShareSync is a console applications that run on Windows<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Windows is tested on Windows Server 2022.">*</a>, Linux<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
 <br>
 <h2 id="documentation">Documentation:</h2>
 <p>Project documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
@@ -104,42 +97,44 @@ A complete feature list can be found <a href="https://docs.cloud-sharesync.com/a
 <h3 id="pre-releasephase-01">Pre-Release/Phase 01:</h3>
 <ul>
 <li>Status  : In Progress.</li>
-<li>Goal    : Establish initial functional backup and restore functionality.</li>
+<li>Goal    : Establish initial backup and restore functionality.</li>
 <li>Features:
 <ul>
-<li>A single config file controls all application settings.</li>
+<li>Backup / Restore modes are specified by passing in arguments via the commandline.
+<ul>
+<li>Ex: <code>Cloud-ShareSync.exe backup</code></li>
+<li>Ex: <code>Cloud-ShareSync.exe restore</code></li>
+</ul>
+</li>
+<li>A config file controls the the remaining application settings.</li>
 <li>Console logging and rolling log files are enabled by default.</li>
 <li>OpenTelemetry trace logging is also available when enabled.</li>
 <li>Application data can be stored in either a local Sqlite database or a remote postgres database.</li>
-<li>Backup application is a simple console app.
-<ul>
-<li>Files are uploaded to a BackBlaze B2 bucket.
+<li>Backup application is a simple console app.</li>
+<li>For backup - Files can be uploaded to a BackBlaze B2 bucket.
 <ul>
 <li>BackBlaze B2 bucket specified by user in config.</li>
 </ul>
 </li>
-<li>When the backup application is run repeatedly; Files that were uploaded to the bucket on prior runs will be skipped if they are unchanged.</li>
-<li>Optionally compress files before upload.
+<li>When the backup mode is run repeatedly; Files that were uploaded to the bucket on prior runs will be skipped if they are unchanged.</li>
+<li>Files can be compressed before upload.
 <ul>
 <li>You may also elect to have a unique password generated during the compression process to password protect compressed files.</li>
 <li>File compression has a <a href="https://docs.cloud-sharesync.com/articles/7ZipDependency.html">dependency on 7-Zip</a>.</li>
 </ul>
 </li>
-<li>Optionally encrypt files before upload.
+<li>Files can be encrypted prior to upload.
 <ul>
 <li>File encryption depends on <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html">ChaCha20Poly1305 platform support</a>.</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Restore application is a simple console app.
+<li>Restore mode uses the database to restore all files that were uploaded to BackBlaze B2 by the the backup application.
 <ul>
-<li>Downloads all files from BackBlaze B2 that were uploaded by the the backup application.</li>
 <li>When the restore process is run repeatedly; Files that were downloaded from the bucket on prior runs will be skipped if they are unchanged.</li>
-<li>Decompresses files after download if they are compressed.</li>
-<li>Decrypts the encrypted files after download.</li>
 </ul>
 </li>
+<li>Restore mode will decompresses files after download if they were compressed during the upload process.</li>
+<li>Decrypts files after download if they were encrypted during the upload process.</li>
 </ul>
 </li>
 </ul>
@@ -150,28 +145,15 @@ A complete feature list can be found <a href="https://docs.cloud-sharesync.com/a
 <li>Features:
 <ul>
 <li>All phase 01 features retained.</li>
-<li>Selective restore must be a GUI application.</li>
-<li>Selective restore will present a table/spreadsheet like view of previously uploaded files and will restore files upon selection.</li>
+<li>Selective restore will have both GUI and cmdline components with equal feature parity.</li>
+<li>Selective restore GUI will present a table/spreadsheet like view of previously uploaded files and will individual files restoral.</li>
 </ul>
 </li>
 </ul>
 <h3 id="phase-03">Phase 03:</h3>
 <ul>
 <li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Add additional cloud providers.</li>
-<li>Features:
-<ul>
-<li>Retain features from all previous phases.</li>
-<li>Add ability to upload/download files to/from <a href="https://azure.microsoft.com/en-us/services/storage/blobs">Azure Blob Storage</a>.</li>
-<li>Add ability to upload/download files to/from <a href="https://aws.amazon.com/s3">Aws S3</a>.</li>
-<li>Add ability to upload/download files to/from <a href="https://cloud.google.com/storage">Google Cloud Storage</a>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="phase-04">Phase 04:</h3>
-<ul>
-<li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Combine SimpleBackup, SimpleRestore, and SelectiveRestore into a single app.</li>
+<li>Goal    : Add configuration GUI + cmdline options.</li>
 <li>Features:
 <ul>
 <li>Unified application should run as a background service.</li>
@@ -181,6 +163,19 @@ A complete feature list can be found <a href="https://docs.cloud-sharesync.com/a
 <li>GUI should also contain the SelectiveRestore menu.</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="phase-04">Phase 04:</h3>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Add additional cloud providers.</li>
+<li>Features:
+<ul>
+<li>Retain features from all previous phases.</li>
+<li>Add ability to upload/download files to/from <a href="https://azure.microsoft.com/en-us/services/storage/blobs">Azure Blob Storage</a>.</li>
+<li>Add ability to upload/download files to/from <a href="https://aws.amazon.com/s3">Aws S3</a>.</li>
+<li>Add ability to upload/download files to/from <a href="https://cloud.google.com/storage">Google Cloud Storage</a>.</li>
 </ul>
 </li>
 </ul>
@@ -218,7 +213,7 @@ A complete feature list can be found <a href="https://docs.cloud-sharesync.com/a
 </ul>
 <br>
 <h3 id="disclaimers">Disclaimers*</h3>
-<p>Cloud-ShareSync is not affiliated with Microsoft, BackBlaze, Google, or Amazon.<br>
+<p>Cloud-ShareSync is not affiliated with Microsoft, BackBlaze, Google, or Amazon.
 All code is provided free of charge, as is, and with no warranty under an <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE">MIT license</a>.</p>
 </article>
           </div>

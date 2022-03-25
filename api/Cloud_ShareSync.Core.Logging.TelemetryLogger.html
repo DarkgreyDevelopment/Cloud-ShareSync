@@ -1,0 +1,1464 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TelemetryLogger
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TelemetryLogger
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="png" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger">
+  
+  
+  <h1 id="Cloud_ShareSync_Core_Logging_TelemetryLogger" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger" class="text-break">Class TelemetryLogger
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TelemetryLogger</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cloud_ShareSync.Core.Logging.html">Cloud_ShareSync.Core.Logging</a></h6>
+  <h6><strong>Assembly</strong>: Cloud-ShareSync.dll</h6>
+  <h5 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">class TelemetryLogger : Microsoft.Extensions.Logging.ILogger</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_System_String___Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.%23ctor(System.String%5B%5D%2CCloud_ShareSync.Core.Configuration.Types.Log4NetConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L30">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_System_String___Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor(System.String[],Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)">TelemetryLogger(String[], Log4NetConfig)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TelemetryLogger(string[] sources = null, Log4NetConfig config = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">sources</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger__loggerRepository.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger._loggerRepository%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L25">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger__loggerRepository" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger._loggerRepository">_loggerRepository</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly ILoggerRepository _loggerRepository</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILoggerRepository</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ILog.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ILog%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L27">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ILog" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ILog">ILog</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ILog? ILog</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILog</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_LogMessageFormat.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.LogMessageFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L23">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_LogMessageFormat" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.LogMessageFormat">LogMessageFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">const string LogMessageFormat = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_OpenTelemetry.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.OpenTelemetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L28">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_OpenTelemetry" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.OpenTelemetry">OpenTelemetry</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly TracerProvider? OpenTelemetry</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TracerProvider</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ServiceName.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ServiceName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L22">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ServiceName" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ServiceName">ServiceName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">const string ServiceName = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_BeginScope__1___0_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.BeginScope%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L428">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_BeginScope_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.BeginScope*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_BeginScope__1___0_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.BeginScope``1(``0)">BeginScope&lt;TState&gt;(TState)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BeginScope&lt;TState&gt;(TState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TState</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDisposable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy%2CCloud_ShareSync.Core.Configuration.Types.Log4NetConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L221">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)">ConfigureConsoleAppender(Hierarchy, Log4NetConfig)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void ConfigureConsoleAppender(Hierarchy hierarchy, Log4NetConfig log4NetConfig)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Hierarchy</span></td>
+        <td><span class="parametername">hierarchy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a></td>
+        <td><span class="parametername">log4NetConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy%2CCloud_ShareSync.Core.Configuration.Types.Log4NetConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L121">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)">ConfigureDefaultLogAppender(Hierarchy, Log4NetConfig)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void ConfigureDefaultLogAppender(Hierarchy hierarchy, Log4NetConfig log4NetConfig)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Hierarchy</span></td>
+        <td><span class="parametername">hierarchy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a></td>
+        <td><span class="parametername">log4NetConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_Hierarchy_PatternLayout_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy%2CPatternLayout)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L185">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_Hierarchy_PatternLayout_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy,PatternLayout)">ConfigureErrorConsoleAppender(Hierarchy, PatternLayout)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void ConfigureErrorConsoleAppender(Hierarchy hierarchy, PatternLayout pattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Hierarchy</span></td>
+        <td><span class="parametername">hierarchy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PatternLayout</span></td>
+        <td><span class="parametername">pattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy%2CCloud_ShareSync.Core.Configuration.Types.Log4NetConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L153">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)">ConfigureTelemetryAppender(Hierarchy, Log4NetConfig)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void ConfigureTelemetryAppender(Hierarchy hierarchy, Log4NetConfig log4NetConfig)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Hierarchy</span></td>
+        <td><span class="parametername">hierarchy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a></td>
+        <td><span class="parametername">log4NetConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateFiltersList_Level___System_Boolean_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateFiltersList(Level%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L269">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateFiltersList_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateFiltersList*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateFiltersList_Level___System_Boolean_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateFiltersList(Level[],System.Boolean)">CreateFiltersList(Level[], Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static List&lt;log4net.Filter.IFilter&gt; CreateFiltersList(Level[] requestedLogLevels, bool skipErrorLevels = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span>[]</td>
+        <td><span class="parametername">requestedLogLevels</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">skipErrorLevels</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">log4net.Filter.IFilter</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateMappingsList_Level___.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateMappingsList(Level%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L290">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateMappingsList_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateMappingsList*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_CreateMappingsList_Level___" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateMappingsList(Level[])">CreateMappingsList(Level[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static List&lt;ColoredConsoleAppender.LevelColors&gt; CreateMappingsList(Level[] requestedLogLevels)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span>[]</td>
+        <td><span class="parametername">requestedLogLevels</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L360">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level,List{ColoredConsoleAppender.LevelColors})">GetDebugColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetDebugColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetErrorColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L318">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetErrorColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetErrorColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetErrorColor(Level,List{ColoredConsoleAppender.LevelColors})">GetErrorColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetErrorColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetFatalColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L303">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetFatalColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetFatalColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetFatalColor(Level,List{ColoredConsoleAppender.LevelColors})">GetFatalColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetFatalColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetInfoColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L346">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetInfoColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetInfoColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetInfoColor(Level,List{ColoredConsoleAppender.LevelColors})">GetInfoColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetInfoColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetTelemetryColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L374">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetTelemetryColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetTelemetryColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetTelemetryColor(Level,List{ColoredConsoleAppender.LevelColors})">GetTelemetryColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetTelemetryColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_GetWarnColor_Level_List_ColoredConsoleAppender_LevelColors__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level%2CList%7BColoredConsoleAppender.LevelColors%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L332">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetWarnColor_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_GetWarnColor_Level_List_ColoredConsoleAppender_LevelColors__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.GetWarnColor(Level,List{ColoredConsoleAppender.LevelColors})">GetWarnColor(Level, List&lt;ColoredConsoleAppender.LevelColors&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void GetWarnColor(Level level, List&lt;ColoredConsoleAppender.LevelColors&gt; map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">ColoredConsoleAppender.LevelColors</span>&gt;</td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsDebugEnabled.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L447">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsDebugEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsDebugEnabled" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsDebugEnabled">IsDebugEnabled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsDebugEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsEnabled_LogLevel_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsEnabled(LogLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L430">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsEnabled_LogLevel_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsEnabled(LogLevel)">IsEnabled(LogLevel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEnabled(LogLevel logLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">logLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsErrorEnabled.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L444">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsErrorEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsErrorEnabled" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsErrorEnabled">IsErrorEnabled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsErrorEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsFatalEnabled.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L443">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsFatalEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsFatalEnabled" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsFatalEnabled">IsFatalEnabled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsFatalEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsInfoEnabled.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L446">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsInfoEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsInfoEnabled" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsInfoEnabled">IsInfoEnabled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsInfoEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_IsWarnEnabled.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L445">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsWarnEnabled_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_IsWarnEnabled" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.IsWarnEnabled">IsWarnEnabled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsWarnEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_Log__1_LogLevel_EventId___0_System_Nullable_Exception__Func___0_System_Nullable_Exception__System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.Log%60%601(LogLevel%2CEventId%2C%60%600%2CSystem.Nullable%7BException%7D%2CFunc%7B%60%600%2CSystem.Nullable%7BException%7D%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L449">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_Log_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.Log*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_Log__1_LogLevel_EventId___0_System_Nullable_Exception__Func___0_System_Nullable_Exception__System_String__" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.Log``1(LogLevel,EventId,``0,System.Nullable{Exception},Func{``0,System.Nullable{Exception},System.String})">Log&lt;TState&gt;(LogLevel, EventId, TState, Nullable&lt;Exception&gt;, Func&lt;TState, Nullable&lt;Exception&gt;, String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Log&lt;TState&gt;(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func&lt;TState, Exception?, string&gt; formatter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">logLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">EventId</span></td>
+        <td><span class="parametername">eventId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TState</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Exception</span>&gt;</td>
+        <td><span class="parametername">exception</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TState, <span class="xref">System.Nullable</span>&lt;<span class="xref">Exception</span>&gt;, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">formatter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_NewRollingFileAppender_System_String_PatternLayout_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.NewRollingFileAppender(System.String%2CPatternLayout%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L388">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_NewRollingFileAppender_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.NewRollingFileAppender*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_NewRollingFileAppender_System_String_PatternLayout_System_Int32_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.NewRollingFileAppender(System.String,PatternLayout,System.Int32,System.String)">NewRollingFileAppender(String, PatternLayout, Int32, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static RollingFileAppender NewRollingFileAppender(string file, PatternLayout layout, int maxSizeRollBackups, string maximumFileSize)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">file</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PatternLayout</span></td>
+        <td><span class="parametername">layout</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxSizeRollBackups</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">maximumFileSize</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RollingFileAppender</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L408">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels)">TranslateLogLevel(SupportedLogLevels)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Level[] TranslateLogLevel(SupportedLogLevels logLevels)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels.html">SupportedLogLevels</a></td>
+        <td><span class="parametername">logLevels</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Level</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteDebugMessage_ILog_LogLevel_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage(ILog%2CLogLevel%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L481">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteDebugMessage_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteDebugMessage_ILog_LogLevel_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteDebugMessage(ILog,LogLevel,System.String)">WriteDebugMessage(ILog, LogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteDebugMessage(ILog log, LogLevel level, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILog</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteErrorMessage_ILog_LogLevel_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage(ILog%2CLogLevel%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L472">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteErrorMessage_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteErrorMessage_ILog_LogLevel_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteErrorMessage(ILog,LogLevel,System.String)">WriteErrorMessage(ILog, LogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteErrorMessage(ILog log, LogLevel level, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILog</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteFatalMessage_ILog_LogLevel_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage(ILog%2CLogLevel%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L469">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteFatalMessage_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteFatalMessage_ILog_LogLevel_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteFatalMessage(ILog,LogLevel,System.String)">WriteFatalMessage(ILog, LogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteFatalMessage(ILog log, LogLevel level, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILog</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteInfoMessage_ILog_LogLevel_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage(ILog%2CLogLevel%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L478">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteInfoMessage_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteInfoMessage_ILog_LogLevel_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteInfoMessage(ILog,LogLevel,System.String)">WriteInfoMessage(ILog, LogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteInfoMessage(ILog log, LogLevel level, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILog</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteWarnMessage_ILog_LogLevel_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage(ILog%2CLogLevel%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L475">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteWarnMessage_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_Logging_TelemetryLogger_WriteWarnMessage_ILog_LogLevel_System_String_" data-uid="Cloud_ShareSync.Core.Logging.TelemetryLogger.WriteWarnMessage(ILog,LogLevel,System.String)">WriteWarnMessage(ILog, LogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteWarnMessage(ILog log, LogLevel level, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILog</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogLevel</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Logging_TelemetryLogger.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Logging.TelemetryLogger%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Logging/TelemetryLogger.cs/#L20" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="toggle-mode">
+                <div class="icon">
+                  <i aria-hidden="true">☀</i>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="switch-style">
+                  <span class="slider round"></span>
+                </label>
+                <div class="icon">
+                  <i aria-hidden="true">☾</i>
+                </div>
+              </div>
+          
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <h5>In This Article</h5>
+              <div></div>
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div class="pull-left">
+              
+              <span><a href="https://docs.cloud-sharesync.com/articles/intro.html">About Me</a></span>
+              <span> | </span>
+              <span><a href="https://docs.cloud-sharesync.com/OpenSource.html">Open Source Acknowledgements</a></span>
+              <span> | </span>
+              <span><a href="https://docs.cloud-sharesync.com/SECURITY.html">Security</a></span>
+            </div>
+            <div class="toggle-mode pull-right visible-sm visible-xs">
+              <div class="icon">
+                <i aria-hidden="true">☀</i>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="switch-style-m">
+                <span class="slider round"></span>
+              </label>
+              <div class="icon">
+                <i aria-hidden="true">☾</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="../styles/toggle-theme.js"></script>
+      </footer>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -5,15 +5,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docker Setup: </title>
+    <title>Interface ICloudProviderDownload
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Docker Setup: ">
+    <meta name="title" content="Interface ICloudProviderDownload
+   ">
     <meta name="generator" content="docfx 2.59.0.0">
     
-    <link rel="shortcut icon" href="../../favicon.png">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <meta property="docfx:navrel" content="../../toc.html">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
     
@@ -33,8 +35,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="png" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="png" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -65,96 +67,51 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="docker-setup">Docker Setup:</h1>
-
-<p>This how to article assumes that you are already reasonably familiar with <a href="https://docs.docker.com/get-started/overview/">docker</a>.<br>
-If you are not familiar with docker please refer to the <a href="https://docs.docker.com/get-started/">docker startup guide</a>.</p>
-<br>
-<h2 id="step-1-download-container-image">Step 1: Download container image.</h2>
-<p>Start off by downloading the appropriate container image. A list of available container image tags can be <a href="https://github.com/darkgreydevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync/versions">found here</a>.</p>
-<pre><code>docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:{version-tag}
-</code></pre>
-<br>
-<h2 id="step-2-create-local-containers">Step 2: Create local containers.</h2>
-<h3 id="backup">Backup:</h3>
-<pre><code class="lang-bash">docker create \
-    --name=cloud-sharesync.backup \
-    --restart=no \
-    -v /App/Config:/config \
-    -v /mnt/FileShare:/backup \
-    -v /App/Working:/working \
-    -v /App/Log:/log \
-    -v /App/Database:/database \
-    -e &quot;CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json&quot; \
-    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:restore-prerelease-20220324
-</code></pre>
-<h3 id="parameters">Parameters:</h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Functionality</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--restart=no</td>
-<td>Do not auto restart on errors.</td>
-</tr>
-<tr>
-<td>-v /App/Config:/config</td>
-<td>Attaches the local path <code>/App/Config</code> to the container path <code>/config</code>.</td>
-</tr>
-<tr>
-<td>-v /mnt/FileShare:/backup</td>
-<td>Attaches the local path <code>/mnt/FileShare</code> to the container path <code>/backup</code>.</td>
-</tr>
-<tr>
-<td>-v /App/Working:/working</td>
-<td>Attaches the local path <code>/App/Working</code> to the container path <code>/working</code>.</td>
-</tr>
-<tr>
-<td>-v /App/Log:/log</td>
-<td>Attaches the local path <code>/App/Log</code> to the container path <code>/log</code>.</td>
-</tr>
-<tr>
-<td>-v /App/Database:/database</td>
-<td>Attaches the local path <code>/App/Database</code> to the container path <code>/database</code>.</td>
-</tr>
-<tr>
-<td>-e &quot;CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json&quot;</td>
-<td>Sets the <code>CLOUDSHARESYNC_CONFIGPATH</code> environment variable to <code>/config/appsettings.json</code></td>
-</tr>
-</tbody>
-</table>
-<p>The paths mentioned in the container creation parameters should correlate with the paths listed in the appsettings.json config file.</p>
-<br>
-<h3 id="restore">Restore:</h3>
-<pre><code class="lang-bash"># Instructions to be added soon.
-</code></pre>
-<h3 id="parameters-1">Parameters:</h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Functionality</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-</tbody>
-</table>
-<h2 id="step-3-start-containers">Step 3: Start containers.</h2>
-<p><code>docker start cloud-sharesync.backup</code>
-<code>docker start cloud-sharesync.restore</code></p>
+            <article class="content wrap" id="_content" data-uid="Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload">
+  
+  
+  <h1 id="Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload" data-uid="Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload" class="text-break">Interface ICloudProviderDownload
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Interfaces.html">Cloud_ShareSync.Core.CloudProvider.Interfaces</a></h6>
+  <h6><strong>Assembly</strong>: Cloud-ShareSync.dll</h6>
+  <h5 id="Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">interface ICloudProviderDownload</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload_OutputPath.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload.OutputPath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/CloudProvider/Interfaces/ICloudProviderDownload.cs/#L3">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload_OutputPath_" data-uid="Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload.OutputPath*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload_OutputPath" data-uid="Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload.OutputPath">OutputPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FileInfo OutputPath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -163,7 +120,10 @@ If you are not familiar with docker please refer to the <a href="https://docs.do
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/docs/articles/HowTo/DockerSetup.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_Interfaces_ICloudProviderDownload.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/CloudProvider/Interfaces/ICloudProviderDownload.cs/#L2" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -219,11 +179,11 @@ If you are not familiar with docker please refer to the <a href="https://docs.do
             </div>
           </div>
         </div>
-        <script type="text/javascript" src="../../styles/toggle-theme.js"></script>
+        <script type="text/javascript" src="../styles/toggle-theme.js"></script>
       </footer>    </div>
     
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>
