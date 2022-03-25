@@ -4,7 +4,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
@@ -29,10 +28,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      - name: Build SimpleBackup
+      - name: Build Cloud-ShareSync
         shell: pwsh
         run: |
-          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
+          $BuildScript = (Resolve-Path -Path ./build/BuildCloudShareSync.ps1).Path
           $Params = @{
             SOURCEPATH  = (Get-Location).Path
             PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
@@ -52,29 +51,40 @@ jobs:
           $InferPath = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish' -AdditionalChildPath "InferReport.txt"
           Write-Output "${{ steps.runinfersharp.outputs.results }}"  | Tee-Object -FilePath $InferPath -Append
 
-      - name: Upload Linux artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Linux_${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/Linux
-
-      - name: Upload MacOS artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: MacOS_${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/MacOS
-
-      - name: Upload Windows artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Windows_${{ github.sha }}
-          path: ${{ github.workspace }}/Publish/Windows
-
       - name: Upload InferReport artifact
         uses: actions/upload-artifact@v3
         with:
           name: InferReport_${{ github.sha }}
           path: ${{ github.workspace }}/Publish/InferReport.txt
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows.portable.${{ github.sha }}
+          path: ${{ github.workspace }}/Publish/Windows
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux.portable.${{ github.sha }}
+          path: ${{ github.workspace }}/Publish/Linux
+
+      - name: Upload MacOS artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos.portable.${{ github.sha }}
+          path: ${{ github.workspace }}/Publish/MacOS
+
+      - name: Create DockerFiles
+        shell: pwsh
+        run: |
+          $Script = (Resolve-Path -Path ./build/DockerBuild.ps1).Path
+          $Params = @{
+            Backup  = $true
+            Restore = $true
+            NoBuild = $true
+          }
+          & $Script @Params
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -83,23 +93,46 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta-sb
+      - name: Extract metadata (tags, labels) for Docker - (cloud-sharesync.backup)
+        id: meta-backup
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.REGISTRY }}/${{ github.repository }}.backup
           # generate Docker tags based on the following events/attributes
           tags: |
             type=sha,format=long
-            type=raw,value=simplebackup-prerelease-{{date 'YYYYMMDD'}}
-            type=raw,value={{branch}}-{{date 'YYYYMMDD'}}
+            type=raw,value=backup-prerelease-{{date 'YYYYMMDD'}}
+            type=raw,value=backup-{{branch}}-{{date 'YYYYMMDD'}}
 
-      - name: Build and push SimpleBackup Docker image
+      - name: Build and push Docker image - (cloud-sharesync.backup)
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          file: ./src/SimpleBackup/Dockerfile
+          file: ./docker/BackupDockerfile
+          context: ${{ github.workspace }}
           push: true
-          tags: ${{ steps.meta-sb.outputs.tags }}
-          labels: ${{ steps.meta-sb.outputs.labels }}
+          tags: ${{ steps.meta-backup.outputs.tags }}
+          labels: ${{ steps.meta-backup.outputs.labels }}
+
+      - name: Extract metadata (tags, labels) for Docker - (cloud-sharesync.restore)
+        id: meta-restore
+        uses: docker/metadata-action@v3
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ${{ env.REGISTRY }}/${{ github.repository }}.restore
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=sha,format=long
+            type=raw,value=restore-prerelease-{{date 'YYYYMMDD'}}
+            type=raw,value=restore-{{branch}}-{{date 'YYYYMMDD'}}
+
+      - name: Build and push Docker image - (cloud-sharesync.restore)
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          file: ./docker/RestoreDockerfile
+          context: ${{ github.workspace }}
+          push: true
+          tags: ${{ steps.meta-restore.outputs.tags }}
+          labels: ${{ steps.meta-restore.outputs.labels }}

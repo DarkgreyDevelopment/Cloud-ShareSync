@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types;
-using Cloud_ShareSync.Core.CloudProvider.Interface;
+using Cloud_ShareSync.Core.CloudProvider.Interfaces;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography;
 using Microsoft.Extensions.Logging;

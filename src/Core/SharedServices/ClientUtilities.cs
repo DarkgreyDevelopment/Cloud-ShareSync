@@ -115,8 +115,9 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 request.Content?.Headers.ContentType != null
             ) {
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue( contentType.Value );
-                if (contentHeaders.Contains( contentType ))
+                if (contentHeaders.Contains( contentType )) {
                     _ = contentHeaders.Remove( contentType );
+                }
             }
         }
 

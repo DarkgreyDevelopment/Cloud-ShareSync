@@ -8,10 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Cloud_ShareSync.SimpleBackup {
+namespace Cloud_ShareSync.Backup {
 
-    public class Program {
-        private static readonly ActivitySource s_source = new( "Cloud-ShareSync.SimpleBackup.Program" );
+    internal class Program {
+        private static readonly ActivitySource s_source = new( "Cloud-ShareSync.Backup.Program" );
 
         internal static async Task Main( string[] args ) {
             ILogger? log = null;

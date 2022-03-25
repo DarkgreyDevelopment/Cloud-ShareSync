@@ -71,10 +71,11 @@ namespace Cloud_ShareSync.Core.SharedServices {
             ServiceCollection services,
             ILogger? logger
         ) {
-            if (logger != null)
+            if (logger != null) {
                 _ = services.AddLogging( loggerBuilder => {
                     _ = loggerBuilder.AddProvider( new Log4NetProvider( logger ) );
                 } );
+            }
         }
 
         #endregion privateMethods

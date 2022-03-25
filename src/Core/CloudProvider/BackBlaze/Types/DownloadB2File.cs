@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Cloud_ShareSync.Core.CloudProvider.Interface;
+using Cloud_ShareSync.Core.CloudProvider.Interfaces;
 
 namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types {
     internal class DownloadB2File : ICloudProviderDownload {

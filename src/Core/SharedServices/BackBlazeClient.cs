@@ -145,8 +145,9 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
             using BinaryReader br = new( contentStream );
             using BinaryWriter writeFile = new( saveFile );
-            while ((count = br.Read( buffer, 0, buffer.Length )) != 0)
+            while ((count = br.Read( buffer, 0, buffer.Length )) != 0) {
                 writeFile.Write( buffer, 0, count );
+            }
 
             return response;
         }

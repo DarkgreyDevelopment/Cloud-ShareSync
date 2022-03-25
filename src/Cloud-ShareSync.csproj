@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <OutputType>Exe</OutputType>
         <AssemblyName>Cloud-ShareSync</AssemblyName>
         <RootNamespace>Cloud_ShareSync</RootNamespace>
+        <StartupObject>Cloud_ShareSync.Program</StartupObject>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
         <FileVersion>0.0.0.0</FileVersion>
         <Version>$(VersionPrefix)</Version>
@@ -20,34 +22,37 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DebugType>embedded</DebugType>
-        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <PackageIcon>..\..\docs\images\Logo.png</PackageIcon>
-        <ApplicationIcon>..\..\docs\images\logo.ico</ApplicationIcon>
+        <PackageIcon>..\docs\images\Logo.png</PackageIcon>
+        <ApplicationIcon>..\docs\images\logo.ico</ApplicationIcon>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest</AnalysisLevel>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     </PropertyGroup>
 
     <ItemGroup>
         <SupportedPlatform Include="Windows" />
         <SupportedPlatform Include="Linux" />
         <SupportedPlatform Include="macOS" />
-        <SupportedPlatform Include="android" />
-        <SupportedPlatform Include="ios" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="SharedServices\MimeTypes.json" />
-        <None Remove="SharedServices\MimeTypes.json" />
+        <EmbeddedResource Include="Core\SharedServices\MimeTypes.json" />
+        <None Remove="Core\SharedServices\MimeTypes.json" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\..\docs\images\Logo.png">
+        <None Include="..\docs\images\Logo.png">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-        <None Include="..\..\docs\images\logo.ico"></None>
+        <None Include="..\docs\images\logo.ico"></None>
+        <None Include="..\README.md">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -60,6 +65,7 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
         <PackageReference Include="log4net" Version="2.0.14" />
         <PackageReference Include="OpenTelemetry" Version="1.2.0-rc3" />
     </ItemGroup>

@@ -1,4 +1,4 @@
-name: CloudShareSync
+name: Build Cloud-ShareSync
 on:
   push:
     branches:
@@ -28,10 +28,10 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Build SimpleBackup
+      - name: Build Cloud-ShareSync
         shell: pwsh
         run: |
-          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
+          $BuildScript = (Resolve-Path -Path ./build/BuildCloudShareSync.ps1).Path
           $Params = @{
             SOURCEPATH  = (Get-Location).Path
             PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'

@@ -1,7 +1,7 @@
-﻿using Cloud_ShareSync.Core.Logging;
+﻿using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
-using Cloud_ShareSync.Core.Compression;
+using Cloud_ShareSync.Core.Logging;
 
 namespace Cloud_ShareSync.Core.Configuration.Enums {
     /// <summary>

@@ -104,7 +104,7 @@ namespace Cloud_ShareSync.Core.Logging {
                 );
             }
 
-            if (sources != null)
+            if (sources != null) {
                 // Configure OpenTelemetry
                 OpenTelemetry = Sdk.CreateTracerProviderBuilder( )
                     .AddSource( sources )
@@ -113,7 +113,7 @@ namespace Cloud_ShareSync.Core.Logging {
                     .AddProcessor( new SimpleActivityExportProcessor( new LogExporter( ILog ) ) )
                     .AddLogExporter( ILog )
                     .Build( );
-
+            }
         }
 
         #region CreateAppenders

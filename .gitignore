@@ -4,8 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Custom:
-Dependency/windows/*
-Dependency/linux/*
+docker/BackupDockerfile
+docker/RestoreDockerfile
+[pP]ublish/
 
 # User-specific files
 *.rsuser
