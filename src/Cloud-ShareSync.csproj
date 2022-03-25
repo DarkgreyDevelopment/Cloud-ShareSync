@@ -11,7 +11,7 @@
         <PackageId>CloudShareSync</PackageId>
         <Authors>Taylor Marvin</Authors>
         <Company>Darkgrey Development</Company>
-        <Description>Primary assembly for Cloud-ShareSync.</Description>
+        <Description>Cloud-ShareSync Backup and Restore application.</Description>
         <Copyright>Darkgrey Development (2022)</Copyright>
         <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
         <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
@@ -26,7 +26,7 @@
         <GenerateDocumentationFile>False</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <PackageIcon>..\docs\images\Logo.png</PackageIcon>
-        <ApplicationIcon>..\docs\images\logo.ico</ApplicationIcon>
+        <ApplicationIcon>logo.ico</ApplicationIcon>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest</AnalysisLevel>
         <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
@@ -44,11 +44,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="logo.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
         <None Include="..\docs\images\Logo.png">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-        <None Include="..\docs\images\logo.ico"></None>
+        <None Include="logo.ico"></None>
         <None Include="..\README.md">
           <Pack>True</Pack>
           <PackagePath>\</PackagePath>

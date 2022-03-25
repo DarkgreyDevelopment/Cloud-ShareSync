@@ -5,9 +5,7 @@
         {
           "src": "../src",
           "files": [
-            "Core/**.csproj",
-            "SimpleBackup/**.csproj",
-            "SimpleRestore/**.csproj"
+            "**.csproj"
           ],
           "exclude": [
             "**/bin/**",

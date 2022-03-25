@@ -15,10 +15,10 @@ docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:{version-tag}
 
 ## Step 2: Create local containers.
 
-### SimpleBackup:
+### Backup:
 ```bash
 docker create \
-    --name=simplebackup \
+    --name=cloud-sharesync.backup \
     --restart=no \
     -v /App/Config:/config \
     -v /mnt/FileShare:/backup \
@@ -26,7 +26,7 @@ docker create \
     -v /App/Log:/log \
     -v /App/Database:/database \
     -e "CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json" \
-    ghcr.io/darkgreydevelopment/cloud-sharesync:simplebackup-prerelease20220314
+    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:restore-prerelease-20220324
 ```
 
 ### Parameters:
@@ -44,8 +44,9 @@ The paths mentioned in the container creation parameters should correlate with t
 
 <br>
 
-### SimpleRestore:
+### Restore:
 ```bash
+# Instructions to be added soon.
 ```
 
 ### Parameters:
@@ -56,5 +57,5 @@ The paths mentioned in the container creation parameters should correlate with t
 
 
 ## Step 3: Start containers.
-`docker start simplebackup`
-`docker start simplerestore`
+`docker start cloud-sharesync.backup`
+`docker start cloud-sharesync.restore`
