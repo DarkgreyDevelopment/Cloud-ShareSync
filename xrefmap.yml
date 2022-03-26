@@ -13,162 +13,367 @@ references:
   commentId: N:Cloud_ShareSync.Backup
   fullName: Cloud_ShareSync.Backup
   nameWithType: Cloud_ShareSync.Backup
-- uid: Cloud_ShareSync.Backup.Program
-  name: Program
-  href: api/Cloud_ShareSync.Backup.Program.html
-  commentId: T:Cloud_ShareSync.Backup.Program
-  fullName: Cloud_ShareSync.Backup.Program
-  nameWithType: Program
-- uid: Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray(System.String[])
-  name: BuildExcludeRegexArray(String[])
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_BuildExcludeRegexArray_System_String___
-  commentId: M:Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray(System.String[])
-  name.vb: BuildExcludeRegexArray(String())
-  fullName: Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray(System.String[])
-  fullName.vb: Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray(System.String())
-  nameWithType: Program.BuildExcludeRegexArray(String[])
-  nameWithType.vb: Program.BuildExcludeRegexArray(String())
-- uid: Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray*
+- uid: Cloud_ShareSync.Backup.Process
+  name: Process
+  href: api/Cloud_ShareSync.Backup.Process.html
+  commentId: T:Cloud_ShareSync.Backup.Process
+  fullName: Cloud_ShareSync.Backup.Process
+  nameWithType: Process
+- uid: Cloud_ShareSync.Backup.Process.#ctor(System.String[])
+  name: Process(String[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__ctor_System_String___
+  commentId: M:Cloud_ShareSync.Backup.Process.#ctor(System.String[])
+  name.vb: Process(String())
+  fullName: Cloud_ShareSync.Backup.Process.Process(System.String[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.Process(System.String())
+  nameWithType: Process.Process(String[])
+  nameWithType.vb: Process.Process(String())
+- uid: Cloud_ShareSync.Backup.Process.#ctor*
+  name: Process
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__ctor_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.Process
+  nameWithType: Process.Process
+- uid: Cloud_ShareSync.Backup.Process._config
+  name: _config
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__config
+  commentId: F:Cloud_ShareSync.Backup.Process._config
+  fullName: Cloud_ShareSync.Backup.Process._config
+  nameWithType: Process._config
+- uid: Cloud_ShareSync.Backup.Process._excludedPathPatterns
+  name: _excludedPathPatterns
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__excludedPathPatterns
+  commentId: F:Cloud_ShareSync.Backup.Process._excludedPathPatterns
+  fullName: Cloud_ShareSync.Backup.Process._excludedPathPatterns
+  nameWithType: Process._excludedPathPatterns
+- uid: Cloud_ShareSync.Backup.Process._host
+  name: _host
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__host
+  commentId: F:Cloud_ShareSync.Backup.Process._host
+  fullName: Cloud_ShareSync.Backup.Process._host
+  nameWithType: Process._host
+- uid: Cloud_ShareSync.Backup.Process._log
+  name: _log
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process__log
+  commentId: F:Cloud_ShareSync.Backup.Process._log
+  fullName: Cloud_ShareSync.Backup.Process._log
+  nameWithType: Process._log
+- uid: Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray
+  name: BuildExcludeRegexArray()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_BuildExcludeRegexArray
+  commentId: M:Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray
+  fullName: Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray()
+  nameWithType: Process.BuildExcludeRegexArray()
+- uid: Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray*
   name: BuildExcludeRegexArray
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_BuildExcludeRegexArray_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_BuildExcludeRegexArray_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.BuildExcludeRegexArray
-  nameWithType: Program.BuildExcludeRegexArray
-- uid: Cloud_ShareSync.Backup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,SearchOption,System.Nullable{ILogger})
-  name: EnumerateRootFolder(BackupConfig, SearchOption, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_EnumerateRootFolder_Cloud_ShareSync_Core_Configuration_Types_BackupConfig_SearchOption_System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,SearchOption,System.Nullable{ILogger})
-  name.vb: EnumerateRootFolder(BackupConfig, SearchOption, Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, SearchOption, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.EnumerateRootFolder(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, SearchOption, System.Nullable(Of ILogger))
-  nameWithType: Program.EnumerateRootFolder(BackupConfig, SearchOption, Nullable<ILogger>)
-  nameWithType.vb: Program.EnumerateRootFolder(BackupConfig, SearchOption, Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.EnumerateRootFolder*
+  fullName: Cloud_ShareSync.Backup.Process.BuildExcludeRegexArray
+  nameWithType: Process.BuildExcludeRegexArray
+- uid: Cloud_ShareSync.Backup.Process.BuildFileUploadQueue(IEnumerable{System.String})
+  name: BuildFileUploadQueue(IEnumerable<String>)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_BuildFileUploadQueue_IEnumerable_System_String__
+  commentId: M:Cloud_ShareSync.Backup.Process.BuildFileUploadQueue(IEnumerable{System.String})
+  name.vb: BuildFileUploadQueue(IEnumerable(Of String))
+  fullName: Cloud_ShareSync.Backup.Process.BuildFileUploadQueue(IEnumerable<System.String>)
+  fullName.vb: Cloud_ShareSync.Backup.Process.BuildFileUploadQueue(IEnumerable(Of System.String))
+  nameWithType: Process.BuildFileUploadQueue(IEnumerable<String>)
+  nameWithType.vb: Process.BuildFileUploadQueue(IEnumerable(Of String))
+- uid: Cloud_ShareSync.Backup.Process.BuildFileUploadQueue*
+  name: BuildFileUploadQueue
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_BuildFileUploadQueue_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.BuildFileUploadQueue
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.BuildFileUploadQueue
+  nameWithType: Process.BuildFileUploadQueue
+- uid: Cloud_ShareSync.Backup.Process.CheckUploadsComplete(Task[],System.Boolean)
+  name: CheckUploadsComplete(Task[], Boolean)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_CheckUploadsComplete_Task___System_Boolean_
+  commentId: M:Cloud_ShareSync.Backup.Process.CheckUploadsComplete(Task[],System.Boolean)
+  name.vb: CheckUploadsComplete(Task(), Boolean)
+  fullName: Cloud_ShareSync.Backup.Process.CheckUploadsComplete(Task[], System.Boolean)
+  fullName.vb: Cloud_ShareSync.Backup.Process.CheckUploadsComplete(Task(), System.Boolean)
+  nameWithType: Process.CheckUploadsComplete(Task[], Boolean)
+  nameWithType.vb: Process.CheckUploadsComplete(Task(), Boolean)
+- uid: Cloud_ShareSync.Backup.Process.CheckUploadsComplete*
+  name: CheckUploadsComplete
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_CheckUploadsComplete_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.CheckUploadsComplete
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.CheckUploadsComplete
+  nameWithType: Process.CheckUploadsComplete
+- uid: Cloud_ShareSync.Backup.Process.EnumerateRootFolder
+  name: EnumerateRootFolder()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_EnumerateRootFolder
+  commentId: M:Cloud_ShareSync.Backup.Process.EnumerateRootFolder
+  fullName: Cloud_ShareSync.Backup.Process.EnumerateRootFolder()
+  nameWithType: Process.EnumerateRootFolder()
+- uid: Cloud_ShareSync.Backup.Process.EnumerateRootFolder*
   name: EnumerateRootFolder
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_EnumerateRootFolder_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.EnumerateRootFolder
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_EnumerateRootFolder_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.EnumerateRootFolder
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.EnumerateRootFolder
-  nameWithType: Program.EnumerateRootFolder
-- uid: Cloud_ShareSync.Backup.Program.Main(System.String[])
-  name: Main(String[])
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_Main_System_String___
-  commentId: M:Cloud_ShareSync.Backup.Program.Main(System.String[])
-  name.vb: Main(String())
-  fullName: Cloud_ShareSync.Backup.Program.Main(System.String[])
-  fullName.vb: Cloud_ShareSync.Backup.Program.Main(System.String())
-  nameWithType: Program.Main(String[])
-  nameWithType.vb: Program.Main(String())
-- uid: Cloud_ShareSync.Backup.Program.Main*
-  name: Main
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_Main_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.Main
+  fullName: Cloud_ShareSync.Backup.Process.EnumerateRootFolder
+  nameWithType: Process.EnumerateRootFolder
+- uid: Cloud_ShareSync.Backup.Process.ExcludePath(System.String)
+  name: ExcludePath(String)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ExcludePath_System_String_
+  commentId: M:Cloud_ShareSync.Backup.Process.ExcludePath(System.String)
+  fullName: Cloud_ShareSync.Backup.Process.ExcludePath(System.String)
+  nameWithType: Process.ExcludePath(String)
+- uid: Cloud_ShareSync.Backup.Process.ExcludePath*
+  name: ExcludePath
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ExcludePath_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.ExcludePath
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.Main
-  nameWithType: Program.Main
-- uid: Cloud_ShareSync.Backup.Program.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,System.Nullable{ILogger})
-  name: PopulateFileList(BackupConfig, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PopulateFileList_Cloud_ShareSync_Core_Configuration_Types_BackupConfig_System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig,System.Nullable{ILogger})
-  name.vb: PopulateFileList(BackupConfig, Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig, System.Nullable(Of ILogger))
-  nameWithType: Program.PopulateFileList(BackupConfig, Nullable<ILogger>)
-  nameWithType.vb: Program.PopulateFileList(BackupConfig, Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.PopulateFileList*
+  fullName: Cloud_ShareSync.Backup.Process.ExcludePath
+  nameWithType: Process.ExcludePath
+- uid: Cloud_ShareSync.Backup.Process.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig)
+  name: PopulateFileList(BackupConfig)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PopulateFileList_Cloud_ShareSync_Core_Configuration_Types_BackupConfig_
+  commentId: M:Cloud_ShareSync.Backup.Process.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig)
+  fullName: Cloud_ShareSync.Backup.Process.PopulateFileList(Cloud_ShareSync.Core.Configuration.Types.BackupConfig)
+  nameWithType: Process.PopulateFileList(BackupConfig)
+- uid: Cloud_ShareSync.Backup.Process.PopulateFileList*
   name: PopulateFileList
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PopulateFileList_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.PopulateFileList
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PopulateFileList_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.PopulateFileList
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.PopulateFileList
-  nameWithType: Program.PopulateFileList
-- uid: Cloud_ShareSync.Backup.Program.PrepProcess(IHost,System.Nullable{ILogger})
-  name: PrepProcess(IHost, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PrepProcess_IHost_System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.PrepProcess(IHost,System.Nullable{ILogger})
-  name.vb: PrepProcess(IHost, Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.PrepProcess(IHost, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.PrepProcess(IHost, System.Nullable(Of ILogger))
-  nameWithType: Program.PrepProcess(IHost, Nullable<ILogger>)
-  nameWithType.vb: Program.PrepProcess(IHost, Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.PrepProcess*
+  fullName: Cloud_ShareSync.Backup.Process.PopulateFileList
+  nameWithType: Process.PopulateFileList
+- uid: Cloud_ShareSync.Backup.Process.PrepProcess
+  name: PrepProcess()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PrepProcess
+  commentId: M:Cloud_ShareSync.Backup.Process.PrepProcess
+  fullName: Cloud_ShareSync.Backup.Process.PrepProcess()
+  nameWithType: Process.PrepProcess()
+- uid: Cloud_ShareSync.Backup.Process.PrepProcess*
   name: PrepProcess
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PrepProcess_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.PrepProcess
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PrepProcess_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.PrepProcess
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.PrepProcess
-  nameWithType: Program.PrepProcess
-- uid: Cloud_ShareSync.Backup.Program.PrepWork(IHost,List{System.String},System.Nullable{ILogger})
-  name: PrepWork(IHost, List<String>, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PrepWork_IHost_List_System_String__System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.PrepWork(IHost,List{System.String},System.Nullable{ILogger})
-  name.vb: PrepWork(IHost, List(Of String), Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.PrepWork(IHost, List<System.String>, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.PrepWork(IHost, List(Of System.String), System.Nullable(Of ILogger))
-  nameWithType: Program.PrepWork(IHost, List<String>, Nullable<ILogger>)
-  nameWithType.vb: Program.PrepWork(IHost, List(Of String), Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.PrepWork*
+  fullName: Cloud_ShareSync.Backup.Process.PrepProcess
+  nameWithType: Process.PrepProcess
+- uid: Cloud_ShareSync.Backup.Process.PrepWork(List{System.String})
+  name: PrepWork(List<String>)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PrepWork_List_System_String__
+  commentId: M:Cloud_ShareSync.Backup.Process.PrepWork(List{System.String})
+  name.vb: PrepWork(List(Of String))
+  fullName: Cloud_ShareSync.Backup.Process.PrepWork(List<System.String>)
+  fullName.vb: Cloud_ShareSync.Backup.Process.PrepWork(List(Of System.String))
+  nameWithType: Process.PrepWork(List<String>)
+  nameWithType.vb: Process.PrepWork(List(Of String))
+- uid: Cloud_ShareSync.Backup.Process.PrepWork*
   name: PrepWork
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_PrepWork_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.PrepWork
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_PrepWork_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.PrepWork
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.PrepWork
-  nameWithType: Program.PrepWork
-- uid: Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess(IHost,List{System.String},System.Nullable{ILogger})
-  name: RunSimpleBackupProcess(IHost, List<String>, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_RunSimpleBackupProcess_IHost_List_System_String__System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess(IHost,List{System.String},System.Nullable{ILogger})
-  name.vb: RunSimpleBackupProcess(IHost, List(Of String), Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess(IHost, List<System.String>, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess(IHost, List(Of System.String), System.Nullable(Of ILogger))
-  nameWithType: Program.RunSimpleBackupProcess(IHost, List<String>, Nullable<ILogger>)
-  nameWithType.vb: Program.RunSimpleBackupProcess(IHost, List(Of String), Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess*
-  name: RunSimpleBackupProcess
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_RunSimpleBackupProcess_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess
+  fullName: Cloud_ShareSync.Backup.Process.PrepWork
+  nameWithType: Process.PrepWork
+- uid: Cloud_ShareSync.Backup.Process.Run
+  name: Run()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_Run
+  commentId: M:Cloud_ShareSync.Backup.Process.Run
+  fullName: Cloud_ShareSync.Backup.Process.Run()
+  nameWithType: Process.Run()
+- uid: Cloud_ShareSync.Backup.Process.Run*
+  name: Run
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_Run_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.Run
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.RunSimpleBackupProcess
-  nameWithType: Program.RunSimpleBackupProcess
-- uid: Cloud_ShareSync.Backup.Program.s_source
+  fullName: Cloud_ShareSync.Backup.Process.Run
+  nameWithType: Process.Run
+- uid: Cloud_ShareSync.Backup.Process.RunInitialBackupProcess(List{System.String})
+  name: RunInitialBackupProcess(List<String>)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_RunInitialBackupProcess_List_System_String__
+  commentId: M:Cloud_ShareSync.Backup.Process.RunInitialBackupProcess(List{System.String})
+  name.vb: RunInitialBackupProcess(List(Of String))
+  fullName: Cloud_ShareSync.Backup.Process.RunInitialBackupProcess(List<System.String>)
+  fullName.vb: Cloud_ShareSync.Backup.Process.RunInitialBackupProcess(List(Of System.String))
+  nameWithType: Process.RunInitialBackupProcess(List<String>)
+  nameWithType.vb: Process.RunInitialBackupProcess(List(Of String))
+- uid: Cloud_ShareSync.Backup.Process.RunInitialBackupProcess*
+  name: RunInitialBackupProcess
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_RunInitialBackupProcess_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.RunInitialBackupProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.RunInitialBackupProcess
+  nameWithType: Process.RunInitialBackupProcess
+- uid: Cloud_ShareSync.Backup.Process.s_source
   name: s_source
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_s_source
-  commentId: F:Cloud_ShareSync.Backup.Program.s_source
-  fullName: Cloud_ShareSync.Backup.Program.s_source
-  nameWithType: Program.s_source
-- uid: Cloud_ShareSync.Backup.Program.UploadWork(IHost,System.Nullable{ILogger})
-  name: UploadWork(IHost, Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_UploadWork_IHost_System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.UploadWork(IHost,System.Nullable{ILogger})
-  name.vb: UploadWork(IHost, Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.UploadWork(IHost, System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.UploadWork(IHost, System.Nullable(Of ILogger))
-  nameWithType: Program.UploadWork(IHost, Nullable<ILogger>)
-  nameWithType.vb: Program.UploadWork(IHost, Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.UploadWork*
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_s_source
+  commentId: F:Cloud_ShareSync.Backup.Process.s_source
+  fullName: Cloud_ShareSync.Backup.Process.s_source
+  nameWithType: Process.s_source
+- uid: Cloud_ShareSync.Backup.Process.StartPrepTasks
+  name: StartPrepTasks()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_StartPrepTasks
+  commentId: M:Cloud_ShareSync.Backup.Process.StartPrepTasks
+  fullName: Cloud_ShareSync.Backup.Process.StartPrepTasks()
+  nameWithType: Process.StartPrepTasks()
+- uid: Cloud_ShareSync.Backup.Process.StartPrepTasks*
+  name: StartPrepTasks
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_StartPrepTasks_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.StartPrepTasks
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.StartPrepTasks
+  nameWithType: Process.StartPrepTasks
+- uid: Cloud_ShareSync.Backup.Process.StartUploadTasks
+  name: StartUploadTasks()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_StartUploadTasks
+  commentId: M:Cloud_ShareSync.Backup.Process.StartUploadTasks
+  fullName: Cloud_ShareSync.Backup.Process.StartUploadTasks()
+  nameWithType: Process.StartUploadTasks()
+- uid: Cloud_ShareSync.Backup.Process.StartUploadTasks(Task[])
+  name: StartUploadTasks(Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_StartUploadTasks_Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.StartUploadTasks(Task[])
+  name.vb: StartUploadTasks(Task())
+  fullName: Cloud_ShareSync.Backup.Process.StartUploadTasks(Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.StartUploadTasks(Task())
+  nameWithType: Process.StartUploadTasks(Task[])
+  nameWithType.vb: Process.StartUploadTasks(Task())
+- uid: Cloud_ShareSync.Backup.Process.StartUploadTasks*
+  name: StartUploadTasks
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_StartUploadTasks_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.StartUploadTasks
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.StartUploadTasks
+  nameWithType: Process.StartUploadTasks
+- uid: Cloud_ShareSync.Backup.Process.TasksComplete(Task[],Task[])
+  name: TasksComplete(Task[], Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_TasksComplete_Task___Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.TasksComplete(Task[],Task[])
+  name.vb: TasksComplete(Task(), Task())
+  fullName: Cloud_ShareSync.Backup.Process.TasksComplete(Task[], Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.TasksComplete(Task(), Task())
+  nameWithType: Process.TasksComplete(Task[], Task[])
+  nameWithType.vb: Process.TasksComplete(Task(), Task())
+- uid: Cloud_ShareSync.Backup.Process.TasksComplete*
+  name: TasksComplete
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_TasksComplete_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.TasksComplete
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.TasksComplete
+  nameWithType: Process.TasksComplete
+- uid: Cloud_ShareSync.Backup.Process.UploadsComplete(Task[])
+  name: UploadsComplete(Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_UploadsComplete_Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.UploadsComplete(Task[])
+  name.vb: UploadsComplete(Task())
+  fullName: Cloud_ShareSync.Backup.Process.UploadsComplete(Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.UploadsComplete(Task())
+  nameWithType: Process.UploadsComplete(Task[])
+  nameWithType.vb: Process.UploadsComplete(Task())
+- uid: Cloud_ShareSync.Backup.Process.UploadsComplete*
+  name: UploadsComplete
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_UploadsComplete_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.UploadsComplete
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.UploadsComplete
+  nameWithType: Process.UploadsComplete
+- uid: Cloud_ShareSync.Backup.Process.UploadWork
+  name: UploadWork()
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_UploadWork
+  commentId: M:Cloud_ShareSync.Backup.Process.UploadWork
+  fullName: Cloud_ShareSync.Backup.Process.UploadWork()
+  nameWithType: Process.UploadWork()
+- uid: Cloud_ShareSync.Backup.Process.UploadWork*
   name: UploadWork
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_UploadWork_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.UploadWork
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_UploadWork_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.UploadWork
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.UploadWork
-  nameWithType: Program.UploadWork
-- uid: Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo(Task[],System.Nullable{ILogger})
-  name: WriteTaskStatusInfo(Task[], Nullable<ILogger>)
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_WriteTaskStatusInfo_Task___System_Nullable_ILogger__
-  commentId: M:Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo(Task[],System.Nullable{ILogger})
-  name.vb: WriteTaskStatusInfo(Task(), Nullable(Of ILogger))
-  fullName: Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo(Task[], System.Nullable<ILogger>)
-  fullName.vb: Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo(Task(), System.Nullable(Of ILogger))
-  nameWithType: Program.WriteTaskStatusInfo(Task[], Nullable<ILogger>)
-  nameWithType.vb: Program.WriteTaskStatusInfo(Task(), Nullable(Of ILogger))
-- uid: Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo*
+  fullName: Cloud_ShareSync.Backup.Process.UploadWork
+  nameWithType: Process.UploadWork
+- uid: Cloud_ShareSync.Backup.Process.ValidateBackupConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  name: ValidateBackupConfig(CompleteConfig)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ValidateBackupConfig_Cloud_ShareSync_Core_Configuration_CompleteConfig_
+  commentId: M:Cloud_ShareSync.Backup.Process.ValidateBackupConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  fullName: Cloud_ShareSync.Backup.Process.ValidateBackupConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  nameWithType: Process.ValidateBackupConfig(CompleteConfig)
+- uid: Cloud_ShareSync.Backup.Process.ValidateBackupConfig*
+  name: ValidateBackupConfig
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ValidateBackupConfig_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.ValidateBackupConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.ValidateBackupConfig
+  nameWithType: Process.ValidateBackupConfig
+- uid: Cloud_ShareSync.Backup.Process.ValidateQueueComplete(Task[])
+  name: ValidateQueueComplete(Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ValidateQueueComplete_Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.ValidateQueueComplete(Task[])
+  name.vb: ValidateQueueComplete(Task())
+  fullName: Cloud_ShareSync.Backup.Process.ValidateQueueComplete(Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.ValidateQueueComplete(Task())
+  nameWithType: Process.ValidateQueueComplete(Task[])
+  nameWithType.vb: Process.ValidateQueueComplete(Task())
+- uid: Cloud_ShareSync.Backup.Process.ValidateQueueComplete*
+  name: ValidateQueueComplete
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_ValidateQueueComplete_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.ValidateQueueComplete
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.ValidateQueueComplete
+  nameWithType: Process.ValidateQueueComplete
+- uid: Cloud_ShareSync.Backup.Process.WaitOnUploadTasks(Task[],Task[])
+  name: WaitOnUploadTasks(Task[], Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WaitOnUploadTasks_Task___Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.WaitOnUploadTasks(Task[],Task[])
+  name.vb: WaitOnUploadTasks(Task(), Task())
+  fullName: Cloud_ShareSync.Backup.Process.WaitOnUploadTasks(Task[], Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.WaitOnUploadTasks(Task(), Task())
+  nameWithType: Process.WaitOnUploadTasks(Task[], Task[])
+  nameWithType.vb: Process.WaitOnUploadTasks(Task(), Task())
+- uid: Cloud_ShareSync.Backup.Process.WaitOnUploadTasks*
+  name: WaitOnUploadTasks
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WaitOnUploadTasks_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.WaitOnUploadTasks
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.WaitOnUploadTasks
+  nameWithType: Process.WaitOnUploadTasks
+- uid: Cloud_ShareSync.Backup.Process.WriteException(Exception)
+  name: WriteException(Exception)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteException_Exception_
+  commentId: M:Cloud_ShareSync.Backup.Process.WriteException(Exception)
+  fullName: Cloud_ShareSync.Backup.Process.WriteException(Exception)
+  nameWithType: Process.WriteException(Exception)
+- uid: Cloud_ShareSync.Backup.Process.WriteException*
+  name: WriteException
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteException_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.WriteException
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.WriteException
+  nameWithType: Process.WriteException
+- uid: Cloud_ShareSync.Backup.Process.WriteTaskException(Task,System.Int32)
+  name: WriteTaskException(Task, Int32)
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteTaskException_Task_System_Int32_
+  commentId: M:Cloud_ShareSync.Backup.Process.WriteTaskException(Task,System.Int32)
+  fullName: Cloud_ShareSync.Backup.Process.WriteTaskException(Task, System.Int32)
+  nameWithType: Process.WriteTaskException(Task, Int32)
+- uid: Cloud_ShareSync.Backup.Process.WriteTaskException*
+  name: WriteTaskException
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteTaskException_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.WriteTaskException
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Backup.Process.WriteTaskException
+  nameWithType: Process.WriteTaskException
+- uid: Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo(Task[])
+  name: WriteTaskStatusInfo(Task[])
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteTaskStatusInfo_Task___
+  commentId: M:Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo(Task[])
+  name.vb: WriteTaskStatusInfo(Task())
+  fullName: Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo(Task[])
+  fullName.vb: Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo(Task())
+  nameWithType: Process.WriteTaskStatusInfo(Task[])
+  nameWithType.vb: Process.WriteTaskStatusInfo(Task())
+- uid: Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo*
   name: WriteTaskStatusInfo
-  href: api/Cloud_ShareSync.Backup.Program.html#Cloud_ShareSync_Backup_Program_WriteTaskStatusInfo_
-  commentId: Overload:Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo
+  href: api/Cloud_ShareSync.Backup.Process.html#Cloud_ShareSync_Backup_Process_WriteTaskStatusInfo_
+  commentId: Overload:Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo
   isSpec: "True"
-  fullName: Cloud_ShareSync.Backup.Program.WriteTaskStatusInfo
-  nameWithType: Program.WriteTaskStatusInfo
+  fullName: Cloud_ShareSync.Backup.Process.WriteTaskStatusInfo
+  nameWithType: Process.WriteTaskStatusInfo
 - uid: Cloud_ShareSync.Core.CloudProvider.BackBlaze
   name: Cloud_ShareSync.Core.CloudProvider.BackBlaze
   href: api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.html

@@ -72,7 +72,7 @@
 If you are not familiar with docker please refer to the <a href="https://docs.docker.com/get-started/">docker startup guide</a>.</p>
 <br>
 <h2 id="step-1-download-container-image">Step 1: Download container image.</h2>
-<p>Start off by downloading the appropriate container image. A list of available container image tags can be <a href="https://github.com/darkgreydevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync/versions">found here</a>.</p>
+<p>Start off by downloading the appropriate container image. A list of available container image tags can be found <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync.backup">here</a> and <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync.restore">here</a>.</p>
 <pre><code>docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:{version-tag}
 </code></pre>
 <br>
@@ -87,7 +87,7 @@ If you are not familiar with docker please refer to the <a href="https://docs.do
     -v /App/Log:/log \
     -v /App/Database:/database \
     -e &quot;CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json&quot; \
-    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:restore-prerelease-20220324
+    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:backup-prerelease-20220325
 </code></pre>
 <h3 id="parameters">Parameters:</h3>
 <table>
