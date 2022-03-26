@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Cloud_ShareSync.Backup;
 
 namespace Cloud_ShareSync {
 
@@ -17,8 +18,9 @@ namespace Cloud_ShareSync {
                 string arg1 = arguments.Count > 1 ? arguments[1] : "";
                 if (MatchesBackup( arg0, arg1 )) {
                     showHelp = false;
-                    Backup.Program
-                        .Main( PassArguments( arguments, arg1 ) )
+                    Process backup = new( PassArguments( arguments, arg1 ) );
+                    backup
+                        .Run( )
                         .GetAwaiter( )
                         .GetResult( );
                 } else if (MatchesRestore( arg0, arg1 )) {

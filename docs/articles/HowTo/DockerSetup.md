@@ -6,7 +6,7 @@ If you are not familiar with docker please refer to the [docker startup guide](h
 <br>
 
 ## Step 1: Download container image.
-Start off by downloading the appropriate container image. A list of available container image tags can be [found here](https://github.com/darkgreydevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync/versions).  
+Start off by downloading the appropriate container image. A list of available container image tags can be found [here](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync.backup) and [here](https://github.com/DarkgreyDevelopment/Cloud-ShareSync/pkgs/container/cloud-sharesync.restore).  
 ```
 docker pull ghcr.io/darkgreydevelopment/cloud-sharesync:{version-tag}
 ```
@@ -26,7 +26,7 @@ docker create \
     -v /App/Log:/log \
     -v /App/Database:/database \
     -e "CLOUDSHARESYNC_CONFIGPATH=/config/appsettings.json" \
-    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:restore-prerelease-20220324
+    ghcr.io/darkgreydevelopment/cloud-sharesync.backup:backup-prerelease-20220325
 ```
 
 ### Parameters:
