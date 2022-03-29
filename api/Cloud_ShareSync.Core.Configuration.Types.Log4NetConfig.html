@@ -74,14 +74,14 @@
   </h1>
   <div class="markdown level0 summary"><p>
 Cloud-ShareSync instruments logging via a custom ILogger implementation (ref <a class="xref" href="Cloud_ShareSync.Core.Logging.TelemetryLogger.html">TelemetryLogger</a>)
-that utilizes apache Log4Net as its backend.
+that utilizes apache Log4Net for its backend.
 </p>
 <p>
 The built in/default Log4Net configuration consists of a rolling log file appender
-and colored console appender for all standard log messages. 
+and colored console appender for all standard log messages.<br>
 OpenTelemetry traces are also exported, in json format, to a rolling log file appender.
 </p>
-These built in settings can also be optionally overridden via a log4net XML configuration file.
+These built in settings can also optionally be overridden via a log4net XML configuration file.
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -102,7 +102,7 @@ These built in settings can also be optionally overridden via a log4net XML conf
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConfigurationFile%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L22">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L25">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConfigurationFile*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConfigurationFile">ConfigurationFile</h4>
@@ -133,11 +133,11 @@ These built in settings can also be optionally overridden via a log4net XML conf
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConsoleConfiguration.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConsoleConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L61">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L145">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConsoleConfiguration_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConsoleConfiguration*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConsoleConfiguration" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConsoleConfiguration">ConsoleConfiguration</h4>
-  <div class="markdown level1 summary"><p>The configuration settings for the built in console log process.
+  <div class="markdown level1 summary"><p>The configuration settings for the built in console log process.<br>
 This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableConsoleLog">EnableConsoleLog</a> is true.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -155,7 +155,7 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Logging.ConsoleLogConfig.html">ConsoleLogConfig</a></td>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig.html">ConsoleLogConfig</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -165,11 +165,11 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_DefaultLogConfiguration.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.DefaultLogConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L35">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L73">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_DefaultLogConfiguration_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.DefaultLogConfiguration*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_DefaultLogConfiguration" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.DefaultLogConfiguration">DefaultLogConfiguration</h4>
-  <div class="markdown level1 summary"><p>The configuration settings for the built in rolling log process.
+  <div class="markdown level1 summary"><p>The configuration settings for the built in rolling log process.<br>
 This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableDefaultLog">EnableDefaultLog</a> is true.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -187,7 +187,7 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Logging.DefaultLogConfig.html">DefaultLogConfig</a></td>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig.html">DefaultLogConfig</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -197,12 +197,12 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableConsoleLog.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableConsoleLog%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L55">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L121">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableConsoleLog_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableConsoleLog*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableConsoleLog" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableConsoleLog">EnableConsoleLog</h4>
   <div class="markdown level1 summary"><p>Cloud-ShareSync implements a colored console appender if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile">ConfigurationFile</a>
-is not set.
+is not set.<br>
 This field enables or disables the built in colored console configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -230,12 +230,12 @@ This field enables or disables the built in colored console configuration.</p>
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableDefaultLog.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableDefaultLog%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L29">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L49">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableDefaultLog_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableDefaultLog*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableDefaultLog" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableDefaultLog">EnableDefaultLog</h4>
   <div class="markdown level1 summary"><p>By default Cloud-ShareSync implements a custom rolling log file process if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile">ConfigurationFile</a>
-is not set.
+is not set.<br>
 This field enables or disables the built in rolling log file configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -263,12 +263,12 @@ This field enables or disables the built in rolling log file configuration.</p>
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableTelemetryLog.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableTelemetryLog%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L42">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L85">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableTelemetryLog_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableTelemetryLog*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableTelemetryLog" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.EnableTelemetryLog">EnableTelemetryLog</h4>
   <div class="markdown level1 summary"><p>Cloud-ShareSync implements a custom rolling log file process for
-OpenTelemetry content if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile">ConfigurationFile</a> is not set.
+OpenTelemetry content if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile">ConfigurationFile</a> is not set.<br>
 This field enables or disables the built in telemetry log configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -296,11 +296,11 @@ This field enables or disables the built in telemetry log configuration.</p>
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_TelemetryLogConfiguration.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.TelemetryLogConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L48">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L109">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_TelemetryLogConfiguration_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.TelemetryLogConfiguration*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_TelemetryLogConfiguration" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.TelemetryLogConfiguration">TelemetryLogConfiguration</h4>
-  <div class="markdown level1 summary"><p>The configuration settings for the built in OpenTelemetry log export process.
+  <div class="markdown level1 summary"><p>The configuration settings for the built in OpenTelemetry log export process. <br>
 This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_EnableTelemetryLog">EnableTelemetryLog</a> is true.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -318,7 +318,7 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Logging.TelemetryLogConfig.html">TelemetryLogConfig</a></td>
+        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig.html">TelemetryLogConfig</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -327,10 +327,302 @@ This field is required if <a class="xref" href="Cloud_ShareSync.Core.Configurati
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewConfigurationFileOption_Command_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewConfigurationFileOption(Command)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L27">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewConfigurationFileOption_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewConfigurationFileOption*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewConfigurationFileOption_Command_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewConfigurationFileOption(Command)">NewConfigurationFileOption(Command)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Option&lt;string&gt; NewConfigurationFileOption(Command verbCommand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td><span class="parametername">verbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableConsoleLogOption_Command_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableConsoleLogOption(Command)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L123">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableConsoleLogOption_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableConsoleLogOption*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableConsoleLogOption_Command_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableConsoleLogOption(Command)">NewEnableConsoleLogOption(Command)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Option&lt;bool&gt; NewEnableConsoleLogOption(Command verbCommand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td><span class="parametername">verbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableDefaultLogOption_Command_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableDefaultLogOption(Command)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L51">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableDefaultLogOption_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableDefaultLogOption*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableDefaultLogOption_Command_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableDefaultLogOption(Command)">NewEnableDefaultLogOption(Command)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Option&lt;bool&gt; NewEnableDefaultLogOption(Command verbCommand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td><span class="parametername">verbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableTelemetryLogOption_Command_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableTelemetryLogOption(Command)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L87">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableTelemetryLogOption_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableTelemetryLogOption*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewEnableTelemetryLogOption_Command_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewEnableTelemetryLogOption(Command)">NewEnableTelemetryLogOption(Command)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Option&lt;bool&gt; NewEnableTelemetryLogOption(Command verbCommand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td><span class="parametername">verbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewLoggingConfigCommand_Option_FileInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewLoggingConfigCommand(Option%7BFileInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L152">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewLoggingConfigCommand_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewLoggingConfigCommand*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_NewLoggingConfigCommand_Option_FileInfo__" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.NewLoggingConfigCommand(Option{FileInfo})">NewLoggingConfigCommand(Option&lt;FileInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Command NewLoggingConfigCommand(Option&lt;FileInfo&gt; configPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">FileInfo</span>&gt;</td>
+        <td><span class="parametername">configPath</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_SetLoggingConfigHandler_Command_Option_System_String__Option_System_Boolean__Option_System_Boolean__Option_System_Boolean__Option_FileInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.SetLoggingConfigHandler(Command%2COption%7BSystem.String%7D%2COption%7BSystem.Boolean%7D%2COption%7BSystem.Boolean%7D%2COption%7BSystem.Boolean%7D%2COption%7BFileInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L169">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_SetLoggingConfigHandler_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.SetLoggingConfigHandler*"></a>
+  <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_SetLoggingConfigHandler_Command_Option_System_String__Option_System_Boolean__Option_System_Boolean__Option_System_Boolean__Option_FileInfo__" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.SetLoggingConfigHandler(Command,Option{System.String},Option{System.Boolean},Option{System.Boolean},Option{System.Boolean},Option{FileInfo})">SetLoggingConfigHandler(Command, Option&lt;String&gt;, Option&lt;Boolean&gt;, Option&lt;Boolean&gt;, Option&lt;Boolean&gt;, Option&lt;FileInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void SetLoggingConfigHandler(Command databaseConfig, Option&lt;string&gt; configurationFile, Option&lt;bool&gt; enableDefaultLog, Option&lt;bool&gt; enableTelemetryLog, Option&lt;bool&gt; enableConsoleLog, Option&lt;FileInfo&gt; configPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Command</span></td>
+        <td><span class="parametername">databaseConfig</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">configurationFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">enableDefaultLog</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">enableTelemetryLog</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">enableConsoleLog</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Option</span>&lt;<span class="xref">FileInfo</span>&gt;</td>
+        <td><span class="parametername">configPath</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ToString.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L66">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Configuration/Types/Log4NetConfig.cs/#L208">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ToString_" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ToString*"></a>
   <h4 id="Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ToString" data-uid="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ToString">ToString()</h4>

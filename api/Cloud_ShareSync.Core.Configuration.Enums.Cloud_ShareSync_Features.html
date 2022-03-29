@@ -114,7 +114,7 @@ Enables backup mode.
 <p>
 Cloud-ShareSync requires that at least one mode (<a class="xref" href="Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html#Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Backup">Backup</a>, <a class="xref" href="Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html#Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Restore">Restore</a>) be enabled. 
 </p>
-When enabled backup settings are controlled by the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html">BackupConfig</a>.
+When enabled backup settings are controlled by the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.SyncConfig.html">SyncConfig</a>.
 </td>
       </tr>
       <tr>
@@ -123,21 +123,21 @@ When enabled backup settings are controlled by the <a class="xref" href="Cloud_S
 Enables file compression before upload and file decompression after download.
 </p>
 <p>
-Compression is currently handled via the <a class="xref" href="Cloud_ShareSync.Core.Compression.CompressionIntermediary.html">CompressionIntermediary</a>.
+Compression is currently handled via the <see cref="!:CompressionIntermediary"></see>.
 </p>
 When enabled compression settings are controlled by the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.CompressionConfig.html">CompressionConfig</a>.
 </td>
       </tr>
       <tr>
         <td id="Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Encryption">Encryption</td>
-        <td><p>Enables <a class="xref" href="Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html">ManagedChaCha20Poly1305</a> file encryption before upload and
+        <td><p>Enables <see cref="!:ManagedChaCha20Poly1305"></see> file encryption before upload and
 file decryption after download.</p>
 </td>
       </tr>
       <tr>
         <td id="Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Log4Net">Log4Net</td>
         <td><p>
-Enables application logging and telemetry via the <a class="xref" href="Cloud_ShareSync.Core.Logging.TelemetryLogger.html">TelemetryLogger</a>.
+Enables application logging and telemetry via the <see cref="!:TelemetryLogger"></see>.
 </p>
 When enabled log settings are controlled by the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a>.
 </td>
@@ -161,7 +161,7 @@ Enables restore mode.
 <p>
 Cloud-ShareSync requires that at least one mode (<a class="xref" href="Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html#Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Restore">Restore</a>, <a class="xref" href="Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html#Cloud_ShareSync_Core_Configuration_Enums_Cloud_ShareSync_Features_Backup">Backup</a>) be enabled. 
 </p>
-When enabled restore settings are controlled by the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.RestoreConfig.html">RestoreConfig</a>.
+When enabled restore settings are controlled by the <see cref="!:RestoreConfig"></see>.
 </td>
       </tr>
       <tr>

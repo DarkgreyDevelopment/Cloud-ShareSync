@@ -80,41 +80,37 @@
       <section><p>
 Required configuration values to connect to a BackBlazeB2 bucket.
 </p>
-<a href="https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys">https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys</a>
+Reference: <a href="https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys">BackBlaze - Creating and Managing Application Keys</a>
 </section>
-      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.BackupConfig.html">BackupConfig</a></h4>
-      <section></section>
       <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.CompressionConfig.html">CompressionConfig</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.CoreConfig.html">CoreConfig</a></h4>
-      <section><p>
-The minimum configuration values required to start Cloud-ShareSync.
-</p>
-The enumerations provided are used to enable additional features within the application.
+      <section><p>Configuration settings to use when compression has been enabled.</p>
+</section>
+      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig.html">ConsoleLogConfig</a></h4>
+      <section><p>Configuration values for the built in console log process.</p>
 </section>
       <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.html">DatabaseConfig</a></h4>
       <section><p>Cloud-ShareSync database configuration settings.</p>
 </section>
+      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig.html">DefaultLogConfig</a></h4>
+      <section><p>Configuration values for the built in rolling log file process.</p>
+</section>
       <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html">Log4NetConfig</a></h4>
       <section><p>
 Cloud-ShareSync instruments logging via a custom ILogger implementation (ref <a class="xref" href="Cloud_ShareSync.Core.Logging.TelemetryLogger.html">TelemetryLogger</a>)
-that utilizes apache Log4Net as its backend.
+that utilizes apache Log4Net for its backend.
 </p>
 <p>
 The built in/default Log4Net configuration consists of a rolling log file appender
-and colored console appender for all standard log messages. 
+and colored console appender for all standard log messages.<br>
 OpenTelemetry traces are also exported, in json format, to a rolling log file appender.
 </p>
-These built in settings can also be optionally overridden via a log4net XML configuration file.
+These built in settings can also optionally be overridden via a log4net XML configuration file.
 </section>
-      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.RestoreConfig.html">RestoreConfig</a></h4>
-      <section><p>
-Cloud-ShareSync has two modes of operation. Backup and Restore.
-</p>
-<p>
-Restore mode enables the download of files from Cloud-Providers to a local fileshare.
-All files will be downloaded to paths relative to the <a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.RestoreConfig.html#Cloud_ShareSync_Core_Configuration_Types_RestoreConfig_RootFolder">RootFolder</a>.
-</p>
+      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.SyncConfig.html">SyncConfig</a></h4>
+      <section><p>The primary configuration settings that drive Cloud-ShareSync.</p>
+</section>
+      <h4><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig.html">TelemetryLogConfig</a></h4>
+      <section><p>Configuration values for the built in rolling telemetry log file process.</p>
 </section>
 </article>
           </div>
