@@ -1,7 +1,7 @@
-﻿using Cloud_ShareSync.Core.Compression;
+﻿//using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration.Types;
-using Cloud_ShareSync.Core.Cryptography.FileEncryption;
-using Cloud_ShareSync.Core.Logging;
+//using Cloud_ShareSync.Core.Cryptography.FileEncryption;
+//using Cloud_ShareSync.Core.Logging;
 
 namespace Cloud_ShareSync.Core.Configuration.Enums {
     /// <summary>
@@ -67,7 +67,7 @@ namespace Cloud_ShareSync.Core.Configuration.Enums {
         /// <para>
         /// Cloud-ShareSync requires that at least one mode (<see cref="Backup"/>, <see cref="Restore"/>) be enabled. 
         /// </para>
-        /// When enabled backup settings are controlled by the <see cref="BackupConfig"/>.
+        /// When enabled backup settings are controlled by the <see cref="SyncConfig"/>.
         /// </summary>
         Backup = 64,
 

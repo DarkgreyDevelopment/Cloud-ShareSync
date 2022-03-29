@@ -31,7 +31,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         #endregion Fields
 
         public PrepUploadFileProcess(
-            BackupConfig backupConfig,
+            SyncConfig backupConfig,
             B2Config backblazeConfig,
             DatabaseConfig databaseConfig,
             ILogger<PrepUploadFileProcess> log
@@ -41,7 +41,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
             _services = ConfigManager.ConfigureDatabaseService( databaseConfig, _log );
             _ = _semaphore.Release( 1 );
             _backBlaze = new( backblazeConfig, _log );
-            _rootFolder = backupConfig.RootFolder;
+            _rootFolder = backupConfig.SyncFolder;
             _lastRetrieved = DateTime.Now.AddMinutes( -5 );
             _b2FileResponses = GetB2FileResponseList( ).Result;
         }

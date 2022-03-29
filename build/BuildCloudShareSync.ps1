@@ -26,6 +26,13 @@ Foreach ($PubProfile in $PublishProfiles) {
     dotnet publish "/p:PublishProfile=$ProfilePath"
 }
 
+$PublishProfileOutputPath = Join-Path -Path $SOURCEPATH -ChildPath 'publish'
+$PublishProfileOSDirectories = @(
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath "windows"),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath "linux"),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath "macos")
+)
+
 $AppSettings = Join-Path -Path $SOURCEPATH -ChildPath 'appsettings.json'
 $LicensePath = Join-Path -Path $SOURCEPATH -ChildPath 'LICENSE'
 $READMEPath = Join-Path -Path $SOURCEPATH -ChildPath 'README.md'
@@ -34,7 +41,7 @@ $CopyParam = @{
     Force   = $true
 }
 
-Foreach ($OsDir in "$PUBLISHPATH/windows", "$PUBLISHPATH/linux", "$PUBLISHPATH/macos") {
+Foreach ($OsDir in $PublishProfileOSDirectories) {
     $ConfigDir = Join-Path -Path $OsDir -ChildPath 'Configuration'
     New-Item -Path $ConfigDir -ItemType Directory -Force | Out-Null
 
@@ -47,3 +54,5 @@ Foreach ($OsDir in "$PUBLISHPATH/windows", "$PUBLISHPATH/linux", "$PUBLISHPATH/m
     $READMEOutput = Join-Path -Path $OsDir -ChildPath 'README.md'
     Copy-Item -Path $READMEPath -Destination $READMEOutput @CopyParam
 }
+
+Move-Item -Path $PublishProfileOutputPath -Destination $PUBLISHPATH @CopyParam

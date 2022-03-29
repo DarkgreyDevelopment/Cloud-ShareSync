@@ -2,7 +2,6 @@
 using System.Text;
 using Cloud_ShareSync.Core.Configuration.Enums;
 using Cloud_ShareSync.Core.Configuration.Types;
-using Cloud_ShareSync.Core.Configuration.Types.Logging;
 using log4net;
 using log4net.Appender;
 using log4net.Config;

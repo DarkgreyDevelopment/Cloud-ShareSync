@@ -10,7 +10,7 @@ namespace Cloud_ShareSync.Core.Compression {
     /// This class is used to compress/decompress files.
     /// Requires 7zip.
     /// </summary>
-    internal class CompressionIntermediary : ICompression {
+    internal class ManagedCompression : ICompression {
 
         private static readonly ActivitySource s_source = new( "CompressionInterface" );
         private readonly FileInfo _dependencyPath;
@@ -27,7 +27,7 @@ namespace Cloud_ShareSync.Core.Compression {
         /// </summary>
         /// <param name="config"></param>
         /// <param name="log"></param>
-        public CompressionIntermediary( CompressionConfig config, ILogger? log = null ) {
+        public ManagedCompression( CompressionConfig config, ILogger? log = null ) {
             if (PlatformSupported == false) {
                 throw new InvalidOperationException(
                     "Compression isn't supported on this platform at this time."
@@ -39,11 +39,10 @@ namespace Cloud_ShareSync.Core.Compression {
             _ = _semaphore.Release( 1 );
         }
 
-#pragma warning disable CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
         #region DecompressPath
 
         /// <summary>
-        /// ICompression interface method to decompress 7z files using the <see cref="CompressionIntermediary"/>.
+        /// ICompression interface method to decompress 7z files using the <see cref="ManagedCompression"/>.
         /// </summary>
         /// <param name="inputPath"></param>
         /// <param name="decompressedPath"></param>
@@ -118,7 +117,7 @@ namespace Cloud_ShareSync.Core.Compression {
         #region CompressPath
 
         /// <summary>
-        /// ICompression interface method to compress files using 7zip via the <see cref="CompressionIntermediary"/>.
+        /// ICompression interface method to compress files using 7zip via the <see cref="ManagedCompression"/>.
         /// </summary>
         /// <param name="inputPath"></param>
         /// <param name="compressedFilePath"></param>
@@ -291,5 +290,4 @@ namespace Cloud_ShareSync.Core.Compression {
 
         #endregion PrivateMethods
     }
-#pragma warning restore CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
 }

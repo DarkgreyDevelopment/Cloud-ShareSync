@@ -16,29 +16,20 @@ namespace Cloud_ShareSync.Backup {
         internal Regex[] _excludedPathPatterns;
         internal ILogger? _log;
         internal IHost _host;
-        internal BackupConfig _config;
+        internal SyncConfig _config;
 
         #region Constructor and Inititalization.
 
-        public Process( string[] args ) {
-            ConfigManager cfgMgr = new( args );
+        public Process( ) {
+            ConfigManager cfgMgr = new( );
             CompleteConfig completeConfig = cfgMgr.BuildConfiguration( );
             _log = ConfigManager.CreateTelemetryLogger(
-                completeConfig.Log4Net,
+                completeConfig.Logging,
                 Array.Empty<string>( )
             );
-            _host = HostProvider.ConfigureHost( _log, args, completeConfig, cfgMgr );
-            _config = ValidateBackupConfig( completeConfig );
+            _host = HostProvider.ConfigureHost( _log, completeConfig, cfgMgr );
+            _config = completeConfig.Sync;
             _excludedPathPatterns = BuildExcludeRegexArray( ); ;
-        }
-
-        private BackupConfig ValidateBackupConfig( CompleteConfig config ) {
-            ConfigManager.ValidateConfigSet( config, false, true, _log );
-            return (config?.Backup == null) ?
-                throw new ApplicationException(
-                    "Cannot continue if SimpleBackup Config is null."
-                ) :
-                config.Backup;
         }
 
         private Regex[] BuildExcludeRegexArray( ) {
@@ -68,7 +59,7 @@ namespace Cloud_ShareSync.Backup {
 
         #region Populate File List
 
-        private List<string> PopulateFileList( BackupConfig config ) {
+        private List<string> PopulateFileList( SyncConfig config ) {
             using Activity? activity = s_source.StartActivity( "PopulateFileList" )?.Start( );
 
             IEnumerable<string> files = EnumerateRootFolder( );
@@ -83,13 +74,13 @@ namespace Cloud_ShareSync.Backup {
             using Activity? activity = s_source.StartActivity( "EnumerateRootFolder" )?.Start( );
 
             IEnumerable<string> files = Directory.EnumerateFiles(
-                _config.RootFolder,
+                _config.SyncFolder,
                 "*",
                 _config.Recurse ?
                     SearchOption.AllDirectories :
                     SearchOption.TopDirectoryOnly
             );
-            _log?.LogInformation( "Discovered {int} files under '{string}'.", files.Count( ), _config.RootFolder );
+            _log?.LogInformation( "Discovered {int} files under '{string}'.", files.Count( ), _config.SyncFolder );
 
             activity?.Stop( );
             return files;
@@ -192,7 +183,7 @@ namespace Cloud_ShareSync.Backup {
             Task[] prepTasks,
             Task[] uploadTasks
         ) {
-            while (TasksComplete(prepTasks, uploadTasks )) {
+            while (TasksComplete( prepTasks, uploadTasks )) {
                 Thread.Sleep( 1000 );
                 if (UploadsComplete( uploadTasks )) {
                     _log?.LogInformation( "Restarting upload process tasks." );
@@ -203,14 +194,14 @@ namespace Cloud_ShareSync.Backup {
             }
         }
 
-        private bool TasksComplete(
+        private static bool TasksComplete(
             Task[] prepTasks,
             Task[] uploadTasks
         ) =>
             prepTasks.Any( e => e.IsCompleted != true ) ||
             uploadTasks.Any( e => e.IsCompleted != true );
 
-        private bool UploadsComplete( Task[] uploadTasks ) =>
+        private static bool UploadsComplete( Task[] uploadTasks ) =>
             uploadTasks.All( e => e.IsCompleted == true ) &&
             IUploadFileProcess.Queue.IsEmpty == false;
 

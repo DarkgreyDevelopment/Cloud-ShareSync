@@ -136,7 +136,7 @@ namespace Cloud_ShareSync.Core.Cryptography {
         #region SHA512Hash
 
         /// <summary>
-        /// Returns the sha512 hash, as a hexidecimal string, of a given <paramref name="inputString"/>.
+        /// Returns the sha512 hash of the <paramref name="inputString"/> as a hexidecimal string.
         /// </summary>
         /// <param name="inputString"></param>
         public string GetSha512Hash( string inputString ) {

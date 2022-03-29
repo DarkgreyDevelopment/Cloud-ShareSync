@@ -3,19 +3,17 @@ using Cloud_ShareSync.Core.Configuration.Types;
 
 namespace Cloud_ShareSync.Core.Configuration {
     public class CompleteConfig {
-        public CoreConfig Core { get; set; } = new( );
-        public BackupConfig? Backup { get; set; }
-        public RestoreConfig? Restore { get; set; }
+        public SyncConfig Sync { get; set; }
         public DatabaseConfig Database { get; set; } = new( );
-        public Log4NetConfig? Log4Net { get; set; } = new( );
+        public Log4NetConfig? Logging { get; set; } = new( );
         public CompressionConfig? Compression { get; set; }
         public B2Config? BackBlaze { get; set; }
 
         /// <summary>
-        /// Creating the <see cref="CompleteConfig"/> requires the <see cref="CoreConfig"/> be set at a minimum.
+        /// Creating the <see cref="CompleteConfig"/> requires the <see cref="SyncConfig"/> be set at a minimum.
         /// </summary>
-        /// <param name="core"></param>
-        public CompleteConfig( CoreConfig core ) { Core = core; }
+        /// <param name="sync"></param>
+        public CompleteConfig( SyncConfig sync ) { Sync = sync; }
 
         /// <summary>
         /// Returns the <see cref="CompleteConfig"/> as a json string.

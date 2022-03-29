@@ -30,7 +30,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         private readonly ManagedChaCha20Poly1305? _crypto;
         private readonly BackBlazeB2 _backBlaze;
         private readonly CloudShareSyncServices _services;
-        private readonly BackupConfig _backupConfig;
+        private readonly SyncConfig _backupConfig;
         private readonly B2Config _backblazeConfig;
         private readonly DatabaseConfig _databaseConfig;
         private readonly SemaphoreSlim _semaphore = new( 0, 1 );
@@ -40,7 +40,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
         #endregion Fields
 
         public UploadFileProcess(
-            BackupConfig backupConfig,
+            SyncConfig backupConfig,
             B2Config backblazeConfig,
             DatabaseConfig databaseConfig,
             CompressionConfig? compressionConfig,
@@ -56,7 +56,7 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService.Process {
                     compressionConfig != null &&
                     s_compress == null
                 ) {
-                    s_compress = new CompressionIntermediary( compressionConfig, _log );
+                    s_compress = new ManagedCompression( compressionConfig, _log );
                 }
             }
             _fileHash = new( _log );

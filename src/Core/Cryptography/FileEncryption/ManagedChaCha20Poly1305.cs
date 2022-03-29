@@ -40,7 +40,6 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
         public ManagedChaCha20Poly1305( ) : this( null ) { }
 
-#pragma warning disable CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
         #region Encryption
 
         /// <summary>
@@ -427,5 +426,4 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
         #endregion Helper Methods
     }
-#pragma warning restore CA1416 // Validate platform compatibility - Ignoring as platform support is checked in the constructor.
 }

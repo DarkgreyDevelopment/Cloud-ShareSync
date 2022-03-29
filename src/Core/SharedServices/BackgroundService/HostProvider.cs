@@ -12,12 +12,12 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
     public class HostProvider {
         private static readonly ActivitySource s_source = new( "HostProvider" );
 
-        public static IHost ConfigureHost( ILogger? log, string[] args, CompleteConfig config, ConfigManager cfgMgr ) {
+        public static IHost ConfigureHost( ILogger? log, CompleteConfig config, ConfigManager cfgMgr ) {
             using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
             if (config?.Database == null) {
                 throw new ApplicationException( );
             }
-            IHostBuilder builder = Host.CreateDefaultBuilder( args )
+            IHostBuilder builder = Host.CreateDefaultBuilder( Array.Empty<string>( ) )
                                     .ConfigureServices( services => {
                                         _ = services.Configure<DatabaseConfig>( cfgMgr.GetDatabase( ) );
                                         _ = services.AddSingleton( _ => config.Database );
@@ -27,9 +27,9 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
                                             _ = services.Configure<B2Config>( cfgMgr.GetBackBlazeB2( ) );
                                             _ = services.AddSingleton( _ => config.BackBlaze );
                                         }
-                                        if (config.Backup != null) {
-                                            _ = services.Configure<BackupConfig>( cfgMgr.GetSimpleBackup( ) );
-                                            _ = services.AddSingleton( _ => config.Backup );
+                                        if (config.Sync != null) {
+                                            _ = services.Configure<SyncConfig>( cfgMgr.GetSyncConfig( ) );
+                                            _ = services.AddSingleton( _ => config.Sync );
                                             _ = services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
                                             _ = services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
                                         }
