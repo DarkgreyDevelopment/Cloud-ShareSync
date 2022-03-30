@@ -1,12 +1,13 @@
 ﻿using System.CommandLine;
 using System.Text.Json;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     /// <summary>
     /// Configuration settings to use when compression has been enabled.
     /// </summary>
-    public class CompressionConfig {
+    public class CompressionConfig : ICloudShareSyncConfig {
 
         #region DependencyPath
 
@@ -58,7 +59,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                 ) => {
                     if (configPath != null) { ConfigManager.SetAltDefaultConfigPath( configPath.FullName ); }
                     CompressionConfig config = new( ) { DependencyPath = dependencyPath };
-                    Console.WriteLine( $"{config}" );
+                    new ConfigManager( ).UpdateConfigSection( config );
                 },
                 dependencyPath,
                 configPath

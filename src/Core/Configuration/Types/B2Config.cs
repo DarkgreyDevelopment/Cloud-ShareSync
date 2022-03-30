@@ -205,7 +205,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          MaxConsecutiveErrors = maxConsecutiveErrors,
                          ProcessThreads = processThreads
                      };
-                     Console.WriteLine( $"{config}" );
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 applicationKeyId,
                 applicationKey,

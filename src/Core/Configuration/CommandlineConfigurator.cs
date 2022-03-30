@@ -17,6 +17,14 @@ namespace Cloud_ShareSync.Core.Configuration {
             AddRestoreCommand( rootCommand, option );
         }
 
+
+        internal static Option<FileInfo> ConfigPathOption( ) {
+            Option<FileInfo> configPath = new( "--ConfigPath", "The path to the applications appsettings.json file." );
+            configPath.AddAlias( "--configpath" );
+            configPath.AddAlias( "-path" );
+            return configPath;
+        }
+
         internal static void HandleDefaultOptions(
             Command command,
             Option<FileInfo> option
@@ -39,44 +47,61 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         internal static void AddConfigureCommand(
             RootCommand rootCommand,
-            Option<FileInfo> option
+            Option<FileInfo> configPath
         ) {
             Command configure = new( "Configure" );
             configure.AddAlias( "configure" );
-            AddConfigureConfigPathHandler( configure, option );
-            configure.Add( SyncConfig.NewSyncConfigCommand( option ) );
-            configure.Add( DatabaseConfig.NewDatabaseConfigCommand( option ) );
-            configure.Add( CompressionConfig.NewCompressionConfigCommand( option ) );
-            configure.Add( B2Config.NewB2ConfigCommand( option ) );
-            configure.Add( Log4NetConfig.NewLoggingConfigCommand( option ) );
-            configure.Add( TelemetryLogConfig.NewTelemetryLogConfigCommand( option ) );
-            configure.Add( DefaultLogConfig.NewRollingLogConfigCommand( option ) );
-            configure.Add( ConsoleLogConfig.NewConsoleLogConfigCommand( option ) );
+            AddConfigureHandler( configure, configPath );
+            configure.Add( SyncConfig.NewSyncConfigCommand( configPath ) );
+            configure.Add( DatabaseConfig.NewDatabaseConfigCommand( configPath ) );
+            configure.Add( CompressionConfig.NewCompressionConfigCommand( configPath ) );
+            configure.Add( B2Config.NewB2ConfigCommand( configPath ) );
+            configure.Add( Log4NetConfig.NewLoggingConfigCommand( configPath ) );
+            configure.Add( TelemetryLogConfig.NewTelemetryLogConfigCommand( configPath ) );
+            configure.Add( DefaultLogConfig.NewRollingLogConfigCommand( configPath ) );
+            configure.Add( ConsoleLogConfig.NewConsoleLogConfigCommand( configPath ) );
             rootCommand.Add( configure );
         }
 
-        internal static void AddConfigureConfigPathHandler(
+        internal static void AddConfigureHandler(
             Command configure,
             Option<FileInfo> option
         ) {
+            Option<bool> createConfig = CreateConfigOption( );
+            configure.Add( createConfig );
+
             configure.SetHandler( (
                     FileInfo path,
+                    bool create,
                     InvocationContext ctx,
                     HelpBuilder helpBuilder
                 ) => {
                     if (path != null) {
                         ConfigManager.SetAltDefaultConfigPath( path.FullName );
-
-                        CompleteConfig defaultConfig = new( new( "{SyncFolder}" ) );
-                        Console.WriteLine( $"Writing default Cloud-ShareSync config to '{path.FullName}'." );
-                        File.WriteAllText( path.FullName, defaultConfig.ToString( ) );
+                        if (create) {
+                            CompleteConfig defaultConfig = new( new( SyncConfig.DefaultSyncFolder ) );
+                            Console.WriteLine( $"Writing default Cloud-ShareSync config to '{path.FullName}'." );
+                            File.WriteAllText( path.FullName, defaultConfig.ToString( ) );
+                        }
                     } else {
                         HelpContext hctx = new( ctx.HelpBuilder, configure, Console.Out, null );
                         ctx.HelpBuilder.Write( hctx );
                     }
                 },
-                option
+                option,
+                createConfig
             );
+        }
+
+        internal static Option<bool> CreateConfigOption( ) {
+            Option<bool> createConfig = new(
+                name: "--CreateConfig",
+                description: "Use with --ConfigPath to create a new default Cloud-ShareSync configuration file.",
+                getDefaultValue: ( ) => false
+            );
+            createConfig.AddAlias( "--createconfig" );
+            createConfig.AddAlias( "-create" );
+            return createConfig;
         }
 
         internal static void AddBackupCommand( RootCommand rootCommand, Option<FileInfo> option ) {
@@ -105,13 +130,6 @@ namespace Cloud_ShareSync.Core.Configuration {
                 option
             );
             rootCommand.Add( restore );
-        }
-
-        internal static Option<FileInfo> ConfigPathOption( ) {
-            Option<FileInfo> configPath = new( "--ConfigPath", "The path to the applications appsettings.json file." );
-            configPath.AddAlias( "--configpath" );
-            configPath.AddAlias( "-path" );
-            return configPath;
         }
 
     }

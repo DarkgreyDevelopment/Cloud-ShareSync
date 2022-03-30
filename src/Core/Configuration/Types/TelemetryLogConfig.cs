@@ -1,12 +1,13 @@
 ﻿using System.CommandLine;
 using System.Text.Json;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     /// <summary>
     /// Configuration values for the built in rolling telemetry log file process.
     /// </summary>
-    public class TelemetryLogConfig {
+    public class TelemetryLogConfig : ICloudShareSyncConfig {
 
         #region FileName
 
@@ -154,7 +155,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          MaximumSize = maximumSize
 
                      };
-                     Console.WriteLine( $"{config}" );
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 fileName,
                 logDirectory,

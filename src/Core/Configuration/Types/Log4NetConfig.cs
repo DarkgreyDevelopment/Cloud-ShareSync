@@ -1,5 +1,6 @@
 ﻿using System.CommandLine;
 using System.Text.Json;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 using Cloud_ShareSync.Core.Logging;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
@@ -15,7 +16,20 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
     /// </para>
     /// These built in settings can also optionally be overridden via a log4net XML configuration file.
     /// </summary>
-    public class Log4NetConfig {
+    public class Log4NetConfig : ICloudShareSyncConfig {
+
+        public Log4NetConfig( bool defaultsEnabled ) {
+            if (defaultsEnabled == false) {
+                ConfigurationFile = null;
+                EnableDefaultLog = false;
+                DefaultLogConfiguration = null;
+                EnableTelemetryLog = false;
+                TelemetryLogConfiguration = null;
+                EnableConsoleLog = false;
+            }
+        }
+
+        public Log4NetConfig( ) { }
 
         #region ConfigurationFile
 
@@ -189,7 +203,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          EnableTelemetryLog = enableTelemetryLog,
                          EnableConsoleLog = enableConsoleLog
                      };
-                     Console.WriteLine( $"{config}" );
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 configurationFile,
                 enableDefaultLog,

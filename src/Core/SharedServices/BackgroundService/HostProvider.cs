@@ -12,24 +12,21 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
     public class HostProvider {
         private static readonly ActivitySource s_source = new( "HostProvider" );
 
-        public static IHost ConfigureHost( ILogger? log, CompleteConfig config, ConfigManager cfgMgr ) {
+        public static IHost ConfigureHost( ILogger? log, ConfigManager cfgMgr ) {
             using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
-            if (config?.Database == null) {
-                throw new ApplicationException( );
-            }
             IHostBuilder builder = Host.CreateDefaultBuilder( Array.Empty<string>( ) )
                                     .ConfigureServices( services => {
                                         _ = services.Configure<DatabaseConfig>( cfgMgr.GetDatabase( ) );
-                                        _ = services.AddSingleton( _ => config.Database );
+                                        _ = services.AddSingleton( _ => cfgMgr.Config.Database );
                                         _ = services.Configure<CompressionConfig?>( cfgMgr.GetCompression( ) );
-                                        _ = services.AddSingleton( _ => config.Compression ?? new( ) { DependencyPath = "" } );
-                                        if (config.BackBlaze != null) {
+                                        _ = services.AddSingleton( _ => cfgMgr.Config.Compression ?? new( ) { DependencyPath = "" } );
+                                        if (cfgMgr.Config.BackBlaze != null) {
                                             _ = services.Configure<B2Config>( cfgMgr.GetBackBlazeB2( ) );
-                                            _ = services.AddSingleton( _ => config.BackBlaze );
+                                            _ = services.AddSingleton( _ => cfgMgr.Config.BackBlaze );
                                         }
-                                        if (config.Sync != null) {
+                                        if (cfgMgr.Config.Sync != null) {
                                             _ = services.Configure<SyncConfig>( cfgMgr.GetSyncConfig( ) );
-                                            _ = services.AddSingleton( _ => config.Sync );
+                                            _ = services.AddSingleton( _ => cfgMgr.Config.Sync );
                                             _ = services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
                                             _ = services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
                                         }

@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Cloud_ShareSync.Core.Configuration.Enums;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 using Cloud_ShareSync.Core.Configuration.Types;
 using Cloud_ShareSync.Core.Database;
 using Cloud_ShareSync.Core.Logging;
@@ -17,13 +18,105 @@ namespace Cloud_ShareSync.Core.Configuration {
         private static readonly string s_assemblyPath = AppContext.BaseDirectory;
         private static readonly string s_defaultConfig = Path.Join( s_assemblyPath, "appsettings.json" );
         private static readonly string s_altConfigInfo = Path.Join( s_assemblyPath, ".configpath" );
-        public readonly string ConfigPath;
+        public string _configPath;
         public IConfiguration _configuration;
 
+        internal readonly CompleteConfig Config;
+
         public ConfigManager( ) {
-            ConfigPath = GetConfigurationPath( );
-            _configuration = GetConfiguration( new( ConfigPath ) );
+            _configPath = GetConfigurationPath( );
+            _configuration = GetConfiguration( new( _configPath ) );
+            Config = BuildConfiguration( );
         }
+
+        #region UpdateConfigSection
+
+        internal void UpdateConfigSection( ICloudShareSyncConfig configSection ) {
+
+            UpdateB2ConfigSection( configSection );
+            UpdateCompressionConfigSection( configSection );
+            UpdateConsoleLogConfigSection( configSection );
+            UpdateDatabaseConfigSection( configSection );
+            UpdateDefaultLogConfigSection( configSection );
+            UpdateLog4NetConfigSection( configSection );
+            UpdateSyncConfigSection( configSection );
+            UpdateTelemetryLogConfigSection( configSection );
+
+            WriteUpdatedConfig( );
+        }
+
+        internal void UpdateB2ConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as B2Config) != null) {
+                Config.BackBlaze = (B2Config)configSection;
+            }
+        }
+
+        internal void UpdateCompressionConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as CompressionConfig) != null) {
+                Config.Compression = (CompressionConfig)configSection;
+            }
+        }
+
+        internal void UpdateConsoleLogConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as ConsoleLogConfig) != null) {
+                if (Config.Logging == null) {
+                    Config.Logging = new Log4NetConfig( false ) { EnableConsoleLog = true };
+                }
+                Config.Logging.ConsoleConfiguration = (ConsoleLogConfig)configSection;
+            }
+        }
+
+        internal void UpdateDatabaseConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as DatabaseConfig) != null) {
+                Config.Database = (DatabaseConfig)configSection;
+            }
+        }
+
+        internal void UpdateDefaultLogConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as DefaultLogConfig) != null) {
+                if (Config.Logging == null) {
+                    Config.Logging = new Log4NetConfig( false ) { EnableDefaultLog = true };
+                }
+                Config.Logging.DefaultLogConfiguration = (DefaultLogConfig)configSection;
+            }
+        }
+
+        internal void UpdateLog4NetConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as Log4NetConfig) != null) {
+                Log4NetConfig section = (Log4NetConfig)configSection;
+                if (Config.Logging == null) {
+                    Config.Logging = section;
+                } else {
+                    Config.Logging.ConfigurationFile = section.ConfigurationFile;
+                    Config.Logging.EnableDefaultLog = section.EnableDefaultLog;
+                    Config.Logging.EnableTelemetryLog = section.EnableTelemetryLog;
+                    Config.Logging.EnableConsoleLog = section.EnableConsoleLog;
+                }
+            }
+        }
+
+        internal void UpdateSyncConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as SyncConfig) != null) {
+                Config.Sync = (SyncConfig)configSection;
+            }
+        }
+
+        internal void UpdateTelemetryLogConfigSection( ICloudShareSyncConfig configSection ) {
+            if ((configSection as TelemetryLogConfig) != null) {
+                if (Config.Logging == null) {
+                    Config.Logging = new Log4NetConfig( false ) { EnableTelemetryLog = true };
+                }
+                Config.Logging.TelemetryLogConfiguration = (TelemetryLogConfig)configSection;
+            }
+        }
+
+        internal void WriteUpdatedConfig( ) {
+            Console.WriteLine( $"Writing Cloud-ShareSync config to '{_configPath}'." );
+            File.WriteAllText( _configPath, Config.ToString( ) );
+        }
+
+        #endregion UpdateConfigSection
+
 
         #region Initialize ConfigManager
 
@@ -100,6 +193,7 @@ namespace Cloud_ShareSync.Core.Configuration {
         private static string ValidateAndAssignDefaults( CompleteConfig? config, string configPath ) {
             string errTxt = $"\nUpdate '{configPath}' to change the applications settings.";
             if (config == null) { config = new CompleteConfig( new SyncConfig( ) ); }
+            if (config.Sync.SyncFolder == SyncConfig.DefaultSyncFolder) { return config.ToString( ); }
             config = ValidateAndAssignLogDefaults( config, errTxt );
             config = ValidateAndAssignDatabaseDefaults( config, errTxt );
             config = ValidateAndAssignSyncDefaults( config, errTxt );
@@ -221,6 +315,7 @@ namespace Cloud_ShareSync.Core.Configuration {
         }
 
         private static CompleteConfig ValidateAndAssignSyncDefaults( CompleteConfig config, string errTxt ) {
+
             if (config.Sync.CompressBeforeUpload == false && config.Sync.UniqueCompressionPasswords) {
                 Console.WriteLine( "Disabling UniqueCompressionPasswords because CompressBeforeUpload is false." + errTxt );
                 // Turn off compression passwords if we're not using compression.
@@ -251,8 +346,8 @@ namespace Cloud_ShareSync.Core.Configuration {
 
             if (Directory.Exists( config.Sync.SyncFolder ) == false) {
                 throw new DirectoryNotFoundException(
-                    "Missing required root SyncFolder. " +
-                    "Cannot backup files under root folder if it doesn't exist." +
+                    "Missing required SyncFolder. " +
+                    $"Cannot sync files under '{config.Sync.SyncFolder}' if the folder doesn't exist." +
                     errTxt
                 );
             }

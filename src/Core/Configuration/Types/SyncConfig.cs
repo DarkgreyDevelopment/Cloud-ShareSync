@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cloud_ShareSync.Core.Compression;
 using Cloud_ShareSync.Core.Configuration.Enums;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 using Cloud_ShareSync.Core.Cryptography.FileEncryption;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
@@ -12,7 +13,9 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
     /// <summary>
     /// The primary configuration settings that drive Cloud-ShareSync.
     /// </summary>
-    public class SyncConfig {
+    public class SyncConfig : ICloudShareSyncConfig {
+
+        internal const string DefaultSyncFolder = "{SyncFolder}";
 
         #region Ctor
 
@@ -378,7 +381,8 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          EnabledFeatures = enabledFeatures,
                          EnabledCloudProviders = enabledCloudProviders
                      };
-                     Console.WriteLine( $"{config}" );
+
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 syncFolder,
                 recurse,

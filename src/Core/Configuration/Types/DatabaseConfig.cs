@@ -1,12 +1,13 @@
 ﻿using System.CommandLine;
 using System.Text.Json;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     /// <summary>
     /// Cloud-ShareSync database configuration settings.
     /// </summary>
-    public class DatabaseConfig {
+    public class DatabaseConfig : ICloudShareSyncConfig {
 
         #region UseSqlite
 
@@ -164,7 +165,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                         PostgresConnectionString = postgresConnectionString
 
                     };
-                    Console.WriteLine( $"{config}" );
+                    new ConfigManager( ).UpdateConfigSection( config );
                 },
                 useSqlite,
                 sqliteDBPath,

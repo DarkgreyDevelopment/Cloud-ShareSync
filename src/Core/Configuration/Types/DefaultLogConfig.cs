@@ -2,13 +2,14 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cloud_ShareSync.Core.Configuration.Enums;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     /// <summary>
     /// Configuration values for the built in rolling log file process.
     /// </summary>
-    public class DefaultLogConfig {
+    public class DefaultLogConfig : ICloudShareSyncConfig {
 
         #region FileName
 
@@ -200,7 +201,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          MaximumSize = maximumSize,
                          LogLevels = logLevels
                      };
-                     Console.WriteLine( $"{config}" );
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 fileName,
                 logDirectory,

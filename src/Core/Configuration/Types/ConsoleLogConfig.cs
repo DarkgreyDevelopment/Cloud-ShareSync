@@ -2,13 +2,14 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cloud_ShareSync.Core.Configuration.Enums;
+using Cloud_ShareSync.Core.Configuration.Interfaces;
 
 namespace Cloud_ShareSync.Core.Configuration.Types {
 #nullable disable
     /// <summary>
     /// Configuration values for the built in console log process.
     /// </summary>
-    public class ConsoleLogConfig {
+    public class ConsoleLogConfig : ICloudShareSyncConfig {
 
         #region UseStdErr
 
@@ -135,7 +136,7 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
                          EnableColoredConsole = enableColoredConsole,
                          LogLevels = logLevels
                      };
-                     Console.WriteLine( $"{config}" );
+                     new ConfigManager( ).UpdateConfigSection( config );
                  },
                 useStdErr,
                 enableColoredConsole,
