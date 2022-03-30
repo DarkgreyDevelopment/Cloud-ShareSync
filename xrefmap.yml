@@ -4510,22 +4510,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureCommand
   nameWithType: CommandlineConfigurator.AddConfigureCommand
-- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler(Command,Option{FileInfo})
-  name: AddConfigureConfigPathHandler(Command, Option<FileInfo>)
-  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_AddConfigureConfigPathHandler_Command_Option_FileInfo__
-  commentId: M:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler(Command,Option{FileInfo})
-  name.vb: AddConfigureConfigPathHandler(Command, Option(Of FileInfo))
-  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler(Command, Option<FileInfo>)
-  fullName.vb: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler(Command, Option(Of FileInfo))
-  nameWithType: CommandlineConfigurator.AddConfigureConfigPathHandler(Command, Option<FileInfo>)
-  nameWithType.vb: CommandlineConfigurator.AddConfigureConfigPathHandler(Command, Option(Of FileInfo))
-- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler*
-  name: AddConfigureConfigPathHandler
-  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_AddConfigureConfigPathHandler_
-  commentId: Overload:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler
+- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler(Command,Option{FileInfo})
+  name: AddConfigureHandler(Command, Option<FileInfo>)
+  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_AddConfigureHandler_Command_Option_FileInfo__
+  commentId: M:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler(Command,Option{FileInfo})
+  name.vb: AddConfigureHandler(Command, Option(Of FileInfo))
+  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler(Command, Option<FileInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler(Command, Option(Of FileInfo))
+  nameWithType: CommandlineConfigurator.AddConfigureHandler(Command, Option<FileInfo>)
+  nameWithType.vb: CommandlineConfigurator.AddConfigureHandler(Command, Option(Of FileInfo))
+- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler*
+  name: AddConfigureHandler
+  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_AddConfigureHandler_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler
   isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureConfigPathHandler
-  nameWithType: CommandlineConfigurator.AddConfigureConfigPathHandler
+  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddConfigureHandler
+  nameWithType: CommandlineConfigurator.AddConfigureHandler
 - uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.AddRestoreCommand(RootCommand,Option{FileInfo})
   name: AddRestoreCommand(RootCommand, Option<FileInfo>)
   href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_AddRestoreCommand_RootCommand_Option_FileInfo__
@@ -4568,6 +4568,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.ConfigureCommandlineOptions
   nameWithType: CommandlineConfigurator.ConfigureCommandlineOptions
+- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption
+  name: CreateConfigOption()
+  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_CreateConfigOption
+  commentId: M:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption
+  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption()
+  nameWithType: CommandlineConfigurator.CreateConfigOption()
+- uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption*
+  name: CreateConfigOption
+  href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_CreateConfigOption_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.CreateConfigOption
+  nameWithType: CommandlineConfigurator.CreateConfigOption
 - uid: Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.HandleDefaultOptions(Command,Option{FileInfo})
   name: HandleDefaultOptions(Command, Option<FileInfo>)
   href: api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html#Cloud_ShareSync_Core_Configuration_CommandlineConfigurator_HandleDefaultOptions_Command_Option_FileInfo__
@@ -4700,6 +4713,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager
   nameWithType: ConfigManager.ConfigManager
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager._configPath
+  name: _configPath
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__configPath
+  commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager._configPath
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager._configPath
+  nameWithType: ConfigManager._configPath
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager._configuration
   name: _configuration
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__configuration
@@ -4771,12 +4790,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.BuildLog4NetConfig
   nameWithType: ConfigManager.BuildLog4NetConfig
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
-  name: ConfigPath
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigPath
-  commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigPath
-  nameWithType: ConfigManager.ConfigPath
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.Config
+  name: Config
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_Config
+  commentId: F:Cloud_ShareSync.Core.Configuration.ConfigManager.Config
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.Config
+  nameWithType: ConfigManager.Config
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureDatabaseService(Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig,System.Nullable{ILogger})
   name: ConfigureDatabaseService(DatabaseConfig, Nullable<ILogger>)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ConfigureDatabaseService_Cloud_ShareSync_Core_Configuration_Types_DatabaseConfig_System_Nullable_ILogger__
@@ -4976,6 +4995,123 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.SetAltDefaultConfigPath
   nameWithType: ConfigManager.SetAltDefaultConfigPath
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateB2ConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateB2ConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateB2ConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection*
+  name: UpdateB2ConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateB2ConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateB2ConfigSection
+  nameWithType: ConfigManager.UpdateB2ConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateCompressionConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateCompressionConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateCompressionConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection*
+  name: UpdateCompressionConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateCompressionConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateCompressionConfigSection
+  nameWithType: ConfigManager.UpdateCompressionConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection*
+  name: UpdateConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConfigSection
+  nameWithType: ConfigManager.UpdateConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateConsoleLogConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateConsoleLogConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateConsoleLogConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection*
+  name: UpdateConsoleLogConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateConsoleLogConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateConsoleLogConfigSection
+  nameWithType: ConfigManager.UpdateConsoleLogConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateDatabaseConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateDatabaseConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateDatabaseConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection*
+  name: UpdateDatabaseConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateDatabaseConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDatabaseConfigSection
+  nameWithType: ConfigManager.UpdateDatabaseConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateDefaultLogConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateDefaultLogConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateDefaultLogConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection*
+  name: UpdateDefaultLogConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateDefaultLogConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateDefaultLogConfigSection
+  nameWithType: ConfigManager.UpdateDefaultLogConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateLog4NetConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateLog4NetConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateLog4NetConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection*
+  name: UpdateLog4NetConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateLog4NetConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateLog4NetConfigSection
+  nameWithType: ConfigManager.UpdateLog4NetConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateSyncConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateSyncConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateSyncConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection*
+  name: UpdateSyncConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateSyncConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateSyncConfigSection
+  nameWithType: ConfigManager.UpdateSyncConfigSection
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  name: UpdateTelemetryLogConfigSection(ICloudShareSyncConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateTelemetryLogConfigSection_Cloud_ShareSync_Core_Configuration_Interfaces_ICloudShareSyncConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection(Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig)
+  nameWithType: ConfigManager.UpdateTelemetryLogConfigSection(ICloudShareSyncConfig)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection*
+  name: UpdateTelemetryLogConfigSection
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_UpdateTelemetryLogConfigSection_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.UpdateTelemetryLogConfigSection
+  nameWithType: ConfigManager.UpdateTelemetryLogConfigSection
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignBackBlazeDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
   name: ValidateAndAssignBackBlazeDefaults(CompleteConfig, String)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignBackBlazeDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
@@ -5067,6 +5203,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignSyncDefaults
   nameWithType: ConfigManager.ValidateAndAssignSyncDefaults
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig
+  name: WriteUpdatedConfig()
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_WriteUpdatedConfig
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig()
+  nameWithType: ConfigManager.WriteUpdatedConfig()
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig*
+  name: WriteUpdatedConfig
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_WriteUpdatedConfig_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig
+  nameWithType: ConfigManager.WriteUpdatedConfig
 - uid: Cloud_ShareSync.Core.Configuration.Enums
   name: Cloud_ShareSync.Core.Configuration.Enums
   href: api/Cloud_ShareSync.Core.Configuration.Enums.html
@@ -5193,6 +5342,12 @@ references:
   commentId: T:Cloud_ShareSync.Core.Configuration.Interfaces.ICloudProviderConfig
   fullName: Cloud_ShareSync.Core.Configuration.Interfaces.ICloudProviderConfig
   nameWithType: ICloudProviderConfig
+- uid: Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig
+  name: ICloudShareSyncConfig
+  href: api/Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig.html
+  commentId: T:Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig
+  fullName: Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig
+  nameWithType: ICloudShareSyncConfig
 - uid: Cloud_ShareSync.Core.Configuration.Types
   name: Cloud_ShareSync.Core.Configuration.Types
   href: api/Cloud_ShareSync.Core.Configuration.Types.html
@@ -5967,6 +6122,25 @@ references:
   commentId: T:Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig
   fullName: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig
   nameWithType: Log4NetConfig
+- uid: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor
+  name: Log4NetConfig()
+  href: api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig__ctor
+  commentId: M:Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor
+  fullName: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.Log4NetConfig()
+  nameWithType: Log4NetConfig.Log4NetConfig()
+- uid: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor(System.Boolean)
+  name: Log4NetConfig(Boolean)
+  href: api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig__ctor_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor(System.Boolean)
+  fullName: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.Log4NetConfig(System.Boolean)
+  nameWithType: Log4NetConfig.Log4NetConfig(Boolean)
+- uid: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor*
+  name: Log4NetConfig
+  href: api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig__ctor_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.Log4NetConfig
+  nameWithType: Log4NetConfig.Log4NetConfig
 - uid: Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.ConfigurationFile
   name: ConfigurationFile
   href: api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html#Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_ConfigurationFile
@@ -6193,6 +6367,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.Types.SyncConfig.CompressBeforeUpload
   nameWithType: SyncConfig.CompressBeforeUpload
+- uid: Cloud_ShareSync.Core.Configuration.Types.SyncConfig.DefaultSyncFolder
+  name: DefaultSyncFolder
+  href: api/Cloud_ShareSync.Core.Configuration.Types.SyncConfig.html#Cloud_ShareSync_Core_Configuration_Types_SyncConfig_DefaultSyncFolder
+  commentId: F:Cloud_ShareSync.Core.Configuration.Types.SyncConfig.DefaultSyncFolder
+  fullName: Cloud_ShareSync.Core.Configuration.Types.SyncConfig.DefaultSyncFolder
+  nameWithType: SyncConfig.DefaultSyncFolder
 - uid: Cloud_ShareSync.Core.Configuration.Types.SyncConfig.EnabledCloudProviders
   name: EnabledCloudProviders
   href: api/Cloud_ShareSync.Core.Configuration.Types.SyncConfig.html#Cloud_ShareSync_Core_Configuration_Types_SyncConfig_EnabledCloudProviders
@@ -8741,15 +8921,15 @@ references:
   commentId: T:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   nameWithType: HostProvider
-- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},Cloud_ShareSync.Core.Configuration.CompleteConfig,Cloud_ShareSync.Core.Configuration.ConfigManager)
-  name: ConfigureHost(Nullable<ILogger>, CompleteConfig, ConfigManager)
-  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__Cloud_ShareSync_Core_Configuration_CompleteConfig_Cloud_ShareSync_Core_Configuration_ConfigManager_
-  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},Cloud_ShareSync.Core.Configuration.CompleteConfig,Cloud_ShareSync.Core.Configuration.ConfigManager)
-  name.vb: ConfigureHost(Nullable(Of ILogger), CompleteConfig, ConfigManager)
-  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable<ILogger>, Cloud_ShareSync.Core.Configuration.CompleteConfig, Cloud_ShareSync.Core.Configuration.ConfigManager)
-  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable(Of ILogger), Cloud_ShareSync.Core.Configuration.CompleteConfig, Cloud_ShareSync.Core.Configuration.ConfigManager)
-  nameWithType: HostProvider.ConfigureHost(Nullable<ILogger>, CompleteConfig, ConfigManager)
-  nameWithType.vb: HostProvider.ConfigureHost(Nullable(Of ILogger), CompleteConfig, ConfigManager)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureHost(Nullable<ILogger>, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name.vb: ConfigureHost(Nullable(Of ILogger), ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable<ILogger>, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable(Of ILogger), Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureHost(Nullable<ILogger>, ConfigManager)
+  nameWithType.vb: HostProvider.ConfigureHost(Nullable(Of ILogger), ConfigManager)
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost*
   name: ConfigureHost
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_
