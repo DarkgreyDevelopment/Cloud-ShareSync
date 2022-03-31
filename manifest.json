@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Backup.Process.html",
-          "hash": "oDXjA9rlS5vCLwI1hy4fChzpIssI3jr8pIQniSaqi2U="
+          "hash": "eggdIt6B04ZhBMBm9Ie+zvLmZgfsLPsPIhQ6342Qpq4="
         }
       },
       "is_incremental": false,
@@ -573,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.ConfigManager.html",
-          "hash": "yoCCaMC9MwZjly8aTTF080KLoymD5rB58yHLeHfcg78="
+          "hash": "9fVa6tBMY3iSMK7RAnSYdYosJXzI+pB7BDt5vZQKFuc="
         }
       },
       "is_incremental": false,
@@ -1065,7 +1065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html",
-          "hash": "uQQ5oYri8MnFNV8QaM7hkdB7TeRr5UeD9bLVGNK1UuI="
+          "hash": "j3MjWwNjXnLKeQ1EgU2NQOcU1w0Yvi4nBmnpi/7dGQQ="
         }
       },
       "is_incremental": false,
@@ -1101,7 +1101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html",
-          "hash": "P5kMNBX/I8l+gwvbL/+PG2SgGfjfsCX/BS3E2a8XMMo="
+          "hash": "ST1MkEFIcWr8zOE/9mwDekcfxI//F9OxgRgK48rdMgE="
         }
       },
       "is_incremental": false,

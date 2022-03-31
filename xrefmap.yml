@@ -4825,15 +4825,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigureWorkingDirectory
   nameWithType: ConfigManager.ConfigureWorkingDirectory
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
-  name: CreateTelemetryLogger(Log4NetConfig, String[])
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_CreateTelemetryLogger_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_System_String___
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String[])
-  name.vb: CreateTelemetryLogger(Log4NetConfig, String())
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String[])
-  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String())
-  nameWithType: ConfigManager.CreateTelemetryLogger(Log4NetConfig, String[])
-  nameWithType.vb: ConfigManager.CreateTelemetryLogger(Log4NetConfig, String())
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  name: CreateTelemetryLogger(Log4NetConfig)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_CreateTelemetryLogger_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  nameWithType: ConfigManager.CreateTelemetryLogger(Log4NetConfig)
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger*
   name: CreateTelemetryLogger
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_CreateTelemetryLogger_
@@ -4841,6 +4838,97 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.CreateTelemetryLogger
   nameWithType: ConfigManager.CreateTelemetryLogger
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureDatabaseFeaturesEnabled(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureDatabaseFeaturesEnabled_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureDatabaseFeaturesEnabled(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled*
+  name: EnsureDatabaseFeaturesEnabled
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureDatabaseFeaturesEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseFeaturesEnabled
+  nameWithType: ConfigManager.EnsureDatabaseFeaturesEnabled
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureDatabaseIsUsed(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureDatabaseIsUsed_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureDatabaseIsUsed(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed*
+  name: EnsureDatabaseIsUsed
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureDatabaseIsUsed_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureDatabaseIsUsed
+  nameWithType: ConfigManager.EnsureDatabaseIsUsed
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureEncryptionPlatformSupport(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureEncryptionPlatformSupport_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureEncryptionPlatformSupport(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport*
+  name: EnsureEncryptionPlatformSupport
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureEncryptionPlatformSupport_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureEncryptionPlatformSupport
+  nameWithType: ConfigManager.EnsureEncryptionPlatformSupport
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureLogConfigExists(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureLogConfigExists_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureLogConfigExists(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists*
+  name: EnsureLogConfigExists
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureLogConfigExists_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureLogConfigExists
+  nameWithType: ConfigManager.EnsureLogConfigExists
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureSqliteDBPathIsSet(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSqliteDBPathIsSet_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureSqliteDBPathIsSet(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet*
+  name: EnsureSqliteDBPathIsSet
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSqliteDBPathIsSet_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteDBPathIsSet
+  nameWithType: ConfigManager.EnsureSqliteDBPathIsSet
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureSqliteFeatureEnabled(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSqliteFeatureEnabled_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureSqliteFeatureEnabled(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled*
+  name: EnsureSqliteFeatureEnabled
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSqliteFeatureEnabled_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSqliteFeatureEnabled
+  nameWithType: ConfigManager.EnsureSqliteFeatureEnabled
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: EnsureSyncFolderExists(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSyncFolderExists_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.EnsureSyncFolderExists(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists*
+  name: EnsureSyncFolderExists
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_EnsureSyncFolderExists_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.EnsureSyncFolderExists
+  nameWithType: ConfigManager.EnsureSyncFolderExists
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetAltDefaultConfigPath
   name: GetAltDefaultConfigPath()
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetAltDefaultConfigPath
@@ -4945,6 +5033,86 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetSyncConfig
   nameWithType: ConfigManager.GetSyncConfig
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name: LogBackBlazeTableCount(SqliteContext, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogBackBlazeTableCount_Cloud_ShareSync_Core_Database_SqliteContext_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name.vb: LogBackBlazeTableCount(SqliteContext, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable(Of ILogger))
+  nameWithType: ConfigManager.LogBackBlazeTableCount(SqliteContext, Nullable<ILogger>)
+  nameWithType.vb: ConfigManager.LogBackBlazeTableCount(SqliteContext, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount*
+  name: LogBackBlazeTableCount
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogBackBlazeTableCount_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogBackBlazeTableCount
+  nameWithType: ConfigManager.LogBackBlazeTableCount
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name: LogCompressedTableCount(SqliteContext, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogCompressedTableCount_Cloud_ShareSync_Core_Database_SqliteContext_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name.vb: LogCompressedTableCount(SqliteContext, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable(Of ILogger))
+  nameWithType: ConfigManager.LogCompressedTableCount(SqliteContext, Nullable<ILogger>)
+  nameWithType.vb: ConfigManager.LogCompressedTableCount(SqliteContext, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount*
+  name: LogCompressedTableCount
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogCompressedTableCount_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCompressedTableCount
+  nameWithType: ConfigManager.LogCompressedTableCount
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name: LogCoreTableCount(SqliteContext, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogCoreTableCount_Cloud_ShareSync_Core_Database_SqliteContext_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name.vb: LogCoreTableCount(SqliteContext, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable(Of ILogger))
+  nameWithType: ConfigManager.LogCoreTableCount(SqliteContext, Nullable<ILogger>)
+  nameWithType.vb: ConfigManager.LogCoreTableCount(SqliteContext, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount*
+  name: LogCoreTableCount
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogCoreTableCount_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogCoreTableCount
+  nameWithType: ConfigManager.LogCoreTableCount
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name: LogEncryptedTableCount(SqliteContext, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogEncryptedTableCount_Cloud_ShareSync_Core_Database_SqliteContext_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount(Cloud_ShareSync.Core.Database.SqliteContext,System.Nullable{ILogger})
+  name.vb: LogEncryptedTableCount(SqliteContext, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount(Cloud_ShareSync.Core.Database.SqliteContext, System.Nullable(Of ILogger))
+  nameWithType: ConfigManager.LogEncryptedTableCount(SqliteContext, Nullable<ILogger>)
+  nameWithType.vb: ConfigManager.LogEncryptedTableCount(SqliteContext, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount*
+  name: LogEncryptedTableCount
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogEncryptedTableCount_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogEncryptedTableCount
+  nameWithType: ConfigManager.LogEncryptedTableCount
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts(Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices,System.Nullable{ILogger})
+  name: LogTableCounts(CloudShareSyncServices, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogTableCounts_Cloud_ShareSync_Core_SharedServices_CloudShareSyncServices_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts(Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices,System.Nullable{ILogger})
+  name.vb: LogTableCounts(CloudShareSyncServices, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts(Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts(Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices, System.Nullable(Of ILogger))
+  nameWithType: ConfigManager.LogTableCounts(CloudShareSyncServices, Nullable<ILogger>)
+  nameWithType.vb: ConfigManager.LogTableCounts(CloudShareSyncServices, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts*
+  name: LogTableCounts
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_LogTableCounts_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.LogTableCounts
+  nameWithType: ConfigManager.LogTableCounts
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ReadAltDefaultConfigInfo(System.String)
   name: ReadAltDefaultConfigInfo(String)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ReadAltDefaultConfigInfo_System_String_
@@ -5164,19 +5332,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults
   nameWithType: ConfigManager.ValidateAndAssignDefaults
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
-  name: ValidateAndAssignEncryptionDefaults(CompleteConfig, String)
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignEncryptionDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
-  nameWithType: ConfigManager.ValidateAndAssignEncryptionDefaults(CompleteConfig, String)
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults*
-  name: ValidateAndAssignEncryptionDefaults
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignEncryptionDefaults_
-  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults
-  isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignEncryptionDefaults
-  nameWithType: ConfigManager.ValidateAndAssignEncryptionDefaults
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignLogDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
   name: ValidateAndAssignLogDefaults(CompleteConfig, String)
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignLogDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
@@ -5203,6 +5358,71 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignSyncDefaults
   nameWithType: ConfigManager.ValidateAndAssignSyncDefaults
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: ValidateCompressBeforeUploadConfig(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateCompressBeforeUploadConfig_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.ValidateCompressBeforeUploadConfig(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig*
+  name: ValidateCompressBeforeUploadConfig
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateCompressBeforeUploadConfig_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateCompressBeforeUploadConfig
+  nameWithType: ConfigManager.ValidateCompressBeforeUploadConfig
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String)
+  name: ValidateDefaultLogSettings(Log4NetConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateDefaultLogSettings_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String)
+  nameWithType: ConfigManager.ValidateDefaultLogSettings(Log4NetConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings*
+  name: ValidateDefaultLogSettings
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateDefaultLogSettings_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateDefaultLogSettings
+  nameWithType: ConfigManager.ValidateDefaultLogSettings
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: ValidateEncryptBeforeUploadConfig(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateEncryptBeforeUploadConfig_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.ValidateEncryptBeforeUploadConfig(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig*
+  name: ValidateEncryptBeforeUploadConfig
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateEncryptBeforeUploadConfig_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateEncryptBeforeUploadConfig
+  nameWithType: ConfigManager.ValidateEncryptBeforeUploadConfig
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String)
+  name: ValidateTelemetryLogSettings(Log4NetConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateTelemetryLogSettings_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig, System.String)
+  nameWithType: ConfigManager.ValidateTelemetryLogSettings(Log4NetConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings*
+  name: ValidateTelemetryLogSettings
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateTelemetryLogSettings_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateTelemetryLogSettings
+  nameWithType: ConfigManager.ValidateTelemetryLogSettings
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  name: ValidateUniqueCompressionPasswordsConfig(CompleteConfig, String)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateUniqueCompressionPasswordsConfig_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
+  nameWithType: ConfigManager.ValidateUniqueCompressionPasswordsConfig(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig*
+  name: ValidateUniqueCompressionPasswordsConfig
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateUniqueCompressionPasswordsConfig_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateUniqueCompressionPasswordsConfig
+  nameWithType: ConfigManager.ValidateUniqueCompressionPasswordsConfig
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.WriteUpdatedConfig
   name: WriteUpdatedConfig()
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_WriteUpdatedConfig
@@ -8323,15 +8543,12 @@ references:
   commentId: T:Cloud_ShareSync.Core.Logging.TelemetryLogger
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger
   nameWithType: TelemetryLogger
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor(System.String[],Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  name: TelemetryLogger(String[], Log4NetConfig)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_System_String___Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor(System.String[],Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  name.vb: TelemetryLogger(String(), Log4NetConfig)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.TelemetryLogger(System.String[], Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.TelemetryLogger(System.String(), Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  nameWithType: TelemetryLogger.TelemetryLogger(String[], Log4NetConfig)
-  nameWithType.vb: TelemetryLogger.TelemetryLogger(String(), Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  name: TelemetryLogger(Log4NetConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.TelemetryLogger(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  nameWithType: TelemetryLogger.TelemetryLogger(Log4NetConfig)
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.#ctor*
   name: TelemetryLogger
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger__ctor_
@@ -8345,6 +8562,147 @@ references:
   commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger._loggerRepository
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger._loggerRepository
   nameWithType: TelemetryLogger._loggerRepository
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name: AddDebugLevel(SupportedLogLevels, List<Level>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddDebugLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name.vb: AddDebugLevel(SupportedLogLevels, List(Of Level))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level))
+  nameWithType: TelemetryLogger.AddDebugLevel(SupportedLogLevels, List<Level>)
+  nameWithType.vb: TelemetryLogger.AddDebugLevel(SupportedLogLevels, List(Of Level))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel*
+  name: AddDebugLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddDebugLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddDebugLevel
+  nameWithType: TelemetryLogger.AddDebugLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters(AppenderSkeleton)
+  name: AddErrorFilters(AppenderSkeleton)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddErrorFilters_AppenderSkeleton_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters(AppenderSkeleton)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters(AppenderSkeleton)
+  nameWithType: TelemetryLogger.AddErrorFilters(AppenderSkeleton)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters*
+  name: AddErrorFilters
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddErrorFilters_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorFilters
+  nameWithType: TelemetryLogger.AddErrorFilters
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level},System.Nullable{System.Boolean})
+  name: AddErrorLevel(SupportedLogLevels, List<Level>, Nullable<Boolean>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddErrorLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__System_Nullable_System_Boolean__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level},System.Nullable{System.Boolean})
+  name.vb: AddErrorLevel(SupportedLogLevels, List(Of Level), Nullable(Of Boolean))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>, System.Nullable<System.Boolean>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level), System.Nullable(Of System.Boolean))
+  nameWithType: TelemetryLogger.AddErrorLevel(SupportedLogLevels, List<Level>, Nullable<Boolean>)
+  nameWithType.vb: TelemetryLogger.AddErrorLevel(SupportedLogLevels, List(Of Level), Nullable(Of Boolean))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel*
+  name: AddErrorLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddErrorLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddErrorLevel
+  nameWithType: TelemetryLogger.AddErrorLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level},System.Nullable{System.Boolean})
+  name: AddFatalLevel(SupportedLogLevels, List<Level>, Nullable<Boolean>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddFatalLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__System_Nullable_System_Boolean__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level},System.Nullable{System.Boolean})
+  name.vb: AddFatalLevel(SupportedLogLevels, List(Of Level), Nullable(Of Boolean))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>, System.Nullable<System.Boolean>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level), System.Nullable(Of System.Boolean))
+  nameWithType: TelemetryLogger.AddFatalLevel(SupportedLogLevels, List<Level>, Nullable<Boolean>)
+  nameWithType.vb: TelemetryLogger.AddFatalLevel(SupportedLogLevels, List(Of Level), Nullable(Of Boolean))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel*
+  name: AddFatalLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddFatalLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFatalLevel
+  nameWithType: TelemetryLogger.AddFatalLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters(AppenderSkeleton,List{log4net.Filter.IFilter})
+  name: AddFilters(AppenderSkeleton, List<log4net.Filter.IFilter>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddFilters_AppenderSkeleton_List_log4net_Filter_IFilter__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters(AppenderSkeleton,List{log4net.Filter.IFilter})
+  name.vb: AddFilters(AppenderSkeleton, List(Of log4net.Filter.IFilter))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters(AppenderSkeleton, List<log4net.Filter.IFilter>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters(AppenderSkeleton, List(Of log4net.Filter.IFilter))
+  nameWithType: TelemetryLogger.AddFilters(AppenderSkeleton, List<log4net.Filter.IFilter>)
+  nameWithType.vb: TelemetryLogger.AddFilters(AppenderSkeleton, List(Of log4net.Filter.IFilter))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters*
+  name: AddFilters
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddFilters_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddFilters
+  nameWithType: TelemetryLogger.AddFilters
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name: AddInfoLevel(SupportedLogLevels, List<Level>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddInfoLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name.vb: AddInfoLevel(SupportedLogLevels, List(Of Level))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level))
+  nameWithType: TelemetryLogger.AddInfoLevel(SupportedLogLevels, List<Level>)
+  nameWithType.vb: TelemetryLogger.AddInfoLevel(SupportedLogLevels, List(Of Level))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel*
+  name: AddInfoLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddInfoLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddInfoLevel
+  nameWithType: TelemetryLogger.AddInfoLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings(ColoredConsoleAppender,List{ColoredConsoleAppender.LevelColors})
+  name: AddMappings(ColoredConsoleAppender, List<ColoredConsoleAppender.LevelColors>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddMappings_ColoredConsoleAppender_List_ColoredConsoleAppender_LevelColors__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings(ColoredConsoleAppender,List{ColoredConsoleAppender.LevelColors})
+  name.vb: AddMappings(ColoredConsoleAppender, List(Of ColoredConsoleAppender.LevelColors))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings(ColoredConsoleAppender, List<ColoredConsoleAppender.LevelColors>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings(ColoredConsoleAppender, List(Of ColoredConsoleAppender.LevelColors))
+  nameWithType: TelemetryLogger.AddMappings(ColoredConsoleAppender, List<ColoredConsoleAppender.LevelColors>)
+  nameWithType.vb: TelemetryLogger.AddMappings(ColoredConsoleAppender, List(Of ColoredConsoleAppender.LevelColors))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings*
+  name: AddMappings
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddMappings_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddMappings
+  nameWithType: TelemetryLogger.AddMappings
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name: AddTelemetryLevel(SupportedLogLevels, List<Level>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddTelemetryLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name.vb: AddTelemetryLevel(SupportedLogLevels, List(Of Level))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level))
+  nameWithType: TelemetryLogger.AddTelemetryLevel(SupportedLogLevels, List<Level>)
+  nameWithType.vb: TelemetryLogger.AddTelemetryLevel(SupportedLogLevels, List(Of Level))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel*
+  name: AddTelemetryLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddTelemetryLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddTelemetryLevel
+  nameWithType: TelemetryLogger.AddTelemetryLevel
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name: AddWarnLevel(SupportedLogLevels, List<Level>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddWarnLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_List_Level__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,List{Level})
+  name.vb: AddWarnLevel(SupportedLogLevels, List(Of Level))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List<Level>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, List(Of Level))
+  nameWithType: TelemetryLogger.AddWarnLevel(SupportedLogLevels, List<Level>)
+  nameWithType.vb: TelemetryLogger.AddWarnLevel(SupportedLogLevels, List(Of Level))
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel*
+  name: AddWarnLevel
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_AddWarnLevel_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.AddWarnLevel
+  nameWithType: TelemetryLogger.AddWarnLevel
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.BeginScope*
   name: BeginScope
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_BeginScope_
@@ -8361,12 +8719,25 @@ references:
   fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.BeginScope(Of TState)(TState)
   nameWithType: TelemetryLogger.BeginScope<TState>(TState)
   nameWithType.vb: TelemetryLogger.BeginScope(Of TState)(TState)
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  name: ConfigureConsoleAppender(Hierarchy, Log4NetConfig)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  nameWithType: TelemetryLogger.ConfigureConsoleAppender(Hierarchy, Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  name: ConfigureColoredConsoleAppender(Hierarchy, ConsoleLogConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureColoredConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_ConsoleLogConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  nameWithType: TelemetryLogger.ConfigureColoredConsoleAppender(Hierarchy, ConsoleLogConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender*
+  name: ConfigureColoredConsoleAppender
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureColoredConsoleAppender_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureColoredConsoleAppender
+  nameWithType: TelemetryLogger.ConfigureColoredConsoleAppender
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  name: ConfigureConsoleAppender(Hierarchy, ConsoleLogConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_ConsoleLogConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  nameWithType: TelemetryLogger.ConfigureConsoleAppender(Hierarchy, ConsoleLogConfig)
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender*
   name: ConfigureConsoleAppender
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureConsoleAppender_
@@ -8374,12 +8745,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureConsoleAppender
   nameWithType: TelemetryLogger.ConfigureConsoleAppender
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  name: ConfigureDefaultLogAppender(Hierarchy, Log4NetConfig)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  nameWithType: TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy, Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig)
+  name: ConfigureDefaultLogAppender(Hierarchy, DefaultLogConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_DefaultLogConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig)
+  nameWithType: TelemetryLogger.ConfigureDefaultLogAppender(Hierarchy, DefaultLogConfig)
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender*
   name: ConfigureDefaultLogAppender
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureDefaultLogAppender_
@@ -8387,12 +8758,25 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureDefaultLogAppender
   nameWithType: TelemetryLogger.ConfigureDefaultLogAppender
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy,PatternLayout)
-  name: ConfigureErrorConsoleAppender(Hierarchy, PatternLayout)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_Hierarchy_PatternLayout_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy,PatternLayout)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy, PatternLayout)
-  nameWithType: TelemetryLogger.ConfigureErrorConsoleAppender(Hierarchy, PatternLayout)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender(System.Boolean,Hierarchy,PatternLayout)
+  name: ConfigureErrorColoredConsoleAppender(Boolean, Hierarchy, PatternLayout)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorColoredConsoleAppender_System_Boolean_Hierarchy_PatternLayout_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender(System.Boolean,Hierarchy,PatternLayout)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender(System.Boolean, Hierarchy, PatternLayout)
+  nameWithType: TelemetryLogger.ConfigureErrorColoredConsoleAppender(Boolean, Hierarchy, PatternLayout)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender*
+  name: ConfigureErrorColoredConsoleAppender
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorColoredConsoleAppender_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorColoredConsoleAppender
+  nameWithType: TelemetryLogger.ConfigureErrorColoredConsoleAppender
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(System.Boolean,Hierarchy,PatternLayout)
+  name: ConfigureErrorConsoleAppender(Boolean, Hierarchy, PatternLayout)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_System_Boolean_Hierarchy_PatternLayout_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(System.Boolean,Hierarchy,PatternLayout)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender(System.Boolean, Hierarchy, PatternLayout)
+  nameWithType: TelemetryLogger.ConfigureErrorConsoleAppender(Boolean, Hierarchy, PatternLayout)
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender*
   name: ConfigureErrorConsoleAppender
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureErrorConsoleAppender_
@@ -8400,12 +8784,64 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureErrorConsoleAppender
   nameWithType: TelemetryLogger.ConfigureErrorConsoleAppender
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  name: ConfigureTelemetryAppender(Hierarchy, Log4NetConfig)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
-  nameWithType: TelemetryLogger.ConfigureTelemetryAppender(Hierarchy, Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  name: ConfigureFromLog4NetXmlConfigFile(Log4NetConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureFromLog4NetXmlConfigFile_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  nameWithType: TelemetryLogger.ConfigureFromLog4NetXmlConfigFile(Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile*
+  name: ConfigureFromLog4NetXmlConfigFile
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureFromLog4NetXmlConfigFile_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureFromLog4NetXmlConfigFile
+  nameWithType: TelemetryLogger.ConfigureFromLog4NetXmlConfigFile
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  name: ConfigureLog4NetFromConfig(Log4NetConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureLog4NetFromConfig_Cloud_ShareSync_Core_Configuration_Types_Log4NetConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig(Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig)
+  nameWithType: TelemetryLogger.ConfigureLog4NetFromConfig(Log4NetConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig*
+  name: ConfigureLog4NetFromConfig
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureLog4NetFromConfig_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureLog4NetFromConfig
+  nameWithType: TelemetryLogger.ConfigureLog4NetFromConfig
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer
+  name: ConfigureOpenTelemetryTracer()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureOpenTelemetryTracer
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer()
+  nameWithType: TelemetryLogger.ConfigureOpenTelemetryTracer()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer*
+  name: ConfigureOpenTelemetryTracer
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureOpenTelemetryTracer_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureOpenTelemetryTracer
+  nameWithType: TelemetryLogger.ConfigureOpenTelemetryTracer
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  name: ConfigureRegularConsoleAppender(Hierarchy, ConsoleLogConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureRegularConsoleAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_ConsoleLogConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig)
+  nameWithType: TelemetryLogger.ConfigureRegularConsoleAppender(Hierarchy, ConsoleLogConfig)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender*
+  name: ConfigureRegularConsoleAppender
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureRegularConsoleAppender_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureRegularConsoleAppender
+  nameWithType: TelemetryLogger.ConfigureRegularConsoleAppender
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig)
+  name: ConfigureTelemetryAppender(Hierarchy, TelemetryLogConfig)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_Hierarchy_Cloud_ShareSync_Core_Configuration_Types_TelemetryLogConfig_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy,Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender(Hierarchy, Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig)
+  nameWithType: TelemetryLogger.ConfigureTelemetryAppender(Hierarchy, TelemetryLogConfig)
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ConfigureTelemetryAppender*
   name: ConfigureTelemetryAppender
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ConfigureTelemetryAppender_
@@ -8445,6 +8881,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.CreateMappingsList
   nameWithType: TelemetryLogger.CreateMappingsList
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ErrLvl
+  name: ErrLvl
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ErrLvl
+  commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger.ErrLvl
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ErrLvl
+  nameWithType: TelemetryLogger.ErrLvl
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.GetDebugColor(Level,List{ColoredConsoleAppender.LevelColors})
   name: GetDebugColor(Level, List<ColoredConsoleAppender.LevelColors>)
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_GetDebugColor_Level_List_ColoredConsoleAppender_LevelColors__
@@ -8647,6 +9089,45 @@ references:
   commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger.LogMessageFormat
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.LogMessageFormat
   nameWithType: TelemetryLogger.LogMessageFormat
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender(PatternLayout,System.Boolean)
+  name: NewColoredConsoleAppender(PatternLayout, Boolean)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewColoredConsoleAppender_PatternLayout_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender(PatternLayout,System.Boolean)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender(PatternLayout, System.Boolean)
+  nameWithType: TelemetryLogger.NewColoredConsoleAppender(PatternLayout, Boolean)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender*
+  name: NewColoredConsoleAppender
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewColoredConsoleAppender_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewColoredConsoleAppender
+  nameWithType: TelemetryLogger.NewColoredConsoleAppender
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender(PatternLayout,System.Boolean)
+  name: NewConsoleAppender(PatternLayout, Boolean)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewConsoleAppender_PatternLayout_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender(PatternLayout,System.Boolean)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender(PatternLayout, System.Boolean)
+  nameWithType: TelemetryLogger.NewConsoleAppender(PatternLayout, Boolean)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender*
+  name: NewConsoleAppender
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewConsoleAppender_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewConsoleAppender
+  nameWithType: TelemetryLogger.NewConsoleAppender
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout(System.String)
+  name: NewPatternLayout(String)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewPatternLayout_System_String_
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout(System.String)
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout(System.String)
+  nameWithType: TelemetryLogger.NewPatternLayout(String)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout*
+  name: NewPatternLayout
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewPatternLayout_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewPatternLayout
+  nameWithType: TelemetryLogger.NewPatternLayout
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.NewRollingFileAppender(System.String,PatternLayout,System.Int32,System.String)
   name: NewRollingFileAppender(String, PatternLayout, Int32, String)
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_NewRollingFileAppender_System_String_PatternLayout_System_Int32_System_String_
@@ -8666,18 +9147,34 @@ references:
   commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger.OpenTelemetry
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.OpenTelemetry
   nameWithType: TelemetryLogger.OpenTelemetry
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage
+  name: RegisterCodePage()
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_RegisterCodePage
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage()
+  nameWithType: TelemetryLogger.RegisterCodePage()
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage*
+  name: RegisterCodePage
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_RegisterCodePage_
+  commentId: Overload:Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.RegisterCodePage
+  nameWithType: TelemetryLogger.RegisterCodePage
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.ServiceName
   name: ServiceName
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_ServiceName
   commentId: F:Cloud_ShareSync.Core.Logging.TelemetryLogger.ServiceName
   fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.ServiceName
   nameWithType: TelemetryLogger.ServiceName
-- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels)
-  name: TranslateLogLevel(SupportedLogLevels)
-  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_
-  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels)
-  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels)
-  nameWithType: TelemetryLogger.TranslateLogLevel(SupportedLogLevels)
+- uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,System.Nullable{System.Boolean})
+  name: TranslateLogLevel(SupportedLogLevels, Nullable<Boolean>)
+  href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_Cloud_ShareSync_Core_Configuration_Enums_SupportedLogLevels_System_Nullable_System_Boolean__
+  commentId: M:Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels,System.Nullable{System.Boolean})
+  name.vb: TranslateLogLevel(SupportedLogLevels, Nullable(Of Boolean))
+  fullName: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, System.Nullable<System.Boolean>)
+  fullName.vb: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel(Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels, System.Nullable(Of System.Boolean))
+  nameWithType: TelemetryLogger.TranslateLogLevel(SupportedLogLevels, Nullable<Boolean>)
+  nameWithType.vb: TelemetryLogger.TranslateLogLevel(SupportedLogLevels, Nullable(Of Boolean))
 - uid: Cloud_ShareSync.Core.Logging.TelemetryLogger.TranslateLogLevel*
   name: TranslateLogLevel
   href: api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html#Cloud_ShareSync_Core_Logging_TelemetryLogger_TranslateLogLevel_
@@ -8921,6 +9418,45 @@ references:
   commentId: T:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider
   nameWithType: HostProvider
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureBackBlazeService(IServiceCollection, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureBackBlazeService_IServiceCollection_Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService(IServiceCollection, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureBackBlazeService(IServiceCollection, ConfigManager)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService*
+  name: ConfigureBackBlazeService
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureBackBlazeService_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureBackBlazeService
+  nameWithType: HostProvider.ConfigureBackBlazeService
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureCompressionService(IServiceCollection, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureCompressionService_IServiceCollection_Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService(IServiceCollection, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureCompressionService(IServiceCollection, ConfigManager)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService*
+  name: ConfigureCompressionService
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureCompressionService_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureCompressionService
+  nameWithType: HostProvider.ConfigureCompressionService
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureDatabaseService(IServiceCollection, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureDatabaseService_IServiceCollection_Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService(IServiceCollection, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureDatabaseService(IServiceCollection, ConfigManager)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService*
+  name: ConfigureDatabaseService
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureDatabaseService_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureDatabaseService
+  nameWithType: HostProvider.ConfigureDatabaseService
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost(System.Nullable{ILogger},Cloud_ShareSync.Core.Configuration.ConfigManager)
   name: ConfigureHost(Nullable<ILogger>, ConfigManager)
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHost_System_Nullable_ILogger__Cloud_ShareSync_Core_Configuration_ConfigManager_
@@ -8937,6 +9473,35 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHost
   nameWithType: HostProvider.ConfigureHost
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging(IHostBuilder,System.Nullable{ILogger})
+  name: ConfigureHostLogging(IHostBuilder, Nullable<ILogger>)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHostLogging_IHostBuilder_System_Nullable_ILogger__
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging(IHostBuilder,System.Nullable{ILogger})
+  name.vb: ConfigureHostLogging(IHostBuilder, Nullable(Of ILogger))
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging(IHostBuilder, System.Nullable<ILogger>)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging(IHostBuilder, System.Nullable(Of ILogger))
+  nameWithType: HostProvider.ConfigureHostLogging(IHostBuilder, Nullable<ILogger>)
+  nameWithType.vb: HostProvider.ConfigureHostLogging(IHostBuilder, Nullable(Of ILogger))
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging*
+  name: ConfigureHostLogging
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureHostLogging_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureHostLogging
+  nameWithType: HostProvider.ConfigureHostLogging
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  name: ConfigureSyncService(IServiceCollection, ConfigManager)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureSyncService_IServiceCollection_Cloud_ShareSync_Core_Configuration_ConfigManager_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService(IServiceCollection,Cloud_ShareSync.Core.Configuration.ConfigManager)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService(IServiceCollection, Cloud_ShareSync.Core.Configuration.ConfigManager)
+  nameWithType: HostProvider.ConfigureSyncService(IServiceCollection, ConfigManager)
+- uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService*
+  name: ConfigureSyncService
+  href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_ConfigureSyncService_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.ConfigureSyncService
+  nameWithType: HostProvider.ConfigureSyncService
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.GetMinimumLogLevel(ILogger)
   name: GetMinimumLogLevel(ILogger)
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html#Cloud_ShareSync_Core_SharedServices_BackgroundService_HostProvider_GetMinimumLogLevel_ILogger_
