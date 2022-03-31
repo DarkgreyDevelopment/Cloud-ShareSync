@@ -16,54 +16,69 @@ namespace Cloud_ShareSync.Core.SharedServices.BackgroundService {
             using Activity? activity = s_source.StartActivity( "ConfigureHost" )?.Start( );
             IHostBuilder builder = Host.CreateDefaultBuilder( Array.Empty<string>( ) )
                                     .ConfigureServices( services => {
-                                        _ = services.Configure<DatabaseConfig>( cfgMgr.GetDatabase( ) );
-                                        _ = services.AddSingleton( _ => cfgMgr.Config.Database );
-                                        _ = services.Configure<CompressionConfig?>( cfgMgr.GetCompression( ) );
-                                        _ = services.AddSingleton( _ => cfgMgr.Config.Compression ?? new( ) { DependencyPath = "" } );
-                                        if (cfgMgr.Config.BackBlaze != null) {
-                                            _ = services.Configure<B2Config>( cfgMgr.GetBackBlazeB2( ) );
-                                            _ = services.AddSingleton( _ => cfgMgr.Config.BackBlaze );
-                                        }
-                                        if (cfgMgr.Config.Sync != null) {
-                                            _ = services.Configure<SyncConfig>( cfgMgr.GetSyncConfig( ) );
-                                            _ = services.AddSingleton( _ => cfgMgr.Config.Sync );
-                                            _ = services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
-                                            _ = services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
-                                        }
+                                        ConfigureDatabaseService( services, cfgMgr );
+                                        ConfigureCompressionService( services, cfgMgr );
+                                        ConfigureBackBlazeService( services, cfgMgr );
+                                        ConfigureSyncService( services, cfgMgr );
                                     } );
-
-            if (log != null) {
-                log.LogInformation( "Configuring host logging." );
-
-                _ = builder.ConfigureLogging( logging => {
-                    _ = logging.ClearProviders( );
-                    _ = logging.SetMinimumLevel( GetMinimumLogLevel( log ) );
-                    _ = logging.AddProvider( new Log4NetProvider( log ) );
-                } );
-            }
+            ConfigureHostLogging( builder, log );
             IHost host = builder.Build( );
 
             activity?.Stop( );
             return host;
         }
 
-        private static LogLevel GetMinimumLogLevel( ILogger log ) {
-            LogLevel lvl = LogLevel.None;
-            if (log.IsEnabled( LogLevel.Trace )) {
-                lvl = LogLevel.Trace;
-            } else if (log.IsEnabled( LogLevel.Debug )) {
-                lvl = LogLevel.Debug;
-            } else if (log.IsEnabled( LogLevel.Information )) {
-                lvl = LogLevel.Information;
-            } else if (log.IsEnabled( LogLevel.Warning )) {
-                lvl = LogLevel.Warning;
-            } else if (log.IsEnabled( LogLevel.Error )) {
-                lvl = LogLevel.Error;
-            } else if (log.IsEnabled( LogLevel.Critical )) {
-                lvl = LogLevel.Critical;
-            }
-            return lvl;
+        private static void ConfigureDatabaseService( IServiceCollection services, ConfigManager cfgMgr ) {
+            _ = services.Configure<DatabaseConfig>( cfgMgr.GetDatabase( ) );
+            _ = services.AddSingleton( _ => cfgMgr.Config.Database );
         }
+
+        private static void ConfigureCompressionService( IServiceCollection services, ConfigManager cfgMgr ) {
+            _ = services.Configure<CompressionConfig?>( cfgMgr.GetCompression( ) );
+            _ = services.AddSingleton( _ => cfgMgr.Config.Compression ?? new( ) { DependencyPath = "" } );
+        }
+
+        private static void ConfigureBackBlazeService( IServiceCollection services, ConfigManager cfgMgr ) {
+            if (cfgMgr.Config.BackBlaze != null) {
+                _ = services.Configure<B2Config>( cfgMgr.GetBackBlazeB2( ) );
+                _ = services.AddSingleton( _ => cfgMgr.Config.BackBlaze );
+            }
+        }
+
+        private static void ConfigureSyncService( IServiceCollection services, ConfigManager cfgMgr ) {
+            if (cfgMgr.Config.Sync != null) {
+                _ = services.Configure<SyncConfig>( cfgMgr.GetSyncConfig( ) );
+                _ = services.AddSingleton( _ => cfgMgr.Config.Sync );
+                _ = services.AddSingleton<IPrepUploadFileProcess, PrepUploadFileProcess>( );
+                _ = services.AddSingleton<IUploadFileProcess, UploadFileProcess>( );
+            }
+        }
+
+        private static void ConfigureHostLogging( IHostBuilder builder, ILogger? log ) {
+            if (log != null) {
+                log.LogInformation( "Configuring host logging." );
+
+                _ = builder.ConfigureLogging(
+                    logging => {
+                        _ = logging.ClearProviders( );
+                        _ = logging.SetMinimumLevel( GetMinimumLogLevel( log ) );
+                        _ = logging.AddProvider( new Log4NetProvider( log ) );
+                    }
+                );
+            }
+        }
+
+        private static LogLevel GetMinimumLogLevel( ILogger log ) =>
+            true switch {
+                true when log.IsEnabled( LogLevel.Trace ) => LogLevel.Trace,
+                true when log.IsEnabled( LogLevel.Debug ) => LogLevel.Debug,
+                true when log.IsEnabled( LogLevel.Information ) => LogLevel.Information,
+                true when log.IsEnabled( LogLevel.Warning ) => LogLevel.Warning,
+                true when log.IsEnabled( LogLevel.Error ) => LogLevel.Error,
+                true when log.IsEnabled( LogLevel.Critical ) => LogLevel.Critical,
+                _ => LogLevel.None,
+            };
+
 
     }
 }

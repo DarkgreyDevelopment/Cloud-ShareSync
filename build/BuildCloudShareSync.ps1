@@ -42,10 +42,7 @@ $CopyParam = @{
 }
 
 Foreach ($OsDir in $PublishProfileOSDirectories) {
-    $ConfigDir = Join-Path -Path $OsDir -ChildPath 'Configuration'
-    New-Item -Path $ConfigDir -ItemType Directory -Force | Out-Null
-
-    $ASOutput = Join-Path -Path $ConfigDir -ChildPath 'appsettings.json'
+    $ASOutput = Join-Path -Path $OsDir -ChildPath 'appsettings.json'
     Copy-Item -Path $AppSettings -Destination $ASOutput @CopyParam
 
     $LicenseOutput = Join-Path -Path $OsDir -ChildPath 'LICENSE'

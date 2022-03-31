@@ -26,110 +26,89 @@ namespace Cloud_ShareSync.Core.Logging {
         public readonly ILog? ILog;
         public readonly TracerProvider? OpenTelemetry;
 
-        public TelemetryLogger(
-            string[]? sources = null,
-            Log4NetConfig? config = null
-        ) {
+        public static readonly Level[] ErrLvl = new Level[] { Level.Fatal, Level.Error };
+
+        #region Ctor
+
+        public TelemetryLogger( Log4NetConfig? config = null ) {
             _loggerRepository = LogManager.GetRepository( Assembly.GetEntryAssembly( ) );
-            try {
-                if (config != null) {
+            if (config != null) {
+                try {
+                    ConfigureLog4NetFromConfig( config );
                     ILog = LogManager.GetLogger( ServiceName );
-
-                    if (string.IsNullOrWhiteSpace( config.ConfigurationFile )) {
-
-                        Hierarchy hierarchy = (Hierarchy)_loggerRepository;
-                        hierarchy.LevelMap.Add( TelemetryLogLevelExtension.TelemetryLevel );
-
-                        // Setup Default Rolling Log File
-                        try {
-                            if (config.EnableDefaultLog) { ConfigureDefaultLogAppender( hierarchy, config ); }
-                        } catch (ApplicationException defaultLogFailure) {
-                            string? message =
-                                "Failed to add default Log4Net RollingLogAppender. Logging may be limited.";
-                            Console.Error.WriteLine( message + "\n" + defaultLogFailure.ToString( ) );
-                            // try logging to any configured appenders.
-                            ILog?.Error( message, defaultLogFailure );
-                        }
-
-                        // Setup Telemetry Log File
-                        try {
-                            if (config.EnableTelemetryLog) { ConfigureTelemetryAppender( hierarchy, config ); }
-                        } catch (ApplicationException telemetryLogFailure) {
-                            string? message =
-                                "Failed to add telemetry Log4Net RollingLogAppender. Telemetry logging may be limited.";
-                            Console.Error.WriteLine( message + "\n" + telemetryLogFailure.ToString( ) );
-                            // try logging to any configured appenders.
-                            ILog?.Error( message, telemetryLogFailure );
-                        }
-
-                        // Setup Console Output
-                        string? consoleMessage =
-                                "Failed to add Log4Net ColoredConsoleAppender. Console logging will be limited.";
-                        try {
-                            if (config.EnableConsoleLog) { ConfigureConsoleAppender( hierarchy, config ); }
-                        } catch (DllNotFoundException dllEx) {
-                            Console.Error.WriteLine( consoleMessage + "\n" + dllEx.ToString( ) );
-                            // try logging to any configured appenders.
-                            ILog?.Error( consoleMessage, dllEx );
-                        } catch (ApplicationException consoleLogFailure) {
-                            Console.Error.WriteLine( consoleMessage + "\n" + consoleLogFailure.ToString( ) );
-                            // try logging to any configured appenders.
-                            ILog?.Error( consoleMessage, consoleLogFailure );
-                        }
-
-                        hierarchy.Configured = true;
-
-                    } else /* log4NetConfig.ConfigurationFile has content */ {
-
-                        if (File.Exists( config.ConfigurationFile ) == false) {
-                            throw new FileNotFoundException(
-                                $"Cannot find Log4Net ConfigurationFile at {config.ConfigurationFile}"
-                            );
-                        }
-
-                        _ = XmlConfigurator.Configure(
-                            _loggerRepository,
-                            new FileInfo( config.ConfigurationFile )
-                        );
-
-                    }
+                } catch (Exception ex) {
+                    Console.Error.WriteLine(
+                        "\nAn error has occurred - Failed to configure Application Logger. " +
+                        "The application will have exceptionally limited log messages.\n" +
+                        $"Error: {ex.Message}\n" +
+                        $"{ex}\n"
+                    );
                 }
-            } catch (Exception ex) {
-                Console.Error.WriteLine(
-                    "\nAn error has occurred - Failed to configure TelemetryLogger. " +
-                    "The application will be unable to log any additional messages.\n" +
-                    $"Error: {ex.Message}\n" +
-                    $"{ex}\n"
+            }
+            OpenTelemetry = ConfigureOpenTelemetryTracer( );
+        }
+
+        private void ConfigureLog4NetFromConfig( Log4NetConfig config ) {
+            if (string.IsNullOrWhiteSpace( config.ConfigurationFile )) {
+                Hierarchy hierarchy = (Hierarchy)_loggerRepository;
+                hierarchy.LevelMap.Add( TelemetryLogLevelExtension.TelemetryLevel );
+                if (config.EnableDefaultLog) { ConfigureDefaultLogAppender( hierarchy, config.DefaultLogConfiguration ); }
+                if (config.EnableTelemetryLog) { ConfigureTelemetryAppender( hierarchy, config.TelemetryLogConfiguration ); }
+                if (config.EnableConsoleLog) { ConfigureConsoleAppender( hierarchy, config.ConsoleConfiguration ); }
+                hierarchy.Configured = true;
+            } else /* log4NetConfig.ConfigurationFile has content */ {
+                ConfigureFromLog4NetXmlConfigFile( config );
+            }
+        }
+
+        private void ConfigureFromLog4NetXmlConfigFile( Log4NetConfig config ) {
+            if (File.Exists( config.ConfigurationFile ) == false) {
+                throw new FileNotFoundException(
+                    $"Log4Net ConfigurationFile '{config.ConfigurationFile}' doesn't exist."
                 );
             }
 
-            if (sources != null) {
-                // Configure OpenTelemetry
-                OpenTelemetry = Sdk.CreateTracerProviderBuilder( )
-                    .AddSource( sources )
-                    .SetResourceBuilder( ResourceBuilder.CreateDefault( )
-                    .AddService( ServiceName ) )
-                    .AddProcessor( new SimpleActivityExportProcessor( new LogExporter( ILog ) ) )
-                    .AddLogExporter( ILog )
-                    .Build( );
-            }
+            _ = XmlConfigurator.Configure(
+                _loggerRepository,
+                new FileInfo( config.ConfigurationFile )
+            );
         }
+
+        private TracerProvider ConfigureOpenTelemetryTracer( ) {
+            string[] sources = new string[] {
+                "B2", "BackBlazeB2.PublicInterface", "Cloud-ShareSync.Backup.Program",
+                "CompressionInterface", "ConfigManager", "Hashing", "HostProvider",
+                "ManagedChaCha20Poly1305", "MimeType", "PrepUploadFileProcess",
+                "UniquePassword", "UploadFileProcess"
+            };
+            return Sdk.CreateTracerProviderBuilder( )
+                .AddSource( sources )
+                .SetResourceBuilder( ResourceBuilder.CreateDefault( )
+                .AddService( ServiceName ) )
+                .AddProcessor( new SimpleActivityExportProcessor( new LogExporter( ILog ) ) )
+                .AddLogExporter( ILog )
+                .Build( );
+        }
+
+        #endregion Ctor
+
 
         #region CreateAppenders
 
         private static void ConfigureDefaultLogAppender(
             Hierarchy hierarchy,
-            Log4NetConfig log4NetConfig
+            DefaultLogConfig? logConfig
         ) {
 
-            if (log4NetConfig.DefaultLogConfiguration == null) {
-                throw new ApplicationException( $"Cannot Enable Default Log if Log Config Is Null." );
+            if (logConfig == null) {
+                Console.Error.WriteLine(
+                    "Failed to add default Log4Net RollingLogAppender. Logging may be limited.\n" +
+                    "Cannot Enable Default Log if Log Config Is Null."
+                );
+                return;
             }
 
-            DefaultLogConfig logConfig = log4NetConfig.DefaultLogConfiguration;
-
-            PatternLayout patternLayout = new( ) { ConversionPattern = LogMessageFormat };
-            patternLayout.ActivateOptions( );
+            PatternLayout patternLayout = NewPatternLayout( LogMessageFormat );
 
             // Create RollingFileAppender Implementation
             RollingFileAppender roller = NewRollingFileAppender(
@@ -141,9 +120,7 @@ namespace Cloud_ShareSync.Core.Logging {
 
             Level[] levels = TranslateLogLevel( logConfig.LogLevels );
 
-            foreach (log4net.Filter.IFilter filter in CreateFiltersList( levels, false )) {
-                roller.AddFilter( filter );
-            }
+            AddFilters( roller, CreateFiltersList( levels, false ) );
 
             roller.ActivateOptions( );
             hierarchy.Root.AddAppender( roller );
@@ -151,17 +128,17 @@ namespace Cloud_ShareSync.Core.Logging {
 
         private static void ConfigureTelemetryAppender(
             Hierarchy hierarchy,
-            Log4NetConfig log4NetConfig
+            TelemetryLogConfig? telemetryConfig
         ) {
-
-            if (log4NetConfig.TelemetryLogConfiguration == null) {
-                throw new ApplicationException( $"Cannot Enable Telemetry Log if TelemetryConfig Is Null." );
+            if (telemetryConfig == null) {
+                Console.Error.WriteLine(
+                    "Failed to add telemetry Log4Net RollingLogAppender.\n" +
+                    "Cannot Enable Telemetry Log if TelemetryConfig Is Null."
+                );
+                return;
             }
 
-            TelemetryLogConfig telemetryConfig = log4NetConfig.TelemetryLogConfiguration;
-
-            PatternLayout patternLayout = new( ) { ConversionPattern = "%m%n" };
-            patternLayout.ActivateOptions( );
+            PatternLayout patternLayout = NewPatternLayout( "%m%n" );
 
             // Create RollingFileAppender Implementation.
             RollingFileAppender telemetry = NewRollingFileAppender(
@@ -173,24 +150,141 @@ namespace Cloud_ShareSync.Core.Logging {
 
             Level[] telemetryLevel = new Level[] { TelemetryLogLevelExtension.TelemetryLevel };
 
-            foreach (log4net.Filter.IFilter filter in CreateFiltersList( telemetryLevel, false )) {
-                telemetry.AddFilter( filter );
-            }
+            AddFilters( telemetry, CreateFiltersList( telemetryLevel, false ) );
 
             telemetry.ActivateOptions( );
             hierarchy.Root.AddAppender( telemetry );
         }
 
-        private static void ConfigureErrorConsoleAppender(
+        private static void ConfigureConsoleAppender(
+            Hierarchy hierarchy,
+            ConsoleLogConfig? consoleConfig
+        ) {
+            if (consoleConfig == null) {
+                Console.Error.WriteLine(
+                    "Failed to add Log4Net ConsoleAppender. Console logging will be limited." +
+                    "Cannot Enable Console Log if ConsoleConfig Is Null."
+                );
+                return;
+            }
+
+            string? envNoColor = Environment.GetEnvironmentVariable( "NO_COLOR" );
+
+            if (consoleConfig.EnableColoredConsole && envNoColor == null) {
+                ConfigureColoredConsoleAppender( hierarchy, consoleConfig );
+            } else {
+                ConfigureRegularConsoleAppender( hierarchy, consoleConfig );
+            }
+        }
+
+        private static void ConfigureColoredConsoleAppender(
+            Hierarchy hierarchy,
+            ConsoleLogConfig consoleConfig
+        ) {
+            try {
+                RegisterCodePage( );
+                PatternLayout patternLayout = NewPatternLayout( LogMessageFormat );
+                ColoredConsoleAppender consoleAppender = NewColoredConsoleAppender( patternLayout );
+                ConfigureErrorColoredConsoleAppender( consoleConfig.UseStdErr, hierarchy, patternLayout );
+                Level[] levels = TranslateLogLevel( consoleConfig.LogLevels, consoleConfig.UseStdErr );
+                AddFilters( consoleAppender, CreateFiltersList( levels, consoleConfig.UseStdErr ) );
+                AddMappings( consoleAppender, CreateMappingsList( levels ) );
+                consoleAppender.ActivateOptions( );
+                hierarchy.Root.AddAppender( consoleAppender );
+            } catch (Exception consoleLogFailure) {
+                Console.Error.WriteLine(
+                    "Failed to add Log4Net ColoredConsoleAppender. Console logging will be limited.\n" +
+                    consoleLogFailure.ToString( )
+                );
+            }
+        }
+
+        private static void ConfigureErrorColoredConsoleAppender(
+            bool useStdErr,
             Hierarchy hierarchy,
             PatternLayout pattern
         ) {
+            if (useStdErr == false) { return; }
+            ColoredConsoleAppender consoleErrorAppender = NewColoredConsoleAppender( pattern, true );
+            AddErrorFilters( consoleErrorAppender );
+            AddMappings( consoleErrorAppender, CreateMappingsList( ErrLvl ) );
+            consoleErrorAppender.ActivateOptions( );
+            hierarchy.Root.AddAppender( consoleErrorAppender );
+        }
 
-            ColoredConsoleAppender consoleErrorAppender = new( ) {
-                Layout = pattern,
-                Target = "Console.Error"
-            };
+        private static void ConfigureRegularConsoleAppender(
+            Hierarchy hierarchy,
+            ConsoleLogConfig consoleConfig
+        ) {
+            try {
+                RegisterCodePage( );
+                PatternLayout patternLayout = NewPatternLayout( LogMessageFormat );
+                ConsoleAppender consoleAppender = NewConsoleAppender( patternLayout );
+                ConfigureErrorConsoleAppender( consoleConfig.UseStdErr, hierarchy, patternLayout );
+                Level[] levels = TranslateLogLevel( consoleConfig.LogLevels, consoleConfig.UseStdErr );
+                AddFilters( consoleAppender, CreateFiltersList( levels, consoleConfig.UseStdErr ) );
+                consoleAppender.ActivateOptions( );
+                hierarchy.Root.AddAppender( consoleAppender );
+            } catch (Exception consoleLogFailure) {
+                Console.Error.WriteLine(
+                    "Failed to add Log4Net ConsoleAppender. Console logging will be limited.\n" +
+                    consoleLogFailure.ToString( )
+                );
+            }
+        }
 
+        private static void ConfigureErrorConsoleAppender(
+            bool useStdErr,
+            Hierarchy hierarchy,
+            PatternLayout pattern
+        ) {
+            if (useStdErr == false) { return; }
+            ConsoleAppender consoleErrorAppender = NewConsoleAppender( pattern, true );
+            AddErrorFilters( consoleErrorAppender );
+            consoleErrorAppender.ActivateOptions( );
+            hierarchy.Root.AddAppender( consoleErrorAppender );
+        }
+
+        #endregion CreateAppenders
+
+
+        #region HelperMethods
+
+        private static void RegisterCodePage( ) {
+            try {
+                // Register terminal code page for console output.
+                Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
+            } catch (Exception ex) {
+                Console.Error.WriteLine(
+                    "Failed to register console codepage. Console logging may be limited. Error:\n" +
+                    ex.ToString( )
+                );
+            }
+        }
+
+        private static ConsoleAppender NewConsoleAppender( PatternLayout pattern, bool targetError = false ) {
+            ConsoleAppender consoleAppender = new( ) { Layout = pattern };
+            if (targetError) { consoleAppender.Target = "Console.Error"; }
+            return consoleAppender;
+        }
+
+        private static ColoredConsoleAppender NewColoredConsoleAppender( PatternLayout pattern, bool targetError = false ) {
+            ColoredConsoleAppender consoleAppender = new( ) { Layout = pattern };
+            if (targetError) { consoleAppender.Target = "Console.Error"; }
+            return consoleAppender;
+        }
+
+        private static PatternLayout NewPatternLayout( string logMessageFormat ) {
+            PatternLayout patternLayout = new( ) { ConversionPattern = logMessageFormat };
+            patternLayout.ActivateOptions( );
+            return patternLayout;
+        }
+
+        private static void AddFilters( AppenderSkeleton appender, List<log4net.Filter.IFilter> list ) {
+            foreach (log4net.Filter.IFilter filter in list) { appender.AddFilter( filter ); }
+        }
+
+        private static void AddErrorFilters( AppenderSkeleton consoleErrorAppender ) {
             consoleErrorAppender.AddFilter(
                 new log4net.Filter.LevelMatchFilter {
                     LevelToMatch = Level.Fatal,
@@ -203,67 +297,17 @@ namespace Cloud_ShareSync.Core.Logging {
                     AcceptOnMatch = true
                 }
             );
-
-            Level[] errLvl = new Level[] { Level.Fatal, Level.Error };
-            foreach (ColoredConsoleAppender.LevelColors mapping in CreateMappingsList( errLvl )) {
-                consoleErrorAppender.AddMapping( mapping );
-            }
-
-            log4net.Filter.DenyAllFilter denyfilter = new( );
-            consoleErrorAppender.AddFilter( denyfilter );
-
-            consoleErrorAppender.ActivateOptions( );
-            hierarchy.Root.AddAppender( consoleErrorAppender );
-
+            consoleErrorAppender.AddFilter( new log4net.Filter.DenyAllFilter( ) );
         }
 
-        private static void ConfigureConsoleAppender(
-            Hierarchy hierarchy,
-            Log4NetConfig log4NetConfig
+        private static void AddMappings(
+            ColoredConsoleAppender appender,
+            List<ColoredConsoleAppender.LevelColors> mappings
         ) {
-
-            if (log4NetConfig.ConsoleConfiguration == null) {
-                throw new ApplicationException( $"Cannot Enable Console Log if ConsoleConfig Is Null." );
-            }
-
-            ConsoleLogConfig consoleConfig = log4NetConfig.ConsoleConfiguration;
-
-            // Register terminal code page for console output.
-            Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
-
-            PatternLayout patternLayout = new( ) { ConversionPattern = LogMessageFormat };
-            patternLayout.ActivateOptions( );
-
-            ColoredConsoleAppender consoleAppender = new( ) { Layout = patternLayout };
-
-            if (consoleConfig.UseStdErr) { ConfigureErrorConsoleAppender( hierarchy, patternLayout ); }
-
-            Level[] levels = TranslateLogLevel( consoleConfig.LogLevels );
-
-            // Add Filters.
-            List<log4net.Filter.IFilter> filters = CreateFiltersList( levels, consoleConfig.UseStdErr );
-
-            foreach (log4net.Filter.IFilter filter in filters) {
-                consoleAppender.AddFilter( filter );
-            }
-
-            // Add Mappings.
-            List<ColoredConsoleAppender.LevelColors>? mappings =
-                CreateMappingsList( levels );
-
             foreach (ColoredConsoleAppender.LevelColors mapping in mappings) {
-                consoleAppender.AddMapping( mapping );
+                appender.AddMapping( mapping );
             }
-
-            consoleAppender.ActivateOptions( );
-            hierarchy.Root.AddAppender( consoleAppender );
-
         }
-
-        #endregion CreateAppenders
-
-
-        #region HelperMethods
 
         private static List<log4net.Filter.IFilter> CreateFiltersList(
             Level[] requestedLogLevels,
@@ -404,19 +448,41 @@ namespace Cloud_ShareSync.Core.Logging {
             };
         }
 
-        private static Level[] TranslateLogLevel( SupportedLogLevels logLevels ) {
+        private static Level[] TranslateLogLevel( SupportedLogLevels logLevels, bool? excludeErrors = null ) {
             List<Level> levels = new( );
+            AddFatalLevel( logLevels, levels, excludeErrors );
+            AddErrorLevel( logLevels, levels, excludeErrors );
+            AddWarnLevel( logLevels, levels );
+            AddInfoLevel( logLevels, levels );
+            AddDebugLevel( logLevels, levels );
+            AddTelemetryLevel( logLevels, levels );
+            return levels.ToArray( );
+        }
 
-            if (logLevels.HasFlag( SupportedLogLevels.Fatal )) { levels.Add( Level.Fatal ); }
-            if (logLevels.HasFlag( SupportedLogLevels.Error )) { levels.Add( Level.Error ); }
+        private static void AddFatalLevel( SupportedLogLevels logLevels, List<Level> levels, bool? excludeErrors ) {
+            if (logLevels.HasFlag( SupportedLogLevels.Fatal ) && excludeErrors == true) { levels.Add( Level.Fatal ); }
+        }
+
+        private static void AddErrorLevel( SupportedLogLevels logLevels, List<Level> levels, bool? excludeErrors ) {
+            if (logLevels.HasFlag( SupportedLogLevels.Error ) && excludeErrors == true) { levels.Add( Level.Error ); }
+        }
+
+        private static void AddWarnLevel( SupportedLogLevels logLevels, List<Level> levels ) {
             if (logLevels.HasFlag( SupportedLogLevels.Warn )) { levels.Add( Level.Warn ); }
+        }
+
+        private static void AddInfoLevel( SupportedLogLevels logLevels, List<Level> levels ) {
             if (logLevels.HasFlag( SupportedLogLevels.Info )) { levels.Add( Level.Info ); }
+        }
+
+        private static void AddDebugLevel( SupportedLogLevels logLevels, List<Level> levels ) {
             if (logLevels.HasFlag( SupportedLogLevels.Debug )) { levels.Add( Level.Debug ); }
+        }
+
+        private static void AddTelemetryLevel( SupportedLogLevels logLevels, List<Level> levels ) {
             if (logLevels.HasFlag( SupportedLogLevels.Telemetry )) {
                 levels.Add( TelemetryLogLevelExtension.TelemetryLevel );
             }
-
-            return levels.ToArray( );
         }
 
         #endregion HelperMethods

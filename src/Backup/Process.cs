@@ -22,10 +22,7 @@ namespace Cloud_ShareSync.Backup {
 
         public Process( ) {
             ConfigManager cfgMgr = new( );
-            _log = ConfigManager.CreateTelemetryLogger(
-                cfgMgr.Config.Logging,
-                Array.Empty<string>( )
-            );
+            _log = ConfigManager.CreateTelemetryLogger( cfgMgr.Config.Logging );
             _host = HostProvider.ConfigureHost( _log, cfgMgr );
             _config = cfgMgr.Config.Sync;
             _excludedPathPatterns = BuildExcludeRegexArray( ); ;

@@ -194,134 +194,37 @@ namespace Cloud_ShareSync.Core.Configuration {
             string errTxt = $"\nUpdate '{configPath}' to change the applications settings.";
             if (config == null) { config = new CompleteConfig( new SyncConfig( ) ); }
             if (config.Sync.SyncFolder == SyncConfig.DefaultSyncFolder) { return config.ToString( ); }
-            config = ValidateAndAssignLogDefaults( config, errTxt );
-            config = ValidateAndAssignDatabaseDefaults( config, errTxt );
-            config = ValidateAndAssignSyncDefaults( config, errTxt );
-            config = ValidateAndAssignEncryptionDefaults( config, errTxt );
-            config = ValidateAndAssignCompressionDefaults( config, errTxt );
-            config = ValidateAndAssignBackBlazeDefaults( config, errTxt );
+            ValidateAndAssignSyncDefaults( config, errTxt );
+            ValidateAndAssignDatabaseDefaults( config, errTxt );
+            ValidateAndAssignLogDefaults( config, errTxt );
+            ValidateAndAssignCompressionDefaults( config, errTxt );
+            ValidateAndAssignBackBlazeDefaults( config, errTxt );
+            EnsureEncryptionPlatformSupport( config, errTxt );
             return config.ToString( );
         }
 
-        private static CompleteConfig ValidateAndAssignLogDefaults( CompleteConfig config, string errTxt ) {
-            if (config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Log4Net )) {
-                if (config.Logging == null) { config.Logging = new( ); }
-                if (
-                    string.IsNullOrWhiteSpace( config.Logging.ConfigurationFile ) == false &&
-                    File.Exists( config.Logging.ConfigurationFile ) == false
-                ) {
-                    throw new FileNotFoundException(
-                        $"Cannot find Log4Net ConfigurationFile '{config.Logging.ConfigurationFile}'." +
-                        errTxt
-                    );
-                } else {
-                    if (config.Logging.EnableTelemetryLog) {
-                        if (config.Logging.DefaultLogConfiguration == null) {
-                            Console.WriteLine(
-                                "DefaultLogConfiguration was unset and EnableDefaultLog is true. " +
-                                "Adding default values." +
-                                errTxt
-                            );
-                            config.Logging.DefaultLogConfiguration = new( );
-                        }
-                        if (Directory.Exists( config.Logging.DefaultLogConfiguration.LogDirectory ) == false) {
-                            _ = Directory.CreateDirectory( config.Logging.DefaultLogConfiguration.LogDirectory );
-                        }
-                    }
 
-                    if (config.Logging.EnableTelemetryLog) {
-                        if (config.Logging.TelemetryLogConfiguration == null) {
-                            Console.WriteLine(
-                                "TelemetryLogConfiguration was unset and EnableTelemetryLog is true. " +
-                                "Adding default values." +
-                                errTxt
-                            );
-                            config.Logging.TelemetryLogConfiguration = new( );
-                        }
-                        if (Directory.Exists( config.Logging.TelemetryLogConfiguration.LogDirectory ) == false) {
-                            _ = Directory.CreateDirectory( config.Logging.TelemetryLogConfiguration.LogDirectory );
-                        }
-                    }
-                }
-            }
-            return config;
+        #region SyncDefaults
+
+        private static void ValidateAndAssignSyncDefaults( CompleteConfig config, string errTxt ) {
+            ValidateUniqueCompressionPasswordsConfig( config, errTxt );
+            ValidateEncryptBeforeUploadConfig( config, errTxt );
+            ValidateCompressBeforeUploadConfig( config, errTxt );
+            EnsureSyncFolderExists( config, errTxt );
         }
 
-        private static CompleteConfig ValidateAndAssignDatabaseDefaults( CompleteConfig config, string errTxt ) {
-            if (
-                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false &&
-                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) == false
-            ) {
-                Console.WriteLine(
-                    "At least one database feature must be enabled! Adding sqlite to the enabled features list." +
-                    errTxt
-                );
-                config.Sync.EnabledFeatures |= Cloud_ShareSync_Features.Sqlite;
-            }
-            if (config.Database == null) {
-                Console.WriteLine(
-                    "DatabaseConfig is empty. Setting default values." +
-                    errTxt
-                );
-                config.Database = new( );
-                config.Sync.EnabledFeatures |= Cloud_ShareSync_Features.Sqlite;
-            } else {
-                // Sane defaults - at least one db is required!
-                if (config.Database.UseSqlite == false && config.Database.UsePostgres == false) {
-                    Console.WriteLine(
-                        "At least one database is required! Setting UseSqlite to true." +
-                        errTxt
-                    );
-                    config.Database.UseSqlite = true;
-                }
-
-                if (
-                    config.Database.UseSqlite == true &&
-                    config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false
-                ) {
-                    Console.WriteLine(
-                        "Adding sqlite to the enabled features list." +
-                        errTxt
-                    );
-                    config.Sync.EnabledFeatures |= Cloud_ShareSync_Features.Sqlite;
-                }
-
-                if (
-                    config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) &&
-                    config.Database.UseSqlite &&
-                    string.IsNullOrWhiteSpace( config.Database.SqliteDBPath )
-                ) {
-                    // Attempt to set sqlite db path is set.
-                    config.Database.SqliteDBPath = s_assemblyPath;
-                    Console.WriteLine(
-                        $"SqliteDBPath was not set. Setting it to '{config.Database.SqliteDBPath}'." +
-                        errTxt
-                    );
-                }
-
-                if (
-                    config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) &&
-                    config.Database.UsePostgres
-                ) {
-                    // Postgres Configuration
-                    throw new NotImplementedException(
-                        "Remove Postgres from the sync enabled features & set UsePostgres to false." +
-                        errTxt
-                    );
-                }
-            }
-
-            return config;
-        }
-
-        private static CompleteConfig ValidateAndAssignSyncDefaults( CompleteConfig config, string errTxt ) {
-
+        private static void ValidateUniqueCompressionPasswordsConfig( CompleteConfig config, string errTxt ) {
             if (config.Sync.CompressBeforeUpload == false && config.Sync.UniqueCompressionPasswords) {
-                Console.WriteLine( "Disabling UniqueCompressionPasswords because CompressBeforeUpload is false." + errTxt );
+                Console.WriteLine(
+                    "Disabling UniqueCompressionPasswords because CompressBeforeUpload is false." +
+                    errTxt
+                );
                 // Turn off compression passwords if we're not using compression.
                 config.Sync.UniqueCompressionPasswords = false;
             }
+        }
 
+        private static void ValidateEncryptBeforeUploadConfig( CompleteConfig config, string errTxt ) {
             if (
                 config.Sync.EncryptBeforeUpload &&
                 config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) == false
@@ -332,7 +235,9 @@ namespace Cloud_ShareSync.Core.Configuration {
                     errTxt
                 );
             }
+        }
 
+        private static void ValidateCompressBeforeUploadConfig( CompleteConfig config, string errTxt ) {
             if (
                 config.Sync.CompressBeforeUpload &&
                 config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression ) == false
@@ -343,7 +248,9 @@ namespace Cloud_ShareSync.Core.Configuration {
                     errTxt
                 );
             }
+        }
 
+        private static void EnsureSyncFolderExists( CompleteConfig config, string errTxt ) {
             if (Directory.Exists( config.Sync.SyncFolder ) == false) {
                 throw new DirectoryNotFoundException(
                     "Missing required SyncFolder. " +
@@ -351,34 +258,204 @@ namespace Cloud_ShareSync.Core.Configuration {
                     errTxt
                 );
             }
-
-            return config;
         }
 
-        private static CompleteConfig ValidateAndAssignEncryptionDefaults( CompleteConfig config, string errTxt ) =>
-            config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) &&
-            Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported == false ?
-                throw new PlatformNotSupportedException(
-                    "This platform does not support ChaCha20Poly1305 cryptography. " +
-                    "Remove Encryption from the 'EnabledFeatures' enumeration in the Sync config before restarting." +
-                    errTxt ) :
-                config;
+        #endregion SyncDefaults
 
-        private static CompleteConfig ValidateAndAssignCompressionDefaults( CompleteConfig config, string errTxt ) =>
-            config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression ) &&
-            File.Exists( config.Compression?.DependencyPath ) != true ?
+
+        #region DatabaseDefaults
+
+        private static void ValidateAndAssignDatabaseDefaults( CompleteConfig config, string errTxt ) {
+            EnsureDatabaseFeaturesEnabled( config, errTxt );
+            EnsureDatabaseIsUsed( config, errTxt );
+            EnsureSqliteFeatureEnabled( config, errTxt );
+            EnsureSqliteDBPathIsSet( config, errTxt );
+
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) &&
+                config.Database.UsePostgres
+            ) {
+                // Postgres Configuration
+                throw new NotImplementedException(
+                    "Remove Postgres from the sync enabled features & set UsePostgres to false." +
+                    errTxt
+                );
+            }
+        }
+
+        private static void EnsureDatabaseFeaturesEnabled( CompleteConfig config, string errTxt ) {
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false &&
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Postgres ) == false
+            ) {
+                Console.WriteLine(
+                    "At least one database feature must be enabled! Adding sqlite to the enabled features list." +
+                    errTxt
+                );
+                config.Sync.EnabledFeatures |= Cloud_ShareSync_Features.Sqlite;
+            }
+        }
+
+        private static void EnsureDatabaseIsUsed( CompleteConfig config, string errTxt ) {
+            // Sane defaults - at least one db is required!
+            if (config.Database.UseSqlite == false && config.Database.UsePostgres == false) {
+                Console.WriteLine(
+                    "At least one database is required! Setting UseSqlite to true." +
+                    errTxt
+                );
+                config.Database.UseSqlite = true;
+            }
+        }
+
+        private static void EnsureSqliteFeatureEnabled( CompleteConfig config, string errTxt ) {
+            if (
+                config.Database.UseSqlite == true &&
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) == false
+            ) {
+                throw new Exception(
+                    "UseSqlite is set to true but Sqlite is not in the the enabled features list. " +
+                    "Add Sqlite to the enabled features in the sync settings before restarting." +
+                    errTxt
+                );
+            }
+        }
+
+        private static void EnsureSqliteDBPathIsSet( CompleteConfig config, string errTxt ) {
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Sqlite ) &&
+                config.Database.UseSqlite &&
+                string.IsNullOrWhiteSpace( config.Database.SqliteDBPath )
+            ) {
+                throw new Exception(
+                    $"SqliteDBPath was not set. Ensure the database path is set to a secure location on the filesystem." +
+                    errTxt
+                );
+            }
+        }
+
+        #endregion DatabaseDefaults
+
+
+        #region LogDefaults
+
+        private static void ValidateAndAssignLogDefaults( CompleteConfig config, string errTxt ) {
+            if (config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Log4Net )) {
+                Log4NetConfig log4netConfig = EnsureLogConfigExists( config, errTxt );
+                if (
+                    string.IsNullOrWhiteSpace( log4netConfig.ConfigurationFile ) == false &&
+                    File.Exists( log4netConfig.ConfigurationFile ) == false
+                ) {
+                    throw new FileNotFoundException(
+                        $"Cannot find Log4Net ConfigurationFile '{log4netConfig.ConfigurationFile}'." +
+                        errTxt
+                    );
+                } else {
+                    ValidateDefaultLogSettings( log4netConfig, errTxt );
+                    ValidateTelemetryLogSettings( log4netConfig, errTxt );
+                }
+                config.Logging = log4netConfig;
+            }
+        }
+
+        private static Log4NetConfig EnsureLogConfigExists( CompleteConfig config, string errTxt ) {
+            if (config.Logging == null) {
+                Console.WriteLine(
+                    "Log4Net is in the enabled features list but the Log config was unset. " +
+                    "Enabling default Logging configuration section." +
+                    errTxt
+                );
+                return new( );
+            }
+
+            return config.Logging;
+        }
+
+        private static void ValidateDefaultLogSettings( Log4NetConfig log4netConfig, string errTxt ) {
+            if (log4netConfig.EnableDefaultLog) {
+                if (log4netConfig.DefaultLogConfiguration == null) {
+                    Console.WriteLine(
+                        "DefaultLogConfiguration was unset and EnableDefaultLog is true. " +
+                        "Adding default values." +
+                        errTxt
+                    );
+                    log4netConfig.DefaultLogConfiguration = new( );
+                }
+                if (Directory.Exists( log4netConfig.DefaultLogConfiguration.LogDirectory ) == false) {
+                    _ = Directory.CreateDirectory( log4netConfig.DefaultLogConfiguration.LogDirectory );
+                }
+            }
+        }
+
+        private static void ValidateTelemetryLogSettings( Log4NetConfig log4netConfig, string errTxt ) {
+            if (log4netConfig.EnableTelemetryLog) {
+                if (log4netConfig.TelemetryLogConfiguration == null) {
+                    Console.WriteLine(
+                        "TelemetryLogConfiguration was unset and EnableTelemetryLog is true. " +
+                        "Adding default values." +
+                        errTxt
+                    );
+                    log4netConfig.TelemetryLogConfiguration = new( );
+                }
+                if (Directory.Exists( log4netConfig.TelemetryLogConfiguration.LogDirectory ) == false) {
+                    _ = Directory.CreateDirectory( log4netConfig.TelemetryLogConfiguration.LogDirectory );
+                }
+            }
+        }
+
+        #endregion LogDefaults
+
+
+        #region CompressionDefaults
+
+        private static void ValidateAndAssignCompressionDefaults( CompleteConfig config, string errTxt ) {
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Compression ) &&
+                File.Exists( config.Compression?.DependencyPath ) != true
+            ) {
                 throw new FileNotFoundException(
                     $"Compression is listed as an EnabledFeature but required compression dependency " +
-                    $"'{config.Compression?.DependencyPath}' is missing." + errTxt ) :
-                config;
+                    $"'{config.Compression?.DependencyPath}' is missing." + errTxt
+                );
+            }
+        }
 
-        private static CompleteConfig ValidateAndAssignBackBlazeDefaults( CompleteConfig config, string errTxt ) =>
-            config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 ) && config.BackBlaze == null ?
+        #endregion CompressionDefaults
+
+
+        #region BackBlazeDefaults
+
+        private static void ValidateAndAssignBackBlazeDefaults( CompleteConfig config, string errTxt ) {
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.BackBlazeB2 ) &&
+                config.BackBlaze == null
+            ) {
                 throw new InvalidDataException(
                     "Missing required BackBlaze configuration section. " +
                     "Either add the required BackBlaze configuration or remove BackBlazeB2 from the 'EnabledFeatures' " +
-                    "enumeration in the Sync config before restarting." + errTxt ) :
-                config;
+                    "enumeration in the Sync config before restarting." + errTxt
+                );
+            }
+        }
+
+        #endregion BackBlazeDefaults
+
+
+        #region EncryptionSupport
+
+        private static void EnsureEncryptionPlatformSupport( CompleteConfig config, string errTxt ) {
+            if (
+                config.Sync.EnabledFeatures.HasFlag( Cloud_ShareSync_Features.Encryption ) &&
+                Cryptography.FileEncryption.ManagedChaCha20Poly1305.PlatformSupported == false
+            ) {
+                throw new PlatformNotSupportedException(
+                    "This platform does not support ChaCha20Poly1305 cryptography. " +
+                    "Remove Encryption from the 'EnabledFeatures' enumeration in the Sync config before restarting." +
+                    errTxt
+                );
+            }
+        }
+
+        #endregion EncryptionSupport
 
         #endregion Validate and Assign Defaults
 
@@ -387,7 +464,7 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         #region CreateTelemetryLogger
 
-        public static ILogger CreateTelemetryLogger( Log4NetConfig? config, string[] sourceList ) {
+        public static ILogger CreateTelemetryLogger( Log4NetConfig? config ) {
             if (config == null) {
                 Console.WriteLine(
                     "Log configuration is null. " +
@@ -396,7 +473,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                 );
             }
 
-            return new TelemetryLogger( sourceList, config );
+            return new TelemetryLogger( config );
         }
 
         #endregion CreateTelemetryLogger
@@ -406,23 +483,47 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         internal static CloudShareSyncServices ConfigureDatabaseService( DatabaseConfig config, ILogger? log ) {
             using Activity? activity = s_source.StartActivity( "ConfigureDatabaseService" )?.Start( );
-
             CloudShareSyncServices services = new( config.SqliteDBPath, log );
-
-            SqliteContext sqliteContext = services.Services.GetRequiredService<SqliteContext>( );
-
-            int coreTableCount = (from obj in sqliteContext.CoreData where obj.Id >= 0 select obj).Count( );
-            int encryptedCount = (from obj in sqliteContext.EncryptionData where obj.Id >= 0 select obj).Count( );
-            int compressdCount = (from obj in sqliteContext.CompressionData where obj.Id >= 0 select obj).Count( );
-            int backBlazeCount = (from obj in sqliteContext.BackBlazeB2Data where obj.Id >= 0 select obj).Count( );
-            log?.LogInformation( "Database Service Initialized." );
-            log?.LogInformation( "Core Table      : {string}", coreTableCount );
-            log?.LogInformation( "Encrypted Table : {string}", encryptedCount );
-            log?.LogInformation( "Compressed Table: {string}", compressdCount );
-            log?.LogInformation( "BackBlaze Table : {string}", backBlazeCount );
-
+            LogTableCounts( services, log );
             activity?.Stop( );
             return services;
+        }
+
+        private static void LogTableCounts( CloudShareSyncServices services, ILogger? log ) {
+            SqliteContext sqliteContext = services.Services.GetRequiredService<SqliteContext>( );
+            log?.LogInformation( "Database Service Initialized." );
+            LogCoreTableCount( sqliteContext, log );
+            LogEncryptedTableCount( sqliteContext, log );
+            LogCompressedTableCount( sqliteContext, log );
+            LogBackBlazeTableCount( sqliteContext, log );
+        }
+
+        private static void LogCoreTableCount( SqliteContext sqliteContext, ILogger? log ) {
+            log?.LogInformation(
+                "Core Table      : {string}",
+                (from obj in sqliteContext.CoreData where obj.Id >= 0 select obj).Count( )
+            );
+        }
+
+        private static void LogEncryptedTableCount( SqliteContext sqliteContext, ILogger? log ) {
+            log?.LogInformation(
+                "Encrypted Table : {string}",
+                (from obj in sqliteContext.EncryptionData where obj.Id >= 0 select obj).Count( )
+            );
+        }
+
+        private static void LogCompressedTableCount( SqliteContext sqliteContext, ILogger? log ) {
+            log?.LogInformation(
+                "Compressed Table: {string}",
+                (from obj in sqliteContext.CompressionData where obj.Id >= 0 select obj).Count( )
+            );
+        }
+
+        private static void LogBackBlazeTableCount( SqliteContext sqliteContext, ILogger? log ) {
+            log?.LogInformation(
+                "BackBlaze Table : {string}",
+                (from obj in sqliteContext.BackBlazeB2Data where obj.Id >= 0 select obj).Count( )
+            );
         }
 
         #endregion ConfigureDatabaseService
