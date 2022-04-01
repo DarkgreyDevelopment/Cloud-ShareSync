@@ -20,7 +20,7 @@
         /// <param name="inputPath"></param>
         /// <param name="decompressionDir"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>An IEnumerable<FileSystemInfo> of decompressed objects.</returns>
         Task<IEnumerable<FileSystemInfo>> DecompressPath( FileInfo inputPath, DirectoryInfo decompressionDir, string? password );
     }
 }
