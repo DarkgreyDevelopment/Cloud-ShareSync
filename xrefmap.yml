@@ -4014,6 +4014,38 @@ references:
   commentId: F:Cloud_ShareSync.Core.Compression.ManagedCompression._semaphore
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression._semaphore
   nameWithType: ManagedCompression._semaphore
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String,System.String,List{FileSystemInfo})
+  name: CleanupTemporaryDirectory(String, String, List<FileSystemInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CleanupTemporaryDirectory_System_String_System_String_List_FileSystemInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String,System.String,List{FileSystemInfo})
+  name.vb: CleanupTemporaryDirectory(String, String, List(Of FileSystemInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String, System.String, List<FileSystemInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String, System.String, List(Of FileSystemInfo))
+  nameWithType: ManagedCompression.CleanupTemporaryDirectory(String, String, List<FileSystemInfo>)
+  nameWithType.vb: ManagedCompression.CleanupTemporaryDirectory(String, String, List(Of FileSystemInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory*
+  name: CleanupTemporaryDirectory
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CleanupTemporaryDirectory_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory
+  nameWithType: ManagedCompression.CleanupTemporaryDirectory
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable{DirectoryInfo},IEnumerable{FileInfo})
+  name: CombineResults(IEnumerable<DirectoryInfo>, IEnumerable<FileInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CombineResults_IEnumerable_DirectoryInfo__IEnumerable_FileInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable{DirectoryInfo},IEnumerable{FileInfo})
+  name.vb: CombineResults(IEnumerable(Of DirectoryInfo), IEnumerable(Of FileInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable<DirectoryInfo>, IEnumerable<FileInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable(Of DirectoryInfo), IEnumerable(Of FileInfo))
+  nameWithType: ManagedCompression.CombineResults(IEnumerable<DirectoryInfo>, IEnumerable<FileInfo>)
+  nameWithType.vb: ManagedCompression.CombineResults(IEnumerable(Of DirectoryInfo), IEnumerable(Of FileInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults*
+  name: CombineResults
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CombineResults_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults
+  nameWithType: ManagedCompression.CombineResults
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath(FileSystemInfo,FileInfo,FileInfo,System.Nullable{System.String})
   name: CompressPath(FileSystemInfo, FileInfo, FileInfo, Nullable<String>)
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_FileSystemInfo_FileInfo_FileInfo_System_Nullable_System_String__
@@ -4039,22 +4071,6 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath
   nameWithType: ManagedCompression.CompressPath
-- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
-  name: CompressProcess(String, String, String, String, Nullable<String>)
-  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__
-  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
-  name.vb: CompressProcess(String, String, String, String, Nullable(Of String))
-  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess(System.String, System.String, System.String, System.String, System.Nullable<System.String>)
-  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess(System.String, System.String, System.String, System.String, System.Nullable(Of System.String))
-  nameWithType: ManagedCompression.CompressProcess(String, String, String, String, Nullable<String>)
-  nameWithType.vb: ManagedCompression.CompressProcess(String, String, String, String, Nullable(Of String))
-- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess*
-  name: CompressProcess
-  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CompressProcess_
-  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess
-  isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CompressProcess
-  nameWithType: ManagedCompression.CompressProcess
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.Create7ZProcess(System.String,System.String,System.String)
   name: Create7ZProcess(String, String, String)
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_Create7ZProcess_System_String_System_String_System_String_
@@ -4068,6 +4084,38 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.Create7ZProcess
   nameWithType: ManagedCompression.Create7ZProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String,IEnumerable{Tuple{System.String,System.String}})
+  name: CreateOutputDirectories(String, IEnumerable<Tuple<String, String>>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectories_System_String_IEnumerable_Tuple_System_String_System_String___
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String,IEnumerable{Tuple{System.String,System.String}})
+  name.vb: CreateOutputDirectories(String, IEnumerable(Of Tuple(Of String, String)))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String, IEnumerable<Tuple<System.String, System.String>>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String, IEnumerable(Of Tuple(Of System.String, System.String)))
+  nameWithType: ManagedCompression.CreateOutputDirectories(String, IEnumerable<Tuple<String, String>>)
+  nameWithType.vb: ManagedCompression.CreateOutputDirectories(String, IEnumerable(Of Tuple(Of String, String)))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories*
+  name: CreateOutputDirectories
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectories_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories
+  nameWithType: ManagedCompression.CreateOutputDirectories
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String,System.String,List{FileSystemInfo})
+  name: CreateOutputDirectoryStructure(String, String, List<FileSystemInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectoryStructure_System_String_System_String_List_FileSystemInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String,System.String,List{FileSystemInfo})
+  name.vb: CreateOutputDirectoryStructure(String, String, List(Of FileSystemInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String, System.String, List<FileSystemInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String, System.String, List(Of FileSystemInfo))
+  nameWithType: ManagedCompression.CreateOutputDirectoryStructure(String, String, List<FileSystemInfo>)
+  nameWithType.vb: ManagedCompression.CreateOutputDirectoryStructure(String, String, List(Of FileSystemInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure*
+  name: CreateOutputDirectoryStructure
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectoryStructure_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure
+  nameWithType: ManagedCompression.CreateOutputDirectoryStructure
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath(FileInfo,DirectoryInfo,FileInfo,System.Nullable{System.String})
   name: DecompressPath(FileInfo, DirectoryInfo, FileInfo, Nullable<String>)
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_FileInfo_DirectoryInfo_FileInfo_System_Nullable_System_String__
@@ -4093,22 +4141,45 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath
   nameWithType: ManagedCompression.DecompressPath
-- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
-  name: DecompressProcess(String, String, String, String, Nullable<String>)
-  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__
-  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
-  name.vb: DecompressProcess(String, String, String, String, Nullable(Of String))
-  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess(System.String, System.String, System.String, System.String, System.Nullable<System.String>)
-  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess(System.String, System.String, System.String, System.String, System.Nullable(Of System.String))
-  nameWithType: ManagedCompression.DecompressProcess(String, String, String, String, Nullable<String>)
-  nameWithType.vb: ManagedCompression.DecompressProcess(String, String, String, String, Nullable(Of String))
-- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess*
-  name: DecompressProcess
-  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressProcess_
-  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType(System.String)
+  name: DeriveFileSystemInfoType(String)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_DeriveFileSystemInfoType_System_String_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType(System.String)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType(System.String)
+  nameWithType: ManagedCompression.DeriveFileSystemInfoType(String)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType*
+  name: DeriveFileSystemInfoType
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_DeriveFileSystemInfoType_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType
   isSpec: "True"
-  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressProcess
-  nameWithType: ManagedCompression.DecompressProcess
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType
+  nameWithType: ManagedCompression.DeriveFileSystemInfoType
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions
+  name: FailOnExceptions()
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnExceptions
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions()
+  nameWithType: ManagedCompression.FailOnExceptions()
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions*
+  name: FailOnExceptions
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnExceptions_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions
+  nameWithType: ManagedCompression.FailOnExceptions
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode(System.Int32)
+  name: FailOnNonZeroExitCode(Int32)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCode_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode(System.Int32)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode(System.Int32)
+  nameWithType: ManagedCompression.FailOnNonZeroExitCode(Int32)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode*
+  name: FailOnNonZeroExitCode
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCode_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode
+  nameWithType: ManagedCompression.FailOnNonZeroExitCode
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCodeOrException(System.Int32)
   name: FailOnNonZeroExitCodeOrException(Int32)
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCodeOrException_System_Int32_
@@ -4122,6 +4193,167 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCodeOrException
   nameWithType: ManagedCompression.FailOnNonZeroExitCodeOrException
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess(System.String,System.String,System.String)
+  name: FinishDecompressProcess(String, String, String)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FinishDecompressProcess_System_String_System_String_System_String_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess(System.String,System.String,System.String)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess(System.String, System.String, System.String)
+  nameWithType: ManagedCompression.FinishDecompressProcess(String, String, String)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess*
+  name: FinishDecompressProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_FinishDecompressProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess
+  nameWithType: ManagedCompression.FinishDecompressProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems(System.String,System.String)
+  name: GetDecompressedItems(String, String)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetDecompressedItems_System_String_System_String_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems(System.String,System.String)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems(System.String, System.String)
+  nameWithType: ManagedCompression.GetDecompressedItems(String, String)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems*
+  name: GetDecompressedItems
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetDecompressedItems_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems
+  nameWithType: ManagedCompression.GetDecompressedItems
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition(System.Int32)
+  name: GetExitCodeDefinition(Int32)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetExitCodeDefinition_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition(System.Int32)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition(System.Int32)
+  nameWithType: ManagedCompression.GetExitCodeDefinition(Int32)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition*
+  name: GetExitCodeDefinition
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetExitCodeDefinition_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition
+  nameWithType: ManagedCompression.GetExitCodeDefinition
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List{FileSystemInfo})
+  name: GetFilePaths(List<FileSystemInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetFilePaths_List_FileSystemInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List{FileSystemInfo})
+  name.vb: GetFilePaths(List(Of FileSystemInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List<FileSystemInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List(Of FileSystemInfo))
+  nameWithType: ManagedCompression.GetFilePaths(List<FileSystemInfo>)
+  nameWithType.vb: ManagedCompression.GetFilePaths(List(Of FileSystemInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths*
+  name: GetFilePaths
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetFilePaths_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths
+  nameWithType: ManagedCompression.GetFilePaths
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries(System.String)
+  name: GetFileSystemEntries(String)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetFileSystemEntries_System_String_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries(System.String)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries(System.String)
+  nameWithType: ManagedCompression.GetFileSystemEntries(String)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries*
+  name: GetFileSystemEntries
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetFileSystemEntries_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries
+  nameWithType: ManagedCompression.GetFileSystemEntries
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String,IEnumerable{System.String})
+  name: GetRelativePaths(String, IEnumerable<String>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetRelativePaths_System_String_IEnumerable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String,IEnumerable{System.String})
+  name.vb: GetRelativePaths(String, IEnumerable(Of String))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String, IEnumerable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String, IEnumerable(Of System.String))
+  nameWithType: ManagedCompression.GetRelativePaths(String, IEnumerable<String>)
+  nameWithType.vb: ManagedCompression.GetRelativePaths(String, IEnumerable(Of String))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths*
+  name: GetRelativePaths
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetRelativePaths_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths
+  nameWithType: ManagedCompression.GetRelativePaths
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory(System.String)
+  name: GetTemporaryDirectory(String)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetTemporaryDirectory_System_String_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory(System.String)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory(System.String)
+  nameWithType: ManagedCompression.GetTemporaryDirectory(String)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory*
+  name: GetTemporaryDirectory
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetTemporaryDirectory_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory
+  nameWithType: ManagedCompression.GetTemporaryDirectory
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List{FileSystemInfo})
+  name: GetUniqueDirectoryPaths(List<FileSystemInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetUniqueDirectoryPaths_List_FileSystemInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List{FileSystemInfo})
+  name.vb: GetUniqueDirectoryPaths(List(Of FileSystemInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List<FileSystemInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List(Of FileSystemInfo))
+  nameWithType: ManagedCompression.GetUniqueDirectoryPaths(List<FileSystemInfo>)
+  nameWithType.vb: ManagedCompression.GetUniqueDirectoryPaths(List(Of FileSystemInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths*
+  name: GetUniqueDirectoryPaths
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_GetUniqueDirectoryPaths_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths
+  nameWithType: ManagedCompression.GetUniqueDirectoryPaths
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String,System.String,List{FileSystemInfo})
+  name: MoveFilesToOutputDirectory(String, String, List<FileSystemInfo>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_MoveFilesToOutputDirectory_System_String_System_String_List_FileSystemInfo__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String,System.String,List{FileSystemInfo})
+  name.vb: MoveFilesToOutputDirectory(String, String, List(Of FileSystemInfo))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String, System.String, List<FileSystemInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String, System.String, List(Of FileSystemInfo))
+  nameWithType: ManagedCompression.MoveFilesToOutputDirectory(String, String, List<FileSystemInfo>)
+  nameWithType.vb: ManagedCompression.MoveFilesToOutputDirectory(String, String, List(Of FileSystemInfo))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory*
+  name: MoveFilesToOutputDirectory
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_MoveFilesToOutputDirectory_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory
+  nameWithType: ManagedCompression.MoveFilesToOutputDirectory
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name: NewCompressProcess(String, String, String, String, Nullable<String>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_NewCompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name.vb: NewCompressProcess(String, String, String, String, Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String, System.String, System.String, System.String, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String, System.String, System.String, System.String, System.Nullable(Of System.String))
+  nameWithType: ManagedCompression.NewCompressProcess(String, String, String, String, Nullable<String>)
+  nameWithType.vb: ManagedCompression.NewCompressProcess(String, String, String, String, Nullable(Of String))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess*
+  name: NewCompressProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_NewCompressProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess
+  nameWithType: ManagedCompression.NewCompressProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name: NewDecompressProcess(String, String, String, String, Nullable<String>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_NewDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name.vb: NewDecompressProcess(String, String, String, String, Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String, System.String, System.String, System.String, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String, System.String, System.String, System.String, System.Nullable(Of System.String))
+  nameWithType: ManagedCompression.NewDecompressProcess(String, String, String, String, Nullable<String>)
+  nameWithType.vb: ManagedCompression.NewDecompressProcess(String, String, String, String, Nullable(Of String))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess*
+  name: NewDecompressProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_NewDecompressProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess
+  nameWithType: ManagedCompression.NewDecompressProcess
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.PlatformSupported
   name: PlatformSupported
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_PlatformSupported
@@ -4148,6 +4380,51 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.ReceiveErrorData
   nameWithType: ManagedCompression.ReceiveErrorData
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String,FileInfo,System.String,System.Nullable{System.String})
+  name: RunCompressProcess(String, FileInfo, String, Nullable<String>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunCompressProcess_System_String_FileInfo_System_String_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String,FileInfo,System.String,System.Nullable{System.String})
+  name.vb: RunCompressProcess(String, FileInfo, String, Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String, FileInfo, System.String, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String, FileInfo, System.String, System.Nullable(Of System.String))
+  nameWithType: ManagedCompression.RunCompressProcess(String, FileInfo, String, Nullable<String>)
+  nameWithType.vb: ManagedCompression.RunCompressProcess(String, FileInfo, String, Nullable(Of String))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess*
+  name: RunCompressProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunCompressProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess
+  nameWithType: ManagedCompression.RunCompressProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name: RunDecompressProcess(String, String, String, String, Nullable<String>)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})
+  name.vb: RunDecompressProcess(String, String, String, String, Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String, System.String, System.String, System.String, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String, System.String, System.String, System.String, System.Nullable(Of System.String))
+  nameWithType: ManagedCompression.RunDecompressProcess(String, String, String, String, Nullable<String>)
+  nameWithType.vb: ManagedCompression.RunDecompressProcess(String, String, String, String, Nullable(Of String))
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess*
+  name: RunDecompressProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunDecompressProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess
+  nameWithType: ManagedCompression.RunDecompressProcess
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess(Process)
+  name: RunProcess(Process)
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunProcess_Process_
+  commentId: M:Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess(Process)
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess(Process)
+  nameWithType: ManagedCompression.RunProcess(Process)
+- uid: Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess*
+  name: RunProcess
+  href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_RunProcess_
+  commentId: Overload:Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess
+  nameWithType: ManagedCompression.RunProcess
 - uid: Cloud_ShareSync.Core.Compression.ManagedCompression.s_source
   name: s_source
   href: api/Cloud_ShareSync.Core.Compression.ManagedCompression.html#Cloud_ShareSync_Core_Compression_ManagedCompression_s_source
