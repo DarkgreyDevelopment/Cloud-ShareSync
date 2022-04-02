@@ -789,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html",
-          "hash": "Kz81OEaI6arfu6jwXq74iE/g5yU0foqS1A55dhZESwY="
+          "hash": "TnhZk3HXt7p/7KTzo3mnQtLQPIUuCgYsIFWHZnqVrmQ="
         }
       },
       "is_incremental": false,
@@ -1089,7 +1089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html",
-          "hash": "4HMxBqMTxERbTkpyxZRY0v+lBDZOWIzFY5/dTaT29SY="
+          "hash": "hNkAJfLIcEujq+Qu7C10VINT/NXCjaGl0wyupP2lykU="
         }
       },
       "is_incremental": false,

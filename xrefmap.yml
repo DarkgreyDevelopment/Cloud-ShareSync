@@ -7414,6 +7414,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunk
   nameWithType: ManagedChaCha20Poly1305.DecryptFileChunk
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo,FileInfo,ChaCha20Poly1305,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int64,System.Int32)
+  name: DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int64, Int32)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_DecryptFileChunkLoop_FileInfo_FileInfo_ChaCha20Poly1305_List_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__System_Int64_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo,FileInfo,ChaCha20Poly1305,List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int64,System.Int32)
+  name.vb: DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int64, Int32)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote>, System.Int64, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote), System.Int64, System.Int32)
+  nameWithType: ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int64, Int32)
+  nameWithType.vb: ManagedChaCha20Poly1305.DecryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int64, Int32)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop*
+  name: DecryptFileChunkLoop
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_DecryptFileChunkLoop_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFileChunkLoop
+  nameWithType: ManagedChaCha20Poly1305.DecryptFileChunkLoop
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.DecryptFromKeyFile(FileInfo,FileInfo,FileInfo)
   name: DecryptFromKeyFile(FileInfo, FileInfo, FileInfo)
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_DecryptFromKeyFile_FileInfo_FileInfo_FileInfo_
@@ -7475,6 +7491,48 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunk
   nameWithType: ManagedChaCha20Poly1305.EncryptFileChunk
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo,FileInfo,ChaCha20Poly1305,List{System.Byte[]},List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int64,System.Int32)
+  name: EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<Byte[]>, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int64, Int32)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_EncryptFileChunkLoop_FileInfo_FileInfo_ChaCha20Poly1305_List_System_Byte____List_Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionKeyNote__System_Int64_System_Int32_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo,FileInfo,ChaCha20Poly1305,List{System.Byte[]},List{Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote},System.Int64,System.Int32)
+  name.vb: EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of Byte()), List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int64, Int32)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<System.Byte[]>, List<Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote>, System.Int64, System.Int32)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of System.Byte()), List(Of Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote), System.Int64, System.Int32)
+  nameWithType: ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List<Byte[]>, List<ManagedChaCha20Poly1305DecryptionKeyNote>, Int64, Int32)
+  nameWithType.vb: ManagedChaCha20Poly1305.EncryptFileChunkLoop(FileInfo, FileInfo, ChaCha20Poly1305, List(Of Byte()), List(Of ManagedChaCha20Poly1305DecryptionKeyNote), Int64, Int32)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop*
+  name: EncryptFileChunkLoop
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_EncryptFileChunkLoop_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EncryptFileChunkLoop
+  nameWithType: ManagedChaCha20Poly1305.EncryptFileChunkLoop
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData(FileInfo)
+  name: EnsureFileExistsAndHasData(FileInfo)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_EnsureFileExistsAndHasData_FileInfo_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData(FileInfo)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData(FileInfo)
+  nameWithType: ManagedChaCha20Poly1305.EnsureFileExistsAndHasData(FileInfo)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData*
+  name: EnsureFileExistsAndHasData
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_EnsureFileExistsAndHasData_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.EnsureFileExistsAndHasData
+  nameWithType: ManagedChaCha20Poly1305.EnsureFileExistsAndHasData
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray(System.Int32,System.Int32,System.Int64,System.Int64)
+  name: GetByteArray(Int32, Int32, Int64, Int64)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_GetByteArray_System_Int32_System_Int32_System_Int64_System_Int64_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray(System.Int32,System.Int32,System.Int64,System.Int64)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray(System.Int32, System.Int32, System.Int64, System.Int64)
+  nameWithType: ManagedChaCha20Poly1305.GetByteArray(Int32, Int32, Int64, Int64)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray*
+  name: GetByteArray
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_GetByteArray_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetByteArray
+  nameWithType: ManagedChaCha20Poly1305.GetByteArray
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetNonce
   name: GetNonce()
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_GetNonce
@@ -7501,6 +7559,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetNonces
   nameWithType: ManagedChaCha20Poly1305.GetNonces
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce(List{System.Byte[]})
+  name: GetUniqueNonce(List<Byte[]>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_GetUniqueNonce_List_System_Byte____
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce(List{System.Byte[]})
+  name.vb: GetUniqueNonce(List(Of Byte()))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce(List<System.Byte[]>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce(List(Of System.Byte()))
+  nameWithType: ManagedChaCha20Poly1305.GetUniqueNonce(List<Byte[]>)
+  nameWithType.vb: ManagedChaCha20Poly1305.GetUniqueNonce(List(Of Byte()))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce*
+  name: GetUniqueNonce
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_GetUniqueNonce_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.GetUniqueNonce
+  nameWithType: ManagedChaCha20Poly1305.GetUniqueNonce
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.MaxValue
   name: MaxValue
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_MaxValue
@@ -7536,6 +7610,38 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.ReadFileChunkFromOffset
   nameWithType: ManagedChaCha20Poly1305.ReadFileChunkFromOffset
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(System.Nullable{FileInfo},Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData)
+  name: WriteDecryptionDataToKeyFile(Nullable<FileInfo>, ManagedChaCha20Poly1305DecryptionData)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_WriteDecryptionDataToKeyFile_System_Nullable_FileInfo__Cloud_ShareSync_Core_Cryptography_FileEncryption_Types_ManagedChaCha20Poly1305DecryptionData_
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(System.Nullable{FileInfo},Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData)
+  name.vb: WriteDecryptionDataToKeyFile(Nullable(Of FileInfo), ManagedChaCha20Poly1305DecryptionData)
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(System.Nullable<FileInfo>, Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(System.Nullable(Of FileInfo), Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData)
+  nameWithType: ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(Nullable<FileInfo>, ManagedChaCha20Poly1305DecryptionData)
+  nameWithType.vb: ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile(Nullable(Of FileInfo), ManagedChaCha20Poly1305DecryptionData)
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile*
+  name: WriteDecryptionDataToKeyFile
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_WriteDecryptionDataToKeyFile_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile
+  nameWithType: ManagedChaCha20Poly1305.WriteDecryptionDataToKeyFile
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages(System.Boolean,FileInfo,FileInfo,System.Nullable{FileInfo})
+  name: WriteEncryptLogMessages(Boolean, FileInfo, FileInfo, Nullable<FileInfo>)
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_WriteEncryptLogMessages_System_Boolean_FileInfo_FileInfo_System_Nullable_FileInfo__
+  commentId: M:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages(System.Boolean,FileInfo,FileInfo,System.Nullable{FileInfo})
+  name.vb: WriteEncryptLogMessages(Boolean, FileInfo, FileInfo, Nullable(Of FileInfo))
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages(System.Boolean, FileInfo, FileInfo, System.Nullable<FileInfo>)
+  fullName.vb: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages(System.Boolean, FileInfo, FileInfo, System.Nullable(Of FileInfo))
+  nameWithType: ManagedChaCha20Poly1305.WriteEncryptLogMessages(Boolean, FileInfo, FileInfo, Nullable<FileInfo>)
+  nameWithType.vb: ManagedChaCha20Poly1305.WriteEncryptLogMessages(Boolean, FileInfo, FileInfo, Nullable(Of FileInfo))
+- uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages*
+  name: WriteEncryptLogMessages
+  href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html#Cloud_ShareSync_Core_Cryptography_FileEncryption_ManagedChaCha20Poly1305_WriteEncryptLogMessages_
+  commentId: Overload:Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.WriteEncryptLogMessages
+  nameWithType: ManagedChaCha20Poly1305.WriteEncryptLogMessages
 - uid: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
   name: Cloud_ShareSync.Core.Cryptography.FileEncryption.Types
   href: api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.html
@@ -9622,6 +9728,38 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetDownloadResponseValues
   nameWithType: BackBlazeHttpClient.GetDownloadResponseValues
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name: GetFileIdHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetFileIdHeader_IEnumerable_KeyValuePair_System_String_IEnumerable_System_String____Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name.vb: GetFileIdHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader(IEnumerable<KeyValuePair<System.String, IEnumerable<System.String>>>, Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader(IEnumerable(Of KeyValuePair(Of System.String, IEnumerable(Of System.String))), Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  nameWithType: BackBlazeHttpClient.GetFileIdHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  nameWithType.vb: BackBlazeHttpClient.GetFileIdHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader*
+  name: GetFileIdHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetFileIdHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileIdHeader
+  nameWithType: BackBlazeHttpClient.GetFileIdHeader
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name: GetFileNameHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetFileNameHeader_IEnumerable_KeyValuePair_System_String_IEnumerable_System_String____Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name.vb: GetFileNameHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader(IEnumerable<KeyValuePair<System.String, IEnumerable<System.String>>>, Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader(IEnumerable(Of KeyValuePair(Of System.String, IEnumerable(Of System.String))), Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  nameWithType: BackBlazeHttpClient.GetFileNameHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  nameWithType.vb: BackBlazeHttpClient.GetFileNameHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader*
+  name: GetFileNameHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetFileNameHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetFileNameHeader
+  nameWithType: BackBlazeHttpClient.GetFileNameHeader
 - uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetJsonResponse(HttpRequestMessage)
   name: GetJsonResponse(HttpRequestMessage)
   href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetJsonResponse_HttpRequestMessage_
@@ -9644,6 +9782,54 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetJsonResponse
   nameWithType: BackBlazeHttpClient.GetJsonResponse
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name: GetLastModifiedHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetLastModifiedHeader_IEnumerable_KeyValuePair_System_String_IEnumerable_System_String____Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name.vb: GetLastModifiedHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable<KeyValuePair<System.String, IEnumerable<System.String>>>, Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable(Of KeyValuePair(Of System.String, IEnumerable(Of System.String))), Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  nameWithType: BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  nameWithType.vb: BackBlazeHttpClient.GetLastModifiedHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader*
+  name: GetLastModifiedHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetLastModifiedHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetLastModifiedHeader
+  nameWithType: BackBlazeHttpClient.GetLastModifiedHeader
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name: GetSha1contentHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetSha1contentHeader_IEnumerable_KeyValuePair_System_String_IEnumerable_System_String____Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name.vb: GetSha1contentHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader(IEnumerable<KeyValuePair<System.String, IEnumerable<System.String>>>, Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader(IEnumerable(Of KeyValuePair(Of System.String, IEnumerable(Of System.String))), Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  nameWithType: BackBlazeHttpClient.GetSha1contentHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  nameWithType.vb: BackBlazeHttpClient.GetSha1contentHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader*
+  name: GetSha1contentHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetSha1contentHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha1contentHeader
+  nameWithType: BackBlazeHttpClient.GetSha1contentHeader
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name: GetSha512ContentHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetSha512ContentHeader_IEnumerable_KeyValuePair_System_String_IEnumerable_System_String____Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable{KeyValuePair{System.String,IEnumerable{System.String}}},Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  name.vb: GetSha512ContentHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable<KeyValuePair<System.String, IEnumerable<System.String>>>, Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  fullName.vb: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable(Of KeyValuePair(Of System.String, IEnumerable(Of System.String))), Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
+  nameWithType: BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable<KeyValuePair<String, IEnumerable<String>>>, B2DownloadResponse)
+  nameWithType.vb: BackBlazeHttpClient.GetSha512ContentHeader(IEnumerable(Of KeyValuePair(Of String, IEnumerable(Of String))), B2DownloadResponse)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader*
+  name: GetSha512ContentHeader
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetSha512ContentHeader_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetSha512ContentHeader
+  nameWithType: BackBlazeHttpClient.GetSha512ContentHeader
 - uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.HttpClient
   name: HttpClient
   href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_HttpClient
@@ -9670,6 +9856,32 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.NewAuthReturn
   nameWithType: BackBlazeHttpClient.NewAuthReturn
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream(HttpResponseMessage,System.String,System.String)
+  name: ReadContentStream(HttpResponseMessage, String, String)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_ReadContentStream_HttpResponseMessage_System_String_System_String_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream(HttpResponseMessage,System.String,System.String)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream(HttpResponseMessage, System.String, System.String)
+  nameWithType: BackBlazeHttpClient.ReadContentStream(HttpResponseMessage, String, String)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream*
+  name: ReadContentStream
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_ReadContentStream_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.ReadContentStream
+  nameWithType: BackBlazeHttpClient.ReadContentStream
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest(HttpRequestMessage,System.Boolean)
+  name: SendAsyncRequest(HttpRequestMessage, Boolean)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_SendAsyncRequest_HttpRequestMessage_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest(HttpRequestMessage,System.Boolean)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest(HttpRequestMessage, System.Boolean)
+  nameWithType: BackBlazeHttpClient.SendAsyncRequest(HttpRequestMessage, Boolean)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest*
+  name: SendAsyncRequest
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_SendAsyncRequest_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendAsyncRequest
+  nameWithType: BackBlazeHttpClient.SendAsyncRequest
 - uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendStringContent(System.String,HttpMethod,System.String,System.String)
   name: SendStringContent(String, HttpMethod, String, String)
   href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_SendStringContent_System_String_HttpMethod_System_String_System_String_
@@ -9683,6 +9895,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.SendStringContent
   nameWithType: BackBlazeHttpClient.SendStringContent
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile(Stream,FileStream)
+  name: WriteSmallFile(Stream, FileStream)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_WriteSmallFile_Stream_FileStream_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile(Stream,FileStream)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile(Stream, FileStream)
+  nameWithType: BackBlazeHttpClient.WriteSmallFile(Stream, FileStream)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile*
+  name: WriteSmallFile
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_WriteSmallFile_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.WriteSmallFile
+  nameWithType: BackBlazeHttpClient.WriteSmallFile
 - uid: Cloud_ShareSync.Core.SharedServices.BackgroundService
   name: Cloud_ShareSync.Core.SharedServices.BackgroundService
   href: api/Cloud_ShareSync.Core.SharedServices.BackgroundService.html
