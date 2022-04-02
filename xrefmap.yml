@@ -9715,6 +9715,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.B2UploadPart
   nameWithType: BackBlazeHttpClient.B2UploadPart
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson(JsonDocument)
+  name: GetAuthReturnFromJson(JsonDocument)
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetAuthReturnFromJson_JsonDocument_
+  commentId: M:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson(JsonDocument)
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson(JsonDocument)
+  nameWithType: BackBlazeHttpClient.GetAuthReturnFromJson(JsonDocument)
+- uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson*
+  name: GetAuthReturnFromJson
+  href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetAuthReturnFromJson_
+  commentId: Overload:Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetAuthReturnFromJson
+  nameWithType: BackBlazeHttpClient.GetAuthReturnFromJson
 - uid: Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.GetDownloadResponseValues(HttpResponseMessage,Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse)
   name: GetDownloadResponseValues(HttpResponseMessage, B2DownloadResponse)
   href: api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html#Cloud_ShareSync_Core_SharedServices_BackBlazeHttpClient_GetDownloadResponseValues_HttpResponseMessage_Cloud_ShareSync_Core_CloudProvider_BackBlaze_Types_B2DownloadResponse_
