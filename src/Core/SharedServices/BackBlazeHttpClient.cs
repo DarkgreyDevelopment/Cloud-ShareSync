@@ -232,9 +232,11 @@ namespace Cloud_ShareSync.Core.SharedServices {
             using Stream contentStream = await ReadContentStream( result, authorizationURI, "Authorization_Response" );
 
             using JsonDocument document = JsonDocument.Parse( contentStream );
+            return GetAuthReturnFromJson( document );
+        }
 
+        internal static AuthReturn GetAuthReturnFromJson( JsonDocument document ) {
             JsonElement root = document.RootElement;
-
             AuthProcessData authProcessData = new(
                 root.GetProperty( "accountId" ).GetString( ),
                 root.GetProperty( "apiUrl" ).GetString( ),
@@ -243,7 +245,6 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 root.GetProperty( "recommendedPartSize" ).GetInt32( ),
                 root.GetProperty( "absoluteMinimumPartSize" ).GetInt32( )
             );
-
             string? authorizationToken = root.GetProperty( "authorizationToken" ).GetString( );
             return new( authProcessData, authorizationToken );
         }
