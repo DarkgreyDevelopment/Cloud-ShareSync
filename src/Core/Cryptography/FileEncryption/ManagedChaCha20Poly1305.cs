@@ -63,33 +63,50 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
         ) {
             using Activity? activity = _source.StartActivity( "Encrypt" )?.Start( );
 
-            string encDbgStr = $"Encrypting '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'.";
-            encDbgStr += keyFile == null ? "" : $" Decryption keyfile will be located at '{keyFile.FullName}'.";
-            _log?.LogInformation( "{string}", encDbgStr );
+            EnsureFileExistsAndHasData( plaintextFile );
 
-            if (plaintextFile.Exists == false || plaintextFile.Length == 0) {
-                activity?.Stop( );
-                throw new ArgumentOutOfRangeException(
-                    nameof( plaintextFile ),
-                    $"PlainTextFile \"{plaintextFile.FullName}\" must exist and have a length greater than 0."
-                );
-            }
+            WriteEncryptLogMessages( true, plaintextFile, cypherTxtFile, keyFile );
 
             ManagedChaCha20Poly1305DecryptionData decryptionData = await EncryptFile( key, plaintextFile, cypherTxtFile );
 
+            await WriteDecryptionDataToKeyFile( keyFile, decryptionData );
+
+            WriteEncryptLogMessages( false, plaintextFile, cypherTxtFile, keyFile );
+
+            activity?.Stop( );
+            return decryptionData;
+        }
+
+        internal void WriteEncryptLogMessages(
+            bool message1,
+            FileInfo plaintextFile,
+            FileInfo cypherTxtFile,
+            FileInfo? keyFile
+        ) {
+
+            if (message1) {
+                string encDbgStr = $"Encrypting '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'.";
+                encDbgStr += keyFile == null ? "" : $" Decryption keyfile will be located at '{keyFile.FullName}'.";
+                _log?.LogInformation( "{string}", encDbgStr );
+            } else {
+                string enc2DbgStr = $"Encrypted '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'. ";
+                enc2DbgStr += keyFile == null ? "" : $"Decryption keyfile is located at '{keyFile.FullName}'. ";
+                _log?.LogInformation( "{string}", enc2DbgStr );
+            }
+
+        }
+
+        internal async Task WriteDecryptionDataToKeyFile(
+            FileInfo? keyFile,
+            ManagedChaCha20Poly1305DecryptionData decryptionData
+        ) {
+            _log?.LogDebug( "Decryption Data: {string}", decryptionData.ToString( ) );
             if (keyFile != null) {
                 await File.WriteAllTextAsync(
                     keyFile.FullName,
                     decryptionData.ToString( )
                 );
             }
-
-            string enc2DbgStr = $"Encrypted '{plaintextFile.FullName}' into '{cypherTxtFile.FullName}'. ";
-            enc2DbgStr += keyFile == null ? "" : $"Decryption keyfile is located at '{keyFile.FullName}'. ";
-            _log?.LogInformation( "{string}", enc2DbgStr );
-            _log?.LogDebug( "Decryption Data: {string}", decryptionData.ToString( ) );
-            activity?.Stop( );
-            return decryptionData;
         }
 
         /// <summary>
@@ -110,14 +127,38 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             ChaCha20Poly1305 chaPoly = new( key );
             List<byte[]> uniqueNonces = GetNonces( plaintextFile.Length );
             List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList = new( );
-            long processedBytes = 0;
-            int chunkCount = 0;
 
+            await EncryptFileChunkLoop(
+                plaintextFile,
+                cypherTxtFile,
+                chaPoly,
+                uniqueNonces,
+                keyNoteList
+            );
+
+            SystemMemoryChecker.Update( );
+
+            activity?.Stop( );
+            return new ManagedChaCha20Poly1305DecryptionData( key, keyNoteList );
+        }
+
+        internal async Task EncryptFileChunkLoop(
+            FileInfo plaintextFile,
+            FileInfo cypherTxtFile,
+            ChaCha20Poly1305 chaPoly,
+            List<byte[]> uniqueNonces,
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList,
+            long processedBytes = 0,
+            int chunkCount = 0
+        ) {
             while (processedBytes < plaintextFile.Length) {
                 SystemMemoryChecker.Update( );
-                byte[] plaintext = ((chunkCount + 1) == uniqueNonces.Count) ?
-                                    new byte[plaintextFile.Length - processedBytes] :
-                                    new byte[MaxValue];
+                byte[] plaintext = GetByteArray(
+                                        chunkCount,
+                                        uniqueNonces.Count,
+                                        processedBytes,
+                                        plaintextFile.Length
+                                    );
 
                 keyNoteList.Add(
                     await EncryptFileChunk(
@@ -134,12 +175,16 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 processedBytes += plaintext.Length;
                 chunkCount++;
             }
-
-            SystemMemoryChecker.Update( );
-
-            activity?.Stop( );
-            return new ManagedChaCha20Poly1305DecryptionData( key, keyNoteList );
         }
+
+        internal byte[] GetByteArray(
+            int chunkCount,
+            int nonceCount,
+            long processedBytes,
+            long plaintextFileLength
+        ) => ((chunkCount + 1) == nonceCount) ?
+            new byte[plaintextFileLength - processedBytes] :
+            new byte[MaxValue];
 
         /// <summary>
         /// Uses <paramref name="chaPoly"/> to read a <paramref name="plaintext"/>.Length section of 
@@ -196,19 +241,23 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             int nonceCount = (int)Math.Ceiling( Convert.ToDecimal( dataLength / MaxValue ) );
 
             for (int i = 0; i <= nonceCount; i++) {
-                bool added = false;
-                do {
-                    byte[]? nonce = GetNonce( );
-
-                    if (nonces.Contains( nonce ) == false) {
-                        nonces.Add( nonce );
-                        added = true;
-                    }
-                } while (added == false);
+                GetUniqueNonce( nonces );
             }
 
             activity?.Stop( );
             return nonces;
+        }
+
+        internal static void GetUniqueNonce( List<byte[]> nonces ) {
+            bool added = false;
+            do {
+                byte[]? nonce = GetNonce( );
+
+                if (nonces.Contains( nonce ) == false) {
+                    nonces.Add( nonce );
+                    added = true;
+                }
+            } while (added == false);
         }
 
         /// <summary>
@@ -271,25 +320,28 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
             _log?.LogInformation( "Decrypting File '{string}'.", cypherTxtFile.FullName );
 
-            if (cypherTxtFile.Exists == false) {
-                activity?.Stop( );
-                throw new ArgumentException(
-                    $"CypherTxtFile \"{cypherTxtFile.FullName}\" doesn't exist. Nothing to decrypt",
-                    nameof( cypherTxtFile )
-                );
-            } else if (cypherTxtFile.Length == 0) {
-                activity?.Stop( );
-                throw new ArgumentOutOfRangeException(
-                    nameof( cypherTxtFile ),
-                    $"cypherTxtFile \"{cypherTxtFile.FullName}\" must have a length greater than 0."
-                );
-            }
+            EnsureFileExistsAndHasData( cypherTxtFile );
 
-            ChaCha20Poly1305 chaPoly = new( decryptionData.KeyBytes );
-            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList = decryptionData.KeyNoteList;
-            long processedBytes = 0;
-            int chunkCount = 0;
+            await DecryptFileChunkLoop(
+                plaintextFile,
+                cypherTxtFile,
+                new( decryptionData.KeyBytes ),
+                decryptionData.KeyNoteList
+            );
 
+            _log?.LogInformation( "PlainTextFile: '{string}'.", plaintextFile.FullName );
+
+            activity?.Stop( );
+        }
+
+        internal async Task DecryptFileChunkLoop(
+            FileInfo plaintextFile,
+            FileInfo cypherTxtFile,
+            ChaCha20Poly1305 chaPoly,
+            List<ManagedChaCha20Poly1305DecryptionKeyNote> keyNoteList,
+            long processedBytes = 0,
+            int chunkCount = 0
+        ) {
             while (processedBytes < cypherTxtFile.Length) {
 
                 byte[] plaintext = ((chunkCount + 1) == keyNoteList.Count) ?
@@ -310,10 +362,6 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
                 processedBytes += plaintext.Length;
                 chunkCount++;
             }
-
-            _log?.LogInformation( "PlainTextFile: '{string}'.", plaintextFile.FullName );
-
-            activity?.Stop( );
         }
 
         /// <summary>
@@ -362,6 +410,15 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
 
 
         #region Helper Methods
+
+        internal static void EnsureFileExistsAndHasData( FileInfo file ) {
+            if (file.Exists == false || file.Length == 0) {
+                throw new ArgumentOutOfRangeException(
+                    nameof( file ),
+                    $"PlainTextFile \"{file.FullName}\" must exist and have a length greater than 0."
+                );
+            }
+        }
 
         /// <summary>
         /// Common method to append <paramref name="data"/> to the end of the <paramref name="outputFile"/>.
