@@ -39,6 +39,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                     } else {
                         HelpContext hctx = new( ctx.HelpBuilder, command, Console.Out, null );
                         ctx.HelpBuilder.Write( hctx );
+                        GUI.Program.Main( Array.Empty<string>( ) );
                     }
                 },
                 option

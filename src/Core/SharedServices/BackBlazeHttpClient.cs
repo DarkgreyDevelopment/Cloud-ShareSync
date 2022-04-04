@@ -13,14 +13,16 @@ namespace Cloud_ShareSync.Core.SharedServices {
 
         public async Task<JsonElement> GetJsonResponse( HttpRequestMessage request ) {
 
-            using HttpResponseMessage result = await SendAsyncRequest( request );
-            Stream contentStream = await ReadContentStream(
+            HttpResponseMessage result = await SendAsyncRequest( request );
+            using Stream contentStream = ReadContentStream(
                 result,
                 request.RequestUri?.ToString( ) ?? "",
                 "B2_Response"
             );
+            JsonElement jsonElement = JsonDocument.Parse( contentStream ).RootElement;
+            result.Dispose( );
 
-            return JsonDocument.Parse( contentStream ).RootElement;
+            return jsonElement;
         }
 
         public async Task<JsonElement> GetJsonResponse(
@@ -38,11 +40,14 @@ namespace Cloud_ShareSync.Core.SharedServices {
                 contentHeaders
             );
 
-            using HttpResponseMessage result = await SendAsyncRequest( request );
+            HttpResponseMessage result = await SendAsyncRequest( request );
 
-            using Stream contentStream = await ReadContentStream( result, uri, "B2_Response" );
+            using Stream contentStream = ReadContentStream( result, uri, "B2_Response" );
 
-            return JsonDocument.Parse( contentStream ).RootElement;
+            JsonElement jsonElement = JsonDocument.Parse( contentStream ).RootElement;
+            result.Dispose( );
+
+            return jsonElement;
         }
 
         public async Task SendStringContent(
@@ -118,13 +123,14 @@ namespace Cloud_ShareSync.Core.SharedServices {
                                             null
                                         );
 
-            using HttpResponseMessage result = await SendAsyncRequest( request, false );
+            HttpResponseMessage result = await SendAsyncRequest( request, false );
 
             response = GetDownloadResponseValues( result, response );
 
             // Write content stream out to filestream.
-            using Stream contentStream = await ReadContentStream( result, downloadUri, "DownloadFileId_Response" );
+            using Stream contentStream = ReadContentStream( result, downloadUri, "DownloadFileId_Response" );
             WriteSmallFile( contentStream, saveFile );
+            result.Dispose( );
 
             return response;
         }
@@ -226,12 +232,13 @@ namespace Cloud_ShareSync.Core.SharedServices {
                                             "Basic " + credentials
                                         );
 
-            using HttpResponseMessage result = await SendAsyncRequest( request );
+            HttpResponseMessage result = await SendAsyncRequest( request );
 
             // Send Auth Request & Read Response.
-            using Stream contentStream = await ReadContentStream( result, authorizationURI, "Authorization_Response" );
+            using Stream contentStream = ReadContentStream( result, authorizationURI, "Authorization_Response" );
 
             using JsonDocument document = JsonDocument.Parse( contentStream );
+            result.Dispose( );
             return GetAuthReturnFromJson( document );
         }
 
@@ -249,15 +256,15 @@ namespace Cloud_ShareSync.Core.SharedServices {
             return new( authProcessData, authorizationToken );
         }
 
-        internal static async Task<Stream> ReadContentStream(
+        internal static Stream ReadContentStream(
             HttpResponseMessage result,
             string uri,
             string call
-        ) => await result.Content.ReadAsStreamAsync( ) ??
+        ) => result.Content.ReadAsStream( ) ??
              throw new InvalidB2Response( uri, new NullReferenceException( call ) );
 
         internal async Task<HttpResponseMessage> SendAsyncRequest( HttpRequestMessage request, bool readContent = true ) {
-            using HttpResponseMessage result = await HttpClient.SendAsync(
+            HttpResponseMessage result = await HttpClient.SendAsync(
                 request,
                 readContent ?
                     HttpCompletionOption.ResponseContentRead :

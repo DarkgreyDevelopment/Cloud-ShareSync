@@ -45,7 +45,7 @@ namespace Cloud_ShareSync.Backup {
         internal async Task Run( ) {
             using Activity? activity = s_source.StartActivity( "Run" )?.Start( );
             try {
-                List<string> fileList = PopulateFileList( _config );
+                List<string> fileList = PopulateFileList( );
                 await RunInitialBackupProcess( fileList );
             } catch (Exception e) {
                 WriteException( e );
@@ -55,7 +55,7 @@ namespace Cloud_ShareSync.Backup {
 
         #region Populate File List
 
-        private List<string> PopulateFileList( SyncConfig config ) {
+        private List<string> PopulateFileList( ) {
             using Activity? activity = s_source.StartActivity( "PopulateFileList" )?.Start( );
 
             IEnumerable<string> files = EnumerateRootFolder( );

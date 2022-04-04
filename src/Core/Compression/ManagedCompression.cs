@@ -459,7 +459,7 @@ namespace Cloud_ShareSync.Core.Compression {
             }
         }
 
-        private string GetExitCodeDefinition( int exitCode ) =>
+        private static string GetExitCodeDefinition( int exitCode ) =>
             exitCode switch {
                 1 => "Warning (Non fatal error(s)).",
                 2 => "Fatal error",

@@ -177,7 +177,7 @@ namespace Cloud_ShareSync.Core.Cryptography.FileEncryption {
             }
         }
 
-        internal byte[] GetByteArray(
+        internal static byte[] GetByteArray(
             int chunkCount,
             int nonceCount,
             long processedBytes,

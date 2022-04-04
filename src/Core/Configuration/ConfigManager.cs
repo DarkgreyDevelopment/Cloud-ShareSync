@@ -129,16 +129,15 @@ namespace Cloud_ShareSync.Core.Configuration {
                 true when File.Exists( s_defaultConfig ) => s_defaultConfig,
                 true when envConfig != null && File.Exists( envConfig ) => envConfig,
                 _ => throw new ApplicationException(
-                    "Missing required configuration file. " +
+                    "\nMissing required configuration file. " +
                     "The configuration file path can be specified in one of three ways.\n" +
                     "  1. Pass the path to the configuration file via the --ConfigPath cmdline " +
                     "option. Using the --ConfigPath option will set a new default config location.\n" +
-                    "     When using --ConfigPath ensure the path specified exists.\n" +
-                    $"  2. Put the config file in the default config path '{s_defaultConfig}'. " +
+                    $"  2. Put the config file in the default config path '{s_defaultConfig}'. \n" +
                     "  3. Set the 'CLOUDSHARESYNC_CONFIGPATH' environment variable with a valid file path.\n" +
-                    "Use the Configure commandline option to customize the config. " +
+                    "You can also use the 'Configure' command to customize the config. " +
                     "See 'Cloud-ShareSync Configure -h' for more information." +
-                    (altConfigPath != null ? $"\nSpecified ConfigPath '{altConfigPath}' does not exist." : "")
+                    (altConfigPath != null ? $"\nSpecified ConfigPath '{altConfigPath}' does not exist.\n" : "\n")
                 )
             };
         }
