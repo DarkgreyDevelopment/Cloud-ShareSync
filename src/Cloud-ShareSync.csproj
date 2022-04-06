@@ -67,6 +67,8 @@
     <!-- Embedded Application Files -->
     <ItemGroup>
         <EmbeddedResource Include="Core\SharedServices\MimeTypes.json" />
+        <EmbeddedResource Include="GUI\Assets\BannerLogo.png" />
+        <EmbeddedResource Include="GUI\Assets\logo.ico" />
         <None Remove="Core\SharedServices\MimeTypes.json" />
     </ItemGroup>
 
@@ -92,7 +94,9 @@
         <AvaloniaResource Include="GUI\Assets\**" />
     </ItemGroup>
     <ItemGroup>
+      <AvaloniaResource Remove="GUI\Assets\BannerLogo.png" />
       <AvaloniaResource Remove="GUI\Assets\loader.gif" />
+      <AvaloniaResource Remove="GUI\Assets\logo.ico" />
       <AvaloniaResource Remove="GUI\Assets\progress1.png" />
       <AvaloniaResource Remove="GUI\Assets\progress2.png" />
       <AvaloniaResource Remove="GUI\Assets\progress3.png" />

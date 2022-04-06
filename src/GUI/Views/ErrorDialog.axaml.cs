@@ -1,62 +1,116 @@
-﻿using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
+using Avalonia.Layout;
+using ReactiveUI;
 
 namespace Cloud_ShareSync.GUI.Views {
     // https://stackoverflow.com/a/55707749
     public partial class ErrorDialog : Window {
 
-        public ErrorDialog( ) { AvaloniaXamlLoader.Load( this ); }
-
-        public static Task Show( string title, string text, string? stackTraceMsg = null ) {
-            Console.WriteLine( title );
-            ErrorDialog errDialog = NewErrorDialog( title, text );
-            AddButtons( errDialog, text, stackTraceMsg );
-            errDialog.Show( );
-            return Task.CompletedTask;
-        }
-
-        internal static ErrorDialog NewErrorDialog( string title, string text ) {
-            ErrorDialog errDialog = new( ) { Title = $"Error - {title}" };
-            errDialog.FindControl<TextBlock>( "Text" ).Text = text;
-            return errDialog;
-        }
-
-        internal static void AddButtons(
-            ErrorDialog errDialog,
+        public ErrorDialog(
+            string title,
             string text,
-            string? stackTraceMsg
+            string? stackTraceMsg = null
         ) {
-            StackPanel buttonPanel = errDialog.FindControl<StackPanel>( "Buttons" );
-            AddOkButton( errDialog, buttonPanel );
-            AddStackTraceButton( errDialog, buttonPanel, text, stackTraceMsg );
+            _text = text;
+            _stackTrace = stackTraceMsg;
+            ConfigureWindowProperties( title );
+            ConfigureMainPanel( );
+            Content = Panel;
         }
 
-        internal static void AddOkButton(
-            ErrorDialog errDialog,
-            StackPanel buttonPanel
-        ) {
-            Button btn = new( ) { Content = "Ok" };
-            btn.Click += ( _, _ ) => errDialog.Close( );
-            buttonPanel.Children.Add( btn );
+        #region Fields
+
+        private readonly string _text;
+        private readonly string? _stackTrace;
+
+        public StackPanel Panel { get; } = new( ) {
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+
+        public StackPanel ButtonPanel { get; } = new( ) {
+            Name = "ButtonPanel",
+            VerticalAlignment = VerticalAlignment.Bottom,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            Orientation = Orientation.Horizontal,
+        };
+
+        public TextBlock ErrorText { get; } = new( ) {
+            Name = "ErrorText",
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = Thickness.Parse( "10,5,10,5" )
+        };
+
+        public Button OkButton { get; } = new( ) {
+            Name = "OkButton",
+            Content = "Ok",
+            Margin = Thickness.Parse( "5,5,5,5" )
+        };
+
+        public Button StackTraceButton { get; } = new( ) {
+            Name = "StackTraceButton",
+            Content = "Show StackTrace",
+            Margin = Thickness.Parse( "5,5,5,5" )
+        };
+
+        #endregion Fields
+
+        private void ConfigureMainPanel( ) {
+            ErrorText.Text = _text;
+            Panel.Children.Add( ErrorText );
+            ConfigureButtonPanel( );
+            Panel.Children.Add( ButtonPanel );
         }
 
-        internal static void AddStackTraceButton(
-            ErrorDialog errDialog,
-            StackPanel buttonPanel,
-            string text,
-            string? stackTraceMsg
-        ) {
-            Button stackTrace = new( ) { Content = "Show StackTrace" };
-            stackTrace.Click += ( _, _ ) => {
-                if ((stackTrace.Content as string) == "Show StackTrace") {
-                    stackTrace.Content = "Hide StackTrace";
-                    errDialog.FindControl<TextBlock>( "Text" ).Text = text + ((stackTraceMsg == null) ? "\nnull" : $"\n{stackTraceMsg}");
-                } else {
-                    stackTrace.Content = "Show StackTrace";
-                    errDialog.FindControl<TextBlock>( "Text" ).Text = text;
-                }
-            };
-            buttonPanel.Children.Add( stackTrace );
+        private void ConfigureButtonPanel( ) {
+            ConfigureClickActions( );
+            ConfigureButtonPanelChildren( );
+        }
+
+        private void ConfigureButtonPanelChildren( ) {
+            ButtonPanel.Children.Add( OkButton );
+            if (_stackTrace != null) {
+                ButtonPanel.Children.Add( StackTraceButton );
+            }
+        }
+
+        private void ConfigureClickActions( ) {
+            OkButton.Click += ClickOk;
+            StackTraceButton.Click += ClickShowStackTrace;
+        }
+
+        private void ConfigureWindowProperties( string title ) {
+            Title = $"Error - {title}";
+            DataContext = new ReactiveObject( );
+            Icon = new WindowIcon(
+                MainWindow.AssetLoader?.Open(
+                        new Uri( @"resm:Cloud_ShareSync.GUI.Assets.logo.ico" )
+                )
+            );
+            SizeToContent = SizeToContent.WidthAndHeight;
+            CanResize = false;
+        }
+
+        public async Task ShowDialog( ) {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                await ShowDialog( desktop.MainWindow );
+            }
+        }
+
+        private void ClickOk( object? sender, RoutedEventArgs e ) => Close( );
+
+        private void ClickShowStackTrace( object? sender, RoutedEventArgs e ) {
+            Button btn = (sender as Button)!;
+            if ((btn.Content as string) == "Show StackTrace") {
+                btn.Content = "Hide StackTrace";
+                ErrorText.Text = _text + ((_stackTrace == null) ? "\nnull" : $"\n{_stackTrace}");
+            } else {
+                btn.Content = "Show StackTrace";
+                ErrorText.Text = _text;
+            }
         }
     }
 }
