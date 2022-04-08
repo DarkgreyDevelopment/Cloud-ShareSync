@@ -4932,6 +4932,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.CompleteConfig.Database
   nameWithType: CompleteConfig.Database
+- uid: Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString(System.String)
+  name: FromString(String)
+  href: api/Cloud_ShareSync.Core.Configuration.CompleteConfig.html#Cloud_ShareSync_Core_Configuration_CompleteConfig_FromString_System_String_
+  commentId: M:Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString(System.String)
+  fullName: Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString(System.String)
+  nameWithType: CompleteConfig.FromString(String)
+- uid: Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString*
+  name: FromString
+  href: api/Cloud_ShareSync.Core.Configuration.CompleteConfig.html#Cloud_ShareSync_Core_Configuration_CompleteConfig_FromString_
+  commentId: Overload:Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString
+  isSpec: "True"
+  fullName: Cloud_ShareSync.Core.Configuration.CompleteConfig.FromString
+  nameWithType: CompleteConfig.FromString
 - uid: Cloud_ShareSync.Core.Configuration.CompleteConfig.Logging
   name: Logging
   href: api/Cloud_ShareSync.Core.Configuration.CompleteConfig.html#Cloud_ShareSync_Core_Configuration_CompleteConfig_Logging
@@ -4977,12 +4990,15 @@ references:
   commentId: T:Cloud_ShareSync.Core.Configuration.ConfigManager
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager
   nameWithType: ConfigManager
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor
-  name: ConfigManager()
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__ctor
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager()
-  nameWithType: ConfigManager.ConfigManager()
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor(System.Nullable{System.Boolean})
+  name: ConfigManager(Nullable<Boolean>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__ctor_System_Nullable_System_Boolean__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor(System.Nullable{System.Boolean})
+  name.vb: ConfigManager(Nullable(Of Boolean))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager(System.Nullable<System.Boolean>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.ConfigManager(System.Nullable(Of System.Boolean))
+  nameWithType: ConfigManager.ConfigManager(Nullable<Boolean>)
+  nameWithType.vb: ConfigManager.ConfigManager(Nullable(Of Boolean))
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.#ctor*
   name: ConfigManager
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager__ctor_
@@ -5245,12 +5261,12 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetCompression
   nameWithType: ConfigManager.GetCompression
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
-  name: GetConfiguration(FileInfo)
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_FileInfo_
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo)
-  nameWithType: ConfigManager.GetConfiguration(FileInfo)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo,System.Boolean)
+  name: GetConfiguration(FileInfo, Boolean)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_FileInfo_System_Boolean_
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo,System.Boolean)
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration(FileInfo, System.Boolean)
+  nameWithType: ConfigManager.GetConfiguration(FileInfo, Boolean)
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.GetConfiguration*
   name: GetConfiguration
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_GetConfiguration_
@@ -5596,12 +5612,15 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDatabaseDefaults
   nameWithType: ConfigManager.ValidateAndAssignDatabaseDefaults
-- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
-  name: ValidateAndAssignDefaults(CompleteConfig, String)
-  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_
-  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String)
-  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String)
-  nameWithType: ConfigManager.ValidateAndAssignDefaults(CompleteConfig, String)
+- uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.Nullable{System.String})
+  name: ValidateAndAssignDefaults(CompleteConfig, Nullable<String>)
+  href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.Nullable{System.String})
+  name.vb: ValidateAndAssignDefaults(CompleteConfig, Nullable(Of String))
+  fullName: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.Nullable(Of System.String))
+  nameWithType: ConfigManager.ValidateAndAssignDefaults(CompleteConfig, Nullable<String>)
+  nameWithType.vb: ConfigManager.ValidateAndAssignDefaults(CompleteConfig, Nullable(Of String))
 - uid: Cloud_ShareSync.Core.Configuration.ConfigManager.ValidateAndAssignDefaults*
   name: ValidateAndAssignDefaults
   href: api/Cloud_ShareSync.Core.Configuration.ConfigManager.html#Cloud_ShareSync_Core_Configuration_ConfigManager_ValidateAndAssignDefaults_
@@ -11206,221 +11225,357 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Program.Main
   nameWithType: Program.Main
+- uid: Cloud_ShareSync.GUI.Types
+  name: Cloud_ShareSync.GUI.Types
+  href: api/Cloud_ShareSync.GUI.Types.html
+  commentId: N:Cloud_ShareSync.GUI.Types
+  fullName: Cloud_ShareSync.GUI.Types
+  nameWithType: Cloud_ShareSync.GUI.Types
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab
+  name: ConfigureMainTab
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html
+  commentId: T:Cloud_ShareSync.GUI.Types.ConfigureMainTab
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab
+  nameWithType: ConfigureMainTab
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.#ctor(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String,Window)
+  name: ConfigureMainTab(CompleteConfig, String, Window)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab__ctor_Cloud_ShareSync_Core_Configuration_CompleteConfig_System_String_Window_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.#ctor(Cloud_ShareSync.Core.Configuration.CompleteConfig,System.String,Window)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureMainTab(Cloud_ShareSync.Core.Configuration.CompleteConfig, System.String, Window)
+  nameWithType: ConfigureMainTab.ConfigureMainTab(CompleteConfig, String, Window)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.#ctor*
+  name: ConfigureMainTab
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab__ctor_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureMainTab
+  nameWithType: ConfigureMainTab.ConfigureMainTab
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab._noConfigTxt
+  name: _noConfigTxt
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab__noConfigTxt
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab._noConfigTxt
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab._noConfigTxt
+  nameWithType: ConfigureMainTab._noConfigTxt
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab._parentWindow
+  name: _parentWindow
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab__parentWindow
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab._parentWindow
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab._parentWindow
+  nameWithType: ConfigureMainTab._parentWindow
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler(System.Nullable{System.Object},RoutedEventArgs)
+  name: ChangeConfigPathHandler(Nullable<Object>, RoutedEventArgs)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ChangeConfigPathHandler_System_Nullable_System_Object__RoutedEventArgs_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler(System.Nullable{System.Object},RoutedEventArgs)
+  name.vb: ChangeConfigPathHandler(Nullable(Of Object), RoutedEventArgs)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler(System.Nullable<System.Object>, RoutedEventArgs)
+  fullName.vb: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler(System.Nullable(Of System.Object), RoutedEventArgs)
+  nameWithType: ConfigureMainTab.ChangeConfigPathHandler(Nullable<Object>, RoutedEventArgs)
+  nameWithType.vb: ConfigureMainTab.ChangeConfigPathHandler(Nullable(Of Object), RoutedEventArgs)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler*
+  name: ChangeConfigPathHandler
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ChangeConfigPathHandler_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ChangeConfigPathHandler
+  nameWithType: ConfigureMainTab.ChangeConfigPathHandler
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigJsonHeader
+  name: CompleteConfigJsonHeader
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_CompleteConfigJsonHeader
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigJsonHeader
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigJsonHeader
+  nameWithType: ConfigureMainTab.CompleteConfigJsonHeader
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox
+  name: CompleteConfigTxtBox
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_CompleteConfigTxtBox
+  commentId: P:Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox
+  nameWithType: ConfigureMainTab.CompleteConfigTxtBox
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox*
+  name: CompleteConfigTxtBox
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_CompleteConfigTxtBox_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.CompleteConfigTxtBox
+  nameWithType: ConfigureMainTab.CompleteConfigTxtBox
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathButtonWrapPanel
+  name: ConfigPathButtonWrapPanel
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ConfigPathButtonWrapPanel
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathButtonWrapPanel
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathButtonWrapPanel
+  nameWithType: ConfigureMainTab.ConfigPathButtonWrapPanel
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathHeader
+  name: ConfigPathHeader
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ConfigPathHeader
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathHeader
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathHeader
+  nameWithType: ConfigureMainTab.ConfigPathHeader
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathTxt
+  name: ConfigPathTxt
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ConfigPathTxt
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathTxt
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigPathTxt
+  nameWithType: ConfigureMainTab.ConfigPathTxt
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings
+  name: ConfigureWindowSettings()
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ConfigureWindowSettings
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings()
+  nameWithType: ConfigureMainTab.ConfigureWindowSettings()
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings*
+  name: ConfigureWindowSettings
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ConfigureWindowSettings_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ConfigureWindowSettings
+  nameWithType: ConfigureMainTab.ConfigureWindowSettings
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton(System.String)
+  name: NewConfigurationPathTextAndButton(String)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_NewConfigurationPathTextAndButton_System_String_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton(System.String)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton(System.String)
+  nameWithType: ConfigureMainTab.NewConfigurationPathTextAndButton(String)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton*
+  name: NewConfigurationPathTextAndButton
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_NewConfigurationPathTextAndButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewConfigurationPathTextAndButton
+  nameWithType: ConfigureMainTab.NewConfigurationPathTextAndButton
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  name: NewJsonConfigBoxAndButton(CompleteConfig)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_NewJsonConfigBoxAndButton_Cloud_ShareSync_Core_Configuration_CompleteConfig_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  nameWithType: ConfigureMainTab.NewJsonConfigBoxAndButton(CompleteConfig)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton*
+  name: NewJsonConfigBoxAndButton
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_NewJsonConfigBoxAndButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.NewJsonConfigBoxAndButton
+  nameWithType: ConfigureMainTab.NewJsonConfigBoxAndButton
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig
+  name: ReadCompleteConfig()
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ReadCompleteConfig
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig()
+  nameWithType: ConfigureMainTab.ReadCompleteConfig()
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig*
+  name: ReadCompleteConfig
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_ReadCompleteConfig_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.ReadCompleteConfig
+  nameWithType: ConfigureMainTab.ReadCompleteConfig
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonConfigButton
+  name: SaveJsonConfigButton
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_SaveJsonConfigButton
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonConfigButton
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonConfigButton
+  nameWithType: ConfigureMainTab.SaveJsonConfigButton
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler(System.Nullable{System.Object},RoutedEventArgs)
+  name: SaveJsonHandler(Nullable<Object>, RoutedEventArgs)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_SaveJsonHandler_System_Nullable_System_Object__RoutedEventArgs_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler(System.Nullable{System.Object},RoutedEventArgs)
+  name.vb: SaveJsonHandler(Nullable(Of Object), RoutedEventArgs)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler(System.Nullable<System.Object>, RoutedEventArgs)
+  fullName.vb: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler(System.Nullable(Of System.Object), RoutedEventArgs)
+  nameWithType: ConfigureMainTab.SaveJsonHandler(Nullable<Object>, RoutedEventArgs)
+  nameWithType.vb: ConfigureMainTab.SaveJsonHandler(Nullable(Of Object), RoutedEventArgs)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler*
+  name: SaveJsonHandler
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_SaveJsonHandler_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.SaveJsonHandler
+  nameWithType: ConfigureMainTab.SaveJsonHandler
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.UpdateConfigPathButton
+  name: UpdateConfigPathButton
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_UpdateConfigPathButton
+  commentId: F:Cloud_ShareSync.GUI.Types.ConfigureMainTab.UpdateConfigPathButton
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.UpdateConfigPathButton
+  nameWithType: ConfigureMainTab.UpdateConfigPathButton
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig(System.String)
+  name: WriteCompleteConfig(String)
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_WriteCompleteConfig_System_String_
+  commentId: M:Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig(System.String)
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig(System.String)
+  nameWithType: ConfigureMainTab.WriteCompleteConfig(String)
+- uid: Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig*
+  name: WriteCompleteConfig
+  href: api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html#Cloud_ShareSync_GUI_Types_ConfigureMainTab_WriteCompleteConfig_
+  commentId: Overload:Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Types.ConfigureMainTab.WriteCompleteConfig
+  nameWithType: ConfigureMainTab.WriteCompleteConfig
 - uid: Cloud_ShareSync.GUI.Views
   name: Cloud_ShareSync.GUI.Views
   href: api/Cloud_ShareSync.GUI.Views.html
   commentId: N:Cloud_ShareSync.GUI.Views
   fullName: Cloud_ShareSync.GUI.Views
   nameWithType: Cloud_ShareSync.GUI.Views
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog
-  name: ErrorDialog
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html
-  commentId: T:Cloud_ShareSync.GUI.Views.ErrorDialog
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog
-  nameWithType: ErrorDialog
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.#ctor(System.String,System.String,System.Nullable{System.String})
-  name: ErrorDialog(String, String, Nullable<String>)
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog__ctor_System_String_System_String_System_Nullable_System_String__
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.#ctor(System.String,System.String,System.Nullable{System.String})
-  name.vb: ErrorDialog(String, String, Nullable(Of String))
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorDialog(System.String, System.String, System.Nullable<System.String>)
-  fullName.vb: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorDialog(System.String, System.String, System.Nullable(Of System.String))
-  nameWithType: ErrorDialog.ErrorDialog(String, String, Nullable<String>)
-  nameWithType.vb: ErrorDialog.ErrorDialog(String, String, Nullable(Of String))
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.#ctor*
-  name: ErrorDialog
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog__ctor_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.#ctor
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow
+  name: ConfigureWindow
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html
+  commentId: T:Cloud_ShareSync.GUI.Views.ConfigureWindow
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow
+  nameWithType: ConfigureWindow
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.#ctor
+  name: ConfigureWindow()
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow__ctor
+  commentId: M:Cloud_ShareSync.GUI.Views.ConfigureWindow.#ctor
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConfigureWindow()
+  nameWithType: ConfigureWindow.ConfigureWindow()
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.#ctor*
+  name: ConfigureWindow
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow__ctor_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.#ctor
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorDialog
-  nameWithType: ErrorDialog.ErrorDialog
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog._stackTrace
-  name: _stackTrace
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog__stackTrace
-  commentId: F:Cloud_ShareSync.GUI.Views.ErrorDialog._stackTrace
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog._stackTrace
-  nameWithType: ErrorDialog._stackTrace
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog._text
-  name: _text
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog__text
-  commentId: F:Cloud_ShareSync.GUI.Views.ErrorDialog._text
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog._text
-  nameWithType: ErrorDialog._text
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel
-  name: ButtonPanel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ButtonPanel
-  commentId: P:Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel
-  nameWithType: ErrorDialog.ButtonPanel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel*
-  name: ButtonPanel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ButtonPanel_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConfigureWindow
+  nameWithType: ConfigureWindow.ConfigureWindow
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze
+  name: BackBlaze
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_BackBlaze
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze
+  nameWithType: ConfigureWindow.BackBlaze
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze*
+  name: BackBlaze
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_BackBlaze_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ButtonPanel
-  nameWithType: ErrorDialog.ButtonPanel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk(System.Nullable{System.Object},RoutedEventArgs)
-  name: ClickOk(Nullable<Object>, RoutedEventArgs)
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ClickOk_System_Nullable_System_Object__RoutedEventArgs_
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk(System.Nullable{System.Object},RoutedEventArgs)
-  name.vb: ClickOk(Nullable(Of Object), RoutedEventArgs)
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk(System.Nullable<System.Object>, RoutedEventArgs)
-  fullName.vb: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk(System.Nullable(Of System.Object), RoutedEventArgs)
-  nameWithType: ErrorDialog.ClickOk(Nullable<Object>, RoutedEventArgs)
-  nameWithType.vb: ErrorDialog.ClickOk(Nullable(Of Object), RoutedEventArgs)
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk*
-  name: ClickOk
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ClickOk_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.BackBlaze
+  nameWithType: ConfigureWindow.BackBlaze
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr
+  name: CfgMgr
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_CfgMgr
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr
+  nameWithType: ConfigureWindow.CfgMgr
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr*
+  name: CfgMgr
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_CfgMgr_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickOk
-  nameWithType: ErrorDialog.ClickOk
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace(System.Nullable{System.Object},RoutedEventArgs)
-  name: ClickShowStackTrace(Nullable<Object>, RoutedEventArgs)
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ClickShowStackTrace_System_Nullable_System_Object__RoutedEventArgs_
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace(System.Nullable{System.Object},RoutedEventArgs)
-  name.vb: ClickShowStackTrace(Nullable(Of Object), RoutedEventArgs)
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace(System.Nullable<System.Object>, RoutedEventArgs)
-  fullName.vb: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace(System.Nullable(Of System.Object), RoutedEventArgs)
-  nameWithType: ErrorDialog.ClickShowStackTrace(Nullable<Object>, RoutedEventArgs)
-  nameWithType.vb: ErrorDialog.ClickShowStackTrace(Nullable(Of Object), RoutedEventArgs)
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace*
-  name: ClickShowStackTrace
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ClickShowStackTrace_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.CfgMgr
+  nameWithType: ConfigureWindow.CfgMgr
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression
+  name: Compression
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Compression
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression
+  nameWithType: ConfigureWindow.Compression
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression*
+  name: Compression
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Compression_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ClickShowStackTrace
-  nameWithType: ErrorDialog.ClickShowStackTrace
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel
-  name: ConfigureButtonPanel()
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureButtonPanel
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel()
-  nameWithType: ErrorDialog.ConfigureButtonPanel()
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel*
-  name: ConfigureButtonPanel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureButtonPanel_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Compression
+  nameWithType: ConfigureWindow.Compression
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging
+  name: ConsoleLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_ConsoleLogging
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging
+  nameWithType: ConfigureWindow.ConsoleLogging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging*
+  name: ConsoleLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_ConsoleLogging_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanel
-  nameWithType: ErrorDialog.ConfigureButtonPanel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren
-  name: ConfigureButtonPanelChildren()
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureButtonPanelChildren
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren()
-  nameWithType: ErrorDialog.ConfigureButtonPanelChildren()
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren*
-  name: ConfigureButtonPanelChildren
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureButtonPanelChildren_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ConsoleLogging
+  nameWithType: ConfigureWindow.ConsoleLogging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Database
+  name: Database
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Database
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.Database
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Database
+  nameWithType: ConfigureWindow.Database
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Database*
+  name: Database
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Database_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.Database
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureButtonPanelChildren
-  nameWithType: ErrorDialog.ConfigureButtonPanelChildren
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions
-  name: ConfigureClickActions()
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureClickActions
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions()
-  nameWithType: ErrorDialog.ConfigureClickActions()
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions*
-  name: ConfigureClickActions
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureClickActions_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Database
+  nameWithType: ConfigureWindow.Database
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging
+  name: DefaultLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_DefaultLogging
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging
+  nameWithType: ConfigureWindow.DefaultLogging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging*
+  name: DefaultLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_DefaultLogging_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureClickActions
-  nameWithType: ErrorDialog.ConfigureClickActions
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel
-  name: ConfigureMainPanel()
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureMainPanel
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel()
-  nameWithType: ErrorDialog.ConfigureMainPanel()
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel*
-  name: ConfigureMainPanel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureMainPanel_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.DefaultLogging
+  nameWithType: ConfigureWindow.DefaultLogging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging
+  name: Logging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Logging
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging
+  nameWithType: ConfigureWindow.Logging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging*
+  name: Logging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Logging_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureMainPanel
-  nameWithType: ErrorDialog.ConfigureMainPanel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties(System.String)
-  name: ConfigureWindowProperties(String)
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureWindowProperties_System_String_
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties(System.String)
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties(System.String)
-  nameWithType: ErrorDialog.ConfigureWindowProperties(String)
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties*
-  name: ConfigureWindowProperties
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ConfigureWindowProperties_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Logging
+  nameWithType: ConfigureWindow.Logging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Main
+  name: Main
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Main
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.Main
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Main
+  nameWithType: ConfigureWindow.Main
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Main*
+  name: Main
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Main_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.Main
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ConfigureWindowProperties
-  nameWithType: ErrorDialog.ConfigureWindowProperties
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText
-  name: ErrorText
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ErrorText
-  commentId: P:Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText
-  nameWithType: ErrorDialog.ErrorText
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText*
-  name: ErrorText
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ErrorText_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Main
+  nameWithType: ConfigureWindow.Main
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  name: ReplaceOptionalDefaults(CompleteConfig)
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_ReplaceOptionalDefaults_Cloud_ShareSync_Core_Configuration_CompleteConfig_
+  commentId: M:Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults(Cloud_ShareSync.Core.Configuration.CompleteConfig)
+  nameWithType: ConfigureWindow.ReplaceOptionalDefaults(CompleteConfig)
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults*
+  name: ReplaceOptionalDefaults
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_ReplaceOptionalDefaults_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ErrorText
-  nameWithType: ErrorDialog.ErrorText
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton
-  name: OkButton
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_OkButton
-  commentId: P:Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton
-  nameWithType: ErrorDialog.OkButton
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton*
-  name: OkButton
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_OkButton_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.ReplaceOptionalDefaults
+  nameWithType: ConfigureWindow.ReplaceOptionalDefaults
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync
+  name: Sync
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Sync
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync
+  nameWithType: ConfigureWindow.Sync
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync*
+  name: Sync
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_Sync_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.OkButton
-  nameWithType: ErrorDialog.OkButton
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.Panel
-  name: Panel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_Panel
-  commentId: P:Cloud_ShareSync.GUI.Views.ErrorDialog.Panel
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.Panel
-  nameWithType: ErrorDialog.Panel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.Panel*
-  name: Panel
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_Panel_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.Panel
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.Sync
+  nameWithType: ConfigureWindow.Sync
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging
+  name: TelemetryLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_TelemetryLogging
+  commentId: P:Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging
+  nameWithType: ConfigureWindow.TelemetryLogging
+- uid: Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging*
+  name: TelemetryLogging
+  href: api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html#Cloud_ShareSync_GUI_Views_ConfigureWindow_TelemetryLogging_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging
   isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.Panel
-  nameWithType: ErrorDialog.Panel
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog
-  name: ShowDialog()
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ShowDialog
-  commentId: M:Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog()
-  nameWithType: ErrorDialog.ShowDialog()
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog*
-  name: ShowDialog
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_ShowDialog_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog
-  isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.ShowDialog
-  nameWithType: ErrorDialog.ShowDialog
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton
-  name: StackTraceButton
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_StackTraceButton
-  commentId: P:Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton
-  nameWithType: ErrorDialog.StackTraceButton
-- uid: Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton*
-  name: StackTraceButton
-  href: api/Cloud_ShareSync.GUI.Views.ErrorDialog.html#Cloud_ShareSync_GUI_Views_ErrorDialog_StackTraceButton_
-  commentId: Overload:Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton
-  isSpec: "True"
-  fullName: Cloud_ShareSync.GUI.Views.ErrorDialog.StackTraceButton
-  nameWithType: ErrorDialog.StackTraceButton
+  fullName: Cloud_ShareSync.GUI.Views.ConfigureWindow.TelemetryLogging
+  nameWithType: ConfigureWindow.TelemetryLogging
 - uid: Cloud_ShareSync.GUI.Views.MainWindow
   name: MainWindow
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html
@@ -11453,6 +11608,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.AddMainPanelChildren
   nameWithType: MainWindow.AddMainPanelChildren
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator
+  name: AnimateLoadingIndicator()
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_AnimateLoadingIndicator
+  commentId: M:Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator()
+  nameWithType: MainWindow.AnimateLoadingIndicator()
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator*
+  name: AnimateLoadingIndicator
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_AnimateLoadingIndicator_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.AnimateLoadingIndicator
+  nameWithType: MainWindow.AnimateLoadingIndicator
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.AssetLoader
   name: AssetLoader
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_AssetLoader
@@ -11485,6 +11653,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.BannerLogo
   nameWithType: MainWindow.BannerLogo
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus(Control,System.Boolean)
+  name: ChangeControlVisualizationStatus(Control, Boolean)
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ChangeControlVisualizationStatus_Control_System_Boolean_
+  commentId: M:Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus(Control,System.Boolean)
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus(Control, System.Boolean)
+  nameWithType: MainWindow.ChangeControlVisualizationStatus(Control, Boolean)
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus*
+  name: ChangeControlVisualizationStatus
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ChangeControlVisualizationStatus_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ChangeControlVisualizationStatus
+  nameWithType: MainWindow.ChangeControlVisualizationStatus
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.ClickBackupButton(System.Nullable{System.Object},RoutedEventArgs)
   name: ClickBackupButton(Nullable<Object>, RoutedEventArgs)
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ClickBackupButton_System_Nullable_System_Object__RoutedEventArgs_
@@ -11517,6 +11698,22 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.ClickConfigureButton
   nameWithType: MainWindow.ClickConfigureButton
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton(System.Nullable{System.Object},RoutedEventArgs)
+  name: ClickFunButton(Nullable<Object>, RoutedEventArgs)
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ClickFunButton_System_Nullable_System_Object__RoutedEventArgs_
+  commentId: M:Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton(System.Nullable{System.Object},RoutedEventArgs)
+  name.vb: ClickFunButton(Nullable(Of Object), RoutedEventArgs)
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton(System.Nullable<System.Object>, RoutedEventArgs)
+  fullName.vb: Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton(System.Nullable(Of System.Object), RoutedEventArgs)
+  nameWithType: MainWindow.ClickFunButton(Nullable<Object>, RoutedEventArgs)
+  nameWithType.vb: MainWindow.ClickFunButton(Nullable(Of Object), RoutedEventArgs)
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton*
+  name: ClickFunButton
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ClickFunButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ClickFunButton
+  nameWithType: MainWindow.ClickFunButton
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.ClickRestoreButton(System.Nullable{System.Object},RoutedEventArgs)
   name: ClickRestoreButton(Nullable<Object>, RoutedEventArgs)
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ClickRestoreButton_System_Nullable_System_Object__RoutedEventArgs_
@@ -11614,6 +11811,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.ConfigureWindowProperties
   nameWithType: MainWindow.ConfigureWindowProperties
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.FunButton
+  name: FunButton
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_FunButton
+  commentId: P:Cloud_ShareSync.GUI.Views.MainWindow.FunButton
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.FunButton
+  nameWithType: MainWindow.FunButton
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.FunButton*
+  name: FunButton
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_FunButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.FunButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.FunButton
+  nameWithType: MainWindow.FunButton
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.MainPanel
   name: MainPanel
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_MainPanel
@@ -11627,6 +11837,19 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.MainPanel
   nameWithType: MainWindow.MainPanel
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState(Button)
+  name: ResetButtonState(Button)
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ResetButtonState_Button_
+  commentId: M:Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState(Button)
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState(Button)
+  nameWithType: MainWindow.ResetButtonState(Button)
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState*
+  name: ResetButtonState
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_ResetButtonState_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.ResetButtonState
+  nameWithType: MainWindow.ResetButtonState
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.RestoreButton
   name: RestoreButton
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_RestoreButton
@@ -11679,6 +11902,45 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.SetGridRows
   nameWithType: MainWindow.SetGridRows
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status1
+  name: Status1
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status1
+  commentId: P:Cloud_ShareSync.GUI.Views.MainWindow.Status1
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status1
+  nameWithType: MainWindow.Status1
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status1*
+  name: Status1
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status1_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.Status1
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status1
+  nameWithType: MainWindow.Status1
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status2
+  name: Status2
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status2
+  commentId: P:Cloud_ShareSync.GUI.Views.MainWindow.Status2
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status2
+  nameWithType: MainWindow.Status2
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status2*
+  name: Status2
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status2_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.Status2
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status2
+  nameWithType: MainWindow.Status2
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status3
+  name: Status3
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status3
+  commentId: P:Cloud_ShareSync.GUI.Views.MainWindow.Status3
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status3
+  nameWithType: MainWindow.Status3
+- uid: Cloud_ShareSync.GUI.Views.MainWindow.Status3*
+  name: Status3
+  href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_Status3_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MainWindow.Status3
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MainWindow.Status3
+  nameWithType: MainWindow.Status3
 - uid: Cloud_ShareSync.GUI.Views.MainWindow.SyncButton
   name: SyncButton
   href: api/Cloud_ShareSync.GUI.Views.MainWindow.html#Cloud_ShareSync_GUI_Views_MainWindow_SyncButton
@@ -11692,6 +11954,215 @@ references:
   isSpec: "True"
   fullName: Cloud_ShareSync.GUI.Views.MainWindow.SyncButton
   nameWithType: MainWindow.SyncButton
+- uid: Cloud_ShareSync.GUI.Views.MessageBox
+  name: MessageBox
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html
+  commentId: T:Cloud_ShareSync.GUI.Views.MessageBox
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox
+  nameWithType: MessageBox
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.#ctor(System.String,System.String,System.Nullable{System.String})
+  name: MessageBox(String, String, Nullable<String>)
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox__ctor_System_String_System_String_System_Nullable_System_String__
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.#ctor(System.String,System.String,System.Nullable{System.String})
+  name.vb: MessageBox(String, String, Nullable(Of String))
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.MessageBox(System.String, System.String, System.Nullable<System.String>)
+  fullName.vb: Cloud_ShareSync.GUI.Views.MessageBox.MessageBox(System.String, System.String, System.Nullable(Of System.String))
+  nameWithType: MessageBox.MessageBox(String, String, Nullable<String>)
+  nameWithType.vb: MessageBox.MessageBox(String, String, Nullable(Of String))
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.#ctor*
+  name: MessageBox
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox__ctor_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.#ctor
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.MessageBox
+  nameWithType: MessageBox.MessageBox
+- uid: Cloud_ShareSync.GUI.Views.MessageBox._stackTrace
+  name: _stackTrace
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox__stackTrace
+  commentId: F:Cloud_ShareSync.GUI.Views.MessageBox._stackTrace
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox._stackTrace
+  nameWithType: MessageBox._stackTrace
+- uid: Cloud_ShareSync.GUI.Views.MessageBox._text
+  name: _text
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox__text
+  commentId: F:Cloud_ShareSync.GUI.Views.MessageBox._text
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox._text
+  nameWithType: MessageBox._text
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel
+  name: ButtonPanel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ButtonPanel
+  commentId: P:Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel
+  nameWithType: MessageBox.ButtonPanel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel*
+  name: ButtonPanel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ButtonPanel_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ButtonPanel
+  nameWithType: MessageBox.ButtonPanel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ClickOk(System.Nullable{System.Object},RoutedEventArgs)
+  name: ClickOk(Nullable<Object>, RoutedEventArgs)
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ClickOk_System_Nullable_System_Object__RoutedEventArgs_
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ClickOk(System.Nullable{System.Object},RoutedEventArgs)
+  name.vb: ClickOk(Nullable(Of Object), RoutedEventArgs)
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ClickOk(System.Nullable<System.Object>, RoutedEventArgs)
+  fullName.vb: Cloud_ShareSync.GUI.Views.MessageBox.ClickOk(System.Nullable(Of System.Object), RoutedEventArgs)
+  nameWithType: MessageBox.ClickOk(Nullable<Object>, RoutedEventArgs)
+  nameWithType.vb: MessageBox.ClickOk(Nullable(Of Object), RoutedEventArgs)
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ClickOk*
+  name: ClickOk
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ClickOk_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ClickOk
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ClickOk
+  nameWithType: MessageBox.ClickOk
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace(System.Nullable{System.Object},RoutedEventArgs)
+  name: ClickShowStackTrace(Nullable<Object>, RoutedEventArgs)
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ClickShowStackTrace_System_Nullable_System_Object__RoutedEventArgs_
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace(System.Nullable{System.Object},RoutedEventArgs)
+  name.vb: ClickShowStackTrace(Nullable(Of Object), RoutedEventArgs)
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace(System.Nullable<System.Object>, RoutedEventArgs)
+  fullName.vb: Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace(System.Nullable(Of System.Object), RoutedEventArgs)
+  nameWithType: MessageBox.ClickShowStackTrace(Nullable<Object>, RoutedEventArgs)
+  nameWithType.vb: MessageBox.ClickShowStackTrace(Nullable(Of Object), RoutedEventArgs)
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace*
+  name: ClickShowStackTrace
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ClickShowStackTrace_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ClickShowStackTrace
+  nameWithType: MessageBox.ClickShowStackTrace
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel
+  name: ConfigureButtonPanel()
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureButtonPanel
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel()
+  nameWithType: MessageBox.ConfigureButtonPanel()
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel*
+  name: ConfigureButtonPanel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureButtonPanel_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanel
+  nameWithType: MessageBox.ConfigureButtonPanel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren
+  name: ConfigureButtonPanelChildren()
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureButtonPanelChildren
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren()
+  nameWithType: MessageBox.ConfigureButtonPanelChildren()
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren*
+  name: ConfigureButtonPanelChildren
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureButtonPanelChildren_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureButtonPanelChildren
+  nameWithType: MessageBox.ConfigureButtonPanelChildren
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions
+  name: ConfigureClickActions()
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureClickActions
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions()
+  nameWithType: MessageBox.ConfigureClickActions()
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions*
+  name: ConfigureClickActions
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureClickActions_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureClickActions
+  nameWithType: MessageBox.ConfigureClickActions
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel
+  name: ConfigureMainPanel()
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureMainPanel
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel()
+  nameWithType: MessageBox.ConfigureMainPanel()
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel*
+  name: ConfigureMainPanel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureMainPanel_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureMainPanel
+  nameWithType: MessageBox.ConfigureMainPanel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties(System.String)
+  name: ConfigureWindowProperties(String)
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureWindowProperties_System_String_
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties(System.String)
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties(System.String)
+  nameWithType: MessageBox.ConfigureWindowProperties(String)
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties*
+  name: ConfigureWindowProperties
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ConfigureWindowProperties_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ConfigureWindowProperties
+  nameWithType: MessageBox.ConfigureWindowProperties
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ErrorText
+  name: ErrorText
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ErrorText
+  commentId: P:Cloud_ShareSync.GUI.Views.MessageBox.ErrorText
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ErrorText
+  nameWithType: MessageBox.ErrorText
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ErrorText*
+  name: ErrorText
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ErrorText_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ErrorText
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ErrorText
+  nameWithType: MessageBox.ErrorText
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.OkButton
+  name: OkButton
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_OkButton
+  commentId: P:Cloud_ShareSync.GUI.Views.MessageBox.OkButton
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.OkButton
+  nameWithType: MessageBox.OkButton
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.OkButton*
+  name: OkButton
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_OkButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.OkButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.OkButton
+  nameWithType: MessageBox.OkButton
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.Panel
+  name: Panel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_Panel
+  commentId: P:Cloud_ShareSync.GUI.Views.MessageBox.Panel
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.Panel
+  nameWithType: MessageBox.Panel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.Panel*
+  name: Panel
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_Panel_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.Panel
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.Panel
+  nameWithType: MessageBox.Panel
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog
+  name: ShowDialog()
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ShowDialog
+  commentId: M:Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog()
+  nameWithType: MessageBox.ShowDialog()
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog*
+  name: ShowDialog
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_ShowDialog_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.ShowDialog
+  nameWithType: MessageBox.ShowDialog
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton
+  name: StackTraceButton
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_StackTraceButton
+  commentId: P:Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton
+  nameWithType: MessageBox.StackTraceButton
+- uid: Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton*
+  name: StackTraceButton
+  href: api/Cloud_ShareSync.GUI.Views.MessageBox.html#Cloud_ShareSync_GUI_Views_MessageBox_StackTraceButton_
+  commentId: Overload:Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton
+  isSpec: "True"
+  fullName: Cloud_ShareSync.GUI.Views.MessageBox.StackTraceButton
+  nameWithType: MessageBox.StackTraceButton
 - uid: Cloud_ShareSync.Program
   name: Program
   href: api/Cloud_ShareSync.Program.html
