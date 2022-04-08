@@ -7,9 +7,9 @@ using ReactiveUI;
 
 namespace Cloud_ShareSync.GUI.Views {
     // https://stackoverflow.com/a/55707749
-    public partial class ErrorDialog : Window {
+    public partial class MessageBox : Window {
 
-        public ErrorDialog(
+        public MessageBox(
             string title,
             string text,
             string? stackTraceMsg = null
@@ -83,7 +83,7 @@ namespace Cloud_ShareSync.GUI.Views {
         }
 
         private void ConfigureWindowProperties( string title ) {
-            Title = $"Error - {title}";
+            Title = _stackTrace != null ? $"Error - {title}" : title;
             DataContext = new ReactiveObject( );
             Icon = new WindowIcon(
                 MainWindow.AssetLoader?.Open(

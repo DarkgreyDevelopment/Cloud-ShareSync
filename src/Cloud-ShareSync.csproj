@@ -69,6 +69,9 @@
         <EmbeddedResource Include="Core\SharedServices\MimeTypes.json" />
         <EmbeddedResource Include="GUI\Assets\BannerLogo.png" />
         <EmbeddedResource Include="GUI\Assets\logo.ico" />
+        <EmbeddedResource Include="GUI\Assets\statusInidicator1.png" />
+        <EmbeddedResource Include="GUI\Assets\statusInidicator2.png" />
+        <EmbeddedResource Include="GUI\Assets\statusInidicator3.png" />
         <None Remove="Core\SharedServices\MimeTypes.json" />
     </ItemGroup>
 
@@ -100,9 +103,15 @@
       <AvaloniaResource Remove="GUI\Assets\progress1.png" />
       <AvaloniaResource Remove="GUI\Assets\progress2.png" />
       <AvaloniaResource Remove="GUI\Assets\progress3.png" />
+      <AvaloniaResource Remove="GUI\Assets\statusInidicator1.png" />
+      <AvaloniaResource Remove="GUI\Assets\statusInidicator2.png" />
+      <AvaloniaResource Remove="GUI\Assets\statusInidicator3.png" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Update="GUI\Views\ErrorDialog.axaml.cs">
+      <Compile Update="GUI\Views\ConfigureWindow.axaml.cs">
+        <DependentUpon>ConfigureWindow.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="GUI\Views\MessageBox.axaml.cs">
         <DependentUpon>ErrorDialog.axaml</DependentUpon>
       </Compile>
     </ItemGroup>

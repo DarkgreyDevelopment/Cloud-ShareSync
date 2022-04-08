@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Cloud_ShareSync.GUI"
+             x:Class="Cloud_ShareSync.GUI.Views.ConfigureWindow">
+
+    <TabControl TabStripPlacement="Left">
+        <TabItem Name ="Main" Header="Main" VerticalContentAlignment="Center"/>
+        <TabItem Name ="Sync" Header="Sync" VerticalContentAlignment="Center"/>
+        <TabItem Name ="Database" Header="Database" VerticalContentAlignment="Center"/>
+        <TabItem Name ="Logging" Header="Logging" VerticalContentAlignment="Center">
+            <TabControl TabStripPlacement="Left">
+                <TabItem Name ="DefaultLog" Header="Default Log" VerticalContentAlignment="Center"/>
+                <TabItem Name ="TelemetryLog" Header="Telemetry Log" VerticalContentAlignment="Center"/>
+                <TabItem Name ="ConsoleLog" Header="Console Log" VerticalContentAlignment="Center"/>
+            </TabControl>
+        </TabItem>
+        <TabItem Name ="Compression" Header="Compression" VerticalContentAlignment="Center"/>
+        <TabItem Name ="BackBlaze" Header="BackBlaze" VerticalContentAlignment="Center"/>
+    </TabControl>
+</Application>

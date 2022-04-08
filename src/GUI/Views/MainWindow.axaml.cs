@@ -22,13 +22,55 @@ namespace Cloud_ShareSync.GUI.Views {
         };
 
         public Image BannerLogo { get; } = new Image( ) {
+            Name = "BannerLogo",
             Margin = Thickness.Parse( "10,5,10,5" ),
             IsEnabled = true,
             IsVisible = true,
-            Name = "BannerLogo",
             Source = new Bitmap(
                 AssetLoader?.Open(
                     new Uri( "resm:Cloud_ShareSync.GUI.Assets.BannerLogo.png" )
+                )
+            )
+        };
+
+        public Image Status3 { get; } = new Image( ) {
+            Name = "StatusInidicator3",
+            Margin = Thickness.Parse( "10,5,10,5" ),
+            IsEnabled = false,
+            IsVisible = false,
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Bottom,
+            Source = new Bitmap(
+                AssetLoader?.Open(
+                    new Uri( "resm:Cloud_ShareSync.GUI.Assets.statusInidicator3.png" )
+                )
+            )
+        };
+
+        public Image Status2 { get; } = new Image( ) {
+            Name = "StatusInidicator2",
+            Margin = Thickness.Parse( "10,5,10,5" ),
+            IsEnabled = false,
+            IsVisible = false,
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Bottom,
+            Source = new Bitmap(
+                AssetLoader?.Open(
+                    new Uri( "resm:Cloud_ShareSync.GUI.Assets.statusInidicator2.png" )
+                )
+            )
+        };
+
+        public Image Status1 { get; } = new Image( ) {
+            Name = "StatusInidicator1",
+            Margin = Thickness.Parse( "10,5,10,5" ),
+            IsEnabled = false,
+            IsVisible = false,
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Bottom,
+            Source = new Bitmap(
+                AssetLoader?.Open(
+                    new Uri( "resm:Cloud_ShareSync.GUI.Assets.statusInidicator1.png" )
                 )
             )
         };
@@ -74,6 +116,16 @@ namespace Cloud_ShareSync.GUI.Views {
             Content = "Sync"
         };
 
+        public Button FunButton { get; } = new( ) {
+            Name = "FunButton",
+            Margin = Thickness.Parse( "10,5,10,5" ),
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            HorizontalContentAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Bottom,
+            IsEnabled = true,
+            Content = "Don't Touch."
+        };
+
         #endregion Fields
 
 
@@ -111,6 +163,11 @@ namespace Cloud_ShareSync.GUI.Views {
             MainPanel.Children.Add( BackupButton );
             MainPanel.Children.Add( RestoreButton );
             MainPanel.Children.Add( SyncButton );
+
+            MainPanel.Children.Add( FunButton );
+            MainPanel.Children.Add( Status1 );
+            MainPanel.Children.Add( Status2 );
+            MainPanel.Children.Add( Status3 );
         }
 
         #region Configure Grid
@@ -127,6 +184,12 @@ namespace Cloud_ShareSync.GUI.Views {
             Grid.SetColumn( BackupButton, 0 );
             Grid.SetColumn( RestoreButton, 0 );
             Grid.SetColumn( SyncButton, 0 );
+
+            Grid.SetColumn( Status3, 0 );
+            Grid.SetColumn( Status2, 0 );
+            Grid.SetColumn( Status1, 0 );
+            Grid.SetColumn( FunButton, 0 );
+
         }
 
         private void SetGridRows( ) {
@@ -136,11 +199,47 @@ namespace Cloud_ShareSync.GUI.Views {
             Grid.SetRow( BackupButton, 2 );
             Grid.SetRow( RestoreButton, 3 );
             Grid.SetRow( SyncButton, 4 );
+
+            Grid.SetRow( Status3, 5 );
+            Grid.SetRow( Status2, 5 );
+            Grid.SetRow( Status1, 5 );
+            Grid.SetRow( FunButton, 5 );
         }
 
         #endregion Configure Grid
 
         #endregion Configure MainPanel
+
+        private async Task AnimateLoadingIndicator( ) {
+            int count = 0;
+            do {
+                ChangeControlVisualizationStatus( Status3, false );
+                if (count % 3 == 0) {
+                    ChangeControlVisualizationStatus( Status1, true );
+                    await Task.Delay( 750 );
+                    ChangeControlVisualizationStatus( Status1, false );
+                } else {
+                    ChangeControlVisualizationStatus( Status2, true );
+                    await Task.Delay( 500 );
+                }
+                ChangeControlVisualizationStatus( Status2, false );
+                ChangeControlVisualizationStatus( Status3, true );
+                await Task.Delay( 500 );
+                count++;
+            } while (count <= 9);
+        }
+
+        private void ResetButtonState( Button button ) {
+            ChangeControlVisualizationStatus( Status1, false );
+            ChangeControlVisualizationStatus( Status2, false );
+            ChangeControlVisualizationStatus( Status3, false );
+            ChangeControlVisualizationStatus( button, true );
+        }
+
+        private static void ChangeControlVisualizationStatus( Control control, bool status ) {
+            control.IsEnabled = status;
+            control.IsVisible = status;
+        }
 
 
         #region Button Clicks
@@ -150,12 +249,14 @@ namespace Cloud_ShareSync.GUI.Views {
             BackupButton.Click += ClickBackupButton;
             RestoreButton.Click += ClickRestoreButton;
             SyncButton.Click += ClickSyncButton;
+            FunButton.Click += ClickFunButton;
         }
 
         private async void ClickConfigureButton( object? sender, RoutedEventArgs e ) {
             try {
+                await new ConfigureWindow( ).ShowDialog( this );
             } catch (Exception ex) {
-                await new ErrorDialog(
+                await new MessageBox(
                     "Configure Process Failed.",
                     ex.Message,
                     ex.StackTrace
@@ -170,16 +271,15 @@ namespace Cloud_ShareSync.GUI.Views {
                     BackupButton.IsEnabled = false;
                     BannerLogo.IsVisible = false;
                     await RunBackupProcess( );
-                    BackupButton.Content = "Backup Completed";
-                    BackupButton.IsEnabled = true;
                 } catch (Exception ex) {
-                    await new ErrorDialog(
+                    await new MessageBox(
                         "Backup Process Failed.",
                         ex.Message,
                         ex.StackTrace
                     ).ShowDialog( );
                 } finally {
                     BackupButton.Content = "Backup";
+                    BackupButton.IsEnabled = true;
                     BannerLogo.IsVisible = true;
                 }
             }
@@ -188,7 +288,7 @@ namespace Cloud_ShareSync.GUI.Views {
         private async void ClickRestoreButton( object? sender, RoutedEventArgs e ) {
             try {
             } catch (Exception ex) {
-                await new ErrorDialog(
+                await new MessageBox(
                     "Restore Process Failed.",
                     ex.Message,
                     ex.StackTrace
@@ -199,7 +299,7 @@ namespace Cloud_ShareSync.GUI.Views {
         private async void ClickSyncButton( object? sender, RoutedEventArgs e ) {
             try {
             } catch (Exception ex) {
-                await new ErrorDialog(
+                await new MessageBox(
                     "Sync Process Failed.",
                     ex.Message,
                     ex.StackTrace
@@ -207,9 +307,26 @@ namespace Cloud_ShareSync.GUI.Views {
             }
         }
 
+        private async void ClickFunButton( object? sender, RoutedEventArgs e ) {
+            try {
+                ChangeControlVisualizationStatus( FunButton, false );
+                await AnimateLoadingIndicator( );
+                ResetButtonState( FunButton );
+                FunButton.Content = "I said dont touch me!";
+                FunButton.IsEnabled = false;
+            } catch (Exception ex) {
+                await new MessageBox(
+                    "Fun Process Failed.",
+                    ex.Message,
+                    ex.StackTrace
+                ).ShowDialog( );
+            }
+        }
+
+
         #endregion Button Clicks
 
-        private async Task RunBackupProcess( ) {
+        private static async Task RunBackupProcess( ) {
             await Task.Run( ( ) => {
                 Process backup = new( );
                 _ = backup.Run( );

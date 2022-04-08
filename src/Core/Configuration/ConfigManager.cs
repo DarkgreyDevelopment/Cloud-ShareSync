@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using System.Text.Json;
 using Cloud_ShareSync.Core.Configuration.Enums;
 using Cloud_ShareSync.Core.Configuration.Interfaces;
 using Cloud_ShareSync.Core.Configuration.Types;
@@ -23,10 +22,29 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         internal readonly CompleteConfig Config;
 
-        public ConfigManager( ) {
-            _configPath = GetConfigurationPath( );
-            _configuration = GetConfiguration( new( _configPath ) );
-            Config = BuildConfiguration( );
+        public ConfigManager( bool? skipValidBuild = null ) {
+
+            try {
+                _configPath = GetConfigurationPath( );
+            } catch {
+                if (skipValidBuild == true) {
+                    _configPath = s_defaultConfig;
+                } else {
+                    throw;
+                }
+            }
+
+            _configuration = GetConfiguration( new( _configPath ), skipValidBuild != true );
+
+            try {
+                Config = BuildConfiguration( );
+            } catch {
+                if (skipValidBuild == true) {
+                    Config = new CompleteConfig( new SyncConfig( ) );
+                } else {
+                    throw;
+                }
+            }
         }
 
         #region UpdateConfigSection
@@ -171,15 +189,34 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         #endregion Alternate Default Config
 
-        internal static IConfiguration GetConfiguration( FileInfo appConfig ) {
-            CompleteConfig? config = JsonSerializer
-                                        .Deserialize<CompleteConfig>(
-                                            File.ReadAllText( appConfig.FullName ),
-                                            new JsonSerializerOptions( ) {
-                                                ReadCommentHandling = JsonCommentHandling.Skip
-                                            }
-                                        );
-            string jsonString = ValidateAndAssignDefaults( config, appConfig.FullName );
+        internal static IConfiguration GetConfiguration(
+            FileInfo appConfig,
+            bool requireValidation = true
+        ) {
+            CompleteConfig? config = null;
+
+            try {
+                config = CompleteConfig.FromString( File.ReadAllText( appConfig.FullName ) );
+            } catch {
+                if (requireValidation) { throw; }
+            }
+
+            if (config == null) {
+                config = requireValidation == false ?
+                    new CompleteConfig( new SyncConfig( ) ) :
+                    throw new Exception( "Config is null and has not been validated." );
+            }
+
+            string jsonString;
+            try {
+                jsonString = ValidateAndAssignDefaults( config, appConfig.FullName );
+            } catch {
+                if (requireValidation) {
+                    throw;
+                } else {
+                    jsonString = config.ToString( );
+                }
+            }
 
             return new ConfigurationBuilder( )
                                 .AddEnvironmentVariables( )
@@ -189,8 +226,8 @@ namespace Cloud_ShareSync.Core.Configuration {
 
         #region Validate and Assign Defaults
 
-        private static string ValidateAndAssignDefaults( CompleteConfig? config, string configPath ) {
-            string errTxt = $"\nUpdate '{configPath}' to change the applications settings.";
+        internal static string ValidateAndAssignDefaults( CompleteConfig? config, string? configPath ) {
+            string errTxt = configPath == null ? "" : $"\nUpdate '{configPath}' to change the applications settings.";
             if (config == null) { config = new CompleteConfig( new SyncConfig( ) ); }
             if (config.Sync.SyncFolder == SyncConfig.DefaultSyncFolder) { return config.ToString( ); }
             ValidateAndAssignSyncDefaults( config, errTxt );

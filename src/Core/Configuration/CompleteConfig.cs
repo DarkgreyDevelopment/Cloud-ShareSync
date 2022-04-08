@@ -26,5 +26,15 @@ namespace Cloud_ShareSync.Core.Configuration {
                     WriteIndented = true,
                 }
             );
+
+        public static CompleteConfig FromString( string value ) =>
+            JsonSerializer
+                .Deserialize<CompleteConfig>(
+                    value,
+                    new JsonSerializerOptions( ) {
+                        ReadCommentHandling = JsonCommentHandling.Skip
+                    }
+                )!;
+
     }
 }
