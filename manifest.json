@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "OpenSource.html",
-          "hash": "nM5RoeLzpSyGZD3ZrvpjZJT2DtbyeCzkuGPyqGB6x1o="
+          "hash": "6QubsVWscc6Aph+eCbfPHn1N3Rv7ZYtVJJA8HAUEOws="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "SECURITY.html",
-          "hash": "7jc8VjXi0pyUBTuScDK7EPHqygZVdCpzhy2HzRRoxMI="
+          "hash": "R5lMpWqc26SQpPqvvIpME7PpP5BSBUm1sr4HMVyraF0="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Backup.Process.html",
-          "hash": "K4bAxjbqwtEo/AFLidfL43Z4BQsx6g1imN38WHrmIpw="
+          "hash": "p+r/Onyh945ilT7ouTCkyq0OD28PXhZN5zE6sG5rbbU="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Backup.html",
-          "hash": "wp+1F19JzTUI3r6QJ9yCB/Vy+oRV4sXh3JYB1RB9BYM="
+          "hash": "xNwI1HCTEri0k7BLLbJiRs3wzwtp6qmAkELXXKlYIQY="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.B2.html",
-          "hash": "nKZjuaV/vzS83svka1JbWnW3COuHc7HeGDKnBQTVaUc="
+          "hash": "SaQx+reOApE8EEYHygnSEsB9C59NVTOV3CsIfKpLobA="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.BackBlazeB2.html",
-          "hash": "WrD91Dhiq9fI6JzkpsIdgsUt6Sk+BekKJiTZea12FPg="
+          "hash": "LmF9IWGcXu7/g4JbdbmiezcbxTy5HFMaruCK41NfHmc="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ConcurrentStats.html",
-          "hash": "/RdHJwBEJud/+hcebri3GJtAfHHOTPvTJOO+ioZhnOU="
+          "hash": "zGBkpUSRxkAqdMfTSWTvlIEHxzRzcWHAibtRgkfKKRM="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ProcessStats.html",
-          "hash": "5EMPuSQoXmA2rxOBHffwlyVCkcFAClYYjllBzKK+VPg="
+          "hash": "2pwz6drSFEov2s4UmurEvhlKeDa2r7+LM0TzYaSi8E8="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadManager.html",
-          "hash": "9PPayPfcyA9REH/dJcO1SsMthUPwfLU38izYdDnQYdc="
+          "hash": "xPcxzHvrFvkFDUGp9oCW0MB9xOviZ2qwlK1VSSLKh+M="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.B2ThreadStatistic.html",
-          "hash": "qS6cL6eDS7c/gS0oqEIHwk71hHfipHPmmxc3OKOAfuA="
+          "hash": "1IavnEcEEk9Lp0u1WPY4nlncQESJCUtesc9C8+OaMOM="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.PartProcessTime.html",
-          "hash": "YbruYayWirVNT0YWdNNXJmek1UyEjyGj+35vN6mADMo="
+          "hash": "GfGcpfKFJgjLM31NDEnh7jIgwbbj3gx9i2PYk1pw9z8="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadProcessTime.html",
-          "hash": "51iBrQS7i2dEg+PNySIrRgfzVc6RuWyxZEHf/hgsJ50="
+          "hash": "oA2uOgy8aCwR6YF3ryr2dPl6j7gaFk4ooIc/n8Kws0Q="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.ThreadQueueDetails.html",
-          "hash": "FlmS6Ne+3JMiqWyB0iVBtbqEdqJxFqz+NYOUFILiee8="
+          "hash": "bJYyI5A+4ZLi0azipWdzrvN5VH5Oi0/cjMzUZsnZvdU="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading.html",
-          "hash": "Yf95e7+LLBFVZp1YRGNCoc0rsE/cGIcw0UD/4PzO/YU="
+          "hash": "a+Mq9/VJ7BEbXXRq+CaZrQMFcoJ3swV7MQARNyHxxmc="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthProcessData.html",
-          "hash": "xbr39apQajC797LSkp4/AIu63IZsa8afUgLOiJH8aUo="
+          "hash": "3Najd/C8oF/NyZmSE8V0s5/IT30HuGXgvfXctv91fyQ="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.AuthReturn.html",
-          "hash": "ZA8vXw7nuO9tYSXFZ4b+rOyIk2gLkvzwc4WK+BDmbAw="
+          "hash": "aZMQXK5BuJzf4dMmDKbePKS3zKaAzGDuTaJKipKFYQk="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.TempJsonObj.html",
-          "hash": "EckximnEG2sM1thTBeB2gWVrCa3Ib87bJY3oDK0zK5c="
+          "hash": "yaY4Y5V1ZTpSxV3KK3bmc1qr0QUmfNEYHPtptHwSc8w="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2DownloadResponse.html",
-          "hash": "8TLakAZOJHxweCATGXoh5LUkDZ1SOxyo5uUqU2SOIj8="
+          "hash": "5YNbR0qvdg/tVYBHLYhx2wS/ROi35DfTpM/9lEvgdnU="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FileResponse.html",
-          "hash": "md2UeU8Lf3I9HoxBJBv68UhM97US0+l2wvfKF3kqPbU="
+          "hash": "9tAI5FPsNIkNwZ2cndTtNbhqeDF9vdrHXdlWV6o4KEA="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FilesResponse.html",
-          "hash": "v+JNOfDwGHyDdrc2t0uepw7z5Yh/MDeqM2OUkZcy3ZY="
+          "hash": "kqV/7kRnnY5sN6k3os6zhWnJ0u+4MSyPl1Q/IdSbaSg="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest._tempJsonObj.html",
-          "hash": "46/mBZ/BP1vNGnincASY0x1kkQFgHTYh/nHZIGHWlCE="
+          "hash": "mJ2MdxGiva94w+6L5OniAE0H2qOcexIi7cVhEcwLmxY="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.B2FinishLargeFileRequest.html",
-          "hash": "9ghJYw0WmAuhIFEHUetuN2HQ90KgwpS08gqji5K/Vis="
+          "hash": "RT3xjctBPYqo7Ogyy6NodCg9VIfRTdT+nurO04FoQ9E="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.DownloadB2File.html",
-          "hash": "eMPbi6eNtSf0nYipDDU1eahLFHDickbVrF+ZPcBoJio="
+          "hash": "FPYX7rXUnS4vKl8jeqG948lm07NH7leYJlBI+xYhR2I="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FailureInfo.html",
-          "hash": "rw9LKdVvUnamAg3DGLqvVCA1O2mcvMlqZxRwHSH+9BM="
+          "hash": "BzBGWoQeNIrcjOZI1iv/jgoOPnzjkJib8Pa93S2NRXY="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.FilePartInfo.html",
-          "hash": "NMuw3nCPI285JrD3n4A93UEyfbyvVtQ+oDrMVlmduvA="
+          "hash": "5tjc36SZrQXi7OwD3vMZKT7Z2C1ZeiXdgQyiPWidVRU="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.HttpClientData.html",
-          "hash": "kn2gy6ltMSW89azkYYsCd6IGM2dpYGJGjkC34JXc7Qo="
+          "hash": "wukZPkMCt/cu723K4VAk2tfQbic3Z9e3ThMo93ZOk5E="
         }
       },
       "is_incremental": false,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InitializationData.html",
-          "hash": "6+h2mtgZ/w6K+u5y3C/hPsss9v6Vq4nC090rEK/Dak8="
+          "hash": "6+YD1nwRHbLSykOo7nvncnn4rWkhFkCSKoPyMC9D48Y="
         }
       },
       "is_incremental": false,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.InvalidB2Response.html",
-          "hash": "m4DKYCe7QBAT5eVdEudsl/TYx2FWkDZtabP5ccHHwgw="
+          "hash": "DJ7w15h/XlQF2D5HTgnDQaLqG7BepUZgHzVHquDou8E="
         }
       },
       "is_incremental": false,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.LargeFilePartReturn.html",
-          "hash": "6q/6jQurujUXDLqW5X/iXwxwhyFyYTmg/+NdDabIZdE="
+          "hash": "tTQ/7mCcUP7g4qMneI/BU0V6JLKg4RugTBwPWaGLWwU="
         }
       },
       "is_incremental": false,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.TempJsonObj.html",
-          "hash": "CEhB0U477zN38LCY1ThdkqxrR5ThXBFLLgNM7CPSTQM="
+          "hash": "gIcZh1gKmJdJWN1+j27s6twASGnoeUvsVCmtLUJOzek="
         }
       },
       "is_incremental": false,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2File.html",
-          "hash": "vdlb0ce9sUsLLPKbldNmqjuVFU9j1vG2bDA6Ju9LmlE="
+          "hash": "qwB/Nv5Lyb5mrk5JMa6iaDxjSmqTA7DKrwC+B4y2Yrk="
         }
       },
       "is_incremental": false,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.UploadB2FilePart.html",
-          "hash": "+Y1+/FBoUyk1V4RMpsuc0UxrUYa9wx8LWZ52lLvg5k8="
+          "hash": "5cJH97P5bIlZjWhXFhP2wH38KVZAQLKKvjh75vOCplY="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.Types.html",
-          "hash": "Urmn8iO2MrZfiJOHRhcZfGffPpJE+4x/HYushRVGMbg="
+          "hash": "JoGqv/JLW3UndnMbAyZ9jRETdcc+qW3dD360AR+kmjo="
         }
       },
       "is_incremental": false,
@@ -405,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.BackBlaze.html",
-          "hash": "878eJ9ZTF83xu59PvpUyH7TKsZcKXwqKVddo/yJJQf0="
+          "hash": "Jk3iLabGqA2GJ7GOTzLpq8JDAYTPB6N9zejmgbs2pcQ="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProvider.html",
-          "hash": "OGeHT0S8i2vXBLFoipzUejUaf1Pdce5BnN4/PG+YD+c="
+          "hash": "CZ4vg99byS0c6FRyoumtiolXXy0sY8Zby6OkUf3WmDc="
         }
       },
       "is_incremental": false,
@@ -429,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderDownload.html",
-          "hash": "FqIezzmvipMNyPJ17kb7csLUPqV4v0dA5pxrPOFVSJg="
+          "hash": "l5IJvU7VUGcuvnZx/0MZ+I+Rq+IAKMWkUZ29No/Elvo="
         }
       },
       "is_incremental": false,
@@ -441,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interfaces.ICloudProviderUpload.html",
-          "hash": "qA7nMXeVknibeBuDBk2PEAVfEQDWgCaZ6TChgPR39aM="
+          "hash": "wTUFbjOGZaDZ+OwJtDyAAn3VjNwy/LV6HBmJ2YWeqj0="
         }
       },
       "is_incremental": false,
@@ -453,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.CloudProvider.Interfaces.html",
-          "hash": "GtBdwGOQK8VYaiP+HWRVBk1O1rpF612fQHR9/+JahoE="
+          "hash": "svIGIEr6sWsW7pxDG28facgaQzffduht5VPG4XtTnSI="
         }
       },
       "is_incremental": false,
@@ -465,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.FailedToZipException.html",
-          "hash": "SIUcCDt2kvVIFApk7AD8S7G+TpJ3/HJWxxxZrsbaBpA="
+          "hash": "Npxzvay72HwPOjwBUYrOYUDyWNqd3EEktXhdohJdcUA="
         }
       },
       "is_incremental": false,
@@ -477,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.ICompression.html",
-          "hash": "V2tQ/UFnlFK2Ys9Tzhdhi0wP5WEyXcouYlJDQweYccc="
+          "hash": "HDBMG7MDjXuosREwKhaBGjG3Au1CYyyTpCjcNsPqAoA="
         }
       },
       "is_incremental": false,
@@ -489,7 +489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.Interfaces.html",
-          "hash": "hUxhso4jsgav7gY++AkssaaznPkmQsbVpw3wxGekG+4="
+          "hash": "UC3qe29ICs1QeFS1GvyVgmlDhnacVXK+Xk6pC+Jcc0c="
         }
       },
       "is_incremental": false,
@@ -501,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.ManagedCompression.html",
-          "hash": "igAOzwbmmI5vf0AdYkt/GYrRUCGUsRqZVcGJh9X4new="
+          "hash": "yPql/FjJlDXBir/r2PmQxVFhkdEA8vQloIiAiFMSnKQ="
         }
       },
       "is_incremental": false,
@@ -513,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.UniquePassword.ValidateReturn.html",
-          "hash": "EvMJOXpW1k3BrL2pBLb7H90/DL1zN1cm9Gp54cYq3k8="
+          "hash": "gmKQso/qtdPVTOCWlxN1+gq+wjAAEn3PL3ya547HWQA="
         }
       },
       "is_incremental": false,
@@ -525,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.UniquePassword.html",
-          "hash": "H86xVx9WBVH+PEpsomeS+s72YDxD+IomXFF5nSbYWsk="
+          "hash": "95AHpPV8JkNPFVQ4AxmfXw5D3Zq5cP2tnqOfYYd3fbE="
         }
       },
       "is_incremental": false,
@@ -537,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Compression.html",
-          "hash": "8k51kd5DeFydyMCoPJRkhP0V2stAhODinwTNoVgx7U8="
+          "hash": "1kPjMA9E5flfCtVQIA6OZjMS+ucxHxWj6X+Cym0y/X4="
         }
       },
       "is_incremental": false,
@@ -549,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.CommandlineConfigurator.html",
-          "hash": "yOxqEZaXkZiIFDkmR9w3OE56nRPNONdpKRw5nWcA+Ok="
+          "hash": "UQ2S26UM9VJ2W8FA2UVcAnRsmOhS88lfJxmbgXc41T8="
         }
       },
       "is_incremental": false,
@@ -561,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.CompleteConfig.html",
-          "hash": "UjeDLzGPo30ULu8vRVIefWHpDRF/9SaiQP0jzaLcTI0="
+          "hash": "vr261JfOgi5dpZ3zYTIKGnCA/tptG0qN/maDy3rToKk="
         }
       },
       "is_incremental": false,
@@ -573,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.ConfigManager.html",
-          "hash": "ZFGR9+0NQKUfwhkw9mV3Svq0fpzTYEl1d/+IG4T5EVQ="
+          "hash": "FZ8HugaKWifb/G4TM2yI6231giBZhAohPiPMqpMIvt0="
         }
       },
       "is_incremental": false,
@@ -585,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.CloudProviders.html",
-          "hash": "P70yGEPCba7lPBy6Bx1bAsnQTicxpIHEoZxf0Sk8UDo="
+          "hash": "ztQ/9S8k01h9hA+DsS6TRqrbZuzVhtcdtD+dBfpYS+4="
         }
       },
       "is_incremental": false,
@@ -597,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.Cloud_ShareSync_Features.html",
-          "hash": "WMg008bQghZ6y1y6ajOJlOEpQkXRZGqy2Bw9N1aIvoM="
+          "hash": "EV459Ifp3ipcQBADsUlCRRQTQgRofHDVicZZgTxds5A="
         }
       },
       "is_incremental": false,
@@ -609,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.SupportedLogLevels.html",
-          "hash": "eLke8q0B4V1sgBYtwFpdQgZ/sBxhDDIB4fTdHfxQNRw="
+          "hash": "Ug49KAdBCRhwYHK1D0uDmf2dR7E9jXkjV+eH57CRjq8="
         }
       },
       "is_incremental": false,
@@ -621,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Enums.html",
-          "hash": "UktMoUHqG/HWAK3HBkdvtEgwAxioe5xzZHgfCPJJmqM="
+          "hash": "HnqueTH8MQiIVuFBWnzoClk1GYnRAAC7+B6UQD+2dcE="
         }
       },
       "is_incremental": false,
@@ -633,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.ICloudProviderConfig.html",
-          "hash": "Rz6rAlPGZlfHVxlPjL6KmBkLns0xp2jql8nxOs39sbk="
+          "hash": "gX2Eg6nn5gAXxmIOD5SFnxZj6dMeQaWFgbYF40IQrtk="
         }
       },
       "is_incremental": false,
@@ -645,7 +645,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.ICloudShareSyncConfig.html",
-          "hash": "iOKynlhhLGlDdoMVATikYJnx6jW4IL+l/R3sxgoaA3I="
+          "hash": "Fwru5b/A5h7Fpd4K5Hvh48wz9/i7iwjyFjaXOPBzWQU="
         }
       },
       "is_incremental": false,
@@ -657,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Interfaces.html",
-          "hash": "zmLvarXc9L0nnUs1lQ0u3FsMnehnRN8G3kImF6u8EHU="
+          "hash": "KM6US3on6LWT0c8lK3MfMle3ZNXdgxJEGz3Fy4wdCy4="
         }
       },
       "is_incremental": false,
@@ -669,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.B2Config.html",
-          "hash": "NpfWB8gI1zamGtuD1OFV1vt2pTV3bP01kfE4qjye3rs="
+          "hash": "bJC8fZiaO+AkproLpwslpCq4ohXdhQP3cxy8oOZASF4="
         }
       },
       "is_incremental": false,
@@ -681,7 +681,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.CompressionConfig.html",
-          "hash": "pd91l6dmkP13iFvebKc6uTZFnnKke8GXqPXAgH7hZSk="
+          "hash": "+rnj41OSR+/KQKY1QS4YdlI4V6tXW6kYIaVVbFcE/k4="
         }
       },
       "is_incremental": false,
@@ -693,7 +693,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.ConsoleLogConfig.html",
-          "hash": "F358VVQHQzKGyZKmZfSJ2eNPogXKs+s9XBGlcXklBAM="
+          "hash": "VkdK55OOYsEfTqCacX5t2s8Fw26l5d+Qw3m6vuiRE7M="
         }
       },
       "is_incremental": false,
@@ -705,7 +705,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.DatabaseConfig.html",
-          "hash": "zfC8LAtlQHO06XCfDhDa2sWcTHW+t9hTB5OWLv/VibM="
+          "hash": "lsuEQjyIWN/1Ipv/xhFY7plNf/tkPEuG94uSBF2uw60="
         }
       },
       "is_incremental": false,
@@ -717,7 +717,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.DefaultLogConfig.html",
-          "hash": "TyjFOLhcZE8rSObXH6WcPf3URy0dS7WB4FsG1/W4l5I="
+          "hash": "lGzBrSBD4GZg2cE++GuiFmpPlfbe0bIZPQoz4Os7bVI="
         }
       },
       "is_incremental": false,
@@ -729,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.Log4NetConfig.html",
-          "hash": "cQ17+mPDK71rDl4HI1N4Ag68omOBdDLTCGurFV5A9rE="
+          "hash": "fPq0fobVXdQiLuE4DT0yBAeSMB2ciooO6tKZd1vw5f4="
         }
       },
       "is_incremental": false,
@@ -741,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.SyncConfig.html",
-          "hash": "i3dtgyLqjqmGWIoMpLbnxqqN9p++vAAFCMvij2GdgJk="
+          "hash": "5GHlNJYaDpjKJSFNdU6YTUo98Q6TvIP7GY/V7rzA4jE="
         }
       },
       "is_incremental": false,
@@ -753,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.TelemetryLogConfig.html",
-          "hash": "DvTrfcekBTkZtNLMpG5B+SPX7CAaI1ILyiUGXoBxp+Q="
+          "hash": "CCn8rg3BnVZVuGb4Fk6dWRspb590n7ysuW83BSJdPm0="
         }
       },
       "is_incremental": false,
@@ -765,7 +765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.Types.html",
-          "hash": "tp2NNoo1HFWSMErKXcwGJqiQWL9xStT1vb8vtEEoizg="
+          "hash": "uInbWg+9bVvrj+u6y1MYnIqS4rutk75AVMqIKL9pPdg="
         }
       },
       "is_incremental": false,
@@ -777,7 +777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Configuration.html",
-          "hash": "wZZxCrzKd1USQ9VULV39NzJcJEzQ1rT+Xhmdy3eVeOE="
+          "hash": "8+b5pmZA25otXHwikfOH27MaZzKliU7uU/rqj8GPyo8="
         }
       },
       "is_incremental": false,
@@ -789,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html",
-          "hash": "U5v42aKHqcPteolm3nCtOqHWZDLGfvZPZEcxpXPRB3g="
+          "hash": "Yk5I/i1GMgeKa1GDPNEhfqz+KjvxgGvrZDmqKWJCyyE="
         }
       },
       "is_incremental": false,
@@ -801,7 +801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionData.html",
-          "hash": "hzDjLcAxjYOLp9dvC3hBxaFqhrepn4NOqBjwC/Gb/p0="
+          "hash": "qhEOAHU48N3r8zEKEx/+dFPwRtP7BFC52qhxueXE0+4="
         }
       },
       "is_incremental": false,
@@ -813,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.DecryptionKeyNoteBase64Stringified.html",
-          "hash": "0q95uPv7Rm8VXCUgXgG4H5YguGI2Ka1Ni8KuFZPtOiY="
+          "hash": "LIbV4/1lFU5EPyyLGs8naJK0BKqOdZi1ewZKidfIbZc="
         }
       },
       "is_incremental": false,
@@ -825,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.ManagedChaCha20Poly1305DecryptionKeyNote.html",
-          "hash": "tNai1neUQMXFfsumDDlbQmPAE2VLUISk5FIfN6uvdd4="
+          "hash": "iAKy8qPhnUkevPra4Eu3MseGVWbsJw4h81D6OuZnCaQ="
         }
       },
       "is_incremental": false,
@@ -837,7 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.Types.html",
-          "hash": "RVBdrC/9XAuMMjA2ma8iAv96IZS6ma5E21jbBjzEfMA="
+          "hash": "Qvp8Alh/oBkmLGEikpD954KkQOTcWYWe5IOU85XWRCw="
         }
       },
       "is_incremental": false,
@@ -849,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.FileEncryption.html",
-          "hash": "7zD4AKGM4dIMAvojAKnbrJsE92pqvy4+zGomNqj1uH0="
+          "hash": "aNC2H4x9bfm0QjSAPXoMThFipNNPu0JkSMAjMnSf26k="
         }
       },
       "is_incremental": false,
@@ -861,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.Hashing.html",
-          "hash": "cZ4TyG8XE2mI+CSjIcVOh3cAtHK2BaECYgF7P2MQIQo="
+          "hash": "Er+23llybKiG8221XJzD4Pxx1Mt1lmLAjvI9EFZjNwI="
         }
       },
       "is_incremental": false,
@@ -873,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Cryptography.html",
-          "hash": "djUMRa284e/eqdGPTFPZwlDDOJN+BLtuwoprlCSPOhk="
+          "hash": "Aa7GmQPNASqNdNSmXCV8/FSbQzsYYVAmoFJqME4ZmTY="
         }
       },
       "is_incremental": false,
@@ -885,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AwsS3Table.html",
-          "hash": "O/Hgpq+TB1uB8qKaNVtH5ObkgWHy+fDoR1GfsfUS9NA="
+          "hash": "8b3f4bWeWi+CJjHi/GVhsZRKMty4IVfOIanYQ7bsFcM="
         }
       },
       "is_incremental": false,
@@ -897,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.AzureBlobStorageTable.html",
-          "hash": "Azxq/WS+IbWq6VuaLlAe7z99n79eBfjUtjhqfKS+EcM="
+          "hash": "Lz2RlefLMp/s0DvyLN4iWZvQG4Pc+0ETVQQkkK0O2xI="
         }
       },
       "is_incremental": false,
@@ -909,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.BackBlazeB2Table.html",
-          "hash": "TrusxJJQxnMIOQn7dV5wJxFoGqC8fXzi9+fn9huF44M="
+          "hash": "zE1KC+KPz8aSXbubBZ8tyZoqUpuXYKzNU0QdFLUEzV0="
         }
       },
       "is_incremental": false,
@@ -921,7 +921,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.CompressionTable.html",
-          "hash": "FCkL2hJQd4Ztfb8EhdHmNJUCAzrN1vn3dqSihJ6UBqM="
+          "hash": "DGXXentr1/H8BpXLFP6rsn0+qxF6auBo8DDJjDsdyCA="
         }
       },
       "is_incremental": false,
@@ -933,7 +933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.EncryptionTable.html",
-          "hash": "J+2M2zBHdzxVvjYjDcLcPz/PSjjSxB/ck+lgmOmvAU8="
+          "hash": "rpY/dDnTweDQXDmQgtVwaz8FLW29klJXfV9pOVIzWkI="
         }
       },
       "is_incremental": false,
@@ -945,7 +945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.GoogleCloudStorageTable.html",
-          "hash": "FbpuaaFkXfX+qJJo+xMo3jjzswgp3GUKUG/AKrjHLzg="
+          "hash": "KO9PcXlUSZWTNgnQtJyqzZUpthc+MAEglIkQ02hmz94="
         }
       },
       "is_incremental": false,
@@ -957,7 +957,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.PrimaryTable.html",
-          "hash": "fxQPPeeYPj2mje3SMz9bX9nnvWAnM39bKC9da0V1yl0="
+          "hash": "rFfx+9FbDcBEUaFKbNdW/RRYxpA2t5iHy6QaoYfehxE="
         }
       },
       "is_incremental": false,
@@ -969,7 +969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.Entities.html",
-          "hash": "PgJ7r5QiAUsp1Ty7RqyRIsa3NhRSuP+p7Xz5ZqwZTO4="
+          "hash": "syW7aCHg2l4GhZ4+LOGCWet5/qjeBMUGEVUVA5rkHbo="
         }
       },
       "is_incremental": false,
@@ -981,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.PostgresContext.html",
-          "hash": "Mvcu+UQwcPBnkfh84DV5eyjNjgiEoWfsnOERuhyuK2A="
+          "hash": "JWNFZXJ+DxTD2FNr1ONs/NJ/96N9dle+nYYRzwqF1HA="
         }
       },
       "is_incremental": false,
@@ -993,7 +993,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.SqliteContext.html",
-          "hash": "gfFT5YiF1tpZEAfodXLllVtsstOxKuzdzQhm1iNrftY="
+          "hash": "9n4xKHk7xtijlYqxoQVZ+8g5FUWRkCWO3SfKFBP/duQ="
         }
       },
       "is_incremental": false,
@@ -1005,7 +1005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Database.html",
-          "hash": "qLJ0MOdjIJDGBPJ8007jW/iYISX6PvxU9p9qmtKd5nE="
+          "hash": "c2LJzHcQgAf/5KELQG2iz8ifLicztDviShZYcPzg/Eo="
         }
       },
       "is_incremental": false,
@@ -1017,7 +1017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.Log4NetProvider.html",
-          "hash": "VIb1Qe8JFSdVAGBZ3OnU84kLxeARyRQvsE4IXLccI0c="
+          "hash": "1Nk6+pXDsujsL0RPY5m0DumZ2MxWcY/sfIsCiZOgZJk="
         }
       },
       "is_incremental": false,
@@ -1029,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporter.html",
-          "hash": "wgvP8IT701yfBLLhFxY/YhA4FBp6eX3SskiapgGZPgw="
+          "hash": "8chg9KZQSeCkQ3g8HWS7+kDgOfai+Y3P1kyU0AUAEKc="
         }
       },
       "is_incremental": false,
@@ -1041,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.LogExporterExtensions.html",
-          "hash": "NEcGGKXA12xMCD5EViFkDarTvvMvWBz0OFNLv5nj+2M="
+          "hash": "n9ZRSg9AZhRkP+RCY0mdtgb/bAsSwtVg26fKaS23tls="
         }
       },
       "is_incremental": false,
@@ -1053,7 +1053,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogLevelExtension.html",
-          "hash": "+f67SXmX0FUchX8zp6cmGlH6jZ/tOwTD0wvcVvirrko="
+          "hash": "nsVQ/qQEJCtfkhZ2XgsdmthDB5mjSQEG8+N2b+U7fC8="
         }
       },
       "is_incremental": false,
@@ -1065,7 +1065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.TelemetryLogger.html",
-          "hash": "0gM2ge+qnEEemhvJyy0XXhUl3mOXMAG7reyGi3Oyuas="
+          "hash": "gygFmDulQL2TRQMpUxh+puk554/rHFtfZ33ehk2nQ6I="
         }
       },
       "is_incremental": false,
@@ -1077,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.Logging.html",
-          "hash": "cq/zKqXsNt6wEp8OXdgL6cv2OoQdLIN+SYyR+AcVfEc="
+          "hash": "lYkTJqCIXHHBxzPbGEzz3doch58qB8cl8TWvsPkm31c="
         }
       },
       "is_incremental": false,
@@ -1089,7 +1089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackBlazeHttpClient.html",
-          "hash": "y38QFMw/EJjREbha4dwKTPOlfl6z0F57/jaOj4l9HdM="
+          "hash": "VC4CnHJLJa9v/3OQ0jZo+B24AQcT8Ws2BYbM+lx472Q="
         }
       },
       "is_incremental": false,
@@ -1101,7 +1101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.HostProvider.html",
-          "hash": "ICtl15FdkEwDCsKRo6jh4CXOply/7KnoRtDxZR3C3JY="
+          "hash": "tzlfplii+X2/sXhgFSg9zVJssmHx8GnYDdQ7+OrdFtQ="
         }
       },
       "is_incremental": false,
@@ -1113,7 +1113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces.IPrepUploadFileProcess.html",
-          "hash": "XPXqJvrvqXpNij/9sA2x356RiceoCercGso/sETpW58="
+          "hash": "oUni6TbUvFdWrta/SHmg7TjN/fAgRCRNDxFzUtD+sMA="
         }
       },
       "is_incremental": false,
@@ -1125,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces.IUploadFileProcess.html",
-          "hash": "pjbGZ0VQizwhVBNoCypr3ZOLLO5ojPZvt8jxz+kuf3E="
+          "hash": "74P3o67QNhiWl0xTWeQOpohElrph+icRMyr3F3HbRzk="
         }
       },
       "is_incremental": false,
@@ -1137,7 +1137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Interfaces.html",
-          "hash": "wTwk1sZp+wpy+y2rvOxZzwLSf2M8JDyYzH3UytS5vvQ="
+          "hash": "5QN5WnjNMdaM+DlRPDRRMRrxx2izUnujRiN6xFsMRfc="
         }
       },
       "is_incremental": false,
@@ -1149,7 +1149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.PrepUploadFileProcess.html",
-          "hash": "BCMigq7q+i3717/lQaUWXLZHOOzcQGqgdYp5coJUjwg="
+          "hash": "Bar/lsZmFYW3Hgm/7gtzHEi7KoGfizFFTkL711c1yOs="
         }
       },
       "is_incremental": false,
@@ -1161,7 +1161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.UploadFileProcess.html",
-          "hash": "8i8J9yguiD2ln33EOGpsETAaMrbPAMviHZJrvAArV/U="
+          "hash": "hVffguMcd9OwRznhzdEqqcc27f0x3JFMf1j27Mko2VU="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Process.html",
-          "hash": "le+UmmUYgmIdvh9ObpJoYnVMK0r4prhfdyY9CPljmYA="
+          "hash": "TGONMpzM8KRIt0zXDUj0+R1HM4IDrujVeinmbl3p34U="
         }
       },
       "is_incremental": false,
@@ -1185,7 +1185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.TmpJson.html",
-          "hash": "tsPMI7t6CHJYmntt0FjJOuvVV9iDYjZUCC5M8Q2miu0="
+          "hash": "p5x2X/vgcYpOq0NMY0jqvTcpaEi/UmBrfigEi7Wr3UM="
         }
       },
       "is_incremental": false,
@@ -1197,7 +1197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.PrepItem.html",
-          "hash": "goY0Ki2yxSXlDp/qFnBQkSlyt1dL2AGcXqRkOX7Hd4U="
+          "hash": "/2Dj9QwA4ACYZf45iXn50/GcTlvIleZLQCXrc18ZiH4="
         }
       },
       "is_incremental": false,
@@ -1209,7 +1209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.UploadFileInput.html",
-          "hash": "xyvD04dBJrAt2RnG+nboesSJ/Zyv+o6wbI/9mgbdIro="
+          "hash": "0Fpp7zb8Z72pra3AROaVAcYH/fEmqMGV6YP7QOhJKUk="
         }
       },
       "is_incremental": false,
@@ -1221,7 +1221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.Types.html",
-          "hash": "Hpc6UB82BelZ4vUBYKVihAZ9bVAgeIAhoCJJ6OUKhfs="
+          "hash": "B2DW1BL2aKXoGGmF0Y6hqOOWDrxdWslLqJqovbK34Hc="
         }
       },
       "is_incremental": false,
@@ -1233,7 +1233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.BackgroundService.html",
-          "hash": "p3gNdpW+O71YSpFxrQjRDKOO7bsDDHzVt0T7thffl2c="
+          "hash": "K8/VNWDdjPA/RPO6ka8UU8GfPVNwS5eHlzN0tjlIybo="
         }
       },
       "is_incremental": false,
@@ -1245,7 +1245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.ClientUtilities.html",
-          "hash": "pTpT/y56nOdeqt0Du/dZ+CEro4hCr0XxKiNnGaS4fjo="
+          "hash": "E9T2Bvpmyq81H+UbFYBcZsyKqfUZF/p++YEQTLnBiSU="
         }
       },
       "is_incremental": false,
@@ -1257,7 +1257,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.CloudShareSyncServices.html",
-          "hash": "1YjgBLCH9lEhUks5abpq3XA0eq1p5TEhQvYBKyXI2bQ="
+          "hash": "Cy/Exfc3E1F8lzb99M2EEgyw3j0QRLfE8ZccQWZtWXk="
         }
       },
       "is_incremental": false,
@@ -1269,7 +1269,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.MimeType.html",
-          "hash": "5KVF9PU73jIUNaLHgvvcsPliwQlGiylEZPGhEt9sFVw="
+          "hash": "/6qg7qR5QByNUaPhE4xHP7AIBIeynNxqeGP6aqG6i8k="
         }
       },
       "is_incremental": false,
@@ -1281,7 +1281,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.SystemMemoryChecker.html",
-          "hash": "BUzvIAzvaJU2YhLmhuGuj06tjzqZ/R9xcvJHjaSK7d0="
+          "hash": "VgDLzjJQYQws5+SO6tOZFgE4iMQlytxd1tP2eK/0Ubg="
         }
       },
       "is_incremental": false,
@@ -1293,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Core.SharedServices.html",
-          "hash": "zXWt1h1buhfsy7glDkDvn5Jticdk/sVo4yD2V0CcjT0="
+          "hash": "ZFP6+psYL/6jx85Ld6QYEzgkTw7UyrbZGIuGH8TAQJQ="
         }
       },
       "is_incremental": false,
@@ -1305,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.App.html",
-          "hash": "l6/PP8osHiy38Avn36t/iaNKsw1ckJ4wwU/tYyEui/I="
+          "hash": "VBmr5dxPAypdnw8o6FRa2ljte5fi+3+7dudDW11D1/M="
         }
       },
       "is_incremental": false,
@@ -1317,7 +1317,67 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Program.html",
-          "hash": "6YtWwbDHxj0YXnlXzf35Rbhlm6/ss0dO1xjdXLMbWls="
+          "hash": "JbddTPbXJ92nxj6KLWvB5Zia/L+UsMwnjNEYjNEBcBo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureBackBlazeTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureBackBlazeTab.html",
+          "hash": "LylBldrZenfetekNIeERtW2DEUI+a6PoSm4CBtx9NVg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureCompressionTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureCompressionTab.html",
+          "hash": "ack3MrF/ueG09fZhhZf1eF2tTmQmZn2sR8CnpPNsqaM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureConsoleLogTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureConsoleLogTab.html",
+          "hash": "VspL4ulvXJOZF+6AM2l8Oe94LzkNl1HTQf3HRt1k4WE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureDatabaseTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureDatabaseTab.html",
+          "hash": "dkbiv7ORjyrzyANnW5fq+Sx8MmGnSTWmmqFwremfuuc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureDefaultLogTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureDefaultLogTab.html",
+          "hash": "2F5uJfWYb4cH9o0mLEq9T2B0HpmYSXhXjd/eT2f4NHY="
         }
       },
       "is_incremental": false,
@@ -1329,7 +1389,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureMainTab.html",
-          "hash": "1CzI8fq2CpZWkllHGtcUSHkE4IcgWf1GoW+9NVq544k="
+          "hash": "29dNJAFE0D0SQZSZ6oRWmTRqJMn9mYfdLVVPBoPxVFw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureSyncTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureSyncTab.html",
+          "hash": "wdB0CyD3DG5yNg4fnDe95/HENrZYlpwkJ2wPnmLEgZ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureTelemetryLogTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.ConfigureTelemetryLogTab.html",
+          "hash": "AmKpujmXzeofg6HTZ4/w1E6NcRMBJI9DL6oGcksFWbw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cloud_ShareSync.GUI.Types.IConfigurationTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cloud_ShareSync.GUI.Types.IConfigurationTab.html",
+          "hash": "XsHSEnq0xprF1M3AEnVK2ninpVmWurchT/32hVq/534="
         }
       },
       "is_incremental": false,
@@ -1341,7 +1437,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Types.html",
-          "hash": "YV/mCU95s1ls7NJv6MpuoxVS8IEWn1bWiQK7jCzfzUA="
+          "hash": "/4BZTAWihvASPVrRgWsdTDG6UPxHDkZhmmb/933gA9A="
         }
       },
       "is_incremental": false,
@@ -1353,7 +1449,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Views.ConfigureWindow.html",
-          "hash": "PwazlNwZh4U+JbIUK0NkzIUZyE8Pl6bwUolgN5yDWN0="
+          "hash": "jYxn7N/9JFOVSkXWY1jEkusb29hUxMChq6X6cjfaxWE="
         }
       },
       "is_incremental": false,
@@ -1365,7 +1461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Views.MainWindow.html",
-          "hash": "f+1b6++c9qAtZ6+V6oaXXjuYmCDBN1VCxaQf/5Y9bDM="
+          "hash": "5mwBJ98Jq2EJkH6mqR3Fg2Gyvio9KfSBk2/DL5VCk8A="
         }
       },
       "is_incremental": false,
@@ -1377,7 +1473,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Views.MessageBox.html",
-          "hash": "l6lbKGST0n85+K9azDUkvZyX/Gc9MsiGxmg1NJiDFJY="
+          "hash": "hTNE3gFFxaBedYST5kOATl/O8OrcIUHEoVb7ZaFb+zE="
         }
       },
       "is_incremental": false,
@@ -1389,7 +1485,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.Views.html",
-          "hash": "8YCP1Ea+yqEtH/5CFPmWYCyux6sp3e/88+X1Mrl7BN0="
+          "hash": "yrbrbWUR0/NDB7Fa6Q8yFhi2MTKhDGlBTF48PFVXraI="
         }
       },
       "is_incremental": false,
@@ -1401,7 +1497,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.GUI.html",
-          "hash": "tBRC/WXqh9/H+j6et297t5Fe96GfB1cDLzmEfDHZpPM="
+          "hash": "/RPOcxSyL8c3P5VUn5Jsr7ilR5A2U1TyH4ZJhxZY2QU="
         }
       },
       "is_incremental": false,
@@ -1413,7 +1509,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.Program.html",
-          "hash": "uDtTkZRWuU6x4IRD7Po82oNNB+PE9KDRUq+VHcvnPAY="
+          "hash": "rOnAFYZU+XwhVqP81vvFNmvZu4+/RCxEIhbPCGITxVg="
         }
       },
       "is_incremental": false,
@@ -1425,7 +1521,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Cloud_ShareSync.html",
-          "hash": "kYOg8IG03ojcP71lcYrmmmhSnjDv8oRo/xHgGELimyc="
+          "hash": "X7PL+0ExK+SAhIDo3ax4Bu0U0LXA+DOt95RyVL6VU8M="
         }
       },
       "is_incremental": false,
@@ -1437,7 +1533,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "m/sRKc5BETqPe+P/X68XIGGyE4NfUbPWF4Y+Qjh+W6w="
+          "hash": "L3cKNqyr4+h5Z31ng3rcJ+9S64UcLzEMxRhdUECTvN4="
         }
       },
       "is_incremental": false,
@@ -1449,7 +1545,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "BfGHCxtk5RkrXNIacpTVdZx/iOVCTTDj8xOxk5XCnm8="
+          "hash": "V793NlNtmaTWg6zwd++H58q3omc1p/CFT1jg6H/J9Qw="
         }
       },
       "is_incremental": false,
@@ -1461,7 +1557,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/7ZipDependency.html",
-          "hash": "Vs/APVNpiuXiw/WKXh+LawEJxuuWzQaeZ0hWEPxO8nc="
+          "hash": "tBGbJvm4KvuWHsyWwmw+3Z50jo+qSxcd9pjM72MbhnI="
         }
       },
       "is_incremental": false,
@@ -1473,7 +1569,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/DockerSetup.html",
-          "hash": "+njSzwX/EYTfxLNl2PCvCosMbgoZH+K3IoQCPbX2sc8="
+          "hash": "67Qw7N4qOJGtPGD1i37BPiMCXSBmvwSzzLrwUbOhQMs="
         }
       },
       "is_incremental": false,
@@ -1485,7 +1581,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/LinuxSetup.html",
-          "hash": "x8kRLUtxCoJJrBL4hlroGy8V9yPYbpz+o3zsoNVjrqA="
+          "hash": "tAa8vobTWoqCpJ6Fh7MPgiUVIE7VtfRmBP2Ko39V3Yo="
         }
       },
       "is_incremental": false,
@@ -1497,7 +1593,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/LocalDocDev.html",
-          "hash": "kV29/X8xtEZ1rqyBhSa8ffK2mw2hXlEBzKtYxKwNLHA="
+          "hash": "oPfUfUjeV7F4NoguzBhMz27t8nK61WYk7m2zLyX6sgs="
         }
       },
       "is_incremental": false,
@@ -1509,7 +1605,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/MacOsSetup.html",
-          "hash": "2GNbIgrs2vXLuKswBdEt/i6lo9RCh5Vs58KBv0uLpXs="
+          "hash": "ZzKCuLg4HaqP7+U779/WxLcueYpo2pmepIi1rBj8Pzc="
         }
       },
       "is_incremental": false,
@@ -1521,7 +1617,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/PwshExamples.html",
-          "hash": "MVCq1qq8FjMvKZ5lswR3jmTzv8npXOVF0cQTAbReri0="
+          "hash": "6eXpd7vF2x5YSttLvce0jQKdv9EgU0enDlGFC/5z89E="
         }
       },
       "is_incremental": false,
@@ -1533,7 +1629,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/WindowsSetup.html",
-          "hash": "dGhfJ2fSGRLH3wvbzZe34GyuiinDIJeyK+utF1ksi0Y="
+          "hash": "BLP2sIb1XIItNtyAkYbskFYopfHiobh0vAMriD9/SB0="
         }
       },
       "is_incremental": false,
@@ -1545,7 +1641,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/HowTo/index.html",
-          "hash": "N1V0H9E7BCVB2P0a6pkVQBKFM0vueNUTK2MWlTiHWdI="
+          "hash": "LHrARyl/JV+vZubM0hI6w6gkVyzr37txPlEvjcfvxGA="
         }
       },
       "is_incremental": false,
@@ -1569,7 +1665,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/SimpleBackupFeatures.html",
-          "hash": "SRCALTxa6aASFmJQrwBsaij26LJ6wad8lrcsJNBbQQY="
+          "hash": "0O+jbiAwqX0tfmiqqRZLqf26jNiIrMRBgiooQiYD75o="
         }
       },
       "is_incremental": false,
@@ -1581,7 +1677,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/SimpleRestoreFeatures.html",
-          "hash": "XlE+4KXRhZ+mWvQJL5sik4hPFIF/Z+swcAJ71Ty8epQ="
+          "hash": "EKdMtJ6CFZXSYiUt2dRT1lecU5Auc9DszVl8kgeLdpE="
         }
       },
       "is_incremental": false,
@@ -1593,7 +1689,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/Testing.html",
-          "hash": "wKbxW9zS1mi4G5qMcdL6+B6ls5YdA84Zp8TBrn8n0Hk="
+          "hash": "3y0xD0Hv/uudmYzTuL33JdgBCPDxBI6SBPzT5j9mzqw="
         }
       },
       "is_incremental": false,
@@ -1605,7 +1701,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "cgB15J8oSoRyXftvw6rGDMCe2Avf/pSc+VnvNgOW83E="
+          "hash": "n+59QubadTooDypeLNceSt8RMdxr/E2z09aTZ1SdePU="
         }
       },
       "is_incremental": false,
@@ -1651,7 +1747,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "MIRckysDubq55rhes29Vrlmz/YCLFLoNCSOtD3PHQTI="
+          "hash": "le0cx7kNVeZS2ueghDG+CD5sHmBo8omECpo4UzjKN4c="
         }
       },
       "is_incremental": false,
@@ -1690,7 +1786,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 117,
+          "total_file_count": 125,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
