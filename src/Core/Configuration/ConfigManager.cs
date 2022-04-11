@@ -146,6 +146,7 @@ namespace Cloud_ShareSync.Core.Configuration {
                 true when altConfigPath != null && File.Exists( altConfigPath ) => altConfigPath,
                 true when File.Exists( s_defaultConfig ) => s_defaultConfig,
                 true when envConfig != null && File.Exists( envConfig ) => envConfig,
+                true when altConfigPath != null => altConfigPath,
                 _ => throw new ApplicationException(
                     "\nMissing required configuration file. " +
                     "The configuration file path can be specified in one of three ways.\n" +
@@ -219,9 +220,9 @@ namespace Cloud_ShareSync.Core.Configuration {
             }
 
             return new ConfigurationBuilder( )
-                                .AddEnvironmentVariables( )
-                                .AddJsonStream( new MemoryStream( Encoding.ASCII.GetBytes( jsonString ) ) )
-                                .Build( );
+                    .AddEnvironmentVariables( )
+                    .AddJsonStream( new MemoryStream( Encoding.ASCII.GetBytes( jsonString ) ) )
+                    .Build( );
         }
 
         #region Validate and Assign Defaults

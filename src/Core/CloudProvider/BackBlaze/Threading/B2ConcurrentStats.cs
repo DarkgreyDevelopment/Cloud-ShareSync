@@ -158,17 +158,17 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         }
 
         internal void StartThread( int thread, int partNumber ) {
-            _log?.LogDebug( "Thread#{int} - Start StartThread - ParNumber: {int}", thread, partNumber );
+            _log?.LogDebug( "Thread#{int} - Start StartThread - PartNumber: {int}", thread, partNumber );
             SetHighWaterMarks( );
             bool bailOut = CheckStartedOrActive( thread );
             if (bailOut) {
-                _log?.LogDebug( "Thread#{int} - Exit early StartThread - ParNumber: {int}", thread, partNumber );
+                _log?.LogDebug( "Thread#{int} - Exit early StartThread - PartNumber: {int}", thread, partNumber );
                 return;
             }
             RemoveSleeping( thread );
             RemoveActive( thread );
             AddStartThread( thread );
-            _log?.LogDebug( "Thread#{int} - Exit StartThread - ParNumber: {int}", thread, partNumber );
+            _log?.LogDebug( "Thread#{int} - Exit StartThread - PartNumber: {int}", thread, partNumber );
         }
 
         internal void ThreadSleeping( int thread ) {
@@ -181,13 +181,13 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze.Threading {
         }
 
         internal void FailThread( int thread, int partNumber ) {
-            _log?.LogDebug( "Thread#{int} - Start FailThread - ParNumber: {int}", thread, partNumber );
+            _log?.LogDebug( "Thread#{int} - Start FailThread - PartNumber: {int}", thread, partNumber );
             SetHighWaterMarks( );
             RemoveStarted( thread );
             RemoveActive( thread );
             RemoveSleeping( thread );
             AddFailed( thread );
-            _log?.LogDebug( "Thread#{int} - Exit FailThread - ParNumber: {int}", thread, partNumber );
+            _log?.LogDebug( "Thread#{int} - Exit FailThread - PartNumber: {int}", thread, partNumber );
         }
 
         internal void ThreadCompleted( int thread ) {

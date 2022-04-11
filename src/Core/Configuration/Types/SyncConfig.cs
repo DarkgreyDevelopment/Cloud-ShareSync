@@ -127,36 +127,6 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         #endregion WorkingDirectory
 
 
-        #region EncryptBeforeUpload
-
-        /// <summary>
-        /// When enabled Cloud-ShareSync will use <see cref="ManagedChaCha20Poly1305"/> to encrypt files
-        /// prior to uploading to all configured cloud providers.<br/>
-        /// To enable this feature you must also add <see cref="Cloud_ShareSync_Features.Encryption"/> to the 
-        /// <see cref="EnabledFeatures"/>.<br/>
-        /// When disabled files will not be encrypted prior to upload. However if you attempt to download files that
-        /// were previously encrypted before upload they will still be decrypted automatically as long as
-        /// <see cref="Cloud_ShareSync_Features.Encryption"/> remains in the <see cref="EnabledFeatures"/>.<br/>
-        /// </summary>
-        /// <value><see langword="false"/></value>
-        public bool EncryptBeforeUpload { get; set; }
-
-        private static Option<bool> NewEncryptBeforeUploadOption( Command verbCommand ) {
-            Option<bool> encryptOption = new(
-                name: "--EncryptBeforeUpload",
-                description: "Enable to encrypt files prior to uploading to all configured cloud providers.",
-                getDefaultValue: ( ) => false
-            );
-            encryptOption.AddAlias( "-eu" );
-
-            verbCommand.AddOption( encryptOption );
-
-            return encryptOption;
-        }
-
-        #endregion EncryptBeforeUpload
-
-
         #region CompressBeforeUpload
 
         /// <summary>
@@ -214,6 +184,36 @@ namespace Cloud_ShareSync.Core.Configuration.Types {
         }
 
         #endregion UniqueCompressionPasswords
+
+
+        #region EncryptBeforeUpload
+
+        /// <summary>
+        /// When enabled Cloud-ShareSync will use <see cref="ManagedChaCha20Poly1305"/> to encrypt files
+        /// prior to uploading to all configured cloud providers.<br/>
+        /// To enable this feature you must also add <see cref="Cloud_ShareSync_Features.Encryption"/> to the 
+        /// <see cref="EnabledFeatures"/>.<br/>
+        /// When disabled files will not be encrypted prior to upload. However if you attempt to download files that
+        /// were previously encrypted before upload they will still be decrypted automatically as long as
+        /// <see cref="Cloud_ShareSync_Features.Encryption"/> remains in the <see cref="EnabledFeatures"/>.<br/>
+        /// </summary>
+        /// <value><see langword="false"/></value>
+        public bool EncryptBeforeUpload { get; set; }
+
+        private static Option<bool> NewEncryptBeforeUploadOption( Command verbCommand ) {
+            Option<bool> encryptOption = new(
+                name: "--EncryptBeforeUpload",
+                description: "Enable to encrypt files prior to uploading to all configured cloud providers.",
+                getDefaultValue: ( ) => false
+            );
+            encryptOption.AddAlias( "-eu" );
+
+            verbCommand.AddOption( encryptOption );
+
+            return encryptOption;
+        }
+
+        #endregion EncryptBeforeUpload
 
 
         #region ObfuscateUploadedFileNames

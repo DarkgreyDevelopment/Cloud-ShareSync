@@ -19,7 +19,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlaze {
             B2ThreadManager.FailureDetails[thread].StatusCode = (webExcp.StatusCode == null) ?
                 null : (int)webExcp.StatusCode;
 
-            WriteHttpRequestExceptionInfo( webExcp, errCount, thread );
+            LogHttpRequestExceptionInfo( webExcp, errCount, thread );
             HandleStatusCode( webExcp, B2ThreadManager.FailureDetails[thread].StatusCode );
             HandleRetryWait( thread, filePartQueue, concurrencyStats );
         }

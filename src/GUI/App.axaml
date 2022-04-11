@@ -1,9 +1,0 @@
-<Application xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:Cloud_ShareSync.GUI"
-             x:Class="Cloud_ShareSync.GUI.App">
-
-    <Application.Styles>
-        <FluentTheme Mode="Light"/>
-    </Application.Styles>
-</Application>

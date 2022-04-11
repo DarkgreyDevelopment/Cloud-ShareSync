@@ -38,8 +38,6 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.13" />
         <PackageReference Include="Avalonia.Desktop" Version="0.10.13" />
-        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.13" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.13" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
         <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
@@ -67,12 +65,18 @@
     <!-- Embedded Application Files -->
     <ItemGroup>
         <EmbeddedResource Include="Core\SharedServices\MimeTypes.json" />
-        <EmbeddedResource Include="GUI\Assets\BannerLogo.png" />
-        <EmbeddedResource Include="GUI\Assets\logo.ico" />
-        <EmbeddedResource Include="GUI\Assets\statusInidicator1.png" />
-        <EmbeddedResource Include="GUI\Assets\statusInidicator2.png" />
-        <EmbeddedResource Include="GUI\Assets\statusInidicator3.png" />
         <None Remove="Core\SharedServices\MimeTypes.json" />
+        <!-- Avalonia Files -->
+        <EmbeddedResource Include="GUI\Assets\BannerLogo.png" />
+        <None Remove="GUI\Assets\BannerLogo.png" />
+        <EmbeddedResource Include="GUI\Assets\logo.ico" />
+        <None Remove="GUI\Assets\logo.ico" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator1.png" />
+        <None Remove="GUI\Assets\StatusIndicator1.png" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator2.png" />
+        <None Remove="GUI\Assets\StatusIndicator2.png" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator3.png" />
+        <None Remove="GUI\Assets\StatusIndicator3.png" />
     </ItemGroup>
 
     <!-- Package Files -->
@@ -94,26 +98,6 @@
 	https://github.com/AvaloniaUI/Avalonia/issues/5593 -->
         <TrimmableAssembly Include="Avalonia.Themes.Fluent" />
         <TrimmableAssembly Include="Avalonia.Themes.Default" />
-        <AvaloniaResource Include="GUI\Assets\**" />
-    </ItemGroup>
-    <ItemGroup>
-      <AvaloniaResource Remove="GUI\Assets\BannerLogo.png" />
-      <AvaloniaResource Remove="GUI\Assets\loader.gif" />
-      <AvaloniaResource Remove="GUI\Assets\logo.ico" />
-      <AvaloniaResource Remove="GUI\Assets\progress1.png" />
-      <AvaloniaResource Remove="GUI\Assets\progress2.png" />
-      <AvaloniaResource Remove="GUI\Assets\progress3.png" />
-      <AvaloniaResource Remove="GUI\Assets\statusInidicator1.png" />
-      <AvaloniaResource Remove="GUI\Assets\statusInidicator2.png" />
-      <AvaloniaResource Remove="GUI\Assets\statusInidicator3.png" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="GUI\Views\ConfigureWindow.axaml.cs">
-        <DependentUpon>ConfigureWindow.axaml</DependentUpon>
-      </Compile>
-      <Compile Update="GUI\Views\MessageBox.axaml.cs">
-        <DependentUpon>ErrorDialog.axaml</DependentUpon>
-      </Compile>
     </ItemGroup>
 
 </Project>
