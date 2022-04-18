@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <AssemblyName>Cloud-ShareSync</AssemblyName>
+        <RootNamespace>Cloud_ShareSync</RootNamespace>
+        <StartupObject>Cloud_ShareSync.Program</StartupObject>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <FileVersion>0.0.0.0</FileVersion>
+        <Version>$(VersionPrefix)</Version>
+        <InformationalVersionAttribute>1.0.0-PreRelease0+0000</InformationalVersionAttribute>
+        <PackageId>CloudShareSync</PackageId>
+        <Authors>Taylor Marvin</Authors>
+        <Company>Darkgrey Development</Company>
+        <Description>Cloud-ShareSync Backup and Restore application.</Description>
+        <Copyright>Darkgrey Development (2022)</Copyright>
+        <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <ApplicationIcon>GUI\Assets\logo.ico</ApplicationIcon>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    </PropertyGroup>
+
+    <!-- Package References -->
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.13" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.13" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.13" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
+    </ItemGroup>
+
+    <!-- Project References -->
+    <ItemGroup>
+        <ProjectReference Include="..\Cloud_ShareSync.Core.CloudProvider\Cloud-ShareSync.Core.CloudProvider.csproj" />
+        <ProjectReference Include="..\Cloud_ShareSync.Core.Compression\Cloud-ShareSync.Core.Compression.csproj" />
+        <ProjectReference Include="..\Cloud_ShareSync.Core.Cryptography\Cloud-ShareSync.Core.Cryptography.csproj" />
+        <ProjectReference Include="..\Cloud_ShareSync.Core.Database\Cloud-ShareSync.Core.Database.csproj" />
+        <ProjectReference Include="..\Cloud_ShareSync.Core.Logging\Cloud-ShareSync.Core.Logging.csproj" />
+    </ItemGroup>
+
+    <!-- Supported Platforms -->
+    <ItemGroup>
+        <SupportedPlatform Include="Windows" />
+        <SupportedPlatform Include="Linux" />
+        <SupportedPlatform Include="macOS" />
+    </ItemGroup>
+
+    <!-- Embedded Application Files -->
+    <ItemGroup>
+        <!-- Avalonia Files -->
+        <EmbeddedResource Include="GUI\Assets\BannerLogo.png" />
+        <None Remove="GUI\Assets\BannerLogo.png" />
+        <EmbeddedResource Include="GUI\Assets\logo.ico" />
+        <None Remove="GUI\Assets\logo.ico" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator1.png" />
+        <None Remove="GUI\Assets\StatusIndicator1.png" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator2.png" />
+        <None Remove="GUI\Assets\StatusIndicator2.png" />
+        <EmbeddedResource Include="GUI\Assets\StatusIndicator3.png" />
+        <None Remove="GUI\Assets\StatusIndicator3.png" />
+    </ItemGroup>
+
+</Project>

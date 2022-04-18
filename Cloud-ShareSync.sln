@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync", "src\Cloud-ShareSync.csproj", "{388BD510-5169-4987-B96A-1F5358EE3E8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync", "src\Cloud-ShareSync\Cloud-ShareSync.csproj", "{B602054A-0576-4788-B530-3260DB881C00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core.Logging", "src\Cloud_ShareSync.Core.Logging\Cloud-ShareSync.Core.Logging.csproj", "{2ACD5B2E-17A2-48D9-B6C1-91A7391CF253}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core.Cryptography", "src\Cloud_ShareSync.Core.Cryptography\Cloud-ShareSync.Core.Cryptography.csproj", "{3A2778A7-C407-408F-B772-69D674A6DDFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core.Database", "src\Cloud_ShareSync.Core.Database\Cloud-ShareSync.Core.Database.csproj", "{71A50580-54A1-445E-BA08-AD064358B93D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core.Compression", "src\Cloud_ShareSync.Core.Compression\Cloud-ShareSync.Core.Compression.csproj", "{0F3CF9D8-0420-4835-BB73-AC7AB98E3B66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud-ShareSync.Core.CloudProvider", "src\Cloud_ShareSync.Core.CloudProvider\Cloud-ShareSync.Core.CloudProvider.csproj", "{E656F9BB-5DF4-41E1-A16C-5598F5ACB305}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5DDAC60-2594-4260-8D6E-0A8466FBB46E}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,10 +31,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{388BD510-5169-4987-B96A-1F5358EE3E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{388BD510-5169-4987-B96A-1F5358EE3E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{388BD510-5169-4987-B96A-1F5358EE3E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{388BD510-5169-4987-B96A-1F5358EE3E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B602054A-0576-4788-B530-3260DB881C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B602054A-0576-4788-B530-3260DB881C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B602054A-0576-4788-B530-3260DB881C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B602054A-0576-4788-B530-3260DB881C00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACD5B2E-17A2-48D9-B6C1-91A7391CF253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACD5B2E-17A2-48D9-B6C1-91A7391CF253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACD5B2E-17A2-48D9-B6C1-91A7391CF253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACD5B2E-17A2-48D9-B6C1-91A7391CF253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2778A7-C407-408F-B772-69D674A6DDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2778A7-C407-408F-B772-69D674A6DDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2778A7-C407-408F-B772-69D674A6DDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2778A7-C407-408F-B772-69D674A6DDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A50580-54A1-445E-BA08-AD064358B93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A50580-54A1-445E-BA08-AD064358B93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A50580-54A1-445E-BA08-AD064358B93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A50580-54A1-445E-BA08-AD064358B93D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3CF9D8-0420-4835-BB73-AC7AB98E3B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3CF9D8-0420-4835-BB73-AC7AB98E3B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3CF9D8-0420-4835-BB73-AC7AB98E3B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3CF9D8-0420-4835-BB73-AC7AB98E3B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E656F9BB-5DF4-41E1-A16C-5598F5ACB305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E656F9BB-5DF4-41E1-A16C-5598F5ACB305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E656F9BB-5DF4-41E1-A16C-5598F5ACB305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E656F9BB-5DF4-41E1-A16C-5598F5ACB305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

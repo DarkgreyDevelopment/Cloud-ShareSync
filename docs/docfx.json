@@ -5,7 +5,13 @@
         {
           "src": "../src",
           "files": [
-            "**.csproj"
+            "**.csproj",
+            "Cloud_ShareSync.Core.Logging/Cloud-ShareSync.Core.Logging.csproj",
+            "Cloud_ShareSync.Core.Database/Cloud-ShareSync.Core.Database.csproj",
+            "Cloud_ShareSync.Core.Cryptography/Cloud-ShareSync.Core.Cryptography.csproj",
+            "Cloud_ShareSync.Core.Compression/Cloud-ShareSync.Core.Compression.csproj",
+            "Cloud_ShareSync.Core.CloudProvider/Cloud-ShareSync.Core.CloudProvider.csproj",
+            "Cloud-ShareSync/Cloud-ShareSync.csproj"
           ],
           "exclude": [
             "**/bin/**",
