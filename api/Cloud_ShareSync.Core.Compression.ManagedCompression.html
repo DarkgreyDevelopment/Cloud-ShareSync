@@ -86,29 +86,29 @@ Requires 7zip.</p>
     <div><a class="xref" href="Cloud_ShareSync.Core.Compression.Interfaces.ICompression.html">ICompression</a></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Cloud_ShareSync.Core.Compression.html">Cloud_ShareSync.Core.Compression</a></h6>
-  <h6><strong>Assembly</strong>: Cloud-ShareSync.dll</h6>
+  <h6><strong>Assembly</strong>: Cloud-ShareSync.Core.Compression.dll</h6>
   <h5 id="Cloud_ShareSync_Core_Compression_ManagedCompression_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">class ManagedCompression : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class ManagedCompression : object, ICompression</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__ctor_Cloud_ShareSync_Core_Configuration_Types_CompressionConfig_System_Nullable_ILogger__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.%23ctor(Cloud_ShareSync.Core.Configuration.Types.CompressionConfig%2CSystem.Nullable%7BILogger%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__ctor_System_String_System_Nullable_ILogger__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.%23ctor(System.String%2CSystem.Nullable%7BILogger%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L30">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L28">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression__ctor_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.#ctor*"></a>
-  <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__ctor_Cloud_ShareSync_Core_Configuration_Types_CompressionConfig_System_Nullable_ILogger__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.#ctor(Cloud_ShareSync.Core.Configuration.Types.CompressionConfig,System.Nullable{ILogger})">ManagedCompression(CompressionConfig, Nullable&lt;ILogger&gt;)</h4>
+  <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__ctor_System_String_System_Nullable_ILogger__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.#ctor(System.String,System.Nullable{ILogger})">ManagedCompression(String, Nullable&lt;ILogger&gt;)</h4>
   <div class="markdown level1 summary"><p>Pass in the 7zip dependency path via the <code data-dev-comment-type="paramref" class="paramref">config</code>.
 Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code> to enable logging.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ManagedCompression(CompressionConfig config, ILogger? log = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ManagedCompression(string dependencyPath, ILogger? log = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -121,8 +121,8 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Cloud_ShareSync.Core.Configuration.Types.CompressionConfig.html">CompressionConfig</a></td>
-        <td><span class="parametername">config</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dependencyPath</span></td>
         <td></td>
       </tr>
       <tr>
@@ -139,7 +139,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__dependencyPath.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression._dependencyPath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L16">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L14">View Source</a>
   </span>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__dependencyPath" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression._dependencyPath">_dependencyPath</h4>
   <div class="markdown level1 summary"></div>
@@ -168,7 +168,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__exceptions.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression._exceptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L20">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L18">View Source</a>
   </span>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__exceptions" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression._exceptions">_exceptions</h4>
   <div class="markdown level1 summary"></div>
@@ -197,7 +197,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__log.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression._log%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L17">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L15">View Source</a>
   </span>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__log" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression._log">_log</h4>
   <div class="markdown level1 summary"></div>
@@ -226,7 +226,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression__semaphore.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression._semaphore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L18">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L16">View Source</a>
   </span>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression__semaphore" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression._semaphore">_semaphore</h4>
   <div class="markdown level1 summary"></div>
@@ -255,7 +255,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_s_source.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.s_source%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L15">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L13">View Source</a>
   </span>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_s_source" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.s_source">s_source</h4>
   <div class="markdown level1 summary"></div>
@@ -286,7 +286,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_PlatformSupported.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.PlatformSupported%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L22">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L20">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_PlatformSupported_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.PlatformSupported*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_PlatformSupported" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.PlatformSupported">PlatformSupported</h4>
@@ -318,7 +318,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CleanupTemporaryDirectory_System_String_System_String_List_FileSystemInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String%2CSystem.String%2CList%7BFileSystemInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L192">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L188">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CleanupTemporaryDirectory_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CleanupTemporaryDirectory_System_String_System_String_List_FileSystemInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CleanupTemporaryDirectory(System.String,System.String,List{FileSystemInfo})">CleanupTemporaryDirectory(String, String, List&lt;FileSystemInfo&gt;)</h4>
@@ -375,7 +375,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CombineResults_IEnumerable_DirectoryInfo__IEnumerable_FileInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable%7BDirectoryInfo%7D%2CIEnumerable%7BFileInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L211">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L207">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CombineResults_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CombineResults_IEnumerable_DirectoryInfo__IEnumerable_FileInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CombineResults(IEnumerable{DirectoryInfo},IEnumerable{FileInfo})">CombineResults(IEnumerable&lt;DirectoryInfo&gt;, IEnumerable&lt;FileInfo&gt;)</h4>
@@ -427,7 +427,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_FileSystemInfo_FileInfo_FileInfo_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath(FileSystemInfo%2CFileInfo%2CFileInfo%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L304">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L300">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_FileSystemInfo_FileInfo_FileInfo_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath(FileSystemInfo,FileInfo,FileInfo,System.Nullable{System.String})">CompressPath(FileSystemInfo, FileInfo, FileInfo, Nullable&lt;String&gt;)</h4>
@@ -489,7 +489,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_FileSystemInfo_FileInfo_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath(FileSystemInfo%2CFileInfo%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L298">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L294">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CompressPath_FileSystemInfo_FileInfo_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CompressPath(FileSystemInfo,FileInfo,System.Nullable{System.String})">CompressPath(FileSystemInfo, FileInfo, Nullable&lt;String&gt;)</h4>
@@ -548,7 +548,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_Create7ZProcess_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.Create7ZProcess(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L392">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L387">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_Create7ZProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.Create7ZProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_Create7ZProcess_System_String_System_String_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.Create7ZProcess(System.String,System.String,System.String)">Create7ZProcess(String, String, String)</h4>
@@ -605,7 +605,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectories_System_String_IEnumerable_Tuple_System_String_System_String___.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String%2CIEnumerable%7BTuple%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L256">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L252">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectories_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectories_System_String_IEnumerable_Tuple_System_String_System_String___" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectories(System.String,IEnumerable{Tuple{System.String,System.String}})">CreateOutputDirectories(String, IEnumerable&lt;Tuple&lt;String, String&gt;&gt;)</h4>
@@ -657,7 +657,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectoryStructure_System_String_System_String_List_FileSystemInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String%2CSystem.String%2CList%7BFileSystemInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L242">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L238">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectoryStructure_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_CreateOutputDirectoryStructure_System_String_System_String_List_FileSystemInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.CreateOutputDirectoryStructure(System.String,System.String,List{FileSystemInfo})">CreateOutputDirectoryStructure(String, String, List&lt;FileSystemInfo&gt;)</h4>
@@ -714,7 +714,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_FileInfo_DirectoryInfo_FileInfo_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath(FileInfo%2CDirectoryInfo%2CFileInfo%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L57">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L54">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_FileInfo_DirectoryInfo_FileInfo_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath(FileInfo,DirectoryInfo,FileInfo,System.Nullable{System.String})">DecompressPath(FileInfo, DirectoryInfo, FileInfo, Nullable&lt;String&gt;)</h4>
@@ -776,7 +776,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_FileInfo_DirectoryInfo_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath(FileInfo%2CDirectoryInfo%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L51">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L48">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_DecompressPath_FileInfo_DirectoryInfo_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DecompressPath(FileInfo,DirectoryInfo,System.Nullable{System.String})">DecompressPath(FileInfo, DirectoryInfo, Nullable&lt;String&gt;)</h4>
@@ -835,7 +835,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_DeriveFileSystemInfoType_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L185">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L181">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_DeriveFileSystemInfoType_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_DeriveFileSystemInfoType_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.DeriveFileSystemInfoType(System.String)">DeriveFileSystemInfoType(String)</h4>
@@ -882,7 +882,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnExceptions.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L442">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L437">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnExceptions_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnExceptions" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnExceptions">FailOnExceptions()</h4>
@@ -897,7 +897,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCode_System_Int32_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L451">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L446">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCode_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCode_System_Int32_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCode(System.Int32)">FailOnNonZeroExitCode(Int32)</h4>
@@ -929,7 +929,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCodeOrException_System_Int32_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCodeOrException(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L435">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L430">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCodeOrException_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCodeOrException*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_FailOnNonZeroExitCodeOrException_System_Int32_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FailOnNonZeroExitCodeOrException(System.Int32)">FailOnNonZeroExitCodeOrException(Int32)</h4>
@@ -961,7 +961,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_FinishDecompressProcess_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L132">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L128">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_FinishDecompressProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_FinishDecompressProcess_System_String_System_String_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.FinishDecompressProcess(System.String,System.String,System.String)">FinishDecompressProcess(String, String, String)</h4>
@@ -1018,7 +1018,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetDecompressedItems_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L160">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L156">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetDecompressedItems_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetDecompressedItems_System_String_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetDecompressedItems(System.String,System.String)">GetDecompressedItems(String, String)</h4>
@@ -1070,7 +1070,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetExitCodeDefinition_System_Int32_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L462">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L457">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetExitCodeDefinition_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetExitCodeDefinition_System_Int32_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetExitCodeDefinition(System.Int32)">GetExitCodeDefinition(Int32)</h4>
@@ -1117,7 +1117,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetFilePaths_List_FileSystemInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List%7BFileSystemInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L278">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L274">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetFilePaths_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetFilePaths_List_FileSystemInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetFilePaths(List{FileSystemInfo})">GetFilePaths(List&lt;FileSystemInfo&gt;)</h4>
@@ -1164,7 +1164,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetFileSystemEntries_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L177">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L173">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetFileSystemEntries_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetFileSystemEntries_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetFileSystemEntries(System.String)">GetFileSystemEntries(String)</h4>
@@ -1211,7 +1211,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetRelativePaths_System_String_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String%2CIEnumerable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L269">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L265">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetRelativePaths_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetRelativePaths_System_String_IEnumerable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetRelativePaths(System.String,IEnumerable{System.String})">GetRelativePaths(String, IEnumerable&lt;String&gt;)</h4>
@@ -1263,7 +1263,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetTemporaryDirectory_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L152">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L148">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetTemporaryDirectory_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetTemporaryDirectory_System_String_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetTemporaryDirectory(System.String)">GetTemporaryDirectory(String)</h4>
@@ -1310,7 +1310,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_GetUniqueDirectoryPaths_List_FileSystemInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List%7BFileSystemInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L281">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L277">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetUniqueDirectoryPaths_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_GetUniqueDirectoryPaths_List_FileSystemInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.GetUniqueDirectoryPaths(List{FileSystemInfo})">GetUniqueDirectoryPaths(List&lt;FileSystemInfo&gt;)</h4>
@@ -1357,7 +1357,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_MoveFilesToOutputDirectory_System_String_System_String_List_FileSystemInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String%2CSystem.String%2CList%7BFileSystemInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L226">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L222">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_MoveFilesToOutputDirectory_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_MoveFilesToOutputDirectory_System_String_System_String_List_FileSystemInfo__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.MoveFilesToOutputDirectory(System.String,System.String,List{FileSystemInfo})">MoveFilesToOutputDirectory(String, String, List&lt;FileSystemInfo&gt;)</h4>
@@ -1414,7 +1414,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_NewCompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L355">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L350">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_NewCompressProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_NewCompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.NewCompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})">NewCompressProcess(String, String, String, String, Nullable&lt;String&gt;)</h4>
@@ -1481,7 +1481,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_NewDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L112">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L108">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_NewDecompressProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_NewDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.NewDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})">NewDecompressProcess(String, String, String, String, Nullable&lt;String&gt;)</h4>
@@ -1548,7 +1548,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_ReceiveErrorData_System_Object_DataReceivedEventArgs_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.ReceiveErrorData(System.Object%2CDataReceivedEventArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L425">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L420">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_ReceiveErrorData_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.ReceiveErrorData*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_ReceiveErrorData_System_Object_DataReceivedEventArgs_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.ReceiveErrorData(System.Object,DataReceivedEventArgs)">ReceiveErrorData(Object, DataReceivedEventArgs)</h4>
@@ -1585,7 +1585,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_RunCompressProcess_System_String_FileInfo_System_String_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String%2CFileInfo%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L325">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L321">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunCompressProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunCompressProcess_System_String_FileInfo_System_String_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunCompressProcess(System.String,FileInfo,System.String,System.Nullable{System.String})">RunCompressProcess(String, FileInfo, String, Nullable&lt;String&gt;)</h4>
@@ -1632,7 +1632,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_RunDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L87">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L84">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunDecompressProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunDecompressProcess_System_String_System_String_System_String_System_String_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunDecompressProcess(System.String,System.String,System.String,System.String,System.Nullable{System.String})">RunDecompressProcess(String, String, String, String, Nullable&lt;String&gt;)</h4>
@@ -1699,7 +1699,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression_RunProcess_Process_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess(Process)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L384">View Source</a>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L379">View Source</a>
   </span>
   <a id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunProcess_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess*"></a>
   <h4 id="Cloud_ShareSync_Core_Compression_ManagedCompression_RunProcess_Process_" data-uid="Cloud_ShareSync.Core.Compression.ManagedCompression.RunProcess(Process)">RunProcess(Process)</h4>
@@ -1741,7 +1741,7 @@ Optionally set <code data-dev-comment-type="paramref" class="paramref">log</code
                     <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/develop/apiSpec/new?filename=Cloud_ShareSync_Core_Compression_ManagedCompression.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.Compression.ManagedCompression%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Core/Compression/ManagedCompression.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/src/Cloud_ShareSync.Core.Compression/ManagedCompression.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
