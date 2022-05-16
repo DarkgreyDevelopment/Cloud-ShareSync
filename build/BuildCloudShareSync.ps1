@@ -66,6 +66,6 @@ Foreach ($OsDir in $PublishProfileOSDirectories) {
     $READMEOutput = Join-Path -Path $OsDir -ChildPath 'README.md'
     Copy-Item -Path $READMEPath -Destination $READMEOutput @CopyParam
 }
-if ($PublishProfileOutputPath -ine $PublishProfileOutputPath ) {
+if ($PublishProfileOutputPath -ine $PUBLISHPATH ) {
     Move-Item -Path $PublishProfileOutputPath -Destination $PUBLISHPATH @CopyParam
 }
