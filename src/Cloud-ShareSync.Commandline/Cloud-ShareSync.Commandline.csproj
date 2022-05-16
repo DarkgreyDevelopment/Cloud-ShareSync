@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <AssemblyName>Cloud-ShareSync.Commandline</AssemblyName>
+        <RootNamespace>Cloud_ShareSync.Commandline</RootNamespace>
+        <StartupObject>Cloud_ShareSync.Commandline.Program</StartupObject>
+        <AssemblyVersion>0.7.0.0</AssemblyVersion>
+        <Version>$(VersionPrefix)</Version>
+        <InformationalVersionAttribute>0.7.0-PreRelease0</InformationalVersionAttribute>
+        <PackageId>CloudShareSync.Commandline</PackageId>
+        <Authors>Taylor Marvin</Authors>
+        <Company>Darkgrey Development</Company>
+        <Description>Cloud-ShareSync - Multi-Cloud Cloud Backup and Restore solution. Commandline only edition</Description>
+        <Copyright>Darkgrey Development (2022)</Copyright>
+        <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    </PropertyGroup>
+
+    <!-- Package References -->
+    <ItemGroup>
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
+    </ItemGroup>
+
+    <!-- Project References -->
+    <ItemGroup>
+      <ProjectReference Include="..\Cloud-ShareSync.Core.BackgroundService\Cloud-ShareSync.Core.BackgroundService.csproj" />
+      <ProjectReference Include="..\Cloud-ShareSync.Core.Configuration\Cloud-ShareSync.Core.Configuration.csproj" />
+    </ItemGroup>
+
+    <!-- Supported Platforms -->
+    <ItemGroup>
+        <SupportedPlatform Include="Windows" />
+        <SupportedPlatform Include="Linux" />
+        <SupportedPlatform Include="macOS" />
+    </ItemGroup>
+
+</Project>

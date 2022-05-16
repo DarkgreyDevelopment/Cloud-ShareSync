@@ -39,23 +39,41 @@ jobs:
           }
           & $BuildScript @Params
 
-      - name: Upload Windows artifact
+      - name: Upload Windows selfcontained artifact
         uses: actions/upload-artifact@v3
         with:
           name: windows.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/publish/windows
+          path: ${{ github.workspace }}/publish/selfcontained/windows
 
-      - name: Upload Linux artifact
+      - name: Upload Windows framework artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows.framework.${{ github.sha }}
+          path: ${{ github.workspace }}/publish/framework/windows
+
+      - name: Upload Linux selfcontained artifact
         uses: actions/upload-artifact@v3
         with:
           name: linux.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/publish/linux
+          path: ${{ github.workspace }}/publish/selfcontained/linux
 
-      - name: Upload MacOS artifact
+      - name: Upload Linux framework artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux.framework.${{ github.sha }}
+          path: ${{ github.workspace }}/publish/framework/linux
+
+      - name: Upload MacOS selfcontained artifact
         uses: actions/upload-artifact@v3
         with:
           name: macos.portable.${{ github.sha }}
-          path: ${{ github.workspace }}/publish/macos
+          path: ${{ github.workspace }}/publish/selfcontained/macos
+
+      - name: Upload MacOS framework artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos.framework.${{ github.sha }}
+          path: ${{ github.workspace }}/publish/framework/macos
 
       - name: Create DockerFiles
         shell: pwsh

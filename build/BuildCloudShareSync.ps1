@@ -9,28 +9,43 @@ param (
 
 # Restore, Build, Publish SimpleBackup.
 Push-Location $SOURCEPATH
-$ProjectPath = Resolve-Path -Path "$SOURCEPATH/src/Cloud-ShareSync.csproj"
+$Project1Path = Resolve-Path -Path "$SOURCEPATH/src/Cloud-ShareSync.GUI/Cloud-ShareSync.GUI.csproj"
+$Project2Path = Resolve-Path -Path "$SOURCEPATH/src/Cloud-ShareSync.Commandline/Cloud-ShareSync.Commandline.csproj"
 Write-Host 'Restoring Cloud-ShareSync' -ForegroundColor Green
-dotnet restore $ProjectPath
+dotnet restore $Project1Path
+dotnet restore $Project2Path
 
-$PublishProfiles = @('PublishWindows', 'PublishLinux', 'PublishMacOS')
+$PublishProfiles = @('PublishWindows', 'PublishWindows_FrameWork', 'PublishLinux', 'PublishLinux_FrameWork', 'PublishMacOS', 'PublishMacOS_FrameWork')
 Foreach ($PubProfile in $PublishProfiles) {
-    $joinPathSplat = @{
-        Path                = $SOURCEPATH
-        ChildPath           = 'src'
-        AdditionalChildPath = @('Properties', 'PublishProfiles', "$PubProfile.pubxml")
+    $joinPathSplat1 = @{
+        Path                = Split-Path $Project1Path
+        ChildPath           = 'Properties'
+        AdditionalChildPath = @('PublishProfiles', "$PubProfile.pubxml")
         Resolve             = $true
     }
-    $ProfilePath = Join-Path @joinPathSplat
-    Write-Host "Cloud-ShareSync $PubProfile" -ForegroundColor Green
+    $ProfilePath = Join-Path @joinPathSplat1
+    Write-Host "Cloud-ShareSync GUI $PubProfile" -ForegroundColor Green
+    dotnet publish "/p:PublishProfile=$ProfilePath"
+
+    $joinPathSplat2 = @{
+        Path                = Split-Path $Project2Path
+        ChildPath           = 'Properties'
+        AdditionalChildPath = @('PublishProfiles', "$PubProfile.pubxml")
+        Resolve             = $true
+    }
+    $ProfilePath = Join-Path @joinPathSplat2
+    Write-Host "Cloud-ShareSync Commandline $PubProfile" -ForegroundColor Green
     dotnet publish "/p:PublishProfile=$ProfilePath"
 }
 
 $PublishProfileOutputPath = Join-Path -Path $SOURCEPATH -ChildPath 'publish'
 $PublishProfileOSDirectories = @(
-    (Join-Path -Path $PublishProfileOutputPath -ChildPath "windows"),
-    (Join-Path -Path $PublishProfileOutputPath -ChildPath "linux"),
-    (Join-Path -Path $PublishProfileOutputPath -ChildPath "macos")
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'framework' -AdditionalChildPath 'windows'),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'selfcontained' -AdditionalChildPath 'windows'),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'framework' -AdditionalChildPath 'linux'),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'selfcontained' -AdditionalChildPath 'linux'),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'framework' -AdditionalChildPath 'macos'),
+    (Join-Path -Path $PublishProfileOutputPath -ChildPath 'selfcontained' -AdditionalChildPath 'macos')
 )
 
 $AppSettings = Join-Path -Path $SOURCEPATH -ChildPath 'appsettings.json'

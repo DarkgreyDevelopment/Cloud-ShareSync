@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Cloud-ShareSync.Core</AssemblyName>
+    <RootNamespace>Cloud_ShareSync.Core</RootNamespace>
+    <AssemblyVersion>0.7.0.0</AssemblyVersion>
+    <Version>$(VersionPrefix)</Version>
+    <InformationalVersionAttribute>0.7.0-PreRelease0</InformationalVersionAttribute>
+    <PackageId>Cloud_ShareSync.Core</PackageId>
+    <Authors>Taylor Marvin</Authors>
+    <Company>Darkgrey Development</Company>
+    <Description>Cloud-ShareSync Core Namespace Package.</Description>
+    <Copyright>Darkgrey Development (2022)</Copyright>
+    <PackageProjectUrl>https://cloud-sharesync.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DarkgreyDevelopment/Cloud-ShareSync/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DebugType>embedded</DebugType>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
