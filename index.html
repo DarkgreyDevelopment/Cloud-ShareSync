@@ -65,7 +65,7 @@
 </p>
 <p><a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/DarkgreyDevelopment/Cloud-ShareSync?style=plastic" alt="GitHub"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?include_prereleases&amp;label=latest%20release&amp;style=plastic" alt="latest release"></a>
-<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&amp;style=plastic" alt="official release"></a>
+<a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/releases/"><img src="https://img.shields.io/github/v/release/DarkgreyDevelopment/Cloud-ShareSync?label=official%20release&amp;style=plastic" alt="official release"></a><br>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/github-actions.yml/badge.svg?branch=main" alt="Releases"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" alt="CodeQL"></a>
 <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Documentation"></a></p>
@@ -74,10 +74,10 @@
 <p>Note: Documentation may change at any time and without any notice.</p>
 <br>
 <h2 id="description">Description:</h2>
-<p>Cloud-ShareSync is an open source cloud storage backup application.</p>
+<p>Cloud-ShareSync is an open source cloud storage backup and restore application.</p>
 <p>The long term goal of this project is to build a backup application, akin to <a href="https://onedrive.com">OneDrive</a>, that extends the Files On Demand/Fuse functionality to new public cloud storage providers. Supporting platforms such as linux and MacOS is also a priority.</p>
-<p>Cloud-ShareSync (v1.x) will have a much more limited scope. The application currently has two separate modes of operation; <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Backup.html">Backup</a> and <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Restore.html">Restore</a>.</p>
-<p>Cloud-ShareSync is a console applications that run on Windows<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Windows is tested on Windows Server 2022.">*</a>, Linux<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
+<p>Cloud-ShareSync (v1.x) will have a much more limited scope. The application currently (v0.7.0-PreRelease) has two separate modes of operation; Backup and Restore.</p>
+<p>Cloud-ShareSync runs on Windows<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Windows is tested on Windows Server 2022.">*</a>, Linux<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="Linux is tested on Ubuntu latest.">*</a>, and MacOS<a href="https://docs.cloud-sharesync.com/articles/Testing.html" title="MacOS is tested on macOS 11 Big Sur.">*</a>.</p>
 <br>
 <h2 id="documentation">Documentation:</h2>
 <p>Project documentation can be found at <a href="https://docs.cloud-sharesync.com">docs.cloud-sharesync.com</a>.</p>
@@ -93,10 +93,11 @@
 </ul>
 <br>
 <h2 id="roadmap">Roadmap:</h2>
-<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the specifics of the roadmap can be found. Cloud-ShareSync is currently in a pre-release state and will follow <a href="https://semver.org">semantic versioning</a> upon release.</p>
-<h3 id="pre-releasephase-01">Pre-Release/Phase 01:</h3>
+<p>The project <a href="https://github.com/orgs/DarkgreyDevelopment/projects/3">planning &amp; development board</a> is where the specifics of the roadmap can be found.<br>
+Cloud-ShareSync is currently in a pre-release state and will follow <a href="https://semver.org">semantic versioning</a> upon release.</p>
+<h3 id="phase-01---v07">Phase 01 - V0.7:</h3>
 <ul>
-<li>Status  : In Progress.</li>
+<li>Status  : Nearing Completion.</li>
 <li>Goal    : Establish initial backup and restore functionality.</li>
 <li>Features:
 <ul>
@@ -108,10 +109,10 @@
 </li>
 <li>A config file controls the the remaining application settings.</li>
 <li>Console logging and rolling log files are enabled by default.</li>
-<li>OpenTelemetry trace logging is also available when enabled.</li>
-<li>Application data can be stored in either a local Sqlite database or a remote postgres database.</li>
-<li>Backup application is a simple console app.</li>
-<li>For backup - Files can be uploaded to a BackBlaze B2 bucket.
+<li>OpenTelemetry trace logging is also available when enabled (currently partially enabled).</li>
+<li>Application data can be stored in a local Sqlite database.</li>
+<li>Application can run in either console or GUI mode.</li>
+<li>Files can be uploaded/downloaded to/from a BackBlaze B2 bucket.
 <ul>
 <li>BackBlaze B2 bucket specified by user in config.</li>
 </ul>
@@ -128,36 +129,47 @@
 <li>File encryption depends on <a href="https://docs.cloud-sharesync.com/api/Cloud_ShareSync.Core.Cryptography.FileEncryption.ManagedChaCha20Poly1305.html">ChaCha20Poly1305 platform support</a>.</li>
 </ul>
 </li>
-<li>Restore mode uses the database to restore all files that were uploaded to BackBlaze B2 by the the backup application.
-<ul>
-<li>When the restore process is run repeatedly; Files that were downloaded from the bucket on prior runs will be skipped if they are unchanged.</li>
-</ul>
-</li>
+<li>Restore mode uses the database to restore all files that were uploaded to BackBlaze B2 by the the backup application.</li>
 <li>Restore mode will decompresses files after download if they were compressed during the upload process.</li>
-<li>Decrypts files after download if they were encrypted during the upload process.</li>
+<li>Restore mode decrypts files after download if they were encrypted during the upload process.</li>
 </ul>
 </li>
 </ul>
-<h3 id="phase-02">Phase 02:</h3>
+<h3 id="phase-02---v08">Phase 02 - v0.8:</h3>
 <ul>
-<li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Build Selective Restore Application</li>
+<li>Status  : Solidifying Acceptance Criteria.</li>
+<li>Goal    : Add Azure Blob Storage, Postgres, and Selective Restore functionality</li>
 <li>Features:
 <ul>
-<li>All phase 01 features retained.</li>
-<li>Selective restore will have both GUI and cmdline components with equal feature parity.</li>
-<li>Selective restore GUI will present a table/spreadsheet like view of previously uploaded files and will individual files restoral.</li>
+<li>Add ability to upload/download files to/from <a href="https://azure.microsoft.com/en-us/services/storage/blobs">Azure Blob Storage</a>.
+<ul>
+<li>Backup process can archive to both BackBlazeB2 and Azure Blob Storage simultaneously.</li>
+<li>Restore mode requires specifying which cloud provider to restore files from.</li>
+</ul>
+</li>
+<li>Enable Postgres alternative DB functionality.
+<ul>
+<li>Postgres OR Sqlite. Not both.</li>
+</ul>
+</li>
+<li>Add selective restore GUI option.
+<ul>
+<li>Selective restore GUI will present a table/spreadsheet like view of previously uploaded files.</li>
+<li>Allows the user to restore individual files from either configured cloud provider.</li>
 </ul>
 </li>
 </ul>
-<h3 id="phase-03">Phase 03:</h3>
+</li>
+</ul>
+<h3 id="phase-03---v09">Phase 03 - v0.9:</h3>
 <ul>
 <li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Add configuration GUI + cmdline options.</li>
+<li>Goal    : Add &quot;Sync&quot; functionality &amp; convert to background service.</li>
 <li>Features:
 <ul>
-<li>Unified application should run as a background service.</li>
-<li>Unified application should have an associated management GUI.
+<li>Application needs to combine backup and restore modes into an always on &quot;Sync&quot; mode.</li>
+<li>Application should run as a background service.</li>
+<li>Application should (continue to) have an associated management GUI.
 <ul>
 <li>Management GUI should primarily allow input of app settings.</li>
 <li>GUI should also contain the SelectiveRestore menu.</li>
@@ -166,26 +178,19 @@
 </ul>
 </li>
 </ul>
-<h3 id="phase-04">Phase 04:</h3>
+<h3 id="phase-04---pre-10-release">Phase 04 - Pre-1.0 Release:</h3>
 <ul>
 <li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Add additional cloud providers.</li>
+<li>Goal    : Focus on code quality and tests.</li>
+</ul>
+<h3 id="beyond">Beyond:</h3>
+<ul>
+<li>Status  : Developing Acceptance Criteria.</li>
+<li>Goal    : Add additional cloud providers &amp; Add Files On Demand/FUSE functionality.</li>
 <li>Features:
 <ul>
-<li>Retain features from all previous phases.</li>
-<li>Add ability to upload/download files to/from <a href="https://azure.microsoft.com/en-us/services/storage/blobs">Azure Blob Storage</a>.</li>
 <li>Add ability to upload/download files to/from <a href="https://aws.amazon.com/s3">Aws S3</a>.</li>
 <li>Add ability to upload/download files to/from <a href="https://cloud.google.com/storage">Google Cloud Storage</a>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="phase-05">Phase 05:</h3>
-<ul>
-<li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Add Files On Demand/FUSE functionality.</li>
-<li>Features:
-<ul>
-<li>Feature set TBD.</li>
 </ul>
 </li>
 <li>Reference Docs:
@@ -195,21 +200,18 @@
 </ul>
 </li>
 </ul>
-<h3 id="phase-06">Phase 06:</h3>
-<ul>
-<li>Status  : Developing Acceptance Criteria.</li>
-<li>Goal    : Enable multi device support.</li>
-<li>Features:
-<ul>
-<li>Feature set TBD.</li>
-</ul>
-</li>
-</ul>
 <br>
 <h3 id="contributing">Contributing:</h3>
-<p>Please help keep the repository inclusive and fun! Abusive, rude, disrespectful or inappropriate behavior will not be tolerated. Read the <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> for more details.</p>
+<p>Contributing is encouraged!<br>
+Please help keep the repository inclusive and fun! Abusive, rude, disrespectful or inappropriate behavior will not be tolerated.<br>
+Read the <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> for more details.</p>
 <ul>
-<li>ToDo: Finish writing contribution guides. Good examples: <a href="https://github.com/microsoft/terminal/blob/main/CONTRIBUTING.md">here</a>, <a href="https://github.com/microsoft/vscode#contributing">here</a>, and <a href="https://github.com/microsoft/PowerToys/blob/main/CONTRIBUTING.md">here</a>. Example <a href="https://opensource.microsoft.com/pdf/microsoft-contribution-license-agreement.pdf">CLA</a>.</li>
+<li>ToDo: Finish writing contribution guides.
+<ul>
+<li>Good examples: <a href="https://github.com/microsoft/terminal/blob/main/CONTRIBUTING.md">here</a>, <a href="https://github.com/microsoft/vscode#contributing">here</a>, and <a href="https://github.com/microsoft/PowerToys/blob/main/CONTRIBUTING.md">here</a>.</li>
+<li>Example <a href="https://opensource.microsoft.com/pdf/microsoft-contribution-license-agreement.pdf">CLA</a>.</li>
+</ul>
+</li>
 </ul>
 <br>
 <h3 id="disclaimers">Disclaimers*</h3>
@@ -223,7 +225,7 @@ All code is provided free of charge, as is, and with no warranty under an <a hre
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/develop/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

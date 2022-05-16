@@ -1,0 +1,2440 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class B2Api
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class B2Api
+   ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="png" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api">
+  
+  
+  <h1 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api" class="text-break">Class B2Api
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">B2Api</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.html">Cloud_ShareSync.Core.CloudProvider.BackBlazeB2</a></h6>
+  <h6><strong>Assembly</strong>: Cloud-ShareSync.Core.CloudProvider.dll</h6>
+  <h5 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class B2Api : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__ctor_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_Nullable_ILogger__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Nullable%7BILogger%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L11">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__ctor_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.#ctor*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__ctor_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_Nullable_ILogger__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.#ctor(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Nullable{ILogger})">B2Api(String, String, String, String, Int32, Int32, Nullable&lt;ILogger&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public B2Api(string applicationKeyId, string applicationKey, string bucketName, string bucketId, int maxErrors, int httpThreads, ILogger? logger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">applicationKeyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">applicationKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">bucketName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">bucketId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxErrors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">httpThreads</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILogger</span>&gt;</td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__initData.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._initData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L36">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__initData" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._initData">_initData</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly InitializationData _initData</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.InitializationData.html">InitializationData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__log.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._log%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L35">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__log" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._log">_log</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly ILogger? _log</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILogger</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__services.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._services%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L37">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__services" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._services">_services</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly HttpClientServices _services</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.SharedServices.HttpClientServices.html">HttpClientServices</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__source.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._source%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L34">View Source</a>
+  </span>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api__source" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api._source">_source</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly ActivitySource _source</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ActivitySource</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AuthToken.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AuthToken%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L39">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AuthToken_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AuthToken*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AuthToken" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AuthToken">AuthToken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AuthorizeAccount AuthToken { }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.AuthorizeAccount.html">AuthorizeAccount</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LargeFileSize.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LargeFileSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L38">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LargeFileSize_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LargeFileSize*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LargeFileSize" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LargeFileSize">LargeFileSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int LargeFileSize { }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ArbitrateThreads_System_Int64_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ArbitrateThreads(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L127">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ArbitrateThreads_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ArbitrateThreads*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ArbitrateThreads_System_Int64_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ArbitrateThreads(System.Int64)">ArbitrateThreads(Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ThreadArbiter ArbitrateThreads(long contentLength)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">contentLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.ThreadArbiter.html">ThreadArbiter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AwaitUploadParts_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__List_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AwaitUploadParts(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo%2CConcurrentStack%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo%7D%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D%2CList%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L186">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AwaitUploadParts_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AwaitUploadParts*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_AwaitUploadParts_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__List_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.AwaitUploadParts(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo,ConcurrentStack{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo},ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult},List{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl})">AwaitUploadParts(UploadFileInfo, ConcurrentStack&lt;UploadResultInfo&gt;, ConcurrentBag&lt;FilePartResult&gt;, List&lt;GetUploadPartUrl&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;List&lt;Task&gt;&gt; AwaitUploadParts(UploadFileInfo upload, ConcurrentStack&lt;UploadResultInfo&gt; filePartStack, ConcurrentBag&lt;FilePartResult&gt; filePartsResults, List&lt;GetUploadPartUrl&gt; urlList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo.html">UploadResultInfo</a>&gt;</td>
+        <td><span class="parametername">filePartStack</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartsResults</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl.html">GetUploadPartUrl</a>&gt;</td>
+        <td><span class="parametername">urlList</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<span class="xref">Task</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_BuildExceptionMessage_Exception_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.BuildExceptionMessage(Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L413">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_BuildExceptionMessage_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.BuildExceptionMessage*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_BuildExceptionMessage_Exception_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.BuildExceptionMessage(Exception)">BuildExceptionMessage(Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static string BuildExceptionMessage(Exception exception)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CallDownloadFileByIdApi_System_String_HttpMethod_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CallDownloadFileByIdApi(System.String%2CHttpMethod%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L69">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CallDownloadFileByIdApi_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CallDownloadFileByIdApi*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CallDownloadFileByIdApi_System_String_HttpMethod_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CallDownloadFileByIdApi(System.String,HttpMethod,System.Nullable{System.String})">CallDownloadFileByIdApi(String, HttpMethod, Nullable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;DownloadFileById&gt; CallDownloadFileByIdApi(string fileId, HttpMethod method, string? range)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">HttpMethod</span></td>
+        <td><span class="parametername">method</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">range</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.DownloadFileById.html">DownloadFileById</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CheckTryAction_System_Nullable_System_Object__System_Boolean_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CheckTryAction(System.Nullable%7BSystem.Object%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L297">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CheckTryAction_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CheckTryAction*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CheckTryAction_System_Nullable_System_Object__System_Boolean_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CheckTryAction(System.Nullable{System.Object},System.Boolean)">CheckTryAction(Nullable&lt;Object&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool CheckTryAction(object? obj, bool receivedItem)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">receivedItem</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreateFinishLargeFileRequest_System_String_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreateFinishLargeFileRequest(System.String%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L365">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreateFinishLargeFileRequest_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreateFinishLargeFileRequest*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreateFinishLargeFileRequest_System_String_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreateFinishLargeFileRequest(System.String,ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult})">CreateFinishLargeFileRequest(String, ConcurrentBag&lt;FilePartResult&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static B2FinishLargeFileRequest CreateFinishLargeFileRequest(string fileId, ConcurrentBag&lt;FilePartResult&gt; filePartsResults)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartsResults</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.B2FinishLargeFileRequest.html">B2FinishLargeFileRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsQueue_System_Int64_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsQueue(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L152">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsQueue_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsQueue*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsQueue_System_Int64_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsQueue(System.Int64)">CreatePartsQueue(Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ConcurrentStack&lt;FilePartResult&gt; CreatePartsQueue(long contentLength)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">contentLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_ThreadArbiter_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsStack(Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.ThreadArbiter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L144">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsStack_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsStack*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_CreatePartsStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_ThreadArbiter_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.CreatePartsStack(Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.ThreadArbiter)">CreatePartsStack(ThreadArbiter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static ConcurrentStack&lt;UploadResultInfo&gt; CreatePartsStack(ThreadArbiter arbiter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.ThreadArbiter.html">ThreadArbiter</a></td>
+        <td><span class="parametername">arbiter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo.html">UploadResultInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DeriveLargeFileSize.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DeriveLargeFileSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L46">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DeriveLargeFileSize_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DeriveLargeFileSize*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DeriveLargeFileSize" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DeriveLargeFileSize">DeriveLargeFileSize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int DeriveLargeFileSize()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DetermineMultiPartUploadSuccessStatus_List_Task__ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DetermineMultiPartUploadSuccessStatus(List%7BTask%7D%2CConcurrentStack%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L377">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DetermineMultiPartUploadSuccessStatus_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DetermineMultiPartUploadSuccessStatus*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DetermineMultiPartUploadSuccessStatus_List_Task__ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DetermineMultiPartUploadSuccessStatus(List{Task},ConcurrentStack{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo})">DetermineMultiPartUploadSuccessStatus(List&lt;Task&gt;, ConcurrentStack&lt;UploadResultInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DetermineMultiPartUploadSuccessStatus(List&lt;Task&gt; tasks, ConcurrentStack&lt;UploadResultInfo&gt; filePartStack)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">Task</span>&gt;</td>
+        <td><span class="parametername">tasks</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo.html">UploadResultInfo</a>&gt;</td>
+        <td><span class="parametername">filePartStack</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileId_System_String_FileInfo_System_Nullable_System_Int64__System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileId(System.String%2CFileInfo%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L13">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileId_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileId*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileId_System_String_FileInfo_System_Nullable_System_Int64__System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileId(System.String,FileInfo,System.Nullable{System.Int64},System.Nullable{System.String})">DownloadFileId(String, FileInfo, Nullable&lt;Int64&gt;, Nullable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task DownloadFileId(string fileId, FileInfo outputPath, long? contentLength = null, string? sha512Hash = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td><span class="parametername">outputPath</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">contentLength</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">sha512Hash</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileIdParts_System_String_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileIdParts(System.String%2CConcurrentStack%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L162">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileIdParts_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileIdParts*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadFileIdParts_System_String_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadFileIdParts(System.String,ConcurrentStack{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult},ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo})">DownloadFileIdParts(String, ConcurrentStack&lt;FilePartResult&gt;, ConcurrentBag&lt;DownloadResultInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async void DownloadFileIdParts(string fileId, ConcurrentStack&lt;FilePartResult&gt; filePartStack, ConcurrentBag&lt;DownloadResultInfo&gt; downloadedData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartStack</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo.html">DownloadResultInfo</a>&gt;</td>
+        <td><span class="parametername">downloadedData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadLargeFileParts_System_String_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__System_Int32_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadLargeFileParts(System.String%2CConcurrentStack%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L187">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadLargeFileParts_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadLargeFileParts*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_DownloadLargeFileParts_System_String_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__System_Int32_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.DownloadLargeFileParts(System.String,ConcurrentStack{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult},ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo},System.Int32)">DownloadLargeFileParts(String, ConcurrentStack&lt;FilePartResult&gt;, ConcurrentBag&lt;DownloadResultInfo&gt;, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task DownloadLargeFileParts(string fileId, ConcurrentStack&lt;FilePartResult&gt; filePartStack, ConcurrentBag&lt;DownloadResultInfo&gt; downloadedData, int thread)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartStack</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo.html">DownloadResultInfo</a>&gt;</td>
+        <td><span class="parametername">downloadedData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">thread</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_FinishLargeFileUpload_System_String_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.FinishLargeFileUpload(System.String%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L334">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_FinishLargeFileUpload_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.FinishLargeFileUpload*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_FinishLargeFileUpload_System_String_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.FinishLargeFileUpload(System.String,ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult})">FinishLargeFileUpload(String, ConcurrentBag&lt;FilePartResult&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;FinishLargeFile&gt; FinishLargeFileUpload(string fileId, ConcurrentBag&lt;FilePartResult&gt; filePartsResults)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartsResults</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.FinishLargeFile.html">FinishLargeFile</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetAuthData.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetAuthData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L58">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetAuthData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetAuthData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetAuthData" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetAuthData">GetAuthData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;AuthorizeAccount&gt; GetAuthData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.AuthorizeAccount.html">AuthorizeAccount</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileId_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileId(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L101">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileId_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileId*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileId_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileId(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)">GetFileId(UploadFileInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;StartLargeFile&gt; GetFileId(UploadFileInfo upload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.StartLargeFile.html">StartLargeFile</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileVersions_System_String_HttpClient_System_Int32_System_Nullable_ILogger__List_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_B2File__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileVersions(System.String%2CHttpClient%2CSystem.Int32%2CSystem.Nullable%7BILogger%7D%2CList%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.B2File%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-ListFileMethods.cs/#L19">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileVersions_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileVersions*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetFileVersions_System_String_HttpClient_System_Int32_System_Nullable_ILogger__List_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_B2File__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetFileVersions(System.String,HttpClient,System.Int32,System.Nullable{ILogger},List{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.B2File})">GetFileVersions(String, HttpClient, Int32, Nullable&lt;ILogger&gt;, List&lt;B2File&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;string?&gt; GetFileVersions(string bucketId, HttpClient client, int retryCount, ILogger? log, List&lt;B2File&gt; output)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">bucketId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">retryCount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILogger</span>&gt;</td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.B2File.html">B2File</a>&gt;</td>
+        <td><span class="parametername">output</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetHttpClient.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetHttpClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L55">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetHttpClient_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetHttpClient*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetHttpClient" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetHttpClient">GetHttpClient()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HttpClient GetHttpClient()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetRange_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetRange(Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L212">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetRange_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetRange*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetRange_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetRange(Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult)">GetRange(FilePartResult)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static string GetRange(FilePartResult partData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a></td>
+        <td><span class="parametername">partData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetResponseBytes_HttpResponseMessage_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetResponseBytes(HttpResponseMessage)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L215">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetResponseBytes_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetResponseBytes*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetResponseBytes_HttpResponseMessage_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetResponseBytes(HttpResponseMessage)">GetResponseBytes(HttpResponseMessage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] GetResponseBytes(HttpResponseMessage response)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpResponseMessage</span></td>
+        <td><span class="parametername">response</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetUploadPartUrls_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetUploadPartUrls(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L155">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetUploadPartUrls_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetUploadPartUrls*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_GetUploadPartUrls_System_Int32_System_String_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.GetUploadPartUrls(System.Int32,System.String)">GetUploadPartUrls(Int32, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;List&lt;GetUploadPartUrl&gt;&gt; GetUploadPartUrls(int urlCount, string fileId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">urlCount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl.html">GetUploadPartUrl</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ListBucketFiles.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ListBucketFiles%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-ListFileMethods.cs/#L8">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ListBucketFiles_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ListBucketFiles*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ListBucketFiles" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ListBucketFiles">ListBucketFiles()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;List&lt;B2File&gt;&gt; ListBucketFiles()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.B2File.html">B2File</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LogTaskStatus_List_Task__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LogTaskStatus(List%7BTask%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L391">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LogTaskStatus_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LogTaskStatus*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_LogTaskStatus_List_Task__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.LogTaskStatus(List{Task})">LogTaskStatus(List&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LogTaskStatus(List&lt;Task&gt; tasks)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">Task</span>&gt;</td>
+        <td><span class="parametername">tasks</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_MultiPartFileDownload_FileStream_System_String_System_Int64_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.MultiPartFileDownload(FileStream%2CSystem.String%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L136">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_MultiPartFileDownload_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.MultiPartFileDownload*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_MultiPartFileDownload_FileStream_System_String_System_Int64_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.MultiPartFileDownload(FileStream,System.String,System.Int64)">MultiPartFileDownload(FileStream, String, Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task MultiPartFileDownload(FileStream saveFile, string fileId, long contentLength)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td><span class="parametername">saveFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">contentLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PopulateResponseQueue_System_Int64_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__ConcurrentQueue_System_Byte____.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PopulateResponseQueue(System.Int64%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo%7D%2CConcurrentQueue%7BSystem.Byte%5B%5D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L238">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PopulateResponseQueue_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PopulateResponseQueue*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PopulateResponseQueue_System_Int64_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__ConcurrentQueue_System_Byte____" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PopulateResponseQueue(System.Int64,ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo},ConcurrentQueue{System.Byte[]})">PopulateResponseQueue(Int64, ConcurrentBag&lt;DownloadResultInfo&gt;, ConcurrentQueue&lt;Byte[]&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static async Task PopulateResponseQueue(long totalParts, ConcurrentBag&lt;DownloadResultInfo&gt; downloadedData, ConcurrentQueue&lt;byte[]&gt; responseQueue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">totalParts</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo.html">DownloadResultInfo</a>&gt;</td>
+        <td><span class="parametername">downloadedData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentQueue</span>&lt;<span class="xref">System.Byte</span>[]&gt;</td>
+        <td><span class="parametername">responseQueue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PullDownloadData_System_Int64_Dictionary_System_Int64_System_Byte____ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__ConcurrentQueue_System_Byte____.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PullDownloadData(System.Int64%2CDictionary%7BSystem.Int64%2CSystem.Byte%5B%5D%7D%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo%7D%2CConcurrentQueue%7BSystem.Byte%5B%5D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L256">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PullDownloadData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PullDownloadData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_PullDownloadData_System_Int64_Dictionary_System_Int64_System_Byte____ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__ConcurrentQueue_System_Byte____" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.PullDownloadData(System.Int64,Dictionary{System.Int64,System.Byte[]},ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo},ConcurrentQueue{System.Byte[]})">PullDownloadData(Int64, Dictionary&lt;Int64, Byte[]&gt;, ConcurrentBag&lt;DownloadResultInfo&gt;, ConcurrentQueue&lt;Byte[]&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static async Task&lt;bool&gt; PullDownloadData(long partNum, Dictionary&lt;long, byte[]&gt; byteDict, ConcurrentBag&lt;DownloadResultInfo&gt; downloadedData, ConcurrentQueue&lt;byte[]&gt; responseQueue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">partNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int64</span>, <span class="xref">System.Byte</span>[]&gt;</td>
+        <td><span class="parametername">byteDict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo.html">DownloadResultInfo</a>&gt;</td>
+        <td><span class="parametername">downloadedData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentQueue</span>&lt;<span class="xref">System.Byte</span>[]&gt;</td>
+        <td><span class="parametername">responseQueue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_RunDownloadProcess_System_String_FileInfo_System_Int64_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.RunDownloadProcess(System.String%2CFileInfo%2CSystem.Int64%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L37">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_RunDownloadProcess_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.RunDownloadProcess*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_RunDownloadProcess_System_String_FileInfo_System_Int64_System_Nullable_System_String__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.RunDownloadProcess(System.String,FileInfo,System.Int64,System.Nullable{System.String})">RunDownloadProcess(String, FileInfo, Int64, Nullable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task RunDownloadProcess(string fileId, FileInfo outputPath, long contentLength, string? sha512Hash)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td><span class="parametername">outputPath</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">contentLength</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">sha512Hash</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SelectSha512FileInfo_Dictionary_System_String_System_String__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SelectSha512FileInfo(Dictionary%7BSystem.String%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L30">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SelectSha512FileInfo_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SelectSha512FileInfo*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SelectSha512FileInfo_Dictionary_System_String_System_String__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SelectSha512FileInfo(Dictionary{System.String,System.String})">SelectSha512FileInfo(Dictionary&lt;String, String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? SelectSha512FileInfo(Dictionary&lt;string, string&gt; fileInfo)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">fileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SmallFileDownload_FileStream_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SmallFileDownload(FileStream%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L103">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SmallFileDownload_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SmallFileDownload*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_SmallFileDownload_FileStream_System_String_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.SmallFileDownload(FileStream,System.String)">SmallFileDownload(FileStream, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task SmallFileDownload(FileStream saveFile, string fileId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td><span class="parametername">saveFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_TaskStatusFailed_Task_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.TaskStatusFailed(Task)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L410">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_TaskStatusFailed_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.TaskStatusFailed*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_TaskStatusFailed_Task_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.TaskStatusFailed(Task)">TaskStatusFailed(Task)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TaskStatusFailed(Task task)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UpdateAuthData.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UpdateAuthData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-Constructor_Fields.cs/#L41">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UpdateAuthData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UpdateAuthData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UpdateAuthData" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UpdateAuthData">UpdateAuthData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task UpdateAuthData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L14">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadFile_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadFile*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)">UploadFile(UploadFileInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;string&gt; UploadFile(UploadFileInfo upload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L78">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFile_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFile*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)">UploadLargeFile(UploadFileInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;string&gt; UploadLargeFile(UploadFileInfo upload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFilePart_HttpClient_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult_System_String_System_Int32_System_Nullable_ILogger__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFilePart(HttpClient%2CCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl%2CCloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo%2CCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartInfo%2CCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%2CSystem.String%2CSystem.Int32%2CSystem.Nullable%7BILogger%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L266">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFilePart_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFilePart*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFilePart_HttpClient_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult_System_String_System_Int32_System_Nullable_ILogger__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFilePart(HttpClient,Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl,Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo,Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartInfo,Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult,System.String,System.Int32,System.Nullable{ILogger})">UploadLargeFilePart(HttpClient, GetUploadPartUrl, UploadFileInfo, FilePartInfo, FilePartResult, String, Int32, Nullable&lt;ILogger&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;FilePartResult&gt; UploadLargeFilePart(HttpClient client, GetUploadPartUrl urlData, UploadFileInfo upload, FilePartInfo partData, FilePartResult result, string pretxt, int maxErrors, ILogger? log)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl.html">GetUploadPartUrl</a></td>
+        <td><span class="parametername">urlData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartInfo.html">FilePartInfo</a></td>
+        <td><span class="parametername">partData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pretxt</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxErrors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILogger</span>&gt;</td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFileParts_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__System_Int32_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFileParts(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo%2CCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl%2CConcurrentStack%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo%7D%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L213">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFileParts_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFileParts*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadLargeFileParts_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Endpoints_GetUploadPartUrl_ConcurrentStack_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_UploadResultInfo__ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_FilePartResult__System_Int32_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadLargeFileParts(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo,Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl,ConcurrentStack{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo},ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult},System.Int32)">UploadLargeFileParts(UploadFileInfo, GetUploadPartUrl, ConcurrentStack&lt;UploadResultInfo&gt;, ConcurrentBag&lt;FilePartResult&gt;, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task UploadLargeFileParts(UploadFileInfo upload, GetUploadPartUrl urlData, ConcurrentStack&lt;UploadResultInfo&gt; filePartStack, ConcurrentBag&lt;FilePartResult&gt; filePartsResults, int thread)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Endpoints.GetUploadPartUrl.html">GetUploadPartUrl</a></td>
+        <td><span class="parametername">urlData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentStack</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.UploadResultInfo.html">UploadResultInfo</a>&gt;</td>
+        <td><span class="parametername">filePartStack</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.FilePartResult.html">FilePartResult</a>&gt;</td>
+        <td><span class="parametername">filePartsResults</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">thread</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadSmallFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadSmallFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L29">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadSmallFile_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadSmallFile*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_UploadSmallFile_Cloud_ShareSync_Core_CloudProvider_Types_UploadFileInfo_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.UploadSmallFile(Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo)">UploadSmallFile(UploadFileInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">async Task&lt;string&gt; UploadSmallFile(UploadFileInfo upload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cloud_ShareSync.Core.CloudProvider.Types.UploadFileInfo.html">UploadFileInfo</a></td>
+        <td><span class="parametername">upload</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ValidateDownloadedFileData_FileInfo_System_String_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ValidateDownloadedFileData(FileInfo%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L59">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ValidateDownloadedFileData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ValidateDownloadedFileData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_ValidateDownloadedFileData_FileInfo_System_String_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.ValidateDownloadedFileData(FileInfo,System.String)">ValidateDownloadedFileData(FileInfo, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static async Task ValidateDownloadedFileData(FileInfo outputPath, string uploadSha512Hash)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td><span class="parametername">outputPath</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">uploadSha512Hash</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteDownloadDataLoop_FileStream_System_Int64_ConcurrentQueue_System_Byte____.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteDownloadDataLoop(FileStream%2CSystem.Int64%2CConcurrentQueue%7BSystem.Byte%5B%5D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L277">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteDownloadDataLoop_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteDownloadDataLoop*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteDownloadDataLoop_FileStream_System_Int64_ConcurrentQueue_System_Byte____" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteDownloadDataLoop(FileStream,System.Int64,ConcurrentQueue{System.Byte[]})">WriteDownloadDataLoop(FileStream, Int64, ConcurrentQueue&lt;Byte[]&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static async Task WriteDownloadDataLoop(FileStream saveFile, long totalParts, ConcurrentQueue&lt;byte[]&gt; responseQueue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td><span class="parametername">saveFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">totalParts</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentQueue</span>&lt;<span class="xref">System.Byte</span>[]&gt;</td>
+        <td><span class="parametername">responseQueue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteExceptionExtraData_Exception_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteExceptionExtraData(Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L430">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteExceptionExtraData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteExceptionExtraData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteExceptionExtraData_Exception_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteExceptionExtraData(Exception)">WriteExceptionExtraData(Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static string WriteExceptionExtraData(Exception exception)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteFileData_Stream_FileStream_.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteFileData(Stream%2CFileStream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L118">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteFileData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteFileData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteFileData_Stream_FileStream_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteFileData(Stream,FileStream)">WriteFileData(Stream, FileStream)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static void WriteFileData(Stream contentStream, FileStream saveFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">contentStream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td><span class="parametername">saveFile</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteMultiPartDownloadData_FileStream_System_Int64_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteMultiPartDownloadData(FileStream%2CSystem.Int64%2CConcurrentBag%7BCloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-DownloadMethods.cs/#L225">View Source</a>
+  </span>
+  <a id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteMultiPartDownloadData_" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteMultiPartDownloadData*"></a>
+  <h4 id="Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api_WriteMultiPartDownloadData_FileStream_System_Int64_ConcurrentBag_Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_V2Api_Types_DownloadResultInfo__" data-uid="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api.WriteMultiPartDownloadData(FileStream,System.Int64,ConcurrentBag{Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo})">WriteMultiPartDownloadData(FileStream, Int64, ConcurrentBag&lt;DownloadResultInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static async Task WriteMultiPartDownloadData(FileStream saveFile, long totalParts, ConcurrentBag&lt;DownloadResultInfo&gt; downloadedData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td><span class="parametername">saveFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">totalParts</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConcurrentBag</span>&lt;<a class="xref" href="Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.V2Api.Types.DownloadResultInfo.html">DownloadResultInfo</a>&gt;</td>
+        <td><span class="parametername">downloadedData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/new/refs/heads/main/apiSpec/new?filename=Cloud_ShareSync_Core_CloudProvider_BackBlazeB2_B2Api.md&amp;value=---%0Auid%3A%20Cloud_ShareSync.Core.CloudProvider.BackBlazeB2.B2Api%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DarkgreyDevelopment/Cloud-ShareSync/blob/refs/heads/main/src/Cloud-ShareSync.Core.CloudProvider/BackBlazeB2/B2Api/B2Api-UploadMethods.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="toggle-mode">
+                <div class="icon">
+                  <i aria-hidden="true">☀</i>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="switch-style">
+                  <span class="slider round"></span>
+                </label>
+                <div class="icon">
+                  <i aria-hidden="true">☾</i>
+                </div>
+              </div>
+          
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <h5>In This Article</h5>
+              <div></div>
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div class="pull-left">
+              
+              <span><a href="https://docs.cloud-sharesync.com/articles/intro.html">About Me</a></span>
+              <span> | </span>
+              <span><a href="https://docs.cloud-sharesync.com/OpenSource.html">Open Source Acknowledgements</a></span>
+              <span> | </span>
+              <span><a href="https://docs.cloud-sharesync.com/SECURITY.html">Security</a></span>
+            </div>
+            <div class="toggle-mode pull-right visible-sm visible-xs">
+              <div class="icon">
+                <i aria-hidden="true">☀</i>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="switch-style-m">
+                <span class="slider round"></span>
+              </label>
+              <div class="icon">
+                <i aria-hidden="true">☾</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="../styles/toggle-theme.js"></script>
+      </footer>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
