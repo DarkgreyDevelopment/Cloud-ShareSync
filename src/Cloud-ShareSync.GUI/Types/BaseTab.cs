@@ -1,12 +1,11 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
-using Cloud_ShareSync.Core.Configuration.Interfaces;
 using Cloud_ShareSync.GUI.Views;
 
 namespace Cloud_ShareSync.GUI.Types {
     internal abstract class BaseTab : StackPanel, IConfigurationTab {
-        public BaseTab( ICloudShareSyncConfig config, ConfigureWindow parent ) {
+        public BaseTab( ConfigureWindow parent ) {
             ParentWindow = parent;
         }
         internal ConfigureWindow ParentWindow { get; set; }

@@ -12,7 +12,7 @@ namespace Cloud_ShareSync.Core.Logging.Appenders {
             try {
                 this.AddErrorFilters( logLevels );
                 this.AddMappings( ErrLvl.CreateColorMappingsList( ) );
-                this.RegisterCodePage( );
+                ConsoleAppenderExtensions.RegisterCodePage( );
                 Layout = new PatternLayout( ).DefaultPatternLayout( );
                 Target = "Console.Error";
                 ActivateOptions( );

@@ -151,7 +151,7 @@ namespace Cloud_ShareSync.Core.BackgroundService.PrepFile {
             activity?.Stop( );
         }
 
-        private void EnqueuePrepItems( List<PrepItem> list ) {
+        private static void EnqueuePrepItems( List<PrepItem> list ) {
             List<PrepItem> unMatched = list.Where( e => e.CoreData == null || e.BackBlazeData == null ).ToList( );
 
             // Add unmatched before matched.

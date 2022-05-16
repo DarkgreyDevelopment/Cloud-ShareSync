@@ -165,7 +165,7 @@ namespace Cloud_ShareSync.Core.BackgroundService.DownloadFile {
             return downloadedFile;
         }
 
-        private void MoveFileToFinalPath( FileInfo downloadedFile, FileInfo finalPath ) =>
+        private static void MoveFileToFinalPath( FileInfo downloadedFile, FileInfo finalPath ) =>
             File.Move( downloadedFile.FullName, finalPath.FullName, true );
 
         private async Task<List<B2File>> GetB2FileList( ) {

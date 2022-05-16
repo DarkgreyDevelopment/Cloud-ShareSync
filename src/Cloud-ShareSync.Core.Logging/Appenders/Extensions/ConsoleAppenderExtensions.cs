@@ -1,10 +1,9 @@
 ﻿using System.Text;
-using log4net.Appender;
 
 namespace Cloud_ShareSync.Core.Logging.Appenders.Extensions {
     internal static class ConsoleAppenderExtensions {
 
-        public static void RegisterCodePage( this ColoredConsoleAppender consoleAppender ) {
+        public static void RegisterCodePage( ) {
             try {
                 // Register terminal code page for console output.
                 Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );

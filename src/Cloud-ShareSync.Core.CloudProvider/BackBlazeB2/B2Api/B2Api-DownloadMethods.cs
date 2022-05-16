@@ -213,7 +213,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlazeB2 {
             $"{partData.Offset}-{partData.Offset + partData.PartSize - 1}";
 
         private byte[] GetResponseBytes( HttpResponseMessage response ) {
-            using MemoryStream ms = new MemoryStream( );
+            using MemoryStream ms = new( );
             using Stream contentStream = response.ReadContentStream(
                     AuthToken.downloadUrl + DownloadFileById.EndpointURI,
                     EndpointCalls.DownloadFileById.ToString( )
@@ -222,7 +222,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlazeB2 {
             return ms.ToArray( );
         }
 
-        private async Task WriteMultiPartDownloadData(
+        private static async Task WriteMultiPartDownloadData(
             FileStream saveFile,
             long totalParts,
             ConcurrentBag<DownloadResultInfo> downloadedData
@@ -274,7 +274,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlazeB2 {
         }
 
 
-        private async Task WriteDownloadDataLoop(
+        private static async Task WriteDownloadDataLoop(
             FileStream saveFile,
             long totalParts,
             ConcurrentQueue<byte[]> responseQueue

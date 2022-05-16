@@ -95,9 +95,6 @@ namespace Cloud_ShareSync.Core.Logging {
             bool enableColoredConsole = true
         ) {
             Hierarchy? hierarchy = LoggerRepository as Hierarchy;
-            bool? contains = hierarchy?.LevelMap.AllLevels.Contains( TelemetryLogLevelExtension.TelemetryLevel );
-
-            int? test = (int)logLevels;
             if (UseColoredConsoleAppenders( enableColoredConsole )) {
                 AddColoredConsoleLogAppender( hierarchy, useStdErr, logLevels );
                 AddColoredConsoleErrorLogAppender( hierarchy, useStdErr, logLevels );

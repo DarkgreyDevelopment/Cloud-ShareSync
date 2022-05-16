@@ -73,7 +73,7 @@ namespace Cloud_ShareSync.Core.BackgroundService.Restore {
             _log?.LogDebug( "Completed Download Work." );
         }
 
-        private async Task WaitOnTasks( Task[] uploadTasks ) {
+        private static async Task WaitOnTasks( Task[] uploadTasks ) {
             while (uploadTasks.Any( e => e.IsCompleted != true )) {
                 await Task.Delay( 2500 );
             }

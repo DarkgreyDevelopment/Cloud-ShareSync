@@ -14,7 +14,7 @@ namespace Cloud_ShareSync.Core.Logging.Appenders {
                 Level[] levels = logLevels.TranslateLogLevel( addErrorsLevels );
                 this.AddFilters( levels.CreateFiltersList( addErrorsLevels ) );
                 this.AddMappings( levels.CreateColorMappingsList( ) );
-                this.RegisterCodePage( );
+                ConsoleAppenderExtensions.RegisterCodePage( );
                 Layout = new PatternLayout( ).DefaultPatternLayout( );
                 ActivateOptions( );
             } catch (Exception consoleLogFailure) {

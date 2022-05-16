@@ -9,7 +9,7 @@ using Cloud_ShareSync.GUI.Views;
 namespace Cloud_ShareSync.GUI.Types {
     internal class ConfigureTelemetryLogTab : BaseTab {
 
-        public ConfigureTelemetryLogTab( Log4NetConfig config, ConfigureWindow parent ) : base( config, parent ) {
+        public ConfigureTelemetryLogTab( Log4NetConfig config, ConfigureWindow parent ) : base( parent ) {
             _config = config;
             ConfigureWindowSettings( );
             ConfigureWindowContent( config );

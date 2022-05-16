@@ -141,7 +141,7 @@ namespace Cloud_ShareSync.Core.CloudProvider.BackBlazeB2 {
             return arbiter;
         }
 
-        private ConcurrentStack<UploadResultInfo> CreatePartsStack( ThreadArbiter arbiter ) {
+        private static ConcurrentStack<UploadResultInfo> CreatePartsStack( ThreadArbiter arbiter ) {
             ConcurrentStack<UploadResultInfo> filePartStack = new( );
             for (int i = arbiter.TotalParts; i >= 1; i--) {
                 int partLength = i == arbiter.TotalParts ? arbiter.FinalSize : arbiter.PartSize;
