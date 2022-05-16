@@ -1,4 +1,4 @@
-name: CloudShareSync
+name: Build Cloud-ShareSync
 on:
   push:
     branches:
@@ -24,22 +24,25 @@ jobs:
           echo "Job status: ${{ job.status }}"
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: List files in the repository
-        run:  ls ${{ github.workspace }}
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Build SimpleBackup
+      - name: Build Cloud-ShareSync
         shell: pwsh
         run: |
-          $BuildScript = (Resolve-Path -Path ./build/BuildSimpleBackup.ps1).Path
+          $BuildScript = (Resolve-Path -Path ./build/BuildCloudShareSync.ps1).Path
           $Params = @{
             SOURCEPATH  = (Get-Location).Path
             PUBLISHPATH = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
             Verbose     = $true
           }
           & $BuildScript @Params
-          Get-ChildItem -Path $Params['PUBLISHPATH'] | Select-Object -Property Name,Size | Format-List | Out-String
+
+          # Write out what was built.
+          Get-ChildItem -Path $Params['PUBLISHPATH'] -recurse
+          | Select-Object -Property Name,Size
+          | Format-List
+          | Write-Host
       - run: |
           echo "Job status: ${{ job.status }}"

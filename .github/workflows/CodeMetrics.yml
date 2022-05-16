@@ -1,0 +1,198 @@
+name: Code Metrics
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  Perform-Code-Analysis:
+    runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: true
+
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
+
+    steps:
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Get Code Metrics
+        shell: pwsh
+        run: |
+          Function Convert-XMLMetricsToFlatObjects {
+            [CmdletBinding()]
+            param (
+              [Parameter(Mandatory)]
+              [xml]$InputMetrics
+            )
+
+            class CodeMetricsReport {
+              [string]$AssemblyName       = ''
+              [string]$NameSpace          = ''
+              [string]$Type               = ''
+              [string]$Method             = ''
+              [int]$MaintainabilityIndex  = 0
+              [int]$CyclomaticComplexity  = 0
+              [int]$ClassCoupling         = 0
+              $DepthOfInheritance         = 0
+              [int]$LinesOfSourceCode     = 0
+              [int]$LinesOfExecutableCode = 0
+            }
+
+            Filter Select-Metric {
+              [CmdletBinding()]
+              param (
+                [Parameter(Mandatory,ValueFromPipeline)]
+                $InputObject,
+
+                [Parameter(Mandatory)]
+                [ValidateSet(
+                  'MaintainabilityIndex',
+                  'CyclomaticComplexity',
+                  'ClassCoupling',
+                  'DepthOfInheritance',
+                  'SourceLines',
+                  'ExecutableLines'
+                )]
+                [string]$Metric
+              )
+              $InputObject | Where-Object {$_.Name -eq $Metric} | Select-Object -ExpandProperty 'Value'
+            }
+
+            $Result = Foreach ($Assembly in $InputMetrics.CodeMetricsReport.Targets.Target) {
+              $AssemblyStats = [CodeMetricsReport]::new()
+              $AssemblyName = $Assembly.Assembly.Name
+              $AssemblyMetrics = $Assembly.Assembly.Metrics.Metric
+              $AssemblyStats.AssemblyName          = $AssemblyName
+              $AssemblyStats.MaintainabilityIndex  = $AssemblyMetrics | Select-Metric -Metric MaintainabilityIndex
+              $AssemblyStats.CyclomaticComplexity  = $AssemblyMetrics | Select-Metric -Metric CyclomaticComplexity
+              $AssemblyStats.ClassCoupling         = $AssemblyMetrics | Select-Metric -Metric ClassCoupling
+              $AssemblyStats.DepthOfInheritance    = $AssemblyMetrics | Select-Metric -Metric DepthOfInheritance
+              $AssemblyStats.LinesOfSourceCode     = $AssemblyMetrics | Select-Metric -Metric SourceLines
+              $AssemblyStats.LinesOfExecutableCode = $AssemblyMetrics | Select-Metric -Metric ExecutableLines
+              Write-Output -InputObject $AssemblyStats # Return AssemblyStats
+
+              foreach ($NameSpace in $Assembly.ChildNodes.NameSpaces.NameSpace) {
+                $NameSpaceStats = [CodeMetricsReport]::new()
+                $NameSpaceMetrics = $NameSpace.Metrics.Metric
+                $NameSpaceStats.AssemblyName          = $AssemblyName
+                $NameSpaceStats.NameSpace             = $NameSpace.Name
+                $NameSpaceStats.MaintainabilityIndex  = $NameSpaceMetrics | Select-Metric -Metric MaintainabilityIndex
+                $NameSpaceStats.CyclomaticComplexity  = $NameSpaceMetrics | Select-Metric -Metric CyclomaticComplexity
+                $NameSpaceStats.ClassCoupling         = $NameSpaceMetrics | Select-Metric -Metric ClassCoupling
+                $NameSpaceStats.DepthOfInheritance    = $NameSpaceMetrics | Select-Metric -Metric DepthOfInheritance
+                $NameSpaceStats.LinesOfSourceCode     = $NameSpaceMetrics | Select-Metric -Metric SourceLines
+                $NameSpaceStats.LinesOfExecutableCode = $NameSpaceMetrics | Select-Metric -Metric ExecutableLines
+                Write-Output -InputObject $NameSpaceStats # Return NameSpaceStats
+
+                Foreach ($Type in $NameSpace.Types.NamedType) {
+                  $TypeStats = [CodeMetricsReport]::new()
+                  $TypeMetrics = $Type.Metrics.Metric
+                  $TypeStats.AssemblyName          = $AssemblyName
+                  $TypeStats.NameSpace             = $NameSpace.Name
+                  $TypeStats.Type                  = $Type.Name
+                  $TypeStats.MaintainabilityIndex  = $TypeMetrics | Select-Metric -Metric MaintainabilityIndex
+                  $TypeStats.CyclomaticComplexity  = $TypeMetrics | Select-Metric -Metric CyclomaticComplexity
+                  $TypeStats.ClassCoupling         = $TypeMetrics | Select-Metric -Metric ClassCoupling
+                  $TypeStats.DepthOfInheritance    = $TypeMetrics | Select-Metric -Metric DepthOfInheritance
+                  $TypeStats.LinesOfSourceCode     = $TypeMetrics | Select-Metric -Metric SourceLines
+                  $TypeStats.LinesOfExecutableCode = $TypeMetrics | Select-Metric -Metric ExecutableLines
+                  Write-Output -InputObject $TypeStats # Return TypeStats
+
+                  Foreach ($Method in $Type.Members.Method) {
+                    $MethodStats = [CodeMetricsReport]::new()
+                    $MethodMetrics = $Method.Metrics.Metric
+                    $MethodStats.AssemblyName          = $AssemblyName
+                    $MethodStats.NameSpace             = $NameSpace.Name
+                    $MethodStats.Type                  = $Type.Name
+                    $MethodStats.Method                = $Method.Name
+                    $MethodStats.MaintainabilityIndex  = $MethodMetrics | Select-Metric -Metric MaintainabilityIndex
+                    $MethodStats.CyclomaticComplexity  = $MethodMetrics | Select-Metric -Metric CyclomaticComplexity
+                    $MethodStats.ClassCoupling         = $MethodMetrics | Select-Metric -Metric ClassCoupling
+                    $MethodStats.DepthOfInheritance    = $MethodMetrics | Select-Metric -Metric DepthOfInheritance
+                    $MethodStats.LinesOfSourceCode     = $MethodMetrics | Select-Metric -Metric SourceLines
+                    $MethodStats.LinesOfExecutableCode = $MethodMetrics | Select-Metric -Metric ExecutableLines
+                    Write-Output -InputObject $MethodStats # Return MethodStats
+                  }
+                }
+              }
+            }
+            return $Result
+          }
+
+          $SolutionPath = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Cloud-ShareSync.sln'
+          $MetricsPath  = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Metrics.xml'
+          $PublishPath  = Join-Path -Path "$env:GITHUB_WORKSPACE" -ChildPath 'Publish'
+
+          New-Item -Path $PublishPath -ItemType Directory -Force
+
+          try {
+            Get-PackageSource -Name 'nuget.org' -ErrorAction Stop
+          } catch {
+            $registerPackageSourceSplat = @{
+                ProviderName = 'nuget'
+                Name         = 'nuget.org'
+                Location     = 'https://api.nuget.org/v3/index.json'
+                Trusted      = $true
+            }
+            Register-PackageSource @registerPackageSourceSplat
+          }
+
+          Install-Package Microsoft.CodeAnalysis.Metrics -MinimumVersion 3.3.3 -Scope CurrentUser -Force
+          $PackageDir = (Get-Item (Get-Package Microsoft.CodeAnalysis.Metrics).source).Directory
+          $MetricsDir = Get-ChildItem -Path $PackageDir.FullName -Filter 'Metrics' -Directory
+          $MetricsApp = Join-Path -Path $MetricsDir.FullName -ChildPath 'Metrics.exe' -Resolve
+
+          if (Test-Path -Path $SolutionPath -PathType Leaf){ Write-Host 'SolutionPath Exists' }
+          if (Test-Path -Path $MetricsApp -PathType Leaf){ Write-Host 'MetricsApp Exists' }
+
+          Write-Host "Running The Metrics Application Now."
+          (& "$MetricsApp" /s:"$SolutionPath" /o:"$MetricsPath") *>&1 | Write-Host
+
+          if (Test-Path -Path $MetricsPath -PathType Leaf){
+            [xml]$TestMetrics = Get-Content -Path $MetricsPath
+            $Metrics = Convert-XMLMetricsToFlatObjects -InputMetrics $TestMetrics
+            $PublishMetrics = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics.csv'
+            $Metrics | ConvertTo-Csv | Out-File -FilePath $PublishMetrics -Encoding utf8
+
+            $MethodData =  $Metrics | Where-Object { $_.Method -ne '' }
+            $LowQualityMethods = $MethodData | Where-Object {
+              ($_.CyclomaticComplexity -gt 6) -or
+              ($_.MaintainabilityIndex -lt 60)
+            }
+
+            if ($null -ne $LowQualityMethods){
+              $PublishLowQuality = Join-Path -Path $PublishPath -ChildPath 'CodeMetrics_LowQualityMethods.csv'
+              $LowQualityCSV = $LowQualityMethods | ConvertTo-Csv
+              Write-Host "The following methods are below the code quality reqirements."
+              Write-Host "  - MaintainabilityIndex must be 60 or higher."
+              Write-Host "  - CyclomaticComplexity must be 6 or less."
+              Write-Host $LowQualityCSV
+              $LowQualityCSV | Out-File -FilePath  $PublishLowQuality -Encoding utf8
+            }
+          } else {
+            Write-Error "Metric were not output."
+            exit 1
+          }
+
+      - name: Upload Code Metrics as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: CodeMetrics_${{ github.sha }}
+          path: ${{ github.workspace }}/Publish/CodeMetrics.csv
+          if-no-files-found: error
+
+      - name: Upload Low Quality Code Metrics as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: CodeMetrics_LowQualityMethods_${{ github.sha }}
+          path: ${{ github.workspace }}/Publish/CodeMetrics_LowQualityMethods.csv
+          if-no-files-found: ignore
